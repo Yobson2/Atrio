@@ -11,6 +11,9 @@ import 'package:flutter_templates/features/salon/domain/entities/salon_service.d
 ///
 /// Implemented by [OwnerRepositoryImpl] in the data layer.
 abstract class OwnerRepository {
+  /// Creates a new salon for the owner.
+  Future<Either<Failure, Salon>> createSalon(Salon salon);
+
   /// Gets the salon owned by the current user.
   Future<Either<Failure, Salon>> getMySalon();
 

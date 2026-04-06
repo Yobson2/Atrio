@@ -13,6 +13,7 @@ class LocalStorage {
   static const _localeKey = 'locale';
   static const _onboardingCompleteKey = 'onboarding_complete';
   static const _firstLaunchKey = 'first_launch';
+  static const _profileSetupCompleteKey = 'profile_setup_complete';
 
   // -- Theme --
 
@@ -48,6 +49,16 @@ class LocalStorage {
 
   /// Marks the first launch as done.
   Future<bool> setFirstLaunchDone() => _prefs.setBool(_firstLaunchKey, false);
+
+  // -- Profile Setup --
+
+  /// Whether the user has completed post-auth profile setup (role + info).
+  bool get isProfileSetupComplete =>
+      _prefs.getBool(_profileSetupCompleteKey) ?? false;
+
+  /// Marks profile setup as complete.
+  Future<bool> setProfileSetupComplete() =>
+      _prefs.setBool(_profileSetupCompleteKey, true);
 
   // -- Generic --
 

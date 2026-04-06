@@ -55,6 +55,22 @@
   "authLoginWithApple": "Continue with Apple",
   "authTerms": "By continuing, you agree to our Terms of Service and Privacy Policy.",
 
+  "authPhoneSubtitle": "Enter your phone number to get started",
+  "authPhoneLabel": "Phone Number",
+  "authPhoneHint": "+1 555 123 4567",
+  "authPhoneContinue": "Continue",
+  "authVerifyTitle": "Verify your number",
+  "authVerifySubtitle": "Enter the 6-digit code sent to {phone}",
+  "@authVerifySubtitle": {
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    }
+  },
+  "authOtpDidntReceive": "Didn't receive the code?",
+  "authOtpResendCode": "Resend Code",
+
   "validationRequired": "This field is required",
   "validationEmail": "Please enter a valid email address",
   "validationPasswordLength": "Password must be at least 8 characters",
@@ -210,5 +226,58 @@
       "current": { "type": "int" },
       "total": { "type": "int" }
     }
-  }
+  },
+
+  "editProfileTitle": "Edit Profile",
+  "editProfileSave": "Save Changes",
+  "editProfileSuccess": "Profile updated successfully",
+  "editProfilePhoneLabel": "Phone Number",
+  "editProfilePhoneHint": "Enter your phone number",
+
+  "changePasswordTitle": "Change Password",
+  "changePasswordCurrent": "Current Password",
+  "changePasswordNew": "New Password",
+  "changePasswordConfirm": "Confirm New Password",
+  "changePasswordSuccess": "Password changed successfully",
+
+  "helpSupportTitle": "Help & Support",
+  "helpSupportFaq": "Frequently Asked Questions",
+  "helpSupportContact": "Contact Us",
+  "helpSupportEmail": "support@atrio.app",
+
+  "barberDetailTitle": "Barber Profile",
+  "barberDetailSpecialties": "Specialties",
+  "barberDetailAvailable": "Available",
+  "barberDetailUnavailable": "Currently Unavailable",
+  "barberDetailBookWith": "Book with {name}",
+  "@barberDetailBookWith": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+
+  "galleryTitle": "Gallery",
+  "galleryPhotoCount": "{current} of {total}",
+  "@galleryPhotoCount": {
+    "placeholders": {
+      "current": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+
+  "favoritesTitle": "Saved Salons",
+  "favoritesEmpty": "No saved salons yet",
+  "favoritesEmptySubtitle": "Heart a salon to save it here",
+  "favoriteAdded": "Added to favorites",
+  "favoriteRemoved": "Removed from favorites",
+
+  "salonSetupTitle": "Set Up Your Salon",
+  "salonSetupStep1": "Basic Info",
+  "salonSetupStep2": "Location",
+  "salonSetupStep3": "Confirm",
+  "salonSetupNameLabel": "Salon Name",
+  "salonSetupDescriptionLabel": "Description",
+  "salonSetupAddressLabel": "Address",
+  "salonSetupPhoneLabel": "Phone Number",
+  "salonSetupSuccess": "Salon created successfully!"
 }

@@ -188,5 +188,89 @@ final getCachedUserUseCaseProvider =
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef GetCachedUserUseCaseRef = AutoDisposeProviderRef<GetCachedUserUseCase>;
+String _$updateProfileUseCaseHash() =>
+    r'924ba9735cc7d1efbeb4e7b50b2cbad7fadfe7ab';
+
+/// Provides the [UpdateProfileUseCase].
+///
+/// Copied from [updateProfileUseCase].
+@ProviderFor(updateProfileUseCase)
+final updateProfileUseCaseProvider =
+    AutoDisposeProvider<UpdateProfileUseCase>.internal(
+  updateProfileUseCase,
+  name: r'updateProfileUseCaseProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$updateProfileUseCaseHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef UpdateProfileUseCaseRef = AutoDisposeProviderRef<UpdateProfileUseCase>;
+String _$changePasswordUseCaseHash() =>
+    r'9fc17cf46dc8f8024d7920160308f91cf6e71379';
+
+/// Provides the [ChangePasswordUseCase].
+///
+/// Copied from [changePasswordUseCase].
+@ProviderFor(changePasswordUseCase)
+final changePasswordUseCaseProvider =
+    AutoDisposeProvider<ChangePasswordUseCase>.internal(
+  changePasswordUseCase,
+  name: r'changePasswordUseCaseProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$changePasswordUseCaseHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef ChangePasswordUseCaseRef
+    = AutoDisposeProviderRef<ChangePasswordUseCase>;
+String _$sendOtpUseCaseHash() => r'cc960b30da3a413d2a50696b02108b468f65643a';
+
+/// Provides the [SendOtpUseCase].
+///
+/// Copied from [sendOtpUseCase].
+@ProviderFor(sendOtpUseCase)
+final sendOtpUseCaseProvider = AutoDisposeProvider<SendOtpUseCase>.internal(
+  sendOtpUseCase,
+  name: r'sendOtpUseCaseProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$sendOtpUseCaseHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef SendOtpUseCaseRef = AutoDisposeProviderRef<SendOtpUseCase>;
+String _$verifyPhoneOtpUseCaseHash() =>
+    r'0ab20efb936418ceef9149a18f793981537d26aa';
+
+/// Provides the [VerifyPhoneOtpUseCase].
+///
+/// Copied from [verifyPhoneOtpUseCase].
+@ProviderFor(verifyPhoneOtpUseCase)
+final verifyPhoneOtpUseCaseProvider =
+    AutoDisposeProvider<VerifyPhoneOtpUseCase>.internal(
+  verifyPhoneOtpUseCase,
+  name: r'verifyPhoneOtpUseCaseProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$verifyPhoneOtpUseCaseHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef VerifyPhoneOtpUseCaseRef
+    = AutoDisposeProviderRef<VerifyPhoneOtpUseCase>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

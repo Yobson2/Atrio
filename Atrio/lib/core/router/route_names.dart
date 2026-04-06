@@ -21,18 +21,6 @@ abstract final class RouteNames {
   /// Login name.
   static const String loginName = 'login';
 
-  /// Register path.
-  static const String register = '/register';
-
-  /// Register name.
-  static const String registerName = 'register';
-
-  /// Forgot password path.
-  static const String forgotPassword = '/forgot-password';
-
-  /// Forgot password name.
-  static const String forgotPasswordName = 'forgotPassword';
-
   /// OTP verification path.
   static const String otpVerification = '/otp-verification';
 
@@ -182,6 +170,81 @@ abstract final class RouteNames {
 
   /// Salon settings name.
   static const String salonSettingsName = 'salonSettings';
+
+  // -- Edit Profile --
+  /// Edit profile path.
+  static const String editProfile = '/edit-profile';
+
+  /// Edit profile name.
+  static const String editProfileName = 'editProfile';
+
+  // -- Change Password --
+  /// Change password path.
+  static const String changePassword = '/change-password';
+
+  /// Change password name.
+  static const String changePasswordName = 'changePassword';
+
+  // -- Legal --
+  /// Terms of service path.
+  static const String terms = '/terms';
+
+  /// Terms of service name.
+  static const String termsName = 'terms';
+
+  /// Privacy policy path.
+  static const String privacy = '/privacy';
+
+  /// Privacy policy name.
+  static const String privacyName = 'privacy';
+
+  // -- Help & Support --
+  /// Help & support path.
+  static const String helpSupport = '/help-support';
+
+  /// Help & support name.
+  static const String helpSupportName = 'helpSupport';
+
+  // -- Barber Detail --
+  /// Barber detail path (nested under salon detail).
+  static const String barberDetail = 'barber';
+
+  /// Barber detail name.
+  static const String barberDetailName = 'barberDetail';
+
+  // -- Salon Gallery --
+  /// Salon gallery path (nested under salon detail).
+  static const String salonGallery = 'gallery';
+
+  /// Salon gallery name.
+  static const String salonGalleryName = 'salonGallery';
+
+  // -- Favorites --
+  /// Favorites path (nested under discover).
+  static const String favorites = 'favorites';
+
+  /// Favorites name.
+  static const String favoritesName = 'favorites';
+
+  // -- Owner Salon Setup --
+  /// Salon setup path.
+  static const String salonSetup = '/salon-setup';
+
+  /// Salon setup name.
+  static const String salonSetupName = 'salonSetup';
+
+  // -- Owner Profile & Settings --
+  /// Owner profile path.
+  static const String ownerProfile = '/owner-profile';
+
+  /// Owner profile name.
+  static const String ownerProfileName = 'ownerProfile';
+
+  /// Owner settings path.
+  static const String ownerSettings = '/owner-settings';
+
+  /// Owner settings name.
+  static const String ownerSettingsName = 'ownerSettings';
 
   // -- Legacy (kept for backward compatibility) --
   /// Home path (redirects based on role).

@@ -27,8 +27,31 @@ abstract class AuthRemoteDataSource {
   /// POST verify OTP.
   Future<void> verifyOtp({required String email, required String code});
 
+  /// POST send OTP to phone.
+  Future<void> sendOtp({required String phone});
+
+  /// POST verify phone OTP and authenticate.
+  Future<({UserModel user, TokensModel tokens})> verifyPhoneOtp({
+    required String phone,
+    required String code,
+  });
+
   /// POST logout.
   Future<void> logout();
+
+  /// PUT update profile.
+  Future<UserModel> updateProfile({
+    required String name,
+    String? email,
+    String? phone,
+    String? avatarImagePath,
+  });
+
+  /// PUT change password.
+  Future<void> changePassword({
+    required String currentPassword,
+    required String newPassword,
+  });
 }
 
 /// Implementation of [AuthRemoteDataSource] using [Dio].
@@ -123,9 +146,108 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   }
 
   @override
+  Future<void> sendOtp({required String phone}) async {
+    try {
+      await _dio.post<void>(
+        ApiEndpoints.sendOtp,
+        data: {'phone': phone},
+      );
+    } on DioException {
+      rethrow;
+    } catch (e) {
+      throw ServerException(message: e.toString());
+    }
+  }
+
+  @override
+  Future<({UserModel user, TokensModel tokens})> verifyPhoneOtp({
+    required String phone,
+    required String code,
+  }) async {
+    try {
+      final response = await _dio.post<Map<String, dynamic>>(
+        ApiEndpoints.verifyPhoneOtp,
+        data: {'phone': phone, 'code': code},
+      );
+      final data = response.data;
+      if (data == null) {
+        throw const ServerException(message: 'Empty response from server');
+      }
+      return _parseAuthResponse(data);
+    } on DioException {
+      rethrow;
+    } catch (e) {
+      throw ServerException(message: e.toString());
+    }
+  }
+
+  @override
   Future<void> logout() async {
     try {
       await _dio.post<void>(ApiEndpoints.logout);
+    } on DioException {
+      rethrow;
+    } catch (e) {
+      throw ServerException(message: e.toString());
+    }
+  }
+
+  @override
+  Future<UserModel> updateProfile({
+    required String name,
+    String? email,
+    String? phone,
+    String? avatarImagePath,
+  }) async {
+    try {
+      final data = <String, dynamic>{'name': name};
+      if (email != null) data['email'] = email;
+      if (phone != null) data['phone'] = phone;
+
+      final Response<Map<String, dynamic>> response;
+
+      if (avatarImagePath != null) {
+        data['avatar'] = await MultipartFile.fromFile(avatarImagePath);
+        response = await _dio.put<Map<String, dynamic>>(
+          ApiEndpoints.updateProfile,
+          data: FormData.fromMap(data),
+        );
+      } else {
+        response = await _dio.put<Map<String, dynamic>>(
+          ApiEndpoints.updateProfile,
+          data: data,
+        );
+      }
+
+      final body = response.data;
+      if (body == null) {
+        throw const ServerException(message: 'Empty response from server');
+      }
+      final userData = body['user'];
+      if (userData is! Map<String, dynamic>) {
+        throw const ServerException(message: 'Invalid user data in response');
+      }
+      return UserModel.fromJson(userData);
+    } on DioException {
+      rethrow;
+    } catch (e) {
+      throw ServerException(message: e.toString());
+    }
+  }
+
+  @override
+  Future<void> changePassword({
+    required String currentPassword,
+    required String newPassword,
+  }) async {
+    try {
+      await _dio.put<void>(
+        ApiEndpoints.changePassword,
+        data: {
+          'current_password': currentPassword,
+          'new_password': newPassword,
+        },
+      );
     } on DioException {
       rethrow;
     } catch (e) {

@@ -70,5 +70,6 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
   Future<void> clearAll() async {
     await _secureStorage.clearTokens();
     await _localStorage.remove(_cachedUserKey);
+    await _localStorage.remove('profile_setup_complete');
   }
 }

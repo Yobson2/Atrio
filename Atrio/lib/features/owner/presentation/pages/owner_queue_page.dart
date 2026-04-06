@@ -316,7 +316,7 @@ class _ActiveServingCard extends StatelessWidget {
         borderRadius: AppRadius.borderRadiusLg,
         boxShadow: isDark ? AppShadows.smDark : AppShadows.mdLight,
         border: Border.all(
-          color: theme.colorScheme.secondaryContainer.withValues(alpha: 0.3),
+          color: theme.colorScheme.secondaryContainer.withValues(alpha: 0.15),
         ),
       ),
       child: Row(

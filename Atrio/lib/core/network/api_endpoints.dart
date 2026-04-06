@@ -18,6 +18,12 @@ class ApiEndpoints {
   /// POST: Verify OTP code.
   static const String verifyOtp = '/auth/verify-otp';
 
+  /// POST: Send OTP to phone number.
+  static const String sendOtp = '/auth/send-otp';
+
+  /// POST: Verify phone OTP and authenticate.
+  static const String verifyPhoneOtp = '/auth/verify-phone-otp';
+
   /// POST: Refresh the access token.
   static const String refreshToken = '/auth/refresh-token';
 
@@ -26,6 +32,12 @@ class ApiEndpoints {
 
   /// GET: Fetch the current user profile.
   static const String me = '/auth/me';
+
+  /// PUT: Update the current user profile.
+  static const String updateProfile = '/auth/me';
+
+  /// PUT: Change the current user's password.
+  static const String changePassword = '/auth/change-password';
 
   // -- Notes --
   /// CRUD: Notes resource.

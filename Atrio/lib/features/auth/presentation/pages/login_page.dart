@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_templates/core/extensions/context_extensions.dart';
 import 'package:flutter_templates/core/theme/app_opacity.dart';
-import 'package:flutter_templates/core/theme/app_radius.dart';
-import 'package:flutter_templates/core/theme/app_shadows.dart';
 import 'package:flutter_templates/core/theme/app_spacing.dart';
 import 'package:flutter_templates/core/utils/validators.dart';
 import 'package:flutter_templates/core/widgets/buttons/app_primary_button.dart';
-import 'package:flutter_templates/core/widgets/inputs/app_password_field.dart';
+import 'package:flutter_templates/core/widgets/inputs/app_otp_field.dart';
 import 'package:flutter_templates/core/widgets/inputs/app_text_field.dart';
 import 'package:flutter_templates/features/auth/presentation/providers/auth_notifier.dart';
 import 'package:flutter_templates/features/auth/presentation/providers/auth_state.dart';
@@ -15,7 +14,7 @@ import 'package:flutter_templates/features/auth/presentation/widgets/auth_header
 import 'package:flutter_templates/features/auth/presentation/widgets/social_login_buttons.dart';
 import 'package:go_router/go_router.dart';
 
-/// Login page with email/password form.
+/// Unified phone auth page — phone input + OTP verification on one screen.
 class LoginPage extends ConsumerStatefulWidget {
   /// Creates a [LoginPage].
   const LoginPage({super.key});
@@ -26,39 +25,55 @@ class LoginPage extends ConsumerStatefulWidget {
 
 class _LoginPageState extends ConsumerState<LoginPage> {
   final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
+  final _phoneController = TextEditingController();
+  bool _isOtpStep = false;
+  String _otpCode = '';
 
   @override
   void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
+    _phoneController.dispose();
     super.dispose();
   }
 
-  void _onLogin() {
-    if (_formKey.currentState?.validate() ?? false) {
-      context.unfocus();
-      ref.read(authNotifierProvider.notifier).login(
-            email: _emailController.text.trim(),
-            password: _passwordController.text,
-          );
+  Future<void> _onSendOtp() async {
+    if (!(_formKey.currentState?.validate() ?? false)) return;
+    context.unfocus();
+    final success = await ref
+        .read(authNotifierProvider.notifier)
+        .sendOtp(phone: _phoneController.text.trim());
+    if (success && mounted) {
+      setState(() => _isOtpStep = true);
     }
+  }
+
+  Future<void> _onVerifyOtp() async {
+    if (_otpCode.length < 6) return;
+    context.unfocus();
+    await ref.read(authNotifierProvider.notifier).verifyPhoneOtp(
+          phone: _phoneController.text.trim(),
+          code: _otpCode,
+        );
+  }
+
+  void _onBack() {
+    setState(() {
+      _isOtpStep = false;
+      _otpCode = '';
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     final authState = ref.watch(authNotifierProvider);
     final isLoading = authState is AuthLoading;
-    final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
+    final l10n = context.l10n;
 
     ref.listen<AuthState>(authNotifierProvider, (_, state) {
       if (state is AuthError) {
         context.showSnackBar(state.message, isError: true);
       }
       if (state is AuthAuthenticated) {
-        context.go('/home');
+        context.go('/');
       }
     });
 
@@ -70,224 +85,300 @@ class _LoginPageState extends ConsumerState<LoginPage> {
             SafeArea(
               bottom: false,
               child: AuthTopBar(
-                showCloseButton: true,
-                onClose: () => Navigator.of(context).maybePop(),
+                showBackButton: _isOtpStep,
+                onBack: _onBack,
               ),
             ),
 
-            // Scrollable content
+            // Content with animated transition
             Expanded(
-              child: SingleChildScrollView(
-                padding: AppSpacing.paddingHorizontalXl,
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(height: AppSpacing.xxl),
-
-                      // Editorial hero headline
-                      Text(
-                        'Welcome to\nAtrio',
-                        style: theme.textTheme.headlineLarge?.copyWith(
-                          fontWeight: FontWeight.w800,
-                          letterSpacing: -0.5,
-                          color: theme.colorScheme.primary,
-                          height: 1.1,
-                        ),
-                      ),
-                      AppSpacing.verticalSm,
-                      Text(
-                        context.l10n.authLoginSubtitle,
-                        style: theme.textTheme.bodyMedium?.copyWith(
-                          color: theme.colorScheme.onSurfaceVariant,
-                          height: 1.5,
-                        ),
-                      ),
-
-                      const SizedBox(height: AppSpacing.xxl),
-
-                      // Email field
-                      AppTextField(
-                        controller: _emailController,
-                        label: context.l10n.authEmail,
-                        hint: 'name@example.com',
-                        keyboardType: TextInputType.emailAddress,
-                        textInputAction: TextInputAction.next,
-                        autofillHints: const [AutofillHints.email],
-                        validator: Validators.email,
-                        prefixIcon: const Icon(Icons.email_outlined),
-                      ),
-                      AppSpacing.verticalLg,
-
-                      // Password field
-                      AppPasswordField(
-                        controller: _passwordController,
-                        label: context.l10n.authPassword,
-                        validator: Validators.password,
-                        textInputAction: TextInputAction.done,
-                        onSubmitted: (_) => _onLogin(),
-                      ),
-                      AppSpacing.verticalSm,
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: TextButton(
-                          onPressed: () => context.push('/forgot-password'),
-                          child: Text(
-                            context.l10n.authForgotPassword,
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              color: theme.colorScheme.primary,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ),
-
-                      AppSpacing.verticalLg,
-
-                      // Primary CTA
-                      AppPrimaryButton(
-                        text: context.l10n.authLogin,
-                        onPressed: _onLogin,
+              child: AnimatedSwitcher(
+                duration: const Duration(milliseconds: 350),
+                switchInCurve: Curves.easeOut,
+                switchOutCurve: Curves.easeIn,
+                child: _isOtpStep
+                    ? _OtpStepContent(
+                        key: const ValueKey('otp'),
+                        phone: _phoneController.text.trim(),
+                        otpCode: _otpCode,
                         isLoading: isLoading,
-                        height: 56,
+                        onOtpChanged: (code) =>
+                            setState(() => _otpCode = code),
+                        onVerify: _onVerifyOtp,
+                        onResend: _onSendOtp,
+                        l10n: l10n,
+                      )
+                    : _PhoneStepContent(
+                        key: const ValueKey('phone'),
+                        formKey: _formKey,
+                        phoneController: _phoneController,
+                        isLoading: isLoading,
+                        onContinue: _onSendOtp,
+                        l10n: l10n,
                       ),
-
-                      // Divider
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: AppSpacing.xxxl,
-                        ),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Divider(
-                                color: theme.colorScheme.outlineVariant
-                                    .withValues(alpha: AppOpacity.ghostBorder),
-                              ),
-                            ),
-                            Padding(
-                              padding: AppSpacing.paddingHorizontalLg,
-                              child: Text(
-                                context.l10n.commonOr.toUpperCase(),
-                                style: theme.textTheme.labelSmall?.copyWith(
-                                  fontWeight: FontWeight.w700,
-                                  letterSpacing: 2,
-                                  color: theme.colorScheme.outline,
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Divider(
-                                color: theme.colorScheme.outlineVariant
-                                    .withValues(alpha: AppOpacity.ghostBorder),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-
-                      // Social login buttons
-                      const SocialLoginButtons(),
-
-                      const SizedBox(height: AppSpacing.xxl),
-
-                      // Decorative image card
-                      ClipRRect(
-                        borderRadius: AppRadius.borderRadiusXl,
-                        child: Container(
-                          height: 160,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            color: theme.colorScheme.surfaceContainerLow,
-                            borderRadius: AppRadius.borderRadiusXl,
-                            boxShadow:
-                                isDark ? AppShadows.mdDark : AppShadows.mdLight,
-                          ),
-                          child: Stack(
-                            fit: StackFit.expand,
-                            children: [
-                              Icon(
-                                Icons.content_cut,
-                                size: 64,
-                                color: theme.colorScheme.onSurfaceVariant
-                                    .withValues(alpha: 0.08),
-                              ),
-                              Positioned(
-                                bottom: 0,
-                                left: 0,
-                                right: 0,
-                                child: Container(
-                                  padding: AppSpacing.paddingLg,
-                                  decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                      begin: Alignment.topCenter,
-                                      end: Alignment.bottomCenter,
-                                      colors: [
-                                        Colors.transparent,
-                                        theme.colorScheme.onSurface
-                                            .withValues(alpha: 0.6),
-                                      ],
-                                    ),
-                                  ),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'PRECISION GROOMING',
-                                        style: theme.textTheme.labelSmall
-                                            ?.copyWith(
-                                          color: Colors.white70,
-                                          fontWeight: FontWeight.w700,
-                                          letterSpacing: 2,
-                                        ),
-                                      ),
-                                      AppSpacing.verticalXs,
-                                      Text(
-                                        'The Editorial Experience.',
-                                        style: theme.textTheme.titleMedium
-                                            ?.copyWith(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w700,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-
-                      const SizedBox(height: AppSpacing.xxxl),
-
-                      // Footer legal text
-                      Center(
-                        child: Padding(
-                          padding: AppSpacing.paddingHorizontalLg,
-                          child: Text(
-                            'By continuing, you agree to our Terms and Privacy Policy.',
-                            textAlign: TextAlign.center,
-                            style: theme.textTheme.labelSmall?.copyWith(
-                              color: theme.colorScheme.onSurfaceVariant
-                                  .withValues(alpha: 0.7),
-                              fontWeight: FontWeight.w500,
-                              height: 1.5,
-                            ),
-                          ),
-                        ),
-                      ),
-
-                      AppSpacing.verticalXl,
-                    ],
-                  ),
-                ),
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+// ── Phone Input Step ──────────────────────────────────────────────
+
+class _PhoneStepContent extends StatelessWidget {
+  const _PhoneStepContent({
+    required this.formKey,
+    required this.phoneController,
+    required this.isLoading,
+    required this.onContinue,
+    required this.l10n,
+    super.key,
+  });
+
+  final GlobalKey<FormState> formKey;
+  final TextEditingController phoneController;
+  final bool isLoading;
+  final VoidCallback onContinue;
+  final AppLocalizations l10n;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return SingleChildScrollView(
+      padding: AppSpacing.paddingHorizontalXl,
+      child: Form(
+        key: formKey,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: AppSpacing.xxl),
+
+            // Editorial hero headline
+            Text(
+              'Welcome to\nAtrio',
+              style: theme.textTheme.headlineLarge?.copyWith(
+                fontWeight: FontWeight.w800,
+                letterSpacing: -0.5,
+                color: theme.colorScheme.primary,
+                height: 1.1,
+              ),
+            ),
+            AppSpacing.verticalSm,
+            Text(
+              l10n.authPhoneSubtitle,
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: theme.colorScheme.onSurfaceVariant,
+                height: 1.5,
+              ),
+            ),
+
+            const SizedBox(height: AppSpacing.xxl),
+
+            // Phone field
+            AppTextField(
+              controller: phoneController,
+              label: l10n.authPhoneLabel,
+              hint: l10n.authPhoneHint,
+              keyboardType: TextInputType.phone,
+              textInputAction: TextInputAction.done,
+              autofillHints: const [AutofillHints.telephoneNumber],
+              validator: Validators.phone,
+              prefixIcon: const Icon(Icons.phone_outlined),
+              onSubmitted: (_) => onContinue(),
+            ),
+
+            const SizedBox(height: AppSpacing.xl),
+
+            // Continue CTA
+            AppPrimaryButton(
+              text: l10n.authPhoneContinue,
+              onPressed: onContinue,
+              isLoading: isLoading,
+              height: 56,
+            ),
+
+            // Divider
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: AppSpacing.xxxl,
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Divider(
+                      color: theme.colorScheme.outlineVariant
+                          .withValues(alpha: AppOpacity.ghostBorder),
+                    ),
+                  ),
+                  Padding(
+                    padding: AppSpacing.paddingHorizontalLg,
+                    child: Text(
+                      l10n.commonOr.toUpperCase(),
+                      style: theme.textTheme.labelSmall?.copyWith(
+                        fontWeight: FontWeight.w700,
+                        letterSpacing: 2,
+                        color: theme.colorScheme.outline,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Divider(
+                      color: theme.colorScheme.outlineVariant
+                          .withValues(alpha: AppOpacity.ghostBorder),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            // Social login buttons
+            const SocialLoginButtons(),
+
+            const SizedBox(height: AppSpacing.xxxl),
+
+            // Footer legal text
+            Center(
+              child: Padding(
+                padding: AppSpacing.paddingHorizontalLg,
+                child: Text(
+                  l10n.authTerms,
+                  textAlign: TextAlign.center,
+                  style: theme.textTheme.labelSmall?.copyWith(
+                    color: theme.colorScheme.onSurfaceVariant
+                        .withValues(alpha: 0.7),
+                    fontWeight: FontWeight.w500,
+                    height: 1.5,
+                  ),
+                ),
+              ),
+            ),
+
+            AppSpacing.verticalXl,
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ── OTP Verification Step ─────────────────────────────────────────
+
+class _OtpStepContent extends StatelessWidget {
+  const _OtpStepContent({
+    required this.phone,
+    required this.otpCode,
+    required this.isLoading,
+    required this.onOtpChanged,
+    required this.onVerify,
+    required this.onResend,
+    required this.l10n,
+    super.key,
+  });
+
+  final String phone;
+  final String otpCode;
+  final bool isLoading;
+  final ValueChanged<String> onOtpChanged;
+  final VoidCallback onVerify;
+  final VoidCallback onResend;
+  final AppLocalizations l10n;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return SingleChildScrollView(
+      padding: AppSpacing.paddingHorizontalXl,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: AppSpacing.xxl),
+
+          // Header
+          Text(
+            l10n.authVerifyTitle,
+            style: theme.textTheme.headlineLarge?.copyWith(
+              fontWeight: FontWeight.w800,
+              letterSpacing: -0.5,
+              color: theme.colorScheme.primary,
+              height: 1.1,
+            ),
+          ),
+          AppSpacing.verticalSm,
+          RichText(
+            text: TextSpan(
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: theme.colorScheme.onSurfaceVariant,
+                height: 1.5,
+              ),
+              children: [
+                const TextSpan(
+                  text: 'Enter the 6-digit code sent to ',
+                ),
+                TextSpan(
+                  text: phone,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    color: theme.colorScheme.primary,
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: AppSpacing.xxxl),
+
+          // OTP input
+          Center(
+            child: AppOtpField(
+              onChanged: onOtpChanged,
+              onCompleted: (_) => onVerify(),
+            ),
+          ),
+
+          const SizedBox(height: AppSpacing.xxxl),
+
+          // Verify button
+          AppPrimaryButton(
+            text: l10n.commonDone,
+            onPressed: onVerify,
+            isLoading: isLoading,
+            icon: Icons.arrow_forward,
+            height: 56,
+          ),
+
+          const SizedBox(height: AppSpacing.xl),
+
+          // Resend section
+          Center(
+            child: Column(
+              children: [
+                Text(
+                  l10n.authOtpDidntReceive,
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: theme.colorScheme.onSurfaceVariant,
+                  ),
+                ),
+                AppSpacing.verticalSm,
+                TextButton(
+                  onPressed: isLoading ? null : onResend,
+                  child: Text(
+                    l10n.authOtpResendCode,
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      color: theme.colorScheme.primary,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          AppSpacing.verticalXl,
+        ],
       ),
     );
   }

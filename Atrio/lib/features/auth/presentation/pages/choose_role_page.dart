@@ -193,9 +193,8 @@ class _ChooseRolePageState extends ConsumerState<ChooseRolePage> {
 
                     // Help link
                     TextButton(
-                      onPressed: () {
-                        // TODO: Navigate to support
-                      },
+                      onPressed: () =>
+                          context.push(RouteNames.helpSupport),
                       child: Text(
                         context.l10n.chooseRoleHelp,
                         style: theme.textTheme.bodySmall?.copyWith(

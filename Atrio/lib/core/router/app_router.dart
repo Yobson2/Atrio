@@ -6,23 +6,25 @@ import 'package:flutter_templates/core/router/analytics_observer.dart';
 import 'package:flutter_templates/core/router/page_transitions.dart';
 import 'package:flutter_templates/core/router/route_names.dart';
 import 'package:flutter_templates/features/auth/domain/entities/user_role.dart';
-import 'package:flutter_templates/features/salon/domain/entities/barber.dart';
-import 'package:flutter_templates/features/salon/domain/entities/salon_service.dart';
 import 'package:flutter_templates/features/auth/presentation/pages/choose_role_page.dart';
-import 'package:flutter_templates/features/auth/presentation/pages/forgot_password_page.dart';
 import 'package:flutter_templates/features/auth/presentation/pages/login_page.dart';
 import 'package:flutter_templates/features/auth/presentation/pages/otp_verification_page.dart';
 import 'package:flutter_templates/features/auth/presentation/pages/profile_setup_page.dart';
-import 'package:flutter_templates/features/auth/presentation/pages/register_page.dart';
 import 'package:flutter_templates/features/auth/presentation/providers/auth_notifier.dart';
 import 'package:flutter_templates/features/auth/presentation/providers/auth_state.dart';
 import 'package:flutter_templates/features/booking/presentation/pages/booking_confirmation_page.dart';
 import 'package:flutter_templates/features/booking/presentation/pages/booking_detail_page.dart';
 import 'package:flutter_templates/features/booking/presentation/pages/booking_flow_page.dart';
 import 'package:flutter_templates/features/booking/presentation/pages/my_bookings_page.dart';
+import 'package:flutter_templates/features/home/presentation/pages/change_password_page.dart';
+import 'package:flutter_templates/features/home/presentation/pages/edit_profile_page.dart';
+import 'package:flutter_templates/features/home/presentation/pages/help_support_page.dart';
 import 'package:flutter_templates/features/home/presentation/pages/home_shell.dart';
+import 'package:flutter_templates/features/home/presentation/pages/legal_page.dart';
 import 'package:flutter_templates/features/home/presentation/pages/profile_page.dart';
 import 'package:flutter_templates/features/home/presentation/pages/settings_page.dart';
+import 'package:flutter_templates/features/notes/presentation/pages/note_detail_page.dart';
+import 'package:flutter_templates/features/notes/presentation/pages/notes_page.dart';
 import 'package:flutter_templates/features/notification/presentation/pages/notifications_page.dart';
 import 'package:flutter_templates/features/onboarding/presentation/pages/onboarding_page.dart';
 import 'package:flutter_templates/features/owner/presentation/pages/barber_form_page.dart';
@@ -32,11 +34,17 @@ import 'package:flutter_templates/features/owner/presentation/pages/owner_dashbo
 import 'package:flutter_templates/features/owner/presentation/pages/owner_queue_page.dart';
 import 'package:flutter_templates/features/owner/presentation/pages/owner_stats_page.dart';
 import 'package:flutter_templates/features/owner/presentation/pages/salon_settings_page.dart';
+import 'package:flutter_templates/features/owner/presentation/pages/salon_setup_page.dart';
 import 'package:flutter_templates/features/owner/presentation/pages/service_form_page.dart';
 import 'package:flutter_templates/features/owner/presentation/pages/service_management_page.dart';
 import 'package:flutter_templates/features/queue/presentation/pages/queue_status_page.dart';
+import 'package:flutter_templates/features/salon/domain/entities/barber.dart';
+import 'package:flutter_templates/features/salon/domain/entities/salon_service.dart';
+import 'package:flutter_templates/features/salon/presentation/pages/barber_detail_page.dart';
+import 'package:flutter_templates/features/salon/presentation/pages/favorites_page.dart';
 import 'package:flutter_templates/features/salon/presentation/pages/salon_detail_page.dart';
 import 'package:flutter_templates/features/salon/presentation/pages/salon_discovery_page.dart';
+import 'package:flutter_templates/features/salon/presentation/pages/salon_gallery_page.dart';
 import 'package:flutter_templates/features/salon/presentation/pages/salon_map_page.dart';
 import 'package:flutter_templates/features/salon/presentation/pages/salon_reviews_page.dart';
 import 'package:flutter_templates/features/splash/presentation/pages/splash_page.dart';
@@ -65,11 +73,13 @@ const _publicPaths = [
   RouteNames.splash,
   RouteNames.onboarding,
   RouteNames.login,
-  RouteNames.register,
-  RouteNames.forgotPassword,
   RouteNames.otpVerification,
   RouteNames.chooseRole,
   RouteNames.profileSetup,
+  RouteNames.helpSupport,
+  RouteNames.terms,
+  RouteNames.privacy,
+  RouteNames.salonSetup,
 ];
 
 /// Provides the application [GoRouter] instance.
@@ -104,26 +114,48 @@ GoRouter appRouter(Ref ref) {
       // Don't redirect while auth state is still initializing.
       if (auth is AuthInitial || auth is AuthLoading) return null;
 
+      final localStorage = ref.read(localStorageProvider);
       final isPublicRoute = _publicPaths.contains(currentPath);
+
+      // Check onboarding completion first — even before auth checks.
+      // This handles the edge case where first-launch flag is still set.
+      if (localStorage.isFirstLaunch && !localStorage.isOnboardingComplete) {
+        if (currentPath != RouteNames.onboarding) {
+          return RouteNames.onboarding;
+        }
+        return null;
+      }
 
       // Redirect authenticated users away from auth pages.
       if (auth is AuthAuthenticated && isPublicRoute) {
+        // But first check if profile setup is complete.
+        if (!localStorage.isProfileSetupComplete) {
+          if (currentPath != RouteNames.chooseRole &&
+              currentPath != RouteNames.profileSetup) {
+            return RouteNames.chooseRole;
+          }
+          return null;
+        }
         return auth.user.role == UserRole.owner
             ? RouteNames.ownerDashboard
             : RouteNames.discover;
       }
 
+      // Redirect authenticated users on protected routes who haven't
+      // completed profile setup.
+      if (auth is AuthAuthenticated &&
+          !isPublicRoute &&
+          !localStorage.isProfileSetupComplete) {
+        if (currentPath != RouteNames.chooseRole &&
+            currentPath != RouteNames.profileSetup) {
+          return RouteNames.chooseRole;
+        }
+        return null;
+      }
+
       // Redirect unauthenticated users to login for protected routes.
       if (auth is AuthUnauthenticated && !isPublicRoute) {
         return RouteNames.login;
-      }
-
-      // Check onboarding completion for the login route.
-      if (auth is AuthUnauthenticated && currentPath == RouteNames.login) {
-        final localStorage = ref.read(localStorageProvider);
-        if (!localStorage.isOnboardingComplete && localStorage.isFirstLaunch) {
-          return RouteNames.onboarding;
-        }
       }
 
       return null;
@@ -158,21 +190,11 @@ GoRouter appRouter(Ref ref) {
         ),
       ),
       GoRoute(
-        path: RouteNames.register,
-        name: RouteNames.registerName,
-        builder: (context, state) => const RegisterPage(),
-      ),
-      GoRoute(
-        path: RouteNames.forgotPassword,
-        name: RouteNames.forgotPasswordName,
-        builder: (context, state) => const ForgotPasswordPage(),
-      ),
-      GoRoute(
         path: RouteNames.otpVerification,
         name: RouteNames.otpVerificationName,
         builder: (context, state) {
-          final email = state.extra as String? ?? '';
-          return OtpVerificationPage(email: email);
+          final phone = state.extra as String? ?? '';
+          return OtpVerificationPage(phone: phone);
         },
       ),
 
@@ -234,6 +256,78 @@ GoRouter appRouter(Ref ref) {
         builder: (context, state) => const NotificationsPage(),
       ),
 
+      // Notes
+      GoRoute(
+        path: RouteNames.notes,
+        name: RouteNames.notesName,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const NotesPage(),
+        routes: [
+          GoRoute(
+            path: 'detail',
+            name: RouteNames.noteDetailName,
+            builder: (context, state) {
+              final noteId = state.extra as String?;
+              return NoteDetailPage(noteId: noteId);
+            },
+          ),
+        ],
+      ),
+
+      // Edit Profile
+      GoRoute(
+        path: RouteNames.editProfile,
+        name: RouteNames.editProfileName,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const EditProfilePage(),
+      ),
+
+      // Change Password
+      GoRoute(
+        path: RouteNames.changePassword,
+        name: RouteNames.changePasswordName,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const ChangePasswordPage(),
+      ),
+
+      // Terms of Service
+      GoRoute(
+        path: RouteNames.terms,
+        name: RouteNames.termsName,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const LegalPage(
+          title: 'Terms of Service',
+          assetPath: 'assets/legal/terms.md',
+        ),
+      ),
+
+      // Privacy Policy
+      GoRoute(
+        path: RouteNames.privacy,
+        name: RouteNames.privacyName,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const LegalPage(
+          title: 'Privacy Policy',
+          assetPath: 'assets/legal/privacy.md',
+        ),
+      ),
+
+      // Help & Support
+      GoRoute(
+        path: RouteNames.helpSupport,
+        name: RouteNames.helpSupportName,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const HelpSupportPage(),
+      ),
+
+      // Salon Setup (owner onboarding)
+      GoRoute(
+        path: RouteNames.salonSetup,
+        name: RouteNames.salonSetupName,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const SalonSetupPage(),
+      ),
+
       // ── Client Shell (4 tabs) ──────────────────────────────────
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) =>
@@ -264,12 +358,49 @@ GoRouter appRouter(Ref ref) {
                           return SalonReviewsPage(salonId: salonId);
                         },
                       ),
+                      GoRoute(
+                        path: RouteNames.barberDetail,
+                        name: RouteNames.barberDetailName,
+                        builder: (context, state) {
+                          final extra =
+                              state.extra as Map<String, dynamic>? ?? {};
+                          final barber = extra['barber'] as Barber;
+                          final services =
+                              extra['services'] as List<SalonService>? ??
+                                  const [];
+                          return BarberDetailPage(
+                            barber: barber,
+                            services: services,
+                          );
+                        },
+                      ),
+                      GoRoute(
+                        path: RouteNames.salonGallery,
+                        name: RouteNames.salonGalleryName,
+                        builder: (context, state) {
+                          final extra =
+                              state.extra as Map<String, dynamic>? ?? {};
+                          final imageUrls =
+                              extra['imageUrls'] as List<String>? ?? const [];
+                          final initialIndex =
+                              extra['initialIndex'] as int? ?? 0;
+                          return SalonGalleryPage(
+                            imageUrls: imageUrls,
+                            initialIndex: initialIndex,
+                          );
+                        },
+                      ),
                     ],
                   ),
                   GoRoute(
                     path: RouteNames.salonMap,
                     name: RouteNames.salonMapName,
                     builder: (context, state) => const SalonMapPage(),
+                  ),
+                  GoRoute(
+                    path: RouteNames.favorites,
+                    name: RouteNames.favoritesName,
+                    builder: (context, state) => const FavoritesPage(),
                   ),
                 ],
               ),
@@ -405,7 +536,8 @@ GoRouter appRouter(Ref ref) {
             navigatorKey: _ownerProfileKey,
             routes: [
               GoRoute(
-                path: '/owner-profile',
+                path: RouteNames.ownerProfile,
+                name: RouteNames.ownerProfileName,
                 builder: (context, state) => const ProfilePage(),
               ),
             ],
@@ -416,7 +548,8 @@ GoRouter appRouter(Ref ref) {
             navigatorKey: _ownerSettingsKey,
             routes: [
               GoRoute(
-                path: '/owner-settings',
+                path: RouteNames.ownerSettings,
+                name: RouteNames.ownerSettingsName,
                 builder: (context, state) => const SettingsPage(),
               ),
             ],

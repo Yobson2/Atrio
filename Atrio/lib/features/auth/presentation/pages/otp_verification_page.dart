@@ -12,13 +12,16 @@ import 'package:flutter_templates/features/auth/presentation/providers/auth_stat
 import 'package:flutter_templates/features/auth/presentation/widgets/auth_header.dart';
 import 'package:go_router/go_router.dart';
 
-/// OTP verification page -- enter the 6-digit code.
+/// OTP verification page -- enter the 6-digit code sent to a phone number.
+///
+/// This page is kept as a deep-link / fallback target. The primary OTP flow
+/// is handled inline within [LoginPage].
 class OtpVerificationPage extends ConsumerStatefulWidget {
   /// Creates an [OtpVerificationPage].
-  const OtpVerificationPage({required this.email, super.key});
+  const OtpVerificationPage({required this.phone, super.key});
 
-  /// Email the OTP was sent to.
-  final String email;
+  /// Phone number the OTP was sent to.
+  final String phone;
 
   @override
   ConsumerState<OtpVerificationPage> createState() =>
@@ -31,12 +34,10 @@ class _OtpVerificationPageState extends ConsumerState<OtpVerificationPage> {
   Future<void> _onVerify() async {
     if (_otpCode.length < 6) return;
     context.unfocus();
-    final success = await ref
-        .read(authNotifierProvider.notifier)
-        .verifyOtp(email: widget.email, code: _otpCode);
-    if (success && mounted) {
-      context.go('/login');
-    }
+    await ref.read(authNotifierProvider.notifier).verifyPhoneOtp(
+          phone: widget.phone,
+          code: _otpCode,
+        );
   }
 
   @override
@@ -49,6 +50,9 @@ class _OtpVerificationPageState extends ConsumerState<OtpVerificationPage> {
     ref.listen<AuthState>(authNotifierProvider, (_, state) {
       if (state is AuthError) {
         context.showSnackBar(state.message, isError: true);
+      }
+      if (state is AuthAuthenticated) {
+        context.go('/');
       }
     });
 
@@ -106,7 +110,7 @@ class _OtpVerificationPageState extends ConsumerState<OtpVerificationPage> {
                               children: [
                                 // Header
                                 Text(
-                                  context.l10n.authOtpTitle,
+                                  context.l10n.authVerifyTitle,
                                   style:
                                       theme.textTheme.headlineSmall?.copyWith(
                                     fontWeight: FontWeight.w700,
@@ -124,10 +128,11 @@ class _OtpVerificationPageState extends ConsumerState<OtpVerificationPage> {
                                     ),
                                     children: [
                                       const TextSpan(
-                                        text: 'Enter the 6-digit code sent to ',
+                                        text:
+                                            'Enter the 6-digit code sent to ',
                                       ),
                                       TextSpan(
-                                        text: widget.email,
+                                        text: widget.phone,
                                         style: TextStyle(
                                           fontWeight: FontWeight.w600,
                                           color: theme.colorScheme.primary,
@@ -161,7 +166,7 @@ class _OtpVerificationPageState extends ConsumerState<OtpVerificationPage> {
 
                                 // Resend section
                                 Text(
-                                  "Didn't receive the code?",
+                                  context.l10n.authOtpDidntReceive,
                                   style: theme.textTheme.bodySmall?.copyWith(
                                     color: theme.colorScheme.onSurfaceVariant,
                                   ),
@@ -175,15 +180,15 @@ class _OtpVerificationPageState extends ConsumerState<OtpVerificationPage> {
                                               .read(
                                                 authNotifierProvider.notifier,
                                               )
-                                              .forgotPassword(
-                                                email: widget.email,
+                                              .sendOtp(
+                                                phone: widget.phone,
                                               );
                                           context.showSnackBar(
-                                            'OTP resent to ${widget.email}',
+                                            'OTP resent to ${widget.phone}',
                                           );
                                         },
                                   child: Text(
-                                    context.l10n.authOtpResend,
+                                    context.l10n.authOtpResendCode,
                                     style: theme.textTheme.bodySmall?.copyWith(
                                       color: theme.colorScheme.primary,
                                       fontWeight: FontWeight.w700,

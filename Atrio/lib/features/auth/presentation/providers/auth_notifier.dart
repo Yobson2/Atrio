@@ -2,7 +2,9 @@ import 'package:flutter_templates/core/usecase/usecase.dart';
 import 'package:flutter_templates/features/auth/domain/usecases/forgot_password_usecase.dart';
 import 'package:flutter_templates/features/auth/domain/usecases/login_usecase.dart';
 import 'package:flutter_templates/features/auth/domain/usecases/register_usecase.dart';
+import 'package:flutter_templates/features/auth/domain/usecases/send_otp_usecase.dart';
 import 'package:flutter_templates/features/auth/domain/usecases/verify_otp_usecase.dart';
+import 'package:flutter_templates/features/auth/domain/usecases/verify_phone_otp_usecase.dart';
 import 'package:flutter_templates/features/auth/presentation/providers/auth_providers.dart';
 import 'package:flutter_templates/features/auth/presentation/providers/auth_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -104,6 +106,43 @@ class AuthNotifier extends _$AuthNotifier {
         return true;
       },
     );
+  }
+
+  /// Sends an OTP to [phone]. Returns `true` on success.
+  Future<bool> sendOtp({required String phone}) async {
+    state = const AuthState.loading();
+    final result = await ref.read(sendOtpUseCaseProvider).call(
+          SendOtpParams(phone: phone),
+        );
+    return result.fold(
+      (failure) {
+        state = AuthState.error(failure.message);
+        return false;
+      },
+      (_) {
+        state = const AuthState.unauthenticated();
+        return true;
+      },
+    );
+  }
+
+  /// Verifies the OTP [code] sent to [phone] and authenticates the user.
+  Future<void> verifyPhoneOtp({
+    required String phone,
+    required String code,
+  }) async {
+    state = const AuthState.loading();
+    try {
+      final result = await ref.read(verifyPhoneOtpUseCaseProvider).call(
+            VerifyPhoneOtpParams(phone: phone, code: code),
+          );
+      state = result.fold(
+        (failure) => AuthState.error(failure.message),
+        AuthState.authenticated,
+      );
+    } catch (e) {
+      state = AuthState.error(e.toString());
+    }
   }
 
   /// Logs the user out.

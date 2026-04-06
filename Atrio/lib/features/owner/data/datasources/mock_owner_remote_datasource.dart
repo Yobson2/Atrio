@@ -94,6 +94,13 @@ class MockOwnerRemoteDataSource implements OwnerRemoteDataSource {
   int _barberCounter = 100;
 
   @override
+  Future<SalonModel> createSalon(SalonModel salon) async {
+    await Future<void>.delayed(_delay);
+    _salon = salon;
+    return _salon;
+  }
+
+  @override
   Future<SalonModel> getMySalon() async {
     await Future<void>.delayed(_delay);
     return _salon;

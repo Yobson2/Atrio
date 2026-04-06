@@ -27,6 +27,21 @@ class OwnerRepositoryImpl implements OwnerRepository {
   final NetworkInfo _networkInfo;
 
   @override
+  Future<Either<Failure, Salon>> createSalon(Salon salon) async {
+    if (!await _networkInfo.isConnected) {
+      return const Left(NetworkFailure());
+    }
+    try {
+      final model = await _remote.createSalon(SalonModel.fromEntity(salon));
+      return Right(model.toEntity());
+    } on ServerException catch (e) {
+      return Left(ServerFailure(message: e.message, statusCode: e.statusCode));
+    } on NetworkException {
+      return const Left(NetworkFailure());
+    }
+  }
+
+  @override
   Future<Either<Failure, Salon>> getMySalon() async {
     if (!await _networkInfo.isConnected) {
       return const Left(NetworkFailure());

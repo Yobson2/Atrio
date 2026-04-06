@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_templates/core/extensions/context_extensions.dart';
+import 'package:flutter_templates/core/router/route_names.dart';
 import 'package:flutter_templates/core/theme/app_radius.dart';
 import 'package:flutter_templates/core/theme/app_shadows.dart';
 import 'package:flutter_templates/core/theme/app_spacing.dart';
+import 'package:flutter_templates/core/theme/locale_provider.dart';
 import 'package:flutter_templates/core/theme/theme_provider.dart';
 import 'package:flutter_templates/core/widgets/layout/app_app_bar.dart';
+import 'package:go_router/go_router.dart';
 
 /// Settings page with tonal section cards, toggle switches,
 /// no dividers (spacing only). Editorial Artisan style.
@@ -17,6 +20,7 @@ class SettingsPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final themeMode = ref.watch(themeModeNotifierProvider);
+    final locale = ref.watch(localeNotifierProvider);
     final l10n = context.l10n;
     final colorScheme = context.colorScheme;
     final isDark = Theme.of(context).brightness == Brightness.dark;
@@ -53,8 +57,8 @@ class SettingsPage extends ConsumerWidget {
                     _SettingsRow(
                       icon: Icons.language,
                       label: l10n.settingsLanguage,
-                      subtitle: l10n.settingsLanguageEn,
-                      onTap: () => _showLanguagePicker(context),
+                      subtitle: _localeLabel(locale, l10n),
+                      onTap: () => _showLanguagePicker(context, ref, locale),
                     ),
                   ],
                 ),
@@ -80,12 +84,12 @@ class SettingsPage extends ConsumerWidget {
                     _SettingsRow(
                       icon: Icons.description_outlined,
                       label: l10n.settingsTerms,
-                      onTap: () {},
+                      onTap: () => context.push(RouteNames.terms),
                     ),
                     _SettingsRow(
                       icon: Icons.privacy_tip_outlined,
                       label: l10n.settingsPrivacy,
-                      onTap: () {},
+                      onTap: () => context.push(RouteNames.privacy),
                     ),
                   ],
                 ),
@@ -166,8 +170,22 @@ class SettingsPage extends ConsumerWidget {
     );
   }
 
-  void _showLanguagePicker(BuildContext context) {
+  String _localeLabel(Locale? locale, AppLocalizations l10n) {
+    if (locale == null) return l10n.settingsThemeSystem;
+    return switch (locale.languageCode) {
+      'fr' => l10n.settingsLanguageFr,
+      _ => l10n.settingsLanguageEn,
+    };
+  }
+
+  void _showLanguagePicker(
+    BuildContext context,
+    WidgetRef ref,
+    Locale? current,
+  ) {
     final l10n = context.l10n;
+    final colorScheme = context.colorScheme;
+
     showDialog<void>(
       context: context,
       builder: (context) => SimpleDialog(
@@ -179,15 +197,84 @@ class SettingsPage extends ConsumerWidget {
           style: const TextStyle(fontWeight: FontWeight.w700),
         ),
         children: [
-          SimpleDialogOption(
-            onPressed: () => Navigator.pop(context),
-            child: Text(l10n.settingsLanguageEn),
+          _LanguageOption(
+            title: l10n.settingsLanguageEn,
+            code: 'en',
+            current: current,
+            colorScheme: colorScheme,
+            onTap: () {
+              ref.read(localeNotifierProvider.notifier).setLocale('en');
+              Navigator.pop(context);
+            },
           ),
-          SimpleDialogOption(
-            onPressed: () => Navigator.pop(context),
-            child: Text(l10n.settingsLanguageFr),
+          _LanguageOption(
+            title: l10n.settingsLanguageFr,
+            code: 'fr',
+            current: current,
+            colorScheme: colorScheme,
+            onTap: () {
+              ref.read(localeNotifierProvider.notifier).setLocale('fr');
+              Navigator.pop(context);
+            },
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _LanguageOption extends StatelessWidget {
+  const _LanguageOption({
+    required this.title,
+    required this.code,
+    required this.current,
+    required this.colorScheme,
+    required this.onTap,
+  });
+
+  final String title;
+  final String code;
+  final Locale? current;
+  final ColorScheme colorScheme;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final isSelected = current?.languageCode == code;
+
+    return SimpleDialogOption(
+      onPressed: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(
+          vertical: AppSpacing.sm,
+          horizontal: AppSpacing.xs,
+        ),
+        decoration: isSelected
+            ? BoxDecoration(
+                color: colorScheme.primary.withValues(alpha: 0.08),
+                borderRadius: AppRadius.borderRadiusMd,
+              )
+            : null,
+        child: Row(
+          children: [
+            Expanded(
+              child: Text(
+                title,
+                style: TextStyle(
+                  fontWeight: isSelected ? FontWeight.w700 : FontWeight.normal,
+                  color:
+                      isSelected ? colorScheme.primary : colorScheme.onSurface,
+                ),
+              ),
+            ),
+            if (isSelected)
+              Icon(
+                Icons.check,
+                color: colorScheme.primary,
+                size: 20,
+              ),
+          ],
+        ),
       ),
     );
   }

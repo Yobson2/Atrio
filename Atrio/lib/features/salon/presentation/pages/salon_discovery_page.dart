@@ -5,8 +5,9 @@ import 'package:flutter_templates/core/theme/app_radius.dart';
 import 'package:flutter_templates/core/theme/app_spacing.dart';
 import 'package:flutter_templates/core/widgets/states/app_empty_state.dart';
 import 'package:flutter_templates/core/widgets/states/app_error_state.dart';
-import 'package:flutter_templates/features/salon/presentation/pages/salon_detail_page.dart';
+import 'package:flutter_templates/core/router/route_names.dart';
 import 'package:flutter_templates/features/salon/presentation/pages/salon_map_page.dart';
+import 'package:go_router/go_router.dart';
 import 'package:flutter_templates/features/salon/presentation/providers/salon_list_notifier.dart';
 import 'package:flutter_templates/features/salon/presentation/providers/salon_list_state.dart';
 import 'package:flutter_templates/features/salon/presentation/widgets/salon_card.dart';
@@ -180,10 +181,9 @@ class _SalonDiscoveryPageState extends ConsumerState<SalonDiscoveryPage> {
   }
 
   void _navigateToDetail(String salonId) {
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (_) => SalonDetailPage(salonId: salonId),
-      ),
+    context.pushNamed(
+      RouteNames.salonDetailName,
+      extra: salonId,
     );
   }
 }

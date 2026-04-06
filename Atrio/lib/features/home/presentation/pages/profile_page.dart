@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_templates/core/extensions/context_extensions.dart';
+import 'package:flutter_templates/core/router/route_names.dart';
 import 'package:flutter_templates/core/theme/app_radius.dart';
 import 'package:flutter_templates/core/theme/app_shadows.dart';
 import 'package:flutter_templates/core/theme/app_spacing.dart';
@@ -9,6 +10,7 @@ import 'package:flutter_templates/core/widgets/data_display/app_avatar.dart';
 import 'package:flutter_templates/core/widgets/layout/app_app_bar.dart';
 import 'package:flutter_templates/features/auth/presentation/providers/auth_notifier.dart';
 import 'package:flutter_templates/features/auth/presentation/providers/auth_state.dart';
+import 'package:go_router/go_router.dart';
 
 /// Profile page with large editorial avatar, member badge,
 /// tonal section cards, and no visible borders. Editorial Artisan style.
@@ -65,13 +67,13 @@ class ProfilePage extends ConsumerWidget {
                       icon: Icons.person_outline,
                       label: l10n.profileEditProfile,
                       colorScheme: colorScheme,
-                      onTap: () {},
+                      onTap: () => context.push(RouteNames.editProfile),
                     ),
                     _SettingsRow(
                       icon: Icons.lock_outline,
                       label: l10n.profileChangePassword,
                       colorScheme: colorScheme,
-                      onTap: () {},
+                      onTap: () => context.push(RouteNames.changePassword),
                     ),
                     _SettingsToggleRow(
                       icon: Icons.dark_mode_outlined,

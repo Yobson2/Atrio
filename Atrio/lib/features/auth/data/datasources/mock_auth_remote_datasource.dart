@@ -81,7 +81,63 @@ class MockAuthRemoteDataSource implements AuthRemoteDataSource {
   }
 
   @override
+  Future<void> sendOtp({required String phone}) async {
+    await Future<void>.delayed(_delay);
+  }
+
+  @override
+  Future<({UserModel user, TokensModel tokens})> verifyPhoneOtp({
+    required String phone,
+    required String code,
+  }) async {
+    await Future<void>.delayed(_delay);
+
+    if (code != '123456') {
+      throw const ServerException(message: 'Invalid OTP. Use 123456');
+    }
+
+    return (
+      user: UserModel(
+        id: 'mock-user-001',
+        email: '',
+        name: 'Phone User',
+        phone: phone,
+      ),
+      tokens: _mockTokens,
+    );
+  }
+
+  @override
   Future<void> logout() async {
     await Future<void>.delayed(_delay);
+  }
+
+  @override
+  Future<UserModel> updateProfile({
+    required String name,
+    String? email,
+    String? phone,
+    String? avatarImagePath,
+  }) async {
+    await Future<void>.delayed(_delay);
+    return UserModel(
+      id: 'mock-user-001',
+      email: email ?? _email,
+      name: name,
+      phone: phone,
+    );
+  }
+
+  @override
+  Future<void> changePassword({
+    required String currentPassword,
+    required String newPassword,
+  }) async {
+    await Future<void>.delayed(_delay);
+    if (currentPassword != _password) {
+      throw const ServerException(
+        message: 'Current password is incorrect',
+      );
+    }
   }
 }

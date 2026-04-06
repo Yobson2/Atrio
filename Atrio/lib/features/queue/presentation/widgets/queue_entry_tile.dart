@@ -131,29 +131,33 @@ class QueueEntryTile extends StatelessWidget {
             ),
           ),
           // Service info
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text(
-                'SERVICE',
-                style: context.textTheme.labelSmall?.copyWith(
-                  color: colorScheme.onSurfaceVariant,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 0.5,
-                  fontSize: 10,
-                ),
-              ),
-              const SizedBox(height: AppSpacing.xxs),
-              Text(
-                entry.serviceName,
-                style: context.textTheme.bodySmall?.copyWith(
-                  fontWeight: FontWeight.w600,
-                  color: colorScheme.onSurface.withValues(
-                    alpha: isServing ? 1.0 : 0.8,
+          Flexible(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(
+                  'SERVICE',
+                  style: context.textTheme.labelSmall?.copyWith(
+                    color: colorScheme.onSurfaceVariant,
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: 0.5,
+                    fontSize: 10,
                   ),
                 ),
-              ),
-            ],
+                const SizedBox(height: AppSpacing.xxs),
+                Text(
+                  entry.serviceName,
+                  style: context.textTheme.bodySmall?.copyWith(
+                    fontWeight: FontWeight.w600,
+                    color: colorScheme.onSurface.withValues(
+                      alpha: isServing ? 1.0 : 0.8,
+                    ),
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
+            ),
           ),
         ],
       ),

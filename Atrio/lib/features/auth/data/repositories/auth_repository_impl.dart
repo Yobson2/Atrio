@@ -110,6 +110,43 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
+  Future<Either<Failure, void>> sendOtp({required String phone}) async {
+    if (!await _networkInfo.isConnected) {
+      return const Left(NetworkFailure());
+    }
+    try {
+      await _remote.sendOtp(phone: phone);
+      return const Right(null);
+    } on ServerException catch (e) {
+      return Left(ServerFailure(message: e.message));
+    } on NetworkException {
+      return const Left(NetworkFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, User>> verifyPhoneOtp({
+    required String phone,
+    required String code,
+  }) async {
+    if (!await _networkInfo.isConnected) {
+      return const Left(NetworkFailure());
+    }
+    try {
+      final result = await _remote.verifyPhoneOtp(phone: phone, code: code);
+      await _local.cacheTokens(result.tokens);
+      await _local.cacheUser(result.user);
+      return Right(result.user.toEntity());
+    } on ServerException catch (e) {
+      return Left(ServerFailure(message: e.message, statusCode: e.statusCode));
+    } on UnauthorizedException catch (e) {
+      return Left(UnauthorizedFailure(message: e.message));
+    } on NetworkException {
+      return const Left(NetworkFailure());
+    }
+  }
+
+  @override
   Future<Either<Failure, void>> logout() async {
     try {
       if (await _networkInfo.isConnected) {
@@ -132,6 +169,53 @@ class AuthRepositoryImpl implements AuthRepository {
       return Right(model.toEntity());
     } on CacheException catch (e) {
       return Left(CacheFailure(message: e.message));
+    }
+  }
+
+  @override
+  Future<Either<Failure, User>> updateProfile({
+    required String name,
+    String? email,
+    String? phone,
+    String? avatarImagePath,
+  }) async {
+    if (!await _networkInfo.isConnected) {
+      return const Left(NetworkFailure());
+    }
+    try {
+      final result = await _remote.updateProfile(
+        name: name,
+        email: email,
+        phone: phone,
+        avatarImagePath: avatarImagePath,
+      );
+      await _local.cacheUser(result);
+      return Right(result.toEntity());
+    } on ServerException catch (e) {
+      return Left(ServerFailure(message: e.message, statusCode: e.statusCode));
+    } on NetworkException {
+      return const Left(NetworkFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> changePassword({
+    required String currentPassword,
+    required String newPassword,
+  }) async {
+    if (!await _networkInfo.isConnected) {
+      return const Left(NetworkFailure());
+    }
+    try {
+      await _remote.changePassword(
+        currentPassword: currentPassword,
+        newPassword: newPassword,
+      );
+      return const Right(null);
+    } on ServerException catch (e) {
+      return Left(ServerFailure(message: e.message, statusCode: e.statusCode));
+    } on NetworkException {
+      return const Left(NetworkFailure());
     }
   }
 

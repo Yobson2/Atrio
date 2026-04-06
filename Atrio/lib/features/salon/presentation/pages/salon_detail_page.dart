@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_templates/core/extensions/context_extensions.dart';
+import 'package:flutter_templates/core/router/route_names.dart';
 import 'package:flutter_templates/core/theme/app_radius.dart';
 import 'package:flutter_templates/core/theme/app_shadows.dart';
 import 'package:flutter_templates/core/theme/app_spacing.dart';
@@ -9,11 +10,11 @@ import 'package:flutter_templates/core/widgets/states/app_error_state.dart';
 import 'package:flutter_templates/features/salon/domain/entities/barber.dart';
 import 'package:flutter_templates/features/salon/domain/entities/salon.dart';
 import 'package:flutter_templates/features/salon/domain/entities/salon_service.dart';
-import 'package:flutter_templates/features/salon/presentation/pages/salon_reviews_page.dart';
 import 'package:flutter_templates/features/salon/presentation/providers/salon_detail_notifier.dart';
 import 'package:flutter_templates/features/salon/presentation/providers/salon_detail_state.dart';
 import 'package:flutter_templates/features/salon/presentation/widgets/barber_card.dart';
 import 'package:flutter_templates/features/salon/presentation/widgets/review_card.dart';
+import 'package:go_router/go_router.dart';
 
 /// Page displaying full salon details, services, barbers, and reviews.
 class SalonDetailPage extends ConsumerStatefulWidget {
@@ -72,59 +73,9 @@ class _SalonDetailPageState extends ConsumerState<SalonDetailPage> {
           ),
       },
       // Gradient FAB for booking
-      floatingActionButton: state is SalonDetailLoaded
-          ? Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    context.colorScheme.primary,
-                    context.colorScheme.primaryContainer,
-                  ],
-                ),
-                borderRadius: AppRadius.borderRadiusFull,
-                boxShadow: [
-                  BoxShadow(
-                    color: context.colorScheme.primary.withValues(alpha: 0.15),
-                    blurRadius: 32,
-                    offset: const Offset(0, 12),
-                  ),
-                ],
-              ),
-              child: Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  onTap: () => _navigateToBooking(context),
-                  borderRadius: AppRadius.borderRadiusFull,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: AppSpacing.xl,
-                      vertical: AppSpacing.lg,
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(
-                          Icons.event_available,
-                          color: context.colorScheme.onPrimary,
-                        ),
-                        AppSpacing.horizontalSm,
-                        Text(
-                          'BOOK NOW',
-                          style: context.textTheme.labelMedium?.copyWith(
-                            color: context.colorScheme.onPrimary,
-                            fontWeight: FontWeight.w700,
-                            letterSpacing: 0.8,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            )
-          : null,
+      floatingActionButton: state is! SalonDetailLoaded
+          ? null
+          : _buildBookingFab(context, state.salon),
     );
   }
 
@@ -281,14 +232,7 @@ class _SalonDetailPageState extends ConsumerState<SalonDetailPage> {
                         ),
                       ],
                     ),
-                    AppSpacing.verticalLg,
-                    // Divider using tonal shift
-                    Divider(
-                      color: context.colorScheme.surfaceContainerHigh
-                          .withValues(alpha: 0.2),
-                      height: 1,
-                    ),
-                    AppSpacing.verticalLg,
+                    AppSpacing.verticalXl,
                     // Address
                     _InfoRow(
                       icon: Icons.location_on,
@@ -660,16 +604,70 @@ class _SalonDetailPageState extends ConsumerState<SalonDetailPage> {
     );
   }
 
-  void _navigateToBooking(BuildContext context) {
-    // TODO: Navigate to booking flow via GoRouter once routes are wired.
-    context.showSnackBar('Booking flow coming soon');
+  Widget _buildBookingFab(BuildContext context, Salon salon) {
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            context.colorScheme.primary,
+            context.colorScheme.primaryContainer,
+          ],
+        ),
+        borderRadius: AppRadius.borderRadiusFull,
+        boxShadow: [
+          BoxShadow(
+            color: context.colorScheme.primary.withValues(alpha: 0.15),
+            blurRadius: 32,
+            offset: const Offset(0, 12),
+          ),
+        ],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: () => context.push(
+            RouteNames.bookingFlow,
+            extra: <String, dynamic>{
+              'salonId': salon.id,
+              'salonName': salon.name,
+            },
+          ),
+          borderRadius: AppRadius.borderRadiusFull,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: AppSpacing.xl,
+              vertical: AppSpacing.lg,
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  Icons.event_available,
+                  color: context.colorScheme.onPrimary,
+                ),
+                AppSpacing.horizontalSm,
+                Text(
+                  'BOOK NOW',
+                  style: context.textTheme.labelMedium?.copyWith(
+                    color: context.colorScheme.onPrimary,
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: 0.8,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
   void _navigateToReviews(BuildContext context, String salonId) {
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (_) => SalonReviewsPage(salonId: salonId),
-      ),
+    context.pushNamed(
+      RouteNames.salonReviewsName,
+      extra: salonId,
     );
   }
 }

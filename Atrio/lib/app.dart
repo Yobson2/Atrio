@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_templates/core/config/env_provider.dart';
 import 'package:flutter_templates/core/router/app_router.dart';
 import 'package:flutter_templates/core/theme/app_theme.dart';
+import 'package:flutter_templates/core/theme/locale_provider.dart';
 import 'package:flutter_templates/core/theme/theme_provider.dart';
 
 /// Root application widget.
@@ -18,6 +19,7 @@ class App extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(appRouterProvider);
     final themeMode = ref.watch(themeModeNotifierProvider);
+    final locale = ref.watch(localeNotifierProvider);
     final env = ref.watch(envProvider);
 
     return ScreenUtilInit(
@@ -34,6 +36,7 @@ class App extends ConsumerWidget {
         // Router
         routerConfig: router,
         // Localization
+        locale: locale,
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
       ),

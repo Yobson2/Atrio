@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_templates/core/extensions/context_extensions.dart';
+import 'package:flutter_templates/core/providers/storage_providers.dart';
 import 'package:flutter_templates/core/router/route_names.dart';
 import 'package:flutter_templates/core/theme/app_opacity.dart';
 import 'package:flutter_templates/core/theme/app_radius.dart';
@@ -54,9 +55,13 @@ class _ProfileSetupPageState extends ConsumerState<ProfileSetupPage> {
     }
   }
 
-  void _onNext() {
+  Future<void> _onNext() async {
     if (_formKey.currentState?.validate() ?? false) {
       context.unfocus();
+      // Mark profile setup as complete before navigating.
+      final localStorage = ref.read(localStorageProvider);
+      await localStorage.setProfileSetupComplete();
+      if (!mounted) return;
       // Navigate to home based on role (steps 2-3 are future work).
       if (widget.role == UserRole.owner) {
         context.go(RouteNames.ownerDashboard);

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="108" height="108">
+  <!-- Atrio Adaptive Icon Foreground (Android) -->
+  <!-- Safe zone: center 66x66 of 108x108 -->
+
+  <!-- Arch "A" Gateway — scaled to fit safe zone -->
+  <g transform="translate(25, 18) scale(0.113)">
+    <path d="
+      M 256 56
+      C 180 56, 96 130, 96 240
+      L 96 456
+      L 176 456
+      L 176 260
+      C 176 190, 210 136, 256 136
+      C 302 136, 336 190, 336 260
+      L 336 456
+      L 416 456
+      L 416 240
+      C 416 130, 332 56, 256 56
+      Z
+    " fill="#FFFFFF"/>
+    <!-- Crossbar / threshold -->
+    <rect x="176" y="320" width="160" height="56" rx="4" fill="#FFFFFF"/>
+  </g>
+</svg>

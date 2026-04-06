@@ -72,15 +72,16 @@ class AppBottomNav extends StatelessWidget {
               boxShadow: isDark ? AppShadows.lgDark : AppShadows.lgLight,
             ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: List.generate(items.length, (index) {
                 final isActive = index == currentIndex;
                 final item = items[index];
-                return _NavItem(
-                  icon: isActive ? item.activeIcon : item.icon,
-                  label: item.label,
-                  isActive: isActive,
-                  onTap: () => onTap(index),
+                return Expanded(
+                  child: _NavItem(
+                    icon: isActive ? item.activeIcon : item.icon,
+                    label: item.label,
+                    isActive: isActive,
+                    onTap: () => onTap(index),
+                  ),
                 );
               }),
             ),
@@ -110,41 +111,42 @@ class _NavItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       behavior: HitTestBehavior.opaque,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
-        padding: const EdgeInsets.symmetric(
-          horizontal: AppSpacing.lgx,
-          vertical: AppSpacing.sm,
-        ),
-        transform: isActive
-            ? (Matrix4.identity()..translate(0, -2))
-            : Matrix4.identity(),
-        decoration: BoxDecoration(
-          color: isActive ? theme.colorScheme.primary : Colors.transparent,
-          borderRadius: AppRadius.borderRadiusMd,
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(
-              icon,
-              size: 22,
-              color: isActive
-                  ? theme.colorScheme.onPrimary
-                  : theme.colorScheme.onSurfaceVariant,
-            ),
-            const SizedBox(height: 2),
-            Text(
-              label,
-              style: theme.textTheme.labelSmall?.copyWith(
+      child: Center(
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          padding: const EdgeInsets.symmetric(
+            horizontal: AppSpacing.md,
+            vertical: AppSpacing.sm,
+          ),
+          decoration: BoxDecoration(
+            color: isActive ? theme.colorScheme.primary : Colors.transparent,
+            borderRadius: AppRadius.borderRadiusMd,
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                icon,
+                size: 22,
                 color: isActive
                     ? theme.colorScheme.onPrimary
                     : theme.colorScheme.onSurfaceVariant,
-                fontWeight: isActive ? FontWeight.w700 : FontWeight.w500,
-                fontSize: 10,
               ),
-            ),
-          ],
+              const SizedBox(height: 2),
+              Text(
+                label,
+                style: theme.textTheme.labelSmall?.copyWith(
+                  color: isActive
+                      ? theme.colorScheme.onPrimary
+                      : theme.colorScheme.onSurfaceVariant,
+                  fontWeight: isActive ? FontWeight.w700 : FontWeight.w500,
+                  fontSize: 10,
+                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
+          ),
         ),
       ),
     );

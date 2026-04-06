@@ -8,12 +8,16 @@ import 'package:flutter_templates/features/auth/data/datasources/auth_remote_dat
 import 'package:flutter_templates/features/auth/data/datasources/mock_auth_remote_datasource.dart';
 import 'package:flutter_templates/features/auth/data/repositories/auth_repository_impl.dart';
 import 'package:flutter_templates/features/auth/domain/repositories/auth_repository.dart';
+import 'package:flutter_templates/features/auth/domain/usecases/change_password_usecase.dart';
 import 'package:flutter_templates/features/auth/domain/usecases/forgot_password_usecase.dart';
 import 'package:flutter_templates/features/auth/domain/usecases/get_cached_user_usecase.dart';
 import 'package:flutter_templates/features/auth/domain/usecases/login_usecase.dart';
 import 'package:flutter_templates/features/auth/domain/usecases/logout_usecase.dart';
 import 'package:flutter_templates/features/auth/domain/usecases/register_usecase.dart';
+import 'package:flutter_templates/features/auth/domain/usecases/send_otp_usecase.dart';
+import 'package:flutter_templates/features/auth/domain/usecases/update_profile_usecase.dart';
 import 'package:flutter_templates/features/auth/domain/usecases/verify_otp_usecase.dart';
+import 'package:flutter_templates/features/auth/domain/usecases/verify_phone_otp_usecase.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'auth_providers.g.dart';
@@ -82,4 +86,28 @@ LogoutUseCase logoutUseCase(Ref ref) {
 @riverpod
 GetCachedUserUseCase getCachedUserUseCase(Ref ref) {
   return GetCachedUserUseCase(ref.watch(authRepositoryProvider));
+}
+
+/// Provides the [UpdateProfileUseCase].
+@riverpod
+UpdateProfileUseCase updateProfileUseCase(Ref ref) {
+  return UpdateProfileUseCase(ref.watch(authRepositoryProvider));
+}
+
+/// Provides the [ChangePasswordUseCase].
+@riverpod
+ChangePasswordUseCase changePasswordUseCase(Ref ref) {
+  return ChangePasswordUseCase(ref.watch(authRepositoryProvider));
+}
+
+/// Provides the [SendOtpUseCase].
+@riverpod
+SendOtpUseCase sendOtpUseCase(Ref ref) {
+  return SendOtpUseCase(ref.watch(authRepositoryProvider));
+}
+
+/// Provides the [VerifyPhoneOtpUseCase].
+@riverpod
+VerifyPhoneOtpUseCase verifyPhoneOtpUseCase(Ref ref) {
+  return VerifyPhoneOtpUseCase(ref.watch(authRepositoryProvider));
 }

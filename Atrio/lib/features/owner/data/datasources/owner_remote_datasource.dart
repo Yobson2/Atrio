@@ -8,6 +8,9 @@ import 'package:flutter_templates/features/salon/data/models/salon_service_model
 
 /// Remote data source for owner API calls.
 abstract class OwnerRemoteDataSource {
+  /// POST: Creates a new salon.
+  Future<SalonModel> createSalon(SalonModel salon);
+
   /// GET: Fetches the salon owned by the current user.
   Future<SalonModel> getMySalon();
 
@@ -54,6 +57,21 @@ class OwnerRemoteDataSourceImpl implements OwnerRemoteDataSource {
   const OwnerRemoteDataSourceImpl(this._dio);
 
   final Dio _dio;
+
+  @override
+  Future<SalonModel> createSalon(SalonModel salon) async {
+    try {
+      final response = await _dio.post<Map<String, dynamic>>(
+        '/owner/salon',
+        data: salon.toJson(),
+      );
+      return SalonModel.fromJson(response.data!);
+    } on DioException {
+      rethrow;
+    } catch (e) {
+      throw ServerException(message: e.toString());
+    }
+  }
 
   @override
   Future<SalonModel> getMySalon() async {

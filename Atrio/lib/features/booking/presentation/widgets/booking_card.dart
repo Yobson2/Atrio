@@ -59,19 +59,24 @@ class BookingCard extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        BookingStatusChip(status: booking.status),
-                        AppSpacing.verticalMd,
-                        Text(
-                          booking.serviceName,
-                          style: context.textTheme.titleLarge?.copyWith(
-                            fontWeight: FontWeight.w700,
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          BookingStatusChip(status: booking.status),
+                          AppSpacing.verticalMd,
+                          Text(
+                            booking.serviceName,
+                            style: context.textTheme.titleLarge?.copyWith(
+                              fontWeight: FontWeight.w700,
+                            ),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
+                    AppSpacing.horizontalMd,
                     Container(
                       padding: const EdgeInsets.all(AppSpacing.sm),
                       decoration: BoxDecoration(
@@ -104,25 +109,29 @@ class BookingCard extends StatelessWidget {
                         ),
                       ),
                       AppSpacing.horizontalMd,
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'BARBER',
-                            style: context.textTheme.labelSmall?.copyWith(
-                              fontWeight: FontWeight.w600,
-                              letterSpacing: 1.2,
-                              color: context.colorScheme.onSurfaceVariant,
-                              fontSize: 9,
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'BARBER',
+                              style: context.textTheme.labelSmall?.copyWith(
+                                fontWeight: FontWeight.w600,
+                                letterSpacing: 1.2,
+                                color: context.colorScheme.onSurfaceVariant,
+                                fontSize: 9,
+                              ),
                             ),
-                          ),
-                          Text(
-                            booking.barberName!,
-                            style: context.textTheme.bodySmall?.copyWith(
-                              fontWeight: FontWeight.w700,
+                            Text(
+                              booking.barberName!,
+                              style: context.textTheme.bodySmall?.copyWith(
+                                fontWeight: FontWeight.w700,
+                              ),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -243,38 +252,43 @@ class BookingCard extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: AppSpacing.md,
-                                vertical: AppSpacing.xs,
-                              ),
-                              decoration: BoxDecoration(
-                                color: Colors.white.withValues(alpha: 0.2),
-                                borderRadius: AppRadius.borderRadiusFull,
-                              ),
-                              child: Text(
-                                'IN PROGRESS',
-                                style: context.textTheme.labelSmall?.copyWith(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 9,
-                                  letterSpacing: 1.5,
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: AppSpacing.md,
+                                  vertical: AppSpacing.xs,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: Colors.white.withValues(alpha: 0.2),
+                                  borderRadius: AppRadius.borderRadiusFull,
+                                ),
+                                child: Text(
+                                  'IN PROGRESS',
+                                  style: context.textTheme.labelSmall?.copyWith(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 9,
+                                    letterSpacing: 1.5,
+                                  ),
                                 ),
                               ),
-                            ),
-                            AppSpacing.verticalMd,
-                            Text(
-                              booking.serviceName,
-                              style: context.textTheme.titleLarge?.copyWith(
-                                fontWeight: FontWeight.w700,
-                                color: Colors.white,
+                              AppSpacing.verticalMd,
+                              Text(
+                                booking.serviceName,
+                                style: context.textTheme.titleLarge?.copyWith(
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.white,
+                                ),
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
+                        AppSpacing.horizontalMd,
                         Container(
                           padding: const EdgeInsets.all(AppSpacing.sm),
                           decoration: BoxDecoration(
