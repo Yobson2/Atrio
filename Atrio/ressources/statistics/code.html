@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Atrio Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-container": "#008378",
+                      "tertiary": "#924628",
+                      "secondary-container": "#6cf8bb",
+                      "surface-container-high": "#e6e8ea",
+                      "surface-container": "#eceef0",
+                      "on-tertiary-fixed-variant": "#773215",
+                      "on-secondary": "#ffffff",
+                      "surface-container-highest": "#e0e3e5",
+                      "on-tertiary-fixed": "#370e00",
+                      "outline": "#6d7a77",
+                      "surface-bright": "#f7f9fb",
+                      "on-tertiary-container": "#fffbff",
+                      "surface-tint": "#006a61",
+                      "error": "#ba1a1a",
+                      "on-error-container": "#93000a",
+                      "error-container": "#ffdad6",
+                      "secondary-fixed-dim": "#4edea3",
+                      "on-tertiary": "#ffffff",
+                      "on-surface": "#191c1e",
+                      "secondary": "#006c49",
+                      "surface-variant": "#e0e3e5",
+                      "on-secondary-fixed": "#002113",
+                      "on-primary-fixed": "#00201d",
+                      "on-secondary-container": "#00714d",
+                      "primary": "#00685f",
+                      "outline-variant": "#bcc9c6",
+                      "inverse-on-surface": "#eff1f3",
+                      "secondary-fixed": "#6ffbbe",
+                      "inverse-surface": "#2d3133",
+                      "tertiary-container": "#b05e3d",
+                      "on-background": "#191c1e",
+                      "on-surface-variant": "#3d4947",
+                      "on-primary-container": "#f4fffc",
+                      "on-error": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "tertiary-fixed-dim": "#ffb59a",
+                      "surface-container-lowest": "#ffffff",
+                      "background": "#f7f9fb",
+                      "on-primary-fixed-variant": "#005049",
+                      "surface": "#f7f9fb",
+                      "tertiary-fixed": "#ffdbce",
+                      "inverse-primary": "#6bd8cb",
+                      "surface-dim": "#d8dadc",
+                      "on-secondary-fixed-variant": "#005236",
+                      "primary-fixed-dim": "#6bd8cb",
+                      "primary-fixed": "#89f5e7",
+                      "surface-container-low": "#f2f4f6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              }
+            },
+          }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-[0px_12px_32px_rgba(25,28,30,0.06)] flex items-center justify-between px-6 py-4">
+<div class="flex items-center gap-4">
+<button class="text-teal-600 dark:text-teal-400 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-colors rounded-full p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="text-xl font-bold tracking-tighter text-teal-700 dark:text-teal-300 font-['Inter']">Atrio</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-slate-500 dark:text-slate-400 font-semibold font-['Inter'] tracking-tight">Statistics</span>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high border-2 border-primary/20">
+<img alt="User Profile" data-alt="professional headshot of a groomed male barber with a confident smile in a studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1UdjVk2nEPDbfuC-SpIvVCLiw2BXxIk9btu_usJ0EpbmJuSOona-1fT1HY-Ny1dI5IL-NHFT06HM4IeCHSjNz7cYrUrqFTJrnp4vSG73p2EkroxlJxFlthM3pXwZ4Us4EADlME-sAiLDeFlcK9XXJs_hG3ggj4G_rISqLoc1gzW3uQAbu2mOJ9cT157m6NiX9EcA3acApP-hZs_fqlpPIs9gu1quxdnBYJASkSEYT9U5Pq6wPfEeVsztYB0auDMb4mxfJrHDNQZ94"/>
+</div>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-7xl mx-auto space-y-8">
+<!-- Header & Range Selector -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h2 class="text-3xl font-extrabold tracking-tight text-on-surface">Performance Insights</h2>
+<p class="text-on-surface-variant body-md mt-1">Reviewing your salon's growth and engagement.</p>
+</div>
+<div class="flex bg-surface-container-low p-1 rounded-xl w-fit">
+<button class="px-6 py-2 rounded-lg text-sm font-semibold transition-all bg-surface-container-lowest text-primary shadow-sm">Weekly</button>
+<button class="px-6 py-2 rounded-lg text-sm font-medium text-on-surface-variant hover:text-on-surface transition-all">Monthly</button>
+</div>
+</div>
+<!-- Key Metrics Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Metric Card 1: Total Bookings -->
+<div class="bg-surface-container-lowest p-6 rounded-[24px] shadow-[0px_12px_32px_rgba(25,28,30,0.06)] group hover:translate-y-[-4px] transition-all duration-300">
+<div class="flex items-center justify-between mb-4">
+<div class="bg-primary/10 p-3 rounded-2xl text-primary">
+<span class="material-symbols-outlined">event_note</span>
+</div>
+<span class="text-primary text-xs font-bold bg-primary/5 px-2 py-1 rounded-full">+12%</span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium">Total Bookings</p>
+<h3 class="text-3xl font-extrabold mt-1">1,284</h3>
+<p class="text-[10px] text-slate-400 mt-2 uppercase tracking-widest font-bold">Past 30 Days</p>
+</div>
+<!-- Metric Card 2: Average Rating -->
+<div class="bg-surface-container-lowest p-6 rounded-[24px] shadow-[0px_12px_32px_rgba(25,28,30,0.06)] group hover:translate-y-[-4px] transition-all duration-300">
+<div class="flex items-center justify-between mb-4">
+<div class="bg-tertiary/10 p-3 rounded-2xl text-tertiary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-tertiary text-xs font-bold">Stable</span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium">Average Rating</p>
+<h3 class="text-3xl font-extrabold mt-1">4.9</h3>
+<div class="flex gap-0.5 mt-2 text-tertiary">
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+</div>
+</div>
+<!-- Metric Card 3: Revenue Trend -->
+<div class="bg-surface-container-lowest p-6 rounded-[24px] shadow-[0px_12px_32px_rgba(25,28,30,0.06)] group hover:translate-y-[-4px] transition-all duration-300">
+<div class="flex items-center justify-between mb-4">
+<div class="bg-secondary/10 p-3 rounded-2xl text-secondary">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<span class="text-secondary text-xs font-bold bg-secondary/5 px-2 py-1 rounded-full">+24%</span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium">Revenue Trend</p>
+<h3 class="text-3xl font-extrabold mt-1">$42,105</h3>
+<p class="text-[10px] text-slate-400 mt-2 uppercase tracking-widest font-bold">Historical High</p>
+</div>
+<!-- Metric Card 4: Most Popular Service -->
+<div class="bg-surface-container-lowest p-6 rounded-[24px] shadow-[0px_12px_32px_rgba(25,28,30,0.06)] group hover:translate-y-[-4px] transition-all duration-300">
+<div class="flex items-center justify-between mb-4">
+<div class="bg-primary/10 p-3 rounded-2xl text-primary">
+<span class="material-symbols-outlined">content_cut</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm font-medium">Top Service</p>
+<h3 class="text-xl font-extrabold mt-1 leading-tight">Signature Fade &amp; Beard Sculpt</h3>
+<p class="text-[10px] text-slate-400 mt-2 uppercase tracking-widest font-bold">42% of revenue</p>
+</div>
+</section>
+<!-- Charts Section -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Revenue Line Chart Visualization -->
+<div class="lg:col-span-2 bg-surface-container-lowest p-8 rounded-[32px] shadow-[0px_12px_32px_rgba(25,28,30,0.06)]">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-xl font-bold tracking-tight">Revenue Analytics</h3>
+<button class="text-primary font-semibold text-sm hover:underline">Download Report</button>
+</div>
+<!-- Simulated Line Chart -->
+<div class="relative h-64 w-full flex items-end justify-between gap-2 px-2">
+<!-- Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between py-2 pointer-events-none">
+<div class="w-full border-t border-slate-100"></div>
+<div class="w-full border-t border-slate-100"></div>
+<div class="w-full border-t border-slate-100"></div>
+<div class="w-full border-t border-slate-100"></div>
+</div>
+<!-- Chart Bars/Lines representation -->
+<div class="w-full h-full flex items-end justify-around relative">
+<svg class="absolute inset-0 w-full h-full" preserveaspectratio="none" viewbox="0 0 100 40">
+<path d="M0 35 Q 10 32, 20 25 T 40 28 T 60 15 T 80 18 T 100 5" fill="none" stroke="url(#gradient)" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+<defs>
+<lineargradient id="gradient" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" style="stop-color:#00685f;stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:#008378;stop-opacity:1"></stop>
+</lineargradient>
+</defs>
+</svg>
+<!-- Interaction Points -->
+<div class="group relative flex flex-col items-center">
+<div class="w-3 h-3 bg-primary rounded-full border-2 border-white shadow-sm mb-32 z-10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="text-[10px] font-bold text-slate-400 mt-2">MON</span>
+</div>
+<div class="group relative flex flex-col items-center">
+<div class="w-3 h-3 bg-primary rounded-full border-2 border-white shadow-sm mb-24 z-10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="text-[10px] font-bold text-slate-400 mt-2">TUE</span>
+</div>
+<div class="group relative flex flex-col items-center">
+<div class="w-3 h-3 bg-primary rounded-full border-2 border-white shadow-sm mb-28 z-10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="text-[10px] font-bold text-slate-400 mt-2">WED</span>
+</div>
+<div class="group relative flex flex-col items-center">
+<div class="w-3 h-3 bg-primary rounded-full border-2 border-white shadow-sm mb-40 z-10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="text-[10px] font-bold text-slate-400 mt-2">THU</span>
+</div>
+<div class="group relative flex flex-col items-center">
+<div class="w-3 h-3 bg-primary rounded-full border-2 border-white shadow-sm mb-36 z-10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="text-[10px] font-bold text-slate-400 mt-2">FRI</span>
+</div>
+<div class="group relative flex flex-col items-center">
+<div class="w-3 h-3 bg-primary rounded-full border-2 border-white shadow-sm mb-48 z-10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="text-[10px] font-bold text-slate-400 mt-2">SAT</span>
+</div>
+<div class="group relative flex flex-col items-center">
+<div class="w-3 h-3 bg-primary rounded-full border-2 border-white shadow-sm mb-56 z-10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="text-[10px] font-bold text-slate-400 mt-2">SUN</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Booking Breakdown Pie Chart Visualization -->
+<div class="bg-surface-container-lowest p-8 rounded-[32px] shadow-[0px_12px_32px_rgba(25,28,30,0.06)] flex flex-col">
+<h3 class="text-xl font-bold tracking-tight mb-8">Booking Integrity</h3>
+<div class="flex-grow flex flex-col items-center justify-center">
+<!-- Circular Progress/Pie Chart -->
+<div class="relative w-48 h-48 mb-8">
+<svg class="w-full h-full" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="40" stroke="#f2f4f6" stroke-width="12"></circle>
+<circle cx="50" cy="50" fill="none" r="40" stroke="#00685f" stroke-dasharray="210 251.2" stroke-linecap="round" stroke-width="12"></circle>
+<circle cx="50" cy="50" fill="none" r="40" stroke="#ba1a1a" stroke-dasharray="20 251.2" stroke-dashoffset="-210" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="text-3xl font-extrabold text-on-surface">94%</span>
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Completed</span>
+</div>
+</div>
+<div class="w-full space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="text-sm font-medium text-on-surface-variant">Completed</span>
+</div>
+<span class="text-sm font-bold">1,208</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<span class="text-sm font-medium text-on-surface-variant">Cancelled</span>
+</div>
+<span class="text-sm font-bold">76</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Service Distribution / Secondary Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-surface-container p-8 rounded-[32px] overflow-hidden relative">
+<div class="relative z-10">
+<h3 class="text-xl font-bold tracking-tight mb-2">Artisan Leaderboard</h3>
+<p class="text-on-surface-variant text-sm mb-6">Top performing staff members this period.</p>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<img alt="Alex P." class="w-12 h-12 rounded-2xl object-cover" data-alt="portrait of a bearded male barber in his thirties with tattoos, wearing a professional black apron" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDRtHd64QTDhG9s9gLrTMMFe97JOVln4s5n4u9bSkqJg0s7RG0jO7hQ4J_bmB_ugFD0Wwow2IDKFPWG85ljfbH5CassJ4pleHeU9snQGW2f1SGXtxaYrHmPlsFnIuxovsFNirktllffas7JJi0CTGYY3pxU_YUJnl4cg5krwiD4r0OT8Yf28931msyCM-1VoE1jLrzt-wOePHbo0LJd8ucSnsLhZC8huW5JbCSULllHJWHorsXrphd6JGw2NG9vPEigELTeY6BroPo"/>
+<div class="flex-grow">
+<div class="flex justify-between items-center mb-1">
+<span class="font-bold">Alex Precision</span>
+<span class="text-xs font-bold text-primary">$8,240</span>
+</div>
+<div class="h-2 bg-white/50 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[85%] rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<img alt="Marco V." class="w-12 h-12 rounded-2xl object-cover" data-alt="headshot of a stylish young man with a modern haircut and clean shave" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtOHz2Q03BALocSzASi7LaatZpj8qQ-wKg-niwg1TndwPe0m7TgHzMZecGQl4tmnM_beek2ICes3uel95tgfC3S62HRQX3V6A13RGsQI7T86Yc2oD8YZHFLtMvEVh9HuGFu-KrENrJ7HEpqGNqj2mo7BedKGd-QbJqGL5_Gwnf47thRmlpjKSJznfvGu9QxtsIpMEkQPc4p6sHYPx6buhzu16MfGMvAfAO7BMfBjqYWG5eS_rN8r6lUi2CXmoso3eTKJe2PmG4aGVl"/>
+<div class="flex-grow">
+<div class="flex justify-between items-center mb-1">
+<span class="font-bold">Marco Van Cut</span>
+<span class="text-xs font-bold text-primary">$7,190</span>
+</div>
+<div class="h-2 bg-white/50 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[70%] rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<img alt="Sarah S." class="w-12 h-12 rounded-2xl object-cover" data-alt="portrait of a creative female professional with short stylish hair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIA0Eb-RTedU9whLgVaGTOFCc_LMlD1zFSO-gvikzHMnEUZIeFE5fGu6TgvSNT9DV1wxc2xsclqmpNNo2uQX95clyyQIZ7s-os10SD0iLmypC9n7KCFbUbCAJya_k-__Glrb6nkVRpoDa0t-sBSeufhPHLPgc74T8A59yB130phELDIhVhKTeRylvKNzXMygIm1fdRI4NVsmf0iIbB8jnrlnmSDl1Kt50sD2AsdmNcVcJTdO-PYhfBsQ-iiBXM8LulwW5IRBnu9wL-"/>
+<div class="flex-grow">
+<div class="flex justify-between items-center mb-1">
+<span class="font-bold">Sarah Sharp</span>
+<span class="text-xs font-bold text-primary">$6,840</span>
+</div>
+<div class="h-2 bg-white/50 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[62%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Goal Tracker / Call to Action Card -->
+<div class="bg-primary p-8 rounded-[32px] text-white flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-container rounded-full -mr-20 -mt-20 opacity-50 blur-3xl"></div>
+<div class="relative z-10">
+<span class="bg-white/20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Monthly Goal</span>
+<h3 class="text-3xl font-extrabold mt-4 leading-tight">You're at 88% of your monthly revenue target.</h3>
+<p class="mt-4 text-primary-fixed opacity-90">Keep pushing! Only $5,200 more to reach your $50k milestone.</p>
+</div>
+<div class="relative z-10 mt-12 flex items-center gap-4">
+<button class="bg-white text-primary px-8 py-3 rounded-2xl font-bold hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl">Promote Services</button>
+<button class="text-white font-semibold underline underline-offset-4">View Forecast</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-[0px_-8px_24px_rgba(25,28,30,0.04)] rounded-t-2xl z-50">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-teal-600 dark:hover:text-teal-400 transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-wide mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-teal-600 dark:hover:text-teal-400 transition-colors" href="#">
+<span class="material-symbols-outlined">event_note</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-wide mt-1">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-teal-600 dark:bg-teal-500 text-white rounded-2xl px-5 py-2 tap-highlight-transparent animate-pulse-subtle" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">query_stats</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-wide mt-1">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-teal-600 dark:hover:text-teal-400 transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-wide mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "background": "#f7f9fb",
+                  "surface-container-lowest": "#ffffff",
+                  "primary-container": "#008378",
+                  "surface-dim": "#d8dadc",
+                  "secondary-container": "#6cf8bb",
+                  "error-container": "#ffdad6",
+                  "inverse-primary": "#6bd8cb",
+                  "primary": "#00685f",
+                  "on-tertiary-fixed": "#370e00",
+                  "error": "#ba1a1a",
+                  "tertiary-fixed": "#ffdbce",
+                  "on-error": "#ffffff",
+                  "on-primary": "#ffffff",
+                  "on-surface-variant": "#3d4947",
+                  "surface-container-low": "#f2f4f6",
+                  "outline": "#6d7a77",
+                  "secondary-fixed": "#6ffbbe",
+                  "secondary-fixed-dim": "#4edea3",
+                  "on-secondary-fixed-variant": "#005236",
+                  "surface-container-highest": "#e0e3e5",
+                  "surface-bright": "#f7f9fb",
+                  "on-error-container": "#93000a",
+                  "secondary": "#006c49",
+                  "on-secondary-container": "#00714d",
+                  "on-surface": "#191c1e",
+                  "on-primary-fixed-variant": "#005049",
+                  "tertiary": "#924628",
+                  "surface": "#f7f9fb",
+                  "on-tertiary-fixed-variant": "#773215",
+                  "tertiary-container": "#b05e3d",
+                  "primary-fixed-dim": "#6bd8cb",
+                  "surface-tint": "#006a61",
+                  "on-secondary-fixed": "#002113",
+                  "surface-container": "#eceef0",
+                  "on-tertiary": "#ffffff",
+                  "inverse-on-surface": "#eff1f3",
+                  "on-background": "#191c1e",
+                  "outline-variant": "#bcc9c6",
+                  "on-primary-container": "#f4fffc",
+                  "surface-variant": "#e0e3e5",
+                  "tertiary-fixed-dim": "#ffb59a",
+                  "primary-fixed": "#89f5e7",
+                  "on-secondary": "#ffffff",
+                  "on-primary-fixed": "#00201d",
+                  "on-tertiary-container": "#fffbff",
+                  "surface-container-high": "#e6e8ea",
+                  "inverse-surface": "#2d3133"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "fontFamily": {
+                  "headline": ["Inter"],
+                  "body": ["Inter"],
+                  "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+    }
+    .step-active { display: flex; }
+    .step-inactive { display: none; }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background font-body text-on-background min-h-screen flex flex-col items-center justify-center overflow-hidden">
+<!-- Suppression Check: Onboarding screens exclude global navigation shells -->
+<!-- Top Utilities -->
+<div class="fixed top-0 left-0 right-0 px-6 py-8 flex justify-end z-50">
+<button class="text-on-surface-variant font-medium text-sm hover:text-primary transition-colors px-4 py-2 rounded-full">
+      Skip
+    </button>
+</div>
+<!-- Onboarding Canvas (Steps Container) -->
+<main class="w-full max-w-lg px-8 flex-1 flex flex-col justify-center">
+<!-- Step 1: Welcome -->
+<div class="step-active flex-col items-center text-center animate-in fade-in slide-in-from-bottom-4 duration-700" id="step-1">
+<div class="w-24 h-24 mb-10 rounded-3xl bg-primary-container/10 flex items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary-container/5"></div>
+<span class="material-symbols-outlined text-5xl text-primary" data-icon="waving_hand">waving_hand</span>
+</div>
+<h1 class="text-3xl font-extrabold tracking-tight text-on-surface mb-4">
+        Welcome to Atrio
+      </h1>
+<p class="text-on-surface-variant text-lg leading-relaxed max-w-[280px]">
+        Discover and book your favorite salons in seconds
+      </p>
+<!-- Visual Contextual Element: Glassmorphism Card -->
+<div class="mt-12 w-full aspect-video rounded-3xl overflow-hidden relative shadow-[0px_12px_32px_rgba(25,28,30,0.06)] bg-surface-container-low border border-outline-variant/10">
+<img class="w-full h-full object-cover grayscale-[0.3]" data-alt="Modern high-end barber shop interior with leather chairs and warm ambient studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUhi89CkRFHOM1Axr74tgOSrxfEYjhUEXzq-PXjvhS8RnxmnKicplhuyR3W0NJI-qT317pIep9aKOPopp4R1a1JqgCWrRzCOTwTtZxZorO3g2t6e4grg7hxuqQ3zSxdgRgVrEzjKsOC6saJ9at8x5-lLozy6FiR0VhAKFTgy6h53rJORIWN2OOdLvudTHDbnox5_wNqBzffhBsMoUdQ5_idtnFJUvKUWBnOF-mFHPDoHdFkfXxtc6ysm0PHFe498CsaK0PFvs9WaXO"/>
+<div class="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-surface/80 backdrop-blur-xl flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold">1</div>
+<div class="text-left">
+<p class="text-xs font-bold text-primary">NEW CLIENT</p>
+<p class="text-sm font-semibold text-on-surface">Book your first cut</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Step 2: Management (Hidden by default in actual interaction) -->
+<div class="step-inactive flex-col items-center text-center" id="step-2">
+<div class="w-24 h-24 mb-10 rounded-3xl bg-secondary-container/20 flex items-center justify-center relative">
+<span class="material-symbols-outlined text-5xl text-secondary" data-icon="folder">folder</span>
+</div>
+<h1 class="text-3xl font-extrabold tracking-tight text-on-surface mb-4">
+        Manage Bookings
+      </h1>
+<p class="text-on-surface-variant text-lg leading-relaxed max-w-[280px]">
+        Track your live queue position and manage your history
+      </p>
+</div>
+<!-- Step 3: Ready (Hidden by default) -->
+<div class="step-inactive flex-col items-center text-center" id="step-3">
+<div class="w-24 h-24 mb-10 rounded-3xl bg-primary flex items-center justify-center shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-5xl text-on-primary" data-icon="rocket_launch">rocket_launch</span>
+</div>
+<h1 class="text-3xl font-extrabold tracking-tight text-on-surface mb-4">
+        Ready to Go
+      </h1>
+<p class="text-on-surface-variant text-lg leading-relaxed max-w-[280px]">
+        Join thousands of clients and owners today
+      </p>
+</div>
+</main>
+<!-- Bottom Controls Shell -->
+<footer class="w-full max-w-lg px-8 pb-16 pt-8 flex flex-col items-center gap-10">
+<!-- Dot Indicators -->
+<div class="flex items-center gap-2">
+<div class="h-2 w-8 rounded-full bg-primary transition-all duration-300"></div>
+<div class="h-2 w-2 rounded-full bg-surface-container-highest transition-all duration-300"></div>
+<div class="h-2 w-2 rounded-full bg-surface-container-highest transition-all duration-300"></div>
+</div>
+<!-- Navigation Action -->
+<div class="w-full flex flex-col gap-3">
+<!-- Main Button: Gradient Primary -->
+<button class="w-full py-4 rounded-2xl bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold text-lg shadow-[0px_12px_32px_rgba(0,104,95,0.2)] active:scale-[0.98] transition-all">
+          Next
+        </button>
+<!-- Subtle Secondary Context -->
+<p class="text-xs text-on-surface-variant/60 text-center font-medium">
+            Step 1 of 3
+        </p>
+</div>
+</footer>
+<!-- Asymmetric Background Elements -->
+<div class="fixed -top-24 -left-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="fixed -bottom-48 -right-48 w-[32rem] h-[32rem] bg-secondary/5 rounded-full blur-3xl pointer-events-none"></div>
+</body></html>

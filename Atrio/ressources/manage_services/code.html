@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Atrio - Service Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffdbce",
+                    "surface-variant": "#e0e3e5",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-primary-container": "#f4fffc",
+                    "tertiary-fixed-dim": "#ffb59a",
+                    "surface-container-high": "#e6e8ea",
+                    "on-surface": "#191c1e",
+                    "primary-fixed-dim": "#6bd8cb",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-primary": "#6bd8cb",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#fffbff",
+                    "secondary-fixed-dim": "#4edea3",
+                    "on-tertiary-fixed": "#370e00",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#d8dadc",
+                    "surface-container": "#eceef0",
+                    "surface-container-highest": "#e0e3e5",
+                    "outline-variant": "#bcc9c6",
+                    "inverse-surface": "#2d3133",
+                    "secondary-fixed": "#6ffbbe",
+                    "on-tertiary-fixed-variant": "#773215",
+                    "secondary-container": "#6cf8bb",
+                    "on-secondary-container": "#00714d",
+                    "on-secondary-fixed": "#002113",
+                    "on-primary-fixed": "#00201d",
+                    "on-surface-variant": "#3d4947",
+                    "background": "#f7f9fb",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "primary-container": "#008378",
+                    "on-background": "#191c1e",
+                    "tertiary-container": "#b05e3d",
+                    "surface": "#f7f9fb",
+                    "secondary": "#006c49",
+                    "primary-fixed": "#89f5e7",
+                    "surface-bright": "#f7f9fb",
+                    "outline": "#6d7a77",
+                    "surface-container-low": "#f2f4f6",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#005236",
+                    "tertiary": "#924628",
+                    "on-error-container": "#93000a",
+                    "primary": "#00685f",
+                    "on-primary-fixed-variant": "#005049",
+                    "surface-tint": "#006a61"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-24">
+<!-- TopAppBar Component -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-[0px_12px_32px_rgba(25,28,30,0.06)]">
+<div class="flex justify-between items-center px-6 py-4 max-w-full">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-colors rounded-full active:scale-95 duration-200 ease-in-out text-teal-700 dark:text-teal-400">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="text-xl font-semibold tracking-tight text-teal-700 dark:text-teal-400">Services</h1>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 bg-primary text-on-primary px-4 py-2 rounded-xl font-medium text-sm active:scale-95 transition-all shadow-md">
+<span class="material-symbols-outlined text-lg" data-icon="add">add</span>
+<span>Add Service</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border-2 border-primary-fixed">
+<img class="w-full h-full object-cover" data-alt="close-up portrait of a professional barber with a groomed beard in a modern studio setting with warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrUPakCc9aRKoD1tM08HJ0JAmhCnXf-iHrmKHaWiO6LpJkbPTgx3iuH2jTa8Z-qyIVVN-1sWmO2IanSw8Um67cJ2ivfCtMMqCkp3AZSl55MXgCDqFyW2Jb-o0bJRBRYNfE6TLX_4p2tWlB0wuBFXvFo5AmvbD9cI3gzzbzoEsGV28D_C_hy00ayVm9d9c6PJXvfl8BYKxq3GUOavGMYDGIDhdzDDOe8wxV6kI43COXsR1hWS-mbwegWaxjfVIX-zQuGyGX_lFTQMeB"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-5xl mx-auto">
+<!-- Dashboard Summary Bento -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+<div class="bg-surface-container-lowest p-6 rounded-3xl shadow-[0px_12px_32px_rgba(25,28,30,0.04)] flex flex-col justify-between">
+<div>
+<p class="text-on-surface-variant text-xs font-semibold uppercase tracking-widest mb-1">Total Services</p>
+<h2 class="text-3xl font-black text-primary">12</h2>
+</div>
+<div class="mt-4 flex items-center text-teal-600 text-sm font-medium">
+<span class="material-symbols-outlined text-sm mr-1" data-icon="trending_up">trending_up</span>
+<span>+2 this month</span>
+</div>
+</div>
+<div class="bg-primary-container p-6 rounded-3xl shadow-[0px_12px_32px_rgba(25,28,30,0.04)] text-on-primary-container flex flex-col justify-between">
+<div>
+<p class="text-on-primary-container/70 text-xs font-semibold uppercase tracking-widest mb-1">Most Booked</p>
+<h2 class="text-2xl font-bold">Signature Fade</h2>
+</div>
+<div class="mt-4 text-sm font-medium opacity-90">
+                    48 bookings / week
+                </div>
+</div>
+<div class="bg-tertiary-container p-6 rounded-3xl shadow-[0px_12px_32px_rgba(25,28,30,0.04)] text-on-tertiary-container flex flex-col justify-between">
+<div>
+<p class="text-on-tertiary-container/70 text-xs font-semibold uppercase tracking-widest mb-1">Revenue Stream</p>
+<h2 class="text-2xl font-bold">Premium Tier</h2>
+</div>
+<div class="mt-4 text-sm font-medium opacity-90">
+                    High conversion rate
+                </div>
+</div>
+</section>
+<!-- Service Management Header -->
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-lg font-bold text-on-surface">Active Portfolio</h3>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-xs font-bold text-on-surface-variant">All</span>
+<span class="px-3 py-1 bg-primary text-on-primary rounded-full text-xs font-bold">Active</span>
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-xs font-bold text-on-surface-variant">Drafts</span>
+</div>
+</div>
+<!-- Service Tiles Grid -->
+<div class="grid grid-cols-1 gap-4">
+<!-- Service Item 1 -->
+<div class="bg-surface-container-lowest p-5 rounded-2xl shadow-[0px_12px_32px_rgba(25,28,30,0.06)] group hover:translate-y-[-2px] transition-all duration-300">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-xl bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="detailed close-up of a perfectly executed barber fade haircut with crisp lines and smooth skin transition" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRsqzilhvHbKpKypUAkreLguQHO4Yddu4qj0ghzHJUcDSAGqCLU6eGwFJOdPX23Ldist3jcr6MxzV3X8ItPqBppZza5QMHYWhU_voIlUbJ-3xNl4I0ILLwQMHgN4iy7D3a0W4L6utIEVTHdLLRaogPOr3dFA84QCRRmF46ON1QjLOPzE0gtco6t4kurq2qaeAKS3tRHkv4-Dpgj4UnhdTeVDGmNPEEPrFLZZmUCHBc4msTpXg79q-Bn5fQ3ub-uD6Fa50oYB3QZJTB"/>
+</div>
+<div>
+<h4 class="text-lg font-bold text-on-surface">Signature Skin Fade</h4>
+<div class="flex items-center gap-3 mt-1 text-on-surface-variant">
+<span class="flex items-center text-xs font-medium"><span class="material-symbols-outlined text-sm mr-1" data-icon="schedule">schedule</span> 45 min</span>
+<span class="flex items-center text-xs font-medium"><span class="material-symbols-outlined text-sm mr-1" data-icon="payments">payments</span> $45.00</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-6 border-t md:border-t-0 pt-4 md:pt-0 border-outline-variant/15">
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold uppercase tracking-widest text-primary">Active</span>
+<div class="w-12 h-6 bg-primary rounded-full relative flex items-center px-1">
+<div class="w-4 h-4 bg-white rounded-full translate-x-6"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 rounded-xl text-error hover:bg-error-container/20 transition-colors">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Service Item 2 -->
+<div class="bg-surface-container-lowest p-5 rounded-2xl shadow-[0px_12px_32px_rgba(25,28,30,0.06)] group hover:translate-y-[-2px] transition-all duration-300">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-xl bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="professional grooming of a long beard with precision tools in a high-end salon atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVszK6WF-XP10IKt5690S8lwDFQ4UQjND9fRthPvAYrX8BxiJ3k34475mkjC1TgKcYvUC56HZOkZWujt8xg_vWnQxgwWymdeIdT690jkK-mBI-xN_4yo-p84lEO56Eum29BtxHskrhF0T-OfcbuF-xVuG_CLHDYxj9CsfL8sYUWLIGW64Ttmlv58cF0DFcGZgyQpm_CRsZEKvoZOCchmxufX_FApaWBSHHCRelqoG9_H_fz8kD62kmuqwy6kSw9s0nWakr9ClgcTkr"/>
+</div>
+<div>
+<h4 class="text-lg font-bold text-on-surface">Luxury Beard Sculpt</h4>
+<div class="flex items-center gap-3 mt-1 text-on-surface-variant">
+<span class="flex items-center text-xs font-medium"><span class="material-symbols-outlined text-sm mr-1" data-icon="schedule">schedule</span> 30 min</span>
+<span class="flex items-center text-xs font-medium"><span class="material-symbols-outlined text-sm mr-1" data-icon="payments">payments</span> $30.00</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-6 border-t md:border-t-0 pt-4 md:pt-0 border-outline-variant/15">
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold uppercase tracking-widest text-primary">Active</span>
+<div class="w-12 h-6 bg-primary rounded-full relative flex items-center px-1">
+<div class="w-4 h-4 bg-white rounded-full translate-x-6"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 rounded-xl text-error hover:bg-error-container/20 transition-colors">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Service Item 3 (Inactive Example) -->
+<div class="bg-surface-container-low opacity-80 p-5 rounded-2xl shadow-[0px_12px_32px_rgba(25,28,30,0.04)] group hover:translate-y-[-2px] transition-all duration-300">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-xl bg-surface-container-high overflow-hidden grayscale">
+<img class="w-full h-full object-cover" data-alt="classic hot towel shave with a straight razor being prepared on a marble counter with shaving cream" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzJmsKOwySGZ1rO1YMEk1zKuy4doRPjTHcfeodD4-BUSDMaUb09ji74icMc61ANcOhIZYuFAQSrsWQ9px5g0aNWSlOeNhpn_TRe3RP5g1w3LlilKxr3VUH_DQKk8AfEKBkoUt88d_9tBiMAIB0H3bfWE7_MenyPC45v48rGi1nGZ5Lsl2ZTwKj79SypsHHaVupIDLoLQaDCOGKt27X8eEHTndwTAkXaaHfoUlRsIyLPwK6qM6rfJJKJ7xZWTNmk6pz8hNQJ832Smk-"/>
+</div>
+<div>
+<h4 class="text-lg font-bold text-on-surface-variant">Traditional Hot Towel Shave</h4>
+<div class="flex items-center gap-3 mt-1 text-on-surface-variant">
+<span class="flex items-center text-xs font-medium"><span class="material-symbols-outlined text-sm mr-1" data-icon="schedule">schedule</span> 60 min</span>
+<span class="flex items-center text-xs font-medium"><span class="material-symbols-outlined text-sm mr-1" data-icon="payments">payments</span> $55.00</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-6 border-t md:border-t-0 pt-4 md:pt-0 border-outline-variant/15">
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Inactive</span>
+<div class="w-12 h-6 bg-surface-container-highest rounded-full relative flex items-center px-1">
+<div class="w-4 h-4 bg-white rounded-full translate-x-0"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 rounded-xl text-error hover:bg-error-container/20 transition-colors">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Service Item 4 -->
+<div class="bg-surface-container-lowest p-5 rounded-2xl shadow-[0px_12px_32px_rgba(25,28,30,0.06)] group hover:translate-y-[-2px] transition-all duration-300">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-xl bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="overhead shot of a hair washing station in a luxury barber shop with copper pipes and premium products" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmItRjRDKv4i8wWZkxc3qgDJA4fg2DJ6xWlElPlmtnjfKTq26bibSsGkDaw29KLTz0yin3Kr0GKPCI1ih2rfQZyu4_IokfLpJyEenl-2Nfwdng_2Ki3EwVxTXC5lmbZLQzmVPNg4oNIqDSM6vIzulezZfa5uk16xsDuyyiceDQMFHzGa9NnF86mvKWbChy8wmuqjYORr0OfxrN7FxYrtMZM2svomdQXhnjIIHMLotnv5-KCG-QtFHVFB4SgfdUPTFhg5MCQwSZpWgl"/>
+</div>
+<div>
+<h4 class="text-lg font-bold text-on-surface">Scalp Therapy &amp; Wash</h4>
+<div class="flex items-center gap-3 mt-1 text-on-surface-variant">
+<span class="flex items-center text-xs font-medium"><span class="material-symbols-outlined text-sm mr-1" data-icon="schedule">schedule</span> 20 min</span>
+<span class="flex items-center text-xs font-medium"><span class="material-symbols-outlined text-sm mr-1" data-icon="payments">payments</span> $20.00</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-6 border-t md:border-t-0 pt-4 md:pt-0 border-outline-variant/15">
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold uppercase tracking-widest text-primary">Active</span>
+<div class="w-12 h-6 bg-primary rounded-full relative flex items-center px-1">
+<div class="w-4 h-4 bg-white rounded-full translate-x-6"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 rounded-xl text-error hover:bg-error-container/20 transition-colors">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar Component -->
+<nav class="fixed bottom-4 left-4 right-4 rounded-2xl z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-[0px_12px_32px_rgba(25,28,30,0.08)]">
+<div class="flex justify-around items-center h-20 px-2">
+<a class="flex flex-col items-center justify-center text-teal-900/60 dark:text-teal-100/60 px-4 py-2 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider mt-1">Discover</span>
+</a>
+<a class="flex flex-col items-center justify-center text-teal-900/60 dark:text-teal-100/60 px-4 py-2 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider mt-1">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-teal-900/60 dark:text-teal-100/60 px-4 py-2 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="hourglass_empty">hourglass_empty</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider mt-1">Queue</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-teal-600 dark:bg-teal-500 text-white rounded-xl px-4 py-2 translate-y-[-2px] transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider mt-1">Settings</span>
+</a>
+</div>
+</nav>
+</body></html>

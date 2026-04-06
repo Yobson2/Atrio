@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#008378",
+                    "tertiary": "#924628",
+                    "secondary-container": "#6cf8bb",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-container": "#eceef0",
+                    "on-tertiary-fixed-variant": "#773215",
+                    "on-secondary": "#ffffff",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-tertiary-fixed": "#370e00",
+                    "outline": "#6d7a77",
+                    "surface-bright": "#f7f9fb",
+                    "on-tertiary-container": "#fffbff",
+                    "surface-tint": "#006a61",
+                    "error": "#ba1a1a",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#4edea3",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#191c1e",
+                    "secondary": "#006c49",
+                    "surface-variant": "#e0e3e5",
+                    "on-secondary-fixed": "#002113",
+                    "on-primary-fixed": "#00201d",
+                    "on-secondary-container": "#00714d",
+                    "primary": "#00685f",
+                    "outline-variant": "#bcc9c6",
+                    "inverse-on-surface": "#eff1f3",
+                    "secondary-fixed": "#6ffbbe",
+                    "inverse-surface": "#2d3133",
+                    "tertiary-container": "#b05e3d",
+                    "on-background": "#191c1e",
+                    "on-surface-variant": "#3d4947",
+                    "on-primary-container": "#f4fffc",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb59a",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#f7f9fb",
+                    "on-primary-fixed-variant": "#005049",
+                    "surface": "#f7f9fb",
+                    "tertiary-fixed": "#ffdbce",
+                    "inverse-primary": "#6bd8cb",
+                    "surface-dim": "#d8dadc",
+                    "on-secondary-fixed-variant": "#005236",
+                    "primary-fixed-dim": "#6bd8cb",
+                    "primary-fixed": "#89f5e7",
+                    "surface-container-low": "#f2f4f6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .ambient-shadow {
+        box-shadow: 0px 12px 32px rgba(25, 28, 30, 0.06);
+      }
+      .glass-effect {
+        background: rgba(247, 249, 251, 0.8);
+        backdrop-filter: blur(20px);
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface min-h-screen flex flex-col items-center justify-center p-6 text-on-surface">
+<!-- Auth Header Component -->
+<header class="fixed top-0 w-full z-50 flex items-center justify-between px-6 py-6 bg-white/80 backdrop-blur-md">
+<div class="flex items-center gap-2">
+<span class="text-teal-700 font-bold text-xl tracking-tighter">Atrio</span>
+</div>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="close">close</span>
+</a>
+</header>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-md mt-16">
+<!-- Asymmetric Decorative Element -->
+<div class="mb-10 relative">
+<div class="absolute -top-12 -left-12 w-32 h-32 bg-secondary-container/20 rounded-full blur-3xl"></div>
+<div class="relative z-10 flex flex-col gap-3">
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface">Reset Password</h1>
+<p class="text-on-surface-variant body-md leading-relaxed max-w-sm">
+                    Enter the email associated with your account and we'll send an authentication link to reset your password.
+                </p>
+</div>
+</div>
+<!-- Form Section -->
+<div class="bg-surface-container-lowest ambient-shadow rounded-3xl p-8 flex flex-col gap-8 border border-outline-variant/15">
+<!-- Illustration / Icon Representative Area -->
+<div class="flex justify-center py-4">
+<div class="w-20 h-20 bg-primary/5 rounded-2xl flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="mail_lock">mail_lock</span>
+</div>
+</div>
+<form action="#" class="flex flex-col gap-6" method="POST">
+<!-- Input Group -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold tracking-wide text-on-surface px-1" for="email">Email Address</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-xl" data-icon="mail">mail</span>
+</div>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-4 pl-12 pr-4 text-on-surface placeholder:text-outline/60 focus:ring-2 focus:ring-primary transition-all outline-none" id="email" name="email" placeholder="name@salon.com" required="" type="email"/>
+</div>
+</div>
+<!-- Primary Action -->
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary py-4 rounded-xl font-bold text-base tracking-wide ambient-shadow hover:scale-[1.02] active:scale-95 transition-all" type="submit">
+                    Next
+                </button>
+</form>
+<!-- Footer Link -->
+<div class="text-center">
+<p class="text-sm text-on-surface-variant">
+                    Remembered your password? 
+                    <a class="text-primary font-bold hover:underline decoration-2 underline-offset-4 ml-1" href="#">Log in</a>
+</p>
+</div>
+</div>
+<!-- Content Spacer for Mobile Accessibility -->
+<div class="h-12"></div>
+</main>
+<!-- Support Section -->
+<footer class="w-full max-w-md flex justify-between items-center px-4 py-8 text-on-surface-variant/60 text-[11px] font-medium tracking-widest uppercase">
+<span>© 2024 Atrio Inc.</span>
+<div class="flex gap-4">
+<a class="hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="hover:text-primary transition-colors" href="#">Support</a>
+</div>
+</footer>
+<!-- Background Visual Anchors -->
+<div class="fixed bottom-0 right-0 p-8 -z-10 opacity-20 pointer-events-none">
+<span class="material-symbols-outlined text-[200px] text-primary select-none" data-icon="content_cut">content_cut</span>
+</div>
+</body></html>

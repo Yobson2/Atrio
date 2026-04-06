@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Atrio - All Bookings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#008378",
+                        "tertiary": "#924628",
+                        "secondary-container": "#6cf8bb",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-container": "#eceef0",
+                        "on-tertiary-fixed-variant": "#773215",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-tertiary-fixed": "#370e00",
+                        "outline": "#6d7a77",
+                        "surface-bright": "#f7f9fb",
+                        "on-tertiary-container": "#fffbff",
+                        "surface-tint": "#006a61",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "secondary": "#006c49",
+                        "surface-variant": "#e0e3e5",
+                        "on-secondary-fixed": "#002113",
+                        "on-primary-fixed": "#00201d",
+                        "on-secondary-container": "#00714d",
+                        "primary": "#00685f",
+                        "outline-variant": "#bcc9c6",
+                        "inverse-on-surface": "#eff1f3",
+                        "secondary-fixed": "#6ffbbe",
+                        "inverse-surface": "#2d3133",
+                        "tertiary-container": "#b05e3d",
+                        "on-background": "#191c1e",
+                        "on-surface-variant": "#3d4947",
+                        "on-primary-container": "#f4fffc",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f7f9fb",
+                        "on-primary-fixed-variant": "#005049",
+                        "surface": "#f7f9fb",
+                        "tertiary-fixed": "#ffdbce",
+                        "inverse-primary": "#6bd8cb",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-fixed-variant": "#005236",
+                        "primary-fixed-dim": "#6bd8cb",
+                        "primary-fixed": "#89f5e7",
+                        "surface-container-low": "#f2f4f6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        .booking-card {
+            transition: all 0.2s ease;
+        }
+        .booking-card:active {
+            transform: scale(0.98);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface antialiased pb-32">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-[0px_12px_32px_rgba(25,28,30,0.06)] flex items-center justify-between px-6 py-4">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-teal-50 rounded-full transition-colors">
+<span class="material-symbols-outlined text-teal-700">menu</span>
+</button>
+<h1 class="text-xl font-bold tracking-tighter text-teal-700">Atrio</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="Professional headshot of a stylish male barber with a neat beard and modern haircut in studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqB5wVAlS5Sa6_RvDxnJvV3saa22lFzsyZVB8bi1W1wgKP-76w5sIvnSuGBIO95PUK5sov3m0Hgye_1dMkLSueu153-YzS92tle32h7bsUiL6XXtH7yp0HtONQ1cCgnwR52qIJSVxzDP-IoKy8msuvQiqNisPV_qGANghzGhw2QtP08-bHlF0HcNDkoPYasqw1d2bgfiIzD3FRvb4P1DK4hX5mfZq1qp5pmGY5WAb7GMqUyyWLAu5cA6XU1PCYV-EoB_bxvasPk-mM"/>
+</div>
+</div>
+</header>
+<main class="mt-24 px-4 max-w-5xl mx-auto">
+<!-- Editorial Header Section -->
+<section class="mb-8">
+<h2 class="text-3xl font-extrabold tracking-tight text-on-surface mb-2">All Bookings</h2>
+<p class="text-on-surface-variant font-medium text-sm">Manage your salon's daily artisan schedule</p>
+</section>
+<!-- Filter Area: Horizontal Scrollable Chips -->
+<section class="flex gap-3 overflow-x-auto pb-4 no-scrollbar mb-6">
+<button class="flex-shrink-0 px-6 py-2 rounded-full bg-primary text-on-primary font-semibold text-sm shadow-md">All</button>
+<button class="flex-shrink-0 px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-medium text-sm hover:bg-surface-container-highest transition-colors">Pending</button>
+<button class="flex-shrink-0 px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-medium text-sm hover:bg-surface-container-highest transition-colors">Confirmed</button>
+<button class="flex-shrink-0 px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-medium text-sm hover:bg-surface-container-highest transition-colors">Completed</button>
+<button class="flex-shrink-0 px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-medium text-sm hover:bg-surface-container-highest transition-colors">Cancelled</button>
+</section>
+<!-- Sorting & Metadata Summary -->
+<div class="flex items-center justify-between mb-4 px-2">
+<div class="flex items-center gap-2 text-on-surface-variant text-xs font-bold uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm">sort</span>
+<span>Sorted by Date</span>
+</div>
+<div class="text-on-surface-variant text-xs font-medium">
+                Showing 24 entries
+            </div>
+</div>
+<!-- Bookings List (Editorial Cards) -->
+<div class="grid grid-cols-1 gap-4">
+<!-- Booking Item 1 -->
+<div class="booking-card bg-surface-container-lowest p-6 rounded-2xl shadow-[0px_4px_16px_rgba(25,28,30,0.02)] flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<div class="flex flex-col items-center justify-center bg-teal-50 p-3 rounded-xl min-w-[60px]">
+<span class="text-[10px] font-bold uppercase tracking-tighter text-teal-800">Oct</span>
+<span class="text-xl font-extrabold text-teal-700">12</span>
+</div>
+<div>
+<h3 class="text-base font-bold text-on-surface">Julian Rossi</h3>
+<p class="text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">content_cut</span>
+                            Signature Fade &amp; Beard Sculpt
+                        </p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 items-center gap-4 flex-grow md:max-w-md">
+<div>
+<label class="block text-[10px] font-bold text-outline uppercase mb-1">Barber</label>
+<span class="text-sm font-semibold">Alex Precision</span>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-outline uppercase mb-1">Time</label>
+<span class="text-sm font-semibold">09:30 AM</span>
+</div>
+<div class="hidden md:block">
+<label class="block text-[10px] font-bold text-outline uppercase mb-1">Price</label>
+<span class="text-sm font-bold text-teal-700">$65.00</span>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-4 border-t md:border-t-0 pt-4 md:pt-0">
+<div class="md:hidden">
+<span class="text-lg font-bold text-teal-700">$65.00</span>
+</div>
+<span class="px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-[11px] font-bold uppercase">Confirmed</span>
+<button class="p-2 bg-surface-container text-on-surface-variant rounded-full">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Booking Item 2 (Pending State) -->
+<div class="booking-card bg-surface-container-lowest p-6 rounded-2xl shadow-[0px_4px_16px_rgba(25,28,30,0.02)] flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<div class="flex flex-col items-center justify-center bg-slate-100 p-3 rounded-xl min-w-[60px]">
+<span class="text-[10px] font-bold uppercase tracking-tighter text-slate-600">Oct</span>
+<span class="text-xl font-extrabold text-slate-700">12</span>
+</div>
+<div>
+<h3 class="text-base font-bold text-on-surface">Marcus Thorne</h3>
+<p class="text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">content_cut</span>
+                            Artisan Scissor Cut
+                        </p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 items-center gap-4 flex-grow md:max-w-md">
+<div>
+<label class="block text-[10px] font-bold text-outline uppercase mb-1">Barber</label>
+<span class="text-sm font-semibold">Liam Stone</span>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-outline uppercase mb-1">Time</label>
+<span class="text-sm font-semibold">11:00 AM</span>
+</div>
+<div class="hidden md:block">
+<label class="block text-[10px] font-bold text-outline uppercase mb-1">Price</label>
+<span class="text-sm font-bold text-teal-700">$50.00</span>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-4 border-t md:border-t-0 pt-4 md:pt-0">
+<div class="md:hidden">
+<span class="text-lg font-bold text-teal-700">$50.00</span>
+</div>
+<span class="px-4 py-1.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[11px] font-bold uppercase">Pending</span>
+<button class="p-2 bg-surface-container text-on-surface-variant rounded-full">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Booking Item 3 (High Alert / Limited Availability style) -->
+<div class="booking-card bg-surface-container-lowest p-6 rounded-2xl shadow-[0px_4px_16px_rgba(25,28,30,0.02)] border-l-4 border-tertiary flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<div class="flex flex-col items-center justify-center bg-tertiary-fixed p-3 rounded-xl min-w-[60px]">
+<span class="text-[10px] font-bold uppercase tracking-tighter text-on-tertiary-fixed-variant">Oct</span>
+<span class="text-xl font-extrabold text-on-tertiary-fixed">14</span>
+</div>
+<div>
+<h3 class="text-base font-bold text-on-surface">Elena Vane</h3>
+<p class="text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">content_cut</span>
+                            Viking Braid &amp; Undercut
+                        </p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 items-center gap-4 flex-grow md:max-w-md">
+<div>
+<label class="block text-[10px] font-bold text-outline uppercase mb-1">Barber</label>
+<span class="text-sm font-semibold">Sarah Blade</span>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-outline uppercase mb-1">Time</label>
+<span class="text-sm font-semibold">02:15 PM</span>
+</div>
+<div class="hidden md:block">
+<label class="block text-[10px] font-bold text-outline uppercase mb-1">Price</label>
+<span class="text-sm font-bold text-teal-700">$85.00</span>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-4 border-t md:border-t-0 pt-4 md:pt-0">
+<div class="md:hidden">
+<span class="text-lg font-bold text-teal-700">$85.00</span>
+</div>
+<span class="px-4 py-1.5 rounded-full bg-tertiary text-on-tertiary text-[11px] font-bold uppercase">Urgent Edit</span>
+<button class="p-2 bg-surface-container text-on-surface-variant rounded-full">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Booking Item 4 (Completed) -->
+<div class="booking-card bg-surface-container-low opacity-75 p-6 rounded-2xl shadow-[0px_4px_16px_rgba(25,28,30,0.02)] flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<div class="flex flex-col items-center justify-center bg-slate-200 p-3 rounded-xl min-w-[60px]">
+<span class="text-[10px] font-bold uppercase tracking-tighter text-slate-500">Oct</span>
+<span class="text-xl font-extrabold text-slate-500">11</span>
+</div>
+<div>
+<h3 class="text-base font-bold text-on-surface">David Chen</h3>
+<p class="text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">content_cut</span>
+                            Hot Towel Shave
+                        </p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 items-center gap-4 flex-grow md:max-w-md">
+<div>
+<label class="block text-[10px] font-bold text-outline uppercase mb-1">Barber</label>
+<span class="text-sm font-semibold">Alex Precision</span>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-outline uppercase mb-1">Time</label>
+<span class="text-sm font-semibold">05:00 PM</span>
+</div>
+<div class="hidden md:block">
+<label class="block text-[10px] font-bold text-outline uppercase mb-1">Price</label>
+<span class="text-sm font-bold text-teal-700">$45.00</span>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-4 border-t md:border-t-0 pt-4 md:pt-0">
+<div class="md:hidden">
+<span class="text-lg font-bold text-teal-700">$45.00</span>
+</div>
+<span class="px-4 py-1.5 rounded-full bg-slate-400 text-white text-[11px] font-bold uppercase">Completed</span>
+<button class="p-2 bg-surface-container text-on-surface-variant rounded-full">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Owner Action) -->
+<button class="fixed bottom-28 right-6 w-14 h-14 rounded-2xl bg-primary text-on-primary shadow-2xl flex items-center justify-center z-40 transition-transform active:scale-90">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+<!-- Bottom Navigation Bar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full glass-nav shadow-[0px_-8px_24px_rgba(25,28,30,0.04)] flex justify-around items-center px-4 pb-6 pt-3 z-50 rounded-t-2xl">
+<a class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 hover:text-teal-600 transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[11px] font-medium tracking-wide mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-teal-600 text-white rounded-2xl px-5 py-2" href="#">
+<span class="material-symbols-outlined">event_note</span>
+<span class="text-[11px] font-medium tracking-wide mt-1">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 hover:text-teal-600 transition-colors" href="#">
+<span class="material-symbols-outlined">query_stats</span>
+<span class="text-[11px] font-medium tracking-wide mt-1">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 hover:text-teal-600 transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[11px] font-medium tracking-wide mt-1">Profile</span>
+</a>
+</nav>
+<!-- Optional Detail Context Sheet Overlay (Visual Guide Only) -->
+<!-- This would appear when a booking is tapped to show "status update options" -->
+<div class="hidden fixed inset-0 bg-black/40 backdrop-blur-sm z-[60] flex items-end">
+<div class="w-full bg-white rounded-t-[32px] p-8 shadow-2xl">
+<div class="w-12 h-1.5 bg-surface-container-highest rounded-full mx-auto mb-6"></div>
+<h3 class="text-xl font-bold mb-6">Update Booking Status</h3>
+<div class="grid grid-cols-1 gap-3">
+<button class="w-full flex items-center justify-between p-4 bg-teal-50 text-teal-700 rounded-2xl font-bold">
+                    Confirm Appointment <span class="material-symbols-outlined">check_circle</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 bg-surface-container text-on-surface rounded-2xl font-bold">
+                    Mark as Completed <span class="material-symbols-outlined">done_all</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 bg-error-container text-on-error-container rounded-2xl font-bold">
+                    Cancel Booking <span class="material-symbols-outlined">cancel</span>
+</button>
+</div>
+<button class="mt-8 w-full py-4 text-outline font-bold">Dismiss</button>
+</div>
+</div>
+</body></html>

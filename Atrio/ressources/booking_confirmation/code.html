@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Booking Confirmed - Atrio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#008378",
+                    "tertiary": "#924628",
+                    "secondary-container": "#6cf8bb",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-container": "#eceef0",
+                    "on-tertiary-fixed-variant": "#773215",
+                    "on-secondary": "#ffffff",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-tertiary-fixed": "#370e00",
+                    "outline": "#6d7a77",
+                    "surface-bright": "#f7f9fb",
+                    "on-tertiary-container": "#fffbff",
+                    "surface-tint": "#006a61",
+                    "error": "#ba1a1a",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#4edea3",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#191c1e",
+                    "secondary": "#006c49",
+                    "surface-variant": "#e0e3e5",
+                    "on-secondary-fixed": "#002113",
+                    "on-primary-fixed": "#00201d",
+                    "on-secondary-container": "#00714d",
+                    "primary": "#00685f",
+                    "outline-variant": "#bcc9c6",
+                    "inverse-on-surface": "#eff1f3",
+                    "secondary-fixed": "#6ffbbe",
+                    "inverse-surface": "#2d3133",
+                    "tertiary-container": "#b05e3d",
+                    "on-background": "#191c1e",
+                    "on-surface-variant": "#3d4947",
+                    "on-primary-container": "#f4fffc",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb59a",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#f7f9fb",
+                    "on-primary-fixed-variant": "#005049",
+                    "surface": "#f7f9fb",
+                    "tertiary-fixed": "#ffdbce",
+                    "inverse-primary": "#6bd8cb",
+                    "surface-dim": "#d8dadc",
+                    "on-secondary-fixed-variant": "#005236",
+                    "primary-fixed-dim": "#6bd8cb",
+                    "primary-fixed": "#89f5e7",
+                    "surface-container-low": "#f2f4f6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface min-h-screen flex flex-col">
+<!-- Top Navigation Suppression (As per mandate: transactional screens suppress global nav) -->
+<main class="flex-grow flex flex-col items-center justify-center px-6 py-12 max-w-lg mx-auto w-full">
+<!-- Success Animation & Header -->
+<div class="flex flex-col items-center text-center mb-10">
+<div class="w-24 h-24 bg-primary rounded-full flex items-center justify-center mb-6 shadow-[0px_12px_32px_rgba(0,104,95,0.24)]">
+<span class="material-symbols-outlined text-white text-5xl" style="font-variation-settings: 'FILL' 0, 'wght' 600;">check</span>
+</div>
+<h1 class="text-3xl font-extrabold tracking-tight text-primary mb-3">Booking Confirmed!</h1>
+<p class="text-on-surface-variant leading-relaxed">Your artisan grooming experience is scheduled. We've sent a confirmation to your email.</p>
+</div>
+<!-- Elevated Summary Card (Bento Style Layering) -->
+<div class="w-full bg-surface-container-lowest rounded-3xl p-8 shadow-[0px_12px_32px_rgba(25,28,30,0.06)] relative overflow-hidden">
+<!-- Subtle Texture Accent -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16"></div>
+<!-- Salon Info Header -->
+<div class="flex items-center gap-4 mb-8">
+<img class="w-14 h-14 rounded-2xl object-cover bg-surface-container" data-alt="interior of a luxury modern barbershop with emerald green leather chairs and minimalist wood shelving" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1plAeF8IdDkU3pcwovED90TEz2jFOgqw4uJ6i_H3yuqiWQYbR0iPgQxAhQC7d6EQou-knpXYxkIEtHknhszgtFDMcTgu6AjmRInNzQS_mKA2-cYyn6QctRvysjonFyEQsOS88b0Apj2MbteekNS277K-lGk1bzi7U9bh6791BsGq6jxn4bA_5JnHOyEZB_wMARjYtuq8v8Z97T7itCwgVKWj_MmsoniBt0N3e8pUQH3h6HpwrMxIJyDEdX6tBrPDG35fT6eaXGbqr"/>
+<div>
+<h2 class="text-lg font-bold tracking-tight">The Precision Studio</h2>
+<div class="flex items-center text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-base mr-1">location_on</span>
+<span>Downtown Artisan District</span>
+</div>
+</div>
+</div>
+<!-- Booking Details Grid -->
+<div class="grid grid-cols-1 gap-6">
+<!-- Service & Barber Row -->
+<div class="flex items-center justify-between border-b border-outline-variant/15 pb-6">
+<div class="flex flex-col">
+<span class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">Service</span>
+<span class="text-md font-semibold">Signature Scissor Cut</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">Barber</span>
+<div class="flex items-center gap-2 justify-end">
+<span class="text-md font-semibold">Alex Precision</span>
+<img class="w-6 h-6 rounded-full object-cover" data-alt="portrait of a professional male barber with a well-groomed beard wearing a dark denim apron" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLk4v3aABqhD5qXqtpr9PCx6kYmsJxckTfqZdqI1AZSxs3BJ1RjhxuSn2ixa_EihC57A7iPmj6KNN2-S4vV1wo4tCYMQ6ievzNgencSN3mm_gWPRBG4Z2kvM0UJaCE9PSqPcPu-7bv_oLji3cNiG5CXCsBLdMUx1FGoUJHVsnQKZD6KrtOhzI2AMUS6an5ZwQCNzOvkQE3OP-e5kuNB2y02Qgg61dzGUa5fB0glq6U84tGU-SRtOffAKb7Ei_kXRQTIeLVbFU8nMth"/>
+</div>
+</div>
+</div>
+<!-- Date & Time Row (Asymmetric focus) -->
+<div class="bg-surface-container-low rounded-2xl p-5 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<div>
+<span class="block text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Date &amp; Time</span>
+<span class="text-md font-bold">Tuesday, Oct 24 • 2:30 PM</span>
+</div>
+</div>
+<div class="text-right">
+<span class="text-xs text-on-surface-variant">45 mins</span>
+</div>
+</div>
+<!-- Price & Type Summary -->
+<div class="pt-2">
+<div class="flex justify-between items-center mb-2">
+<span class="text-on-surface-variant">Booking Type</span>
+<span class="font-medium bg-secondary-fixed text-on-secondary-fixed px-3 py-1 rounded-full text-xs">Premium In-Studio</span>
+</div>
+<div class="flex justify-between items-center text-xl font-extrabold text-on-surface">
+<span>Total Price</span>
+<span class="text-primary">$65.00</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Area -->
+<div class="w-full mt-10 space-y-4">
+<!-- Primary Action with Lift Gradient -->
+<button class="w-full h-14 rounded-2xl bg-gradient-to-br from-primary to-primary-container text-white font-bold tracking-tight shadow-[0px_8px_24px_rgba(0,104,95,0.15)] hover:translate-y-[-2px] transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+<span>View My Bookings</span>
+<span class="material-symbols-outlined text-xl">arrow_forward</span>
+</button>
+<!-- Ghost Secondary Action -->
+<button class="w-full h-14 rounded-2xl text-on-surface-variant font-semibold hover:bg-surface-container-low transition-colors active:scale-[0.98]">
+                Back to Home
+            </button>
+</div>
+<!-- Meta Hint -->
+<p class="mt-8 text-sm text-on-surface-variant/60 flex items-center gap-2">
+<span class="material-symbols-outlined text-base">info</span>
+            Rescheduling available up to 24h before
+        </p>
+</main>
+<!-- Navigation suppression (As per "Destination Rule" - transactional success pages hide global shell) -->
+</body></html>

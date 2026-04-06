@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Atrio Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#00201d",
+                    "tertiary": "#924628",
+                    "surface-bright": "#f7f9fb",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#f7f9fb",
+                    "error": "#ba1a1a",
+                    "secondary-container": "#6cf8bb",
+                    "on-secondary-container": "#00714d",
+                    "on-primary-fixed-variant": "#005049",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#6bd8cb",
+                    "outline-variant": "#bcc9c6",
+                    "on-surface-variant": "#3d4947",
+                    "primary-container": "#008378",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#773215",
+                    "surface-container": "#eceef0",
+                    "on-secondary-fixed": "#002113",
+                    "inverse-on-surface": "#eff1f3",
+                    "primary-fixed": "#89f5e7",
+                    "surface-dim": "#d8dadc",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-low": "#f2f4f6",
+                    "secondary-fixed-dim": "#4edea3",
+                    "on-primary-container": "#f4fffc",
+                    "tertiary-container": "#b05e3d",
+                    "surface-container-high": "#e6e8ea",
+                    "secondary-fixed": "#6ffbbe",
+                    "tertiary-fixed": "#ffdbce",
+                    "inverse-surface": "#2d3133",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-container": "#fffbff",
+                    "inverse-primary": "#6bd8cb",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#e0e3e5",
+                    "primary": "#00685f",
+                    "background": "#f7f9fb",
+                    "on-background": "#191c1e",
+                    "outline": "#6d7a77",
+                    "on-secondary-fixed-variant": "#005236",
+                    "tertiary-fixed-dim": "#ffb59a",
+                    "surface-tint": "#006a61",
+                    "secondary": "#006c49",
+                    "on-tertiary-fixed": "#370e00",
+                    "on-surface": "#191c1e",
+                    "surface-variant": "#e0e3e5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col items-center justify-center selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Header Shell (Suppressed Nav as per Focused Journey Rule) -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-[0px_12px_32px_rgba(25,28,30,0.06)]">
+<div class="flex items-center justify-between px-6 h-16 w-full max-w-md mx-auto">
+<button class="text-teal-700 dark:text-teal-400 hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="text-xl font-bold text-teal-800 dark:text-teal-300 tracking-tighter font-inter">Atrio</h1>
+<div class="w-6"></div> <!-- Spacer for balance -->
+</div>
+</header>
+<main class="w-full max-w-md px-6 py-24 flex flex-col gap-10">
+<!-- Editorial Header Section -->
+<div class="space-y-2 text-center">
+<h2 class="text-3xl font-extrabold tracking-tight text-on-background headline-lg">Choose Your Experience</h2>
+<p class="text-on-surface-variant body-md leading-relaxed">How will you be using Atrio?</p>
+</div>
+<!-- Role Selection Grid (Asymmetric Editorial Style) -->
+<div class="grid grid-cols-1 gap-6">
+<!-- Client Option -->
+<button class="group relative flex flex-col items-start p-8 rounded-2xl bg-surface-container-lowest shadow-[0px_12px_32px_rgba(25,28,30,0.06)] border-2 border-transparent hover:border-primary-fixed-dim transition-all duration-300 text-left active:scale-[0.98]">
+<div class="mb-6 p-4 rounded-xl bg-surface-container-low text-primary group-hover:bg-primary-fixed-dim group-hover:text-on-primary-fixed transition-colors duration-300">
+<span class="material-symbols-outlined text-4xl" data-icon="person">person</span>
+</div>
+<h3 class="text-xl font-bold tracking-tight mb-2 text-on-background">Client</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed max-w-[240px]">I want to discover and book professional grooming services.</p>
+<!-- Hidden selection indicator (Interactive State) -->
+<div class="absolute top-4 right-4 opacity-0 group-focus-within:opacity-100 group-active:opacity-100 transition-opacity">
+<div class="bg-primary text-white p-1 rounded-full">
+<span class="material-symbols-outlined text-sm" data-icon="check">check</span>
+</div>
+</div>
+</button>
+<!-- Salon Owner Option -->
+<button class="group relative flex flex-col items-start p-8 rounded-2xl bg-surface-container-lowest shadow-[0px_12px_32px_rgba(25,28,30,0.06)] border-2 border-transparent hover:border-primary-fixed-dim transition-all duration-300 text-left active:scale-[0.98]">
+<div class="mb-6 p-4 rounded-xl bg-surface-container-low text-primary group-hover:bg-primary-fixed-dim group-hover:text-on-primary-fixed transition-colors duration-300">
+<span class="material-symbols-outlined text-4xl" data-icon="storefront">storefront</span>
+</div>
+<h3 class="text-xl font-bold tracking-tight mb-2 text-on-background">Salon Owner</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed max-w-[240px]">I want to manage my salon, staff, and appointments.</p>
+<!-- Hidden selection indicator (Interactive State) -->
+<div class="absolute top-4 right-4 opacity-0 group-focus-within:opacity-100 group-active:opacity-100 transition-opacity">
+<div class="bg-primary text-white p-1 rounded-full">
+<span class="material-symbols-outlined text-sm" data-icon="check">check</span>
+</div>
+</div>
+</button>
+</div>
+<!-- Visual Anchor / Decorative Element -->
+<div class="relative w-full h-32 rounded-3xl overflow-hidden mt-2 group">
+<img alt="High-end salon interior" class="w-full h-full object-cover grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-60 transition-all duration-700" data-alt="Close-up of luxury barber tools on a dark marble surface with soft atmospheric studio lighting and deep shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0rKcfQ_RpX7CGdgeqUhqhtO_gHTTrwrpct9y0VLr__0BlVRqsVJ7gJhebjOz5OcaWYTUFaeNsx_phrICsx7sTlqFphg_ebyhYrYmINoeaTxxXIUYWrljC7jEHBeoBwf82Ivju__zWAHqvjSopQr_kK4MAWp7qzwLnlJ-6SZllc_8mLEw9GrWmnQn8PD9u45g7-_0005xRH6PlY4iH5tyvQMObFX-NbYpPX_Mv51fCuuTEfxfHqdAQ1OONedeD3MgmnrX0a_3Sw1ni"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+</div>
+<!-- CTA Section -->
+<div class="flex flex-col gap-4 mt-4">
+<button class="w-full h-14 rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold text-base shadow-[0px_12px_32px_rgba(0,104,95,0.2)] hover:shadow-[0px_12px_32px_rgba(0,104,95,0.4)] hover:-translate-y-0.5 transition-all duration-300 active:scale-95">
+                Complete Setup
+            </button>
+<button class="w-full py-2 text-on-surface-variant font-medium text-sm hover:text-primary transition-colors text-center">
+                Need help? Contact support
+            </button>
+</div>
+</main>
+<!-- Suppressed Bottom Navigation for focused journey -->
+<footer class="fixed bottom-0 w-full max-w-md bg-white/50 backdrop-blur-sm px-6 py-4 flex items-center justify-center md:hidden">
+<p class="text-[10px] uppercase tracking-[0.2em] font-bold text-outline-variant">The Editorial Artisan Experience</p>
+</footer>
+</body></html>

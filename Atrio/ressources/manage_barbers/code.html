@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffdbce",
+                    "surface-variant": "#e0e3e5",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-primary-container": "#f4fffc",
+                    "tertiary-fixed-dim": "#ffb59a",
+                    "surface-container-high": "#e6e8ea",
+                    "on-surface": "#191c1e",
+                    "primary-fixed-dim": "#6bd8cb",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-primary": "#6bd8cb",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#fffbff",
+                    "secondary-fixed-dim": "#4edea3",
+                    "on-tertiary-fixed": "#370e00",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#d8dadc",
+                    "surface-container": "#eceef0",
+                    "surface-container-highest": "#e0e3e5",
+                    "outline-variant": "#bcc9c6",
+                    "inverse-surface": "#2d3133",
+                    "secondary-fixed": "#6ffbbe",
+                    "on-tertiary-fixed-variant": "#773215",
+                    "secondary-container": "#6cf8bb",
+                    "on-secondary-container": "#00714d",
+                    "on-secondary-fixed": "#002113",
+                    "on-primary-fixed": "#00201d",
+                    "on-surface-variant": "#3d4947",
+                    "background": "#f7f9fb",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "primary-container": "#008378",
+                    "on-background": "#191c1e",
+                    "tertiary-container": "#b05e3d",
+                    "surface": "#f7f9fb",
+                    "secondary": "#006c49",
+                    "primary-fixed": "#89f5e7",
+                    "surface-bright": "#f7f9fb",
+                    "outline": "#6d7a77",
+                    "surface-container-low": "#f2f4f6",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#005236",
+                    "tertiary": "#924628",
+                    "on-error-container": "#93000a",
+                    "primary": "#00685f",
+                    "on-primary-fixed-variant": "#005049",
+                    "surface-tint": "#006a61"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-[0px_12px_32px_rgba(25,28,30,0.06)]">
+<div class="flex justify-between items-center px-6 py-4 max-w-full">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-colors rounded-full active:scale-95 duration-200 ease-in-out">
+<span class="material-symbols-outlined text-teal-700">menu</span>
+</button>
+<h1 class="text-xl font-semibold tracking-tight text-teal-700">Barbers</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-on-primary p-2 rounded-xl shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined">add</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/10">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="close-up portrait of a professional man with a groomed beard and modern haircut in a bright studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqUVXbyKc9pz7iBdEmLvXnT11Ichdzrr5E_HBsVEI-qoO3_DF9JPComPWzvtFiGtWhhXlhlsdPBioET-ADWwUkwoWxksS4fdxfXYyVKuBbhKfuSNl5S9ZhaioZ2heKIGum70jZEHel1IGX8uMej_OhPUQlxktPXbvORHcbmW6ekrOQnuEz6VsoKd3xsnhAeerj82RHniEZEVR4YiwlVUBZ2Eb3nEi3VOX53DfzSZvf4LBhIg6Rr9rQN6Y8DxpFtB8zYXQOdLYjkzQd"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-5xl mx-auto">
+<!-- Stats/Header Overview -->
+<section class="mb-10">
+<div class="bg-primary-container rounded-3xl p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative overflow-hidden">
+<div class="z-10">
+<p class="text-on-primary-container/80 font-medium mb-1">Total Staff</p>
+<h2 class="text-4xl font-black text-on-primary-container">12 Active Barbers</h2>
+<p class="text-on-primary-container/70 mt-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                        85% availability today
+                    </p>
+</div>
+<div class="z-10 flex gap-2">
+<button class="bg-white/20 backdrop-blur-md text-white px-6 py-3 rounded-2xl font-bold hover:bg-white/30 transition-all">
+                        View Schedule
+                    </button>
+</div>
+<!-- Abstract background shape -->
+<div class="absolute -right-10 -bottom-10 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
+</div>
+</section>
+<!-- Barber Management Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Barber Card 1 -->
+<div class="bg-surface-container-lowest rounded-[2rem] p-6 shadow-[0px_12px_32px_rgba(25,28,30,0.06)] group hover:translate-y-[-4px] transition-all duration-300">
+<div class="flex items-start justify-between mb-6">
+<div class="flex gap-4">
+<div class="relative">
+<img alt="Marcus V." class="w-20 h-20 rounded-2xl object-cover" data-alt="professional barber with tattoos and stylish glasses smiling in a modern high-end barbershop environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClPTr9MfLBEu2Rxp-ZLMZzBMqCgRR-xv3HtfsVk9s-9g0do4o2R7-jZDn04bNwiYDWUo61s1RA0YiUn-pAvxPUfBvVEbLCrCa1CW43f-d6xBunRTNzUz0v9nhPBKwZZvtv14nMBQVvr4vjHV4EL76tnx29Z7tIPwEpClu2zevUcO4WRIZPD1fr_JvNTqsRDhm2Tou7bBQy4cTkXBiOfIqGDG4R5OqGSU0u4VA0JXatLSmWsUcdqJHkZSaacDAW-0xWbmq3If4xLV_o"/>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 bg-secondary-fixed rounded-full border-4 border-white"></div>
+</div>
+<div>
+<h3 class="text-xl font-bold text-on-surface">Marcus Vance</h3>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold">4.9</span>
+<span class="text-on-surface-variant text-xs font-medium ml-1">(128 reviews)</span>
+</div>
+<span class="inline-block mt-2 px-3 py-1 bg-secondary-container text-on-secondary-container text-[11px] font-bold uppercase tracking-widest rounded-full">
+                                Senior Barber
+                            </span>
+</div>
+</div>
+<div class="flex gap-1">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 text-error hover:bg-error-container/30 rounded-xl transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-4 rounded-2xl">
+<p class="text-[10px] uppercase tracking-wider font-bold text-on-surface-variant mb-1">Status</p>
+<p class="text-sm font-bold text-on-secondary-fixed-variant flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Available
+                        </p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-2xl">
+<p class="text-[10px] uppercase tracking-wider font-bold text-on-surface-variant mb-1">Next Appt</p>
+<p class="text-sm font-bold text-on-surface">2:30 PM</p>
+</div>
+</div>
+</div>
+<!-- Barber Card 2 -->
+<div class="bg-surface-container-lowest rounded-[2rem] p-6 shadow-[0px_12px_32px_rgba(25,28,30,0.06)] group hover:translate-y-[-4px] transition-all duration-300">
+<div class="flex items-start justify-between mb-6">
+<div class="flex gap-4">
+<div class="relative">
+<img alt="Elena R." class="w-20 h-20 rounded-2xl object-cover" data-alt="female professional barber with artistic flair and focused expression in a luxury hair studio with warm ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVqWzvtGGOmZHO5HWqGCxPO4pcRKJSqT5sJB1cxjMb9WCBw9lh9FAr3c3r3eww-pn4qeivh5JkEebvUwYwRNItmIBn0QCgQXtOROSyj2oM-1ZD6WfbLWZI7n_NO-5V1sv0lmZ_NSC0sx3rYC9OV5yEUeuoRGL3JHIDAQMQ6IO_F4yK9WUmDyHy__9sbGTNtrCfPJ4jAl6Sq5VMrM_jgXz0HuFUb3c84YcIf_5oSRmtCnBT1Txni0zp9zPIZHMECOG6LJvV7a-B2OQR"/>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 bg-tertiary rounded-full border-4 border-white"></div>
+</div>
+<div>
+<h3 class="text-xl font-bold text-on-surface">Elena Rodriguez</h3>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold">4.8</span>
+<span class="text-on-surface-variant text-xs font-medium ml-1">(94 reviews)</span>
+</div>
+<span class="inline-block mt-2 px-3 py-1 bg-surface-container-high text-on-surface-variant text-[11px] font-bold uppercase tracking-widest rounded-full">
+                                Specialist
+                            </span>
+</div>
+</div>
+<div class="flex gap-1">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 text-error hover:bg-error-container/30 rounded-xl transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-4 rounded-2xl">
+<p class="text-[10px] uppercase tracking-wider font-bold text-on-surface-variant mb-1">Status</p>
+<p class="text-sm font-bold text-error flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error"></span> Busy
+                        </p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-2xl">
+<p class="text-[10px] uppercase tracking-wider font-bold text-on-surface-variant mb-1">Next Appt</p>
+<p class="text-sm font-bold text-on-surface">Ongoing</p>
+</div>
+</div>
+</div>
+<!-- Barber Card 3 -->
+<div class="bg-surface-container-lowest rounded-[2rem] p-6 shadow-[0px_12px_32px_rgba(25,28,30,0.06)] group hover:translate-y-[-4px] transition-all duration-300">
+<div class="flex items-start justify-between mb-6">
+<div class="flex gap-4">
+<div class="relative">
+<img alt="Julian S." class="w-20 h-20 rounded-2xl object-cover" data-alt="portrait of a young male barber with sharp fade haircut standing confidently in a clean white barbershop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBshsuomTNqX3Mws7m3kxZE8X1kSmZLnuD_iaU6NOFwt55aZVe-4M6mh2_xbqdysod_-YVoBvsfmMOJf25dURv6uQ5QuWf3whxLLv2dVvfnHP2GI2AuwQhYVyUp7t7g_KP9Z72WlwuwD0iXwDvYZ5sLpIt_CUyF0ill50eK0oqu361ja-cm0Bxv1Oe28pw1t81ma6wkiMZ41rt7PGLix8BenKgGWbP-pCBbN6ldK1Or6FvGJ3utOJ4CQwEt2zNWRsTCL6E1RIvE86H4"/>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 bg-secondary-fixed rounded-full border-4 border-white"></div>
+</div>
+<div>
+<h3 class="text-xl font-bold text-on-surface">Julian Silas</h3>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold">5.0</span>
+<span class="text-on-surface-variant text-xs font-medium ml-1">(210 reviews)</span>
+</div>
+<span class="inline-block mt-2 px-3 py-1 bg-secondary-container text-on-secondary-container text-[11px] font-bold uppercase tracking-widest rounded-full">
+                                Master Barber
+                            </span>
+</div>
+</div>
+<div class="flex gap-1">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 text-error hover:bg-error-container/30 rounded-xl transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-4 rounded-2xl">
+<p class="text-[10px] uppercase tracking-wider font-bold text-on-surface-variant mb-1">Status</p>
+<p class="text-sm font-bold text-on-secondary-fixed-variant flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Available
+                        </p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-2xl">
+<p class="text-[10px] uppercase tracking-wider font-bold text-on-surface-variant mb-1">Next Appt</p>
+<p class="text-sm font-bold text-on-surface">4:00 PM</p>
+</div>
+</div>
+</div>
+<!-- Barber Card 4 -->
+<div class="bg-surface-container-lowest rounded-[2rem] p-6 shadow-[0px_12px_32px_rgba(25,28,30,0.06)] group hover:translate-y-[-4px] transition-all duration-300">
+<div class="flex items-start justify-between mb-6">
+<div class="flex gap-4">
+<div class="relative">
+<img alt="Leo K." class="w-20 h-20 rounded-2xl object-cover" data-alt="close-up of a masculine barber with short hair and serious expression in a studio with moody lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg3rE2Ak3yNeH_X_DMtDV1PuvS4230GSilV6lId_T5IBKCdreASusedGo8kR4QchocjkznfiMkbpQttdOy3dheE0sq2gvSlJ-otVbPy33AF72Q0ve5s2EzkFUwN95HTwN6_xxWtBnKpokVUa_TG-8uh2syI4W3iywfoC9CVc2DRcrOw97LFyJ-DfNNpxSiq0Qe4petZqqNd6WVgdzO4v4GGgBhEYJuL56BUbu7FiTIxLoBqjAYpx7NljcljUNGCucLDCURCd7Rk2XI"/>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 bg-outline-variant rounded-full border-4 border-white"></div>
+</div>
+<div>
+<h3 class="text-xl font-bold text-on-surface">Leo Kash</h3>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star_half</span>
+<span class="text-sm font-bold">4.7</span>
+<span class="text-on-surface-variant text-xs font-medium ml-1">(42 reviews)</span>
+</div>
+<span class="inline-block mt-2 px-3 py-1 bg-surface-container-high text-on-surface-variant text-[11px] font-bold uppercase tracking-widest rounded-full">
+                                Apprentice
+                            </span>
+</div>
+</div>
+<div class="flex gap-1">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 text-error hover:bg-error-container/30 rounded-xl transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-4 rounded-2xl">
+<p class="text-[10px] uppercase tracking-wider font-bold text-on-surface-variant mb-1">Status</p>
+<p class="text-sm font-bold text-on-surface-variant flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-outline"></span> Offline
+                        </p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-2xl">
+<p class="text-[10px] uppercase tracking-wider font-bold text-on-surface-variant mb-1">Next Appt</p>
+<p class="text-sm font-bold text-on-surface">Tomorrow</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-4 left-4 right-4 rounded-2xl z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-[0px_12px_32px_rgba(25,28,30,0.08)]">
+<div class="flex justify-around items-center h-20 px-2">
+<a class="flex flex-col items-center justify-center text-teal-900/60 dark:text-teal-100/60 px-4 py-2 hover:bg-teal-50 dark:hover:bg-teal-900/30 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider mt-1">Discover</span>
+</a>
+<a class="flex flex-col items-center justify-center text-teal-900/60 dark:text-teal-100/60 px-4 py-2 hover:bg-teal-50 dark:hover:bg-teal-900/30 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">event_note</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider mt-1">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-teal-600 dark:bg-teal-500 text-white rounded-xl px-4 py-2 translate-y-[-2px] transition-transform duration-300" href="#">
+<span class="material-symbols-outlined">content_cut</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider mt-1">Staff</span>
+</a>
+<a class="flex flex-col items-center justify-center text-teal-900/60 dark:text-teal-100/60 px-4 py-2 hover:bg-teal-50 dark:hover:bg-teal-900/30 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider mt-1">Settings</span>
+</a>
+</div>
+</nav>
+</body></html>

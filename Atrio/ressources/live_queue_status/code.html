@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffdbce",
+                    "surface-variant": "#e0e3e5",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-primary-container": "#f4fffc",
+                    "tertiary-fixed-dim": "#ffb59a",
+                    "surface-container-high": "#e6e8ea",
+                    "on-surface": "#191c1e",
+                    "primary-fixed-dim": "#6bd8cb",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-primary": "#6bd8cb",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#fffbff",
+                    "secondary-fixed-dim": "#4edea3",
+                    "on-tertiary-fixed": "#370e00",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#d8dadc",
+                    "surface-container": "#eceef0",
+                    "surface-container-highest": "#e0e3e5",
+                    "outline-variant": "#bcc9c6",
+                    "inverse-surface": "#2d3133",
+                    "secondary-fixed": "#6ffbbe",
+                    "on-tertiary-fixed-variant": "#773215",
+                    "secondary-container": "#6cf8bb",
+                    "on-secondary-container": "#00714d",
+                    "on-secondary-fixed": "#002113",
+                    "on-primary-fixed": "#00201d",
+                    "on-surface-variant": "#3d4947",
+                    "background": "#f7f9fb",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "primary-container": "#008378",
+                    "on-background": "#191c1e",
+                    "tertiary-container": "#b05e3d",
+                    "surface": "#f7f9fb",
+                    "secondary": "#006c49",
+                    "primary-fixed": "#89f5e7",
+                    "surface-bright": "#f7f9fb",
+                    "outline": "#6d7a77",
+                    "surface-container-low": "#f2f4f6",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#005236",
+                    "tertiary": "#924628",
+                    "on-error-container": "#93000a",
+                    "primary": "#00685f",
+                    "on-primary-fixed-variant": "#005049",
+                    "surface-tint": "#006a61"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .ambient-shadow {
+            box-shadow: 0px 12px 32px rgba(25, 28, 30, 0.06);
+        }
+        .pulse-live {
+            box-shadow: 0 0 0 0 rgba(186, 26, 26, 0.7);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(186, 26, 26, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(186, 26, 26, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(186, 26, 26, 0); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-[0px_12px_32px_rgba(25,28,30,0.06)] flex justify-between items-center px-6 py-4 max-w-full">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-colors rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-teal-700 dark:text-teal-400">menu</span>
+</button>
+<div class="flex items-center gap-3">
+<h1 class="text-xl font-semibold tracking-tight font-headline text-teal-700 dark:text-teal-400">Queue Status</h1>
+<div class="flex items-center bg-error-container px-2.5 py-0.5 rounded-full">
+<span class="w-1.5 h-1.5 bg-error rounded-full mr-1.5 pulse-live"></span>
+<span class="text-[10px] font-bold text-on-error-container tracking-widest uppercase">LIVE</span>
+</div>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high border-2 border-primary/10">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="close-up portrait of a stylish man with a sharp beard and modern haircut, studio lighting with neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPqRvl9vLGNc9JFhA-cD2-qWFmjQgufel4UZzZpq8NpvLAYdZ1j4A2NFiaZ2mTfApXye_GG-hdbq6_oEeS-o_mnJRgAaZ0S-kDrdK3SWtsG_5SsPQHxi8PQvqsmQrhluQlSbmrBl9fXb8i3w7OhOUyHUecDeCWd0JYXIW-BsN5F2Yffu_Gp3tBIufh5A0JA1oodYaW1mJJ-dtGpk4xyx1T7CQQukjh9w-PLyA8xXhg6Jc40RJFvupkm-NXRKfNMqYX6pu7f40u-RA2"/>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-4xl mx-auto space-y-8">
+<!-- Stats Row -->
+<section class="grid grid-cols-3 gap-4">
+<div class="bg-surface-container-low rounded-2xl p-4 flex flex-col items-center justify-center text-center space-y-1">
+<span class="text-on-surface-variant text-[11px] font-semibold uppercase tracking-wider">Total Waiting</span>
+<p class="text-2xl font-black text-primary">14</p>
+</div>
+<div class="bg-surface-container-low rounded-2xl p-4 flex flex-col items-center justify-center text-center space-y-1">
+<span class="text-on-surface-variant text-[11px] font-semibold uppercase tracking-wider">Serving</span>
+<p class="text-2xl font-black text-primary">3</p>
+</div>
+<div class="bg-surface-container-low rounded-2xl p-4 flex flex-col items-center justify-center text-center space-y-1">
+<span class="text-on-surface-variant text-[11px] font-semibold uppercase tracking-wider">Est. Wait</span>
+<p class="text-2xl font-black text-primary">42m</p>
+</div>
+</section>
+<!-- Your Position Card (Teal Container) -->
+<section class="relative group">
+<div class="absolute -inset-0.5 bg-gradient-to-br from-primary to-primary-container rounded-[26px] blur opacity-20 group-hover:opacity-30 transition duration-500"></div>
+<div class="relative bg-gradient-to-br from-primary to-primary-container rounded-3xl p-8 text-white ambient-shadow overflow-hidden">
+<!-- Abstract Texture Background -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-20 -mt-20 blur-3xl"></div>
+<div class="absolute bottom-0 left-0 w-48 h-48 bg-black/5 rounded-full -ml-10 -mb-10 blur-2xl"></div>
+<div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
+<div class="space-y-4">
+<div class="space-y-1">
+<span class="text-on-primary-container/80 text-sm font-medium tracking-wide">Your Current Position</span>
+<div class="flex items-baseline gap-2">
+<h2 class="text-7xl font-black tracking-tighter">#5</h2>
+<span class="text-on-primary-container/70 text-lg">in line</span>
+</div>
+</div>
+<div class="flex items-center gap-3 bg-white/10 w-fit px-4 py-2 rounded-xl backdrop-blur-sm">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'opsz' 20;">schedule</span>
+<p class="text-sm font-semibold">Estimated wait: 12 min</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 min-w-[160px]">
+<button class="bg-white text-primary font-bold py-4 px-6 rounded-xl hover:scale-[1.02] active:scale-95 transition-all ambient-shadow text-center">
+                            I'm Here
+                        </button>
+<button class="bg-white/10 hover:bg-white/20 text-white font-medium py-3 px-6 rounded-xl transition-all text-sm border border-white/10 text-center">
+                            Leave Queue
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Queue Entries List -->
+<section class="space-y-6">
+<div class="flex items-center justify-between px-2">
+<h3 class="text-lg font-bold tracking-tight text-on-surface">Queue Details</h3>
+<span class="text-xs font-semibold text-on-surface-variant uppercase tracking-widest">Live Updates</span>
+</div>
+<div class="space-y-3">
+<!-- Entry 1 (Serving) -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 flex items-center justify-between ambient-shadow border border-primary/5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">content_cut</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Marcus J.</p>
+<p class="text-xs font-medium text-secondary flex items-center gap-1">
+<span class="w-1.5 h-1.5 bg-secondary rounded-full"></span>
+                                Currently Serving
+                            </p>
+</div>
+</div>
+<div class="text-right">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Service</span>
+<p class="text-sm font-bold text-on-surface">Fade + Lineup</p>
+</div>
+</div>
+<!-- Entry 2 (Up Next) -->
+<div class="bg-surface-container-low rounded-2xl p-5 flex items-center justify-between border border-transparent hover:border-outline-variant/30 transition-all">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant font-black italic">
+                            #2
+                        </div>
+<div>
+<p class="font-bold text-on-surface">Sarah K.</p>
+<p class="text-xs font-medium text-on-surface-variant">Up Next • 3m wait</p>
+</div>
+</div>
+<div class="text-right">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Service</span>
+<p class="text-sm font-semibold text-on-surface">Full Beard Trim</p>
+</div>
+</div>
+<!-- Entry 3 -->
+<div class="bg-surface-container-low rounded-2xl p-5 flex items-center justify-between border border-transparent">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant font-black italic text-opacity-50">
+                            #3
+                        </div>
+<div>
+<p class="font-bold text-on-surface/80">David L.</p>
+<p class="text-xs font-medium text-on-surface-variant">In Line • 6m wait</p>
+</div>
+</div>
+<div class="text-right">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Service</span>
+<p class="text-sm font-semibold text-on-surface/80">Classic Scissor</p>
+</div>
+</div>
+<!-- Entry 4 -->
+<div class="bg-surface-container-low rounded-2xl p-5 flex items-center justify-between border border-transparent">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant font-black italic text-opacity-50">
+                            #4
+                        </div>
+<div>
+<p class="font-bold text-on-surface/80">James R.</p>
+<p class="text-xs font-medium text-on-surface-variant">In Line • 9m wait</p>
+</div>
+</div>
+<div class="text-right">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Service</span>
+<p class="text-sm font-semibold text-on-surface/80">Hot Towel Shave</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Salon Info Floating Card -->
+<section class="bg-surface-container-low rounded-3xl p-6 flex items-center gap-6">
+<div class="w-20 h-20 rounded-2xl overflow-hidden flex-shrink-0">
+<img alt="Barbershop Interior" class="w-full h-full object-cover" data-alt="interior of a modern high-end barbershop with leather chairs, vintage mirrors, and industrial lighting, elegant and masculine atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJpZEs72JllyHalY0yUq76tTukL7BZCHKoHppMmU946a6hUnjEx2t1Ue9pPgATegUBt90xRigrvxhwMRVdYAvVD2DyG_aBl2f8ADkns1E6DfZR1Um0ZYa-BRmK3kqFrI3bgxb48Lrm9Hw5PtwZV862VOGPrnhHEKYiCyLCSrAVXDy71Vv7087RsMVMUjYcpXlR0D9NrWC6qWWqzuHKK3gkH3kV5LMmwkxUhGR2CGa-6I2BHtv4BArhEYwV1_9wf--eYvB0PUTcxkMS"/>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between">
+<h4 class="font-bold text-lg text-on-surface">The Precision Studio</h4>
+<span class="text-secondary text-sm font-bold">Open</span>
+</div>
+<p class="text-sm text-on-surface-variant">22nd Avenue, Brooklyn • 0.4 miles away</p>
+<div class="flex gap-4 mt-3">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-sm">star</span>
+<span class="text-xs font-bold text-on-surface">4.9 (2k+)</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-sm">verified_user</span>
+<span class="text-xs font-bold text-on-surface">Top Rated</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-4 left-4 right-4 rounded-2xl z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-[0px_12px_32px_rgba(25,28,30,0.08)] flex justify-around items-center h-20 px-2">
+<a class="flex flex-col items-center justify-center text-teal-900/60 dark:text-teal-100/60 px-4 py-2 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-all rounded-xl" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider font-label mt-1">Discover</span>
+</a>
+<a class="flex flex-col items-center justify-center text-teal-900/60 dark:text-teal-100/60 px-4 py-2 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-all rounded-xl" href="#">
+<span class="material-symbols-outlined">event_note</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider font-label mt-1">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-teal-600 dark:bg-teal-500 text-white rounded-xl px-4 py-2 translate-y-[-2px] transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">hourglass_empty</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider font-label mt-1">Queue</span>
+</a>
+<a class="flex flex-col items-center justify-center text-teal-900/60 dark:text-teal-100/60 px-4 py-2 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-all rounded-xl" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider font-label mt-1">Settings</span>
+</a>
+</nav>
+</body></html>

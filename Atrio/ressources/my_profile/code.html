@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Profile - Atrio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffdbce",
+                    "surface-variant": "#e0e3e5",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-primary-container": "#f4fffc",
+                    "tertiary-fixed-dim": "#ffb59a",
+                    "surface-container-high": "#e6e8ea",
+                    "on-surface": "#191c1e",
+                    "primary-fixed-dim": "#6bd8cb",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-primary": "#6bd8cb",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#fffbff",
+                    "secondary-fixed-dim": "#4edea3",
+                    "on-tertiary-fixed": "#370e00",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#d8dadc",
+                    "surface-container": "#eceef0",
+                    "surface-container-highest": "#e0e3e5",
+                    "outline-variant": "#bcc9c6",
+                    "inverse-surface": "#2d3133",
+                    "secondary-fixed": "#6ffbbe",
+                    "on-tertiary-fixed-variant": "#773215",
+                    "secondary-container": "#6cf8bb",
+                    "on-secondary-container": "#00714d",
+                    "on-secondary-fixed": "#002113",
+                    "on-primary-fixed": "#00201d",
+                    "on-surface-variant": "#3d4947",
+                    "background": "#f7f9fb",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "primary-container": "#008378",
+                    "on-background": "#191c1e",
+                    "tertiary-container": "#b05e3d",
+                    "surface": "#f7f9fb",
+                    "secondary": "#006c49",
+                    "primary-fixed": "#89f5e7",
+                    "surface-bright": "#f7f9fb",
+                    "outline": "#6d7a77",
+                    "surface-container-low": "#f2f4f6",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#005236",
+                    "tertiary": "#924628",
+                    "on-error-container": "#93000a",
+                    "primary": "#00685f",
+                    "on-primary-fixed-variant": "#005049",
+                    "surface-tint": "#006a61"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-[0px_12px_32px_rgba(25,28,30,0.06)] flex justify-between items-center px-6 py-4 max-w-full">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-teal-700 dark:text-teal-400 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-colors p-2 rounded-full Active: scale-95 duration-200 ease-in-out">
+                menu
+            </button>
+<h1 class="text-2xl font-black text-teal-800 dark:text-teal-300 italic tracking-tight">Atrio</h1>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-sm font-medium text-slate-500 hidden md:block">Alex Precision</span>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-fixed shadow-sm">
+<img alt="Alex Precision Profile" class="w-full h-full object-cover" data-alt="close-up portrait of a handsome man with a clean beard and sharp haircut in a bright professional studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7WuCFFW5t2S3bZN17aPCUaIBpmI1dd37t8gEi9TAuYN6mWnTi-icT1tgpYtlPXw3GjNxw0Ahj-RfJgL5zPMgpnHcIKj0Gw7-b9qjzm_X17Q6De5rN2iHUhnDuhuild7WYi96fv01Vg2ILS9I2yItxHLP9NS1uQbRVP1RyAT_H5RATq8juWSblYmRxZIMe_vel9ZU0YqVvYibbC1TBi76MQvSolDU0jeTd01CWjm3hkcIbrXSnMWzWiBTuYjk9u5OaHf369pKRwd4M"/>
+</div>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-2xl mx-auto">
+<!-- Hero Profile Section -->
+<section class="flex flex-col items-center mb-12">
+<div class="relative group">
+<div class="w-40 h-40 rounded-full overflow-hidden ring-4 ring-white shadow-xl">
+<img alt="Large Profile Avatar" class="w-full h-full object-cover" data-alt="close-up portrait of a handsome man with a clean beard and sharp haircut in a bright professional studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2UP0h4W0J3DxR2h9UhI5QkpbX4kAJtTEkQO9hrH1edbuvW3y5Sb8MF_VVqM4tC1Vr_x_sUsmnH9-nVHpY7199Z3t2rlELeGMcIxumCEiMO00MBOEKjSuHK9ly5CMAZC_BrvvZj-Mpou_gQdcDygoAjtn4dU1dWy5k1c4hahD1aF1BdHFGhiV7sWgY1ApfUnOvGzhkP5_-RM3G_IecK2WIBjy2h5QJA87PUrmGdDzZ2366Mmy_7zJifaaZBPEoWbeNRafTL-BGXpyH"/>
+</div>
+<button class="absolute bottom-1 right-1 bg-primary text-white p-3 rounded-full shadow-lg hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+</div>
+<div class="text-center mt-6">
+<h2 class="text-3xl font-extrabold text-on-surface tracking-tight mb-1">Alex Precision</h2>
+<p class="text-on-surface-variant font-medium">alex.precision@lifestyle.com</p>
+<div class="mt-4 flex gap-2 justify-center">
+<span class="bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Platinum Member</span>
+</div>
+</div>
+</section>
+<!-- Stats Bento Row -->
+<section class="grid grid-cols-2 gap-4 mb-8">
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-[0px_12px_32px_rgba(25,28,30,0.04)] text-center">
+<span class="text-primary font-black text-2xl">48</span>
+<p class="text-xs font-semibold text-on-surface-variant uppercase tracking-tighter">Total Visits</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-[0px_12px_32px_rgba(25,28,30,0.04)] text-center">
+<span class="text-tertiary font-black text-2xl">5</span>
+<p class="text-xs font-semibold text-on-surface-variant uppercase tracking-tighter">Upcoming</p>
+</div>
+</section>
+<!-- Action List -->
+<section class="space-y-4">
+<h3 class="text-sm font-bold text-on-surface-variant uppercase tracking-widest px-2">Account Settings</h3>
+<div class="bg-surface-container-lowest rounded-3xl overflow-hidden shadow-[0px_12px_32px_rgba(25,28,30,0.04)]">
+<!-- Edit Profile -->
+<button class="w-full flex items-center justify-between p-5 hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">person</span>
+</div>
+<span class="font-semibold text-on-surface">Edit Profile</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</button>
+<!-- Change Password -->
+<button class="w-full flex items-center justify-between p-5 hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">lock</span>
+</div>
+<span class="font-semibold text-on-surface">Change Password</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</button>
+<!-- Theme Toggle -->
+<div class="w-full flex items-center justify-between p-5">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">dark_mode</span>
+</div>
+<span class="font-semibold text-on-surface">Dark Mode</span>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<div class="w-12 h-6 bg-surface-container-highest rounded-full transition-colors relative">
+<div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform"></div>
+</div>
+</div>
+</div>
+</div>
+<h3 class="text-sm font-bold text-on-surface-variant uppercase tracking-widest px-2 pt-4">Safety &amp; Privacy</h3>
+<div class="bg-surface-container-lowest rounded-3xl overflow-hidden shadow-[0px_12px_32px_rgba(25,28,30,0.04)]">
+<!-- Logout -->
+<button class="w-full flex items-center justify-between p-5 hover:bg-error/5 transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-xl bg-error/10 flex items-center justify-center text-error">
+<span class="material-symbols-outlined">logout</span>
+</div>
+<span class="font-semibold text-error">Logout</span>
+</div>
+</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-4 left-4 right-4 rounded-2xl z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-[0px_12px_32px_rgba(25,28,30,0.08)] flex justify-around items-center h-20 px-2">
+<button class="flex flex-col items-center justify-center text-teal-900/60 dark:text-teal-100/60 px-4 py-2 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-colors">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider mt-1">Discover</span>
+</button>
+<button class="flex flex-col items-center justify-center text-teal-900/60 dark:text-teal-100/60 px-4 py-2 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-colors">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider mt-1">Bookings</span>
+</button>
+<button class="flex flex-col items-center justify-center text-teal-900/60 dark:text-teal-100/60 px-4 py-2 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-colors">
+<span class="material-symbols-outlined" data-icon="hourglass_empty">hourglass_empty</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider mt-1">Queue</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-teal-600 dark:bg-teal-500 text-white rounded-xl px-4 py-2 translate-y-[-2px] transition-transform">
+<span class="material-symbols-outlined" data-icon="settings" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider mt-1">Settings</span>
+</button>
+</nav>
+</body></html>

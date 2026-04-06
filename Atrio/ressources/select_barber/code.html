@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffdbce",
+                    "surface-variant": "#e0e3e5",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-primary-container": "#f4fffc",
+                    "tertiary-fixed-dim": "#ffb59a",
+                    "surface-container-high": "#e6e8ea",
+                    "on-surface": "#191c1e",
+                    "primary-fixed-dim": "#6bd8cb",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-primary": "#6bd8cb",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#fffbff",
+                    "secondary-fixed-dim": "#4edea3",
+                    "on-tertiary-fixed": "#370e00",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#d8dadc",
+                    "surface-container": "#eceef0",
+                    "surface-container-highest": "#e0e3e5",
+                    "outline-variant": "#bcc9c6",
+                    "inverse-surface": "#2d3133",
+                    "secondary-fixed": "#6ffbbe",
+                    "on-tertiary-fixed-variant": "#773215",
+                    "secondary-container": "#6cf8bb",
+                    "on-secondary-container": "#00714d",
+                    "on-secondary-fixed": "#002113",
+                    "on-primary-fixed": "#00201d",
+                    "on-surface-variant": "#3d4947",
+                    "background": "#f7f9fb",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "primary-container": "#008378",
+                    "on-background": "#191c1e",
+                    "tertiary-container": "#b05e3d",
+                    "surface": "#f7f9fb",
+                    "secondary": "#006c49",
+                    "primary-fixed": "#89f5e7",
+                    "surface-bright": "#f7f9fb",
+                    "outline": "#6d7a77",
+                    "surface-container-low": "#f2f4f6",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#005236",
+                    "tertiary": "#924628",
+                    "on-error-container": "#93000a",
+                    "primary": "#00685f",
+                    "on-primary-fixed-variant": "#005049",
+                    "surface-tint": "#006a61"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-primary-gradient {
+            background: linear-gradient(135deg, #00685f 0%, #008378 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed-dim">
+<!-- Top AppBar (Simplified for Booking Flow) -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-[0px_12px_32px_rgba(25,28,30,0.06)]">
+<div class="flex justify-between items-center px-6 py-4 max-w-full">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100/50 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-on-surface-variant">arrow_back</span>
+</button>
+<div class="flex flex-col items-center">
+<h1 class="text-xl font-semibold tracking-tight font-headline text-teal-700">Atrio</h1>
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant/60">Step 2 of 4</span>
+</div>
+<div class="w-10"></div> <!-- Spacer for centering -->
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-1 bg-surface-container">
+<div class="h-full bg-primary transition-all duration-500 w-1/2"></div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-2xl mx-auto">
+<!-- Section Header -->
+<div class="mb-10">
+<h2 class="text-3xl font-extrabold tracking-tight font-headline text-on-surface mb-2">Choose a Barber</h2>
+<p class="text-on-surface-variant leading-relaxed">Select your preferred professional or choose any available to get the earliest slot.</p>
+</div>
+<!-- Any Available Option -->
+<div class="mb-8 group">
+<button class="w-full flex items-center p-6 bg-surface-container-low rounded-2xl transition-all duration-300 hover:shadow-[0px_12px_32px_rgba(25,28,30,0.06)] hover:bg-surface-container text-left relative overflow-hidden">
+<div class="w-14 h-14 rounded-full bg-primary-container/10 flex items-center justify-center text-primary mr-4 transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-3xl">shuffle</span>
+</div>
+<div class="flex-1">
+<h3 class="font-bold text-lg text-on-surface">Any Available Barber</h3>
+<p class="text-sm text-on-surface-variant">Faster booking, same quality</p>
+</div>
+<span class="material-symbols-outlined text-primary opacity-0 group-hover:opacity-100 transition-opacity">check_circle</span>
+</button>
+</div>
+<!-- Barber Grid -->
+<div class="grid grid-cols-2 gap-4">
+<!-- Barber Card 1 (Selected) -->
+<button class="relative flex flex-col items-center p-6 bg-surface-container-lowest rounded-3xl border-2 border-primary shadow-[0px_12px_32px_rgba(25,28,30,0.08)] transition-all duration-300 scale-[1.02]">
+<div class="absolute top-3 right-3 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="relative w-20 h-20 mb-4">
+<img alt="Barber Marcus" class="w-full h-full object-cover rounded-full shadow-md" data-alt="Close-up portrait of a professional male barber with a neat beard and stylish haircut in a bright studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMTjZtOZa7JiLR1q36eyL82FYC-53KRw0jFjtNt6WmJWA94GEpnF31zk5z_kwCzD3Nu8Y0PFGTZdH2ntPINxjyfFZpkp8UFhcTAflBJ2kn7Bk_xVPgKSAO94vx6Pt85-VhMyqqpdgsz450v0TY9Hwwp8sT-51af9Sk2jJu9CFrReqsf2O0bxy61WSTbfnt1Y6Ak9zLR1WWOCfJ9lMjwoFAEhh99b26Pm4gcdf8PGqmR4JjfP1PgDvTBFzP2Zk4UACvAd4d8kQrfzOH"/>
+<div class="absolute bottom-0 right-0 w-6 h-6 bg-secondary rounded-full border-2 border-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-white" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<h4 class="font-bold text-on-surface text-center mb-1">Marcus Precision</h4>
+<div class="flex items-center gap-1 bg-surface-container-low px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-sm text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold text-on-surface-variant">4.9</span>
+<span class="text-[10px] text-on-surface-variant/60">(128)</span>
+</div>
+</button>
+<!-- Barber Card 2 -->
+<button class="flex flex-col items-center p-6 bg-surface-container-low rounded-3xl transition-all duration-300 hover:bg-surface-container-high hover:scale-[1.02]">
+<div class="w-20 h-20 mb-4">
+<img alt="Barber Julian" class="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-500" data-alt="Professional young male barber with sharp features and a modern haircut posing in a high-end salon background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxEe36MuIZhQmtOBBbCYunVe4D3RpskLTQ483ClDRUZmvslObXW0ECWUtV2qzstEDGo1_2zjwrfC5OiPXsWgHxXCWgjFIpF9d5-_lfV3qJ4DGSqeQH6-L7jx9_aF4-iDzNJ5mGOlng6bmdtwkkXqWrdEgPCRHJuP9Hx_L8MVSc9AMWR4rU855ifUbRQ7gpQB1x5MBkh8kh_zgbImXvdlQYbe-ewmv5qcKnGZxMwffu3I4_sJqF3EwQe0yUE-t_XQxqKke99XL-lZCW"/>
+</div>
+<h4 class="font-bold text-on-surface text-center mb-1">Julian Sharp</h4>
+<div class="flex items-center gap-1 bg-white/50 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-sm text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold text-on-surface-variant">4.8</span>
+<span class="text-[10px] text-on-surface-variant/60">(94)</span>
+</div>
+</button>
+<!-- Barber Card 3 -->
+<button class="flex flex-col items-center p-6 bg-surface-container-low rounded-3xl transition-all duration-300 hover:bg-surface-container-high hover:scale-[1.02]">
+<div class="w-20 h-20 mb-4">
+<img alt="Barber Elias" class="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-500" data-alt="Senior master barber with distinguished gray hair and a professional apron in a classic barbershop setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVGvXFCTigDq3_NPBe1dbDLbYhWM0LMOJzBHit5coNl_ltwm-tYRltdsFYKjbYSvk52ufK-iNDBmUAl5pltmCSrruA3HO_TtNk1nz2qp7EwZfwqpRptXysKMNm_Ab8-QFpVPlwCZv3hUdZW2yfLwfHJX-0MQkuzOv4Qs_SAbf9wi_eV9zEqdTa5jsy0DWvSZ2SlH6l_CksPWuMewusOhMrES_9JBeAk8pjF5-GDBFVXpIB3NQwiDJjYNfXiMb2bAUXESqV2PJqpeWr"/>
+</div>
+<h4 class="font-bold text-on-surface text-center mb-1">Elias Master</h4>
+<div class="flex items-center gap-1 bg-white/50 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-sm text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold text-on-surface-variant">5.0</span>
+<span class="text-[10px] text-on-surface-variant/60">(215)</span>
+</div>
+</button>
+<!-- Barber Card 4 -->
+<button class="flex flex-col items-center p-6 bg-surface-container-low rounded-3xl transition-all duration-300 hover:bg-surface-container-high hover:scale-[1.02]">
+<div class="w-20 h-20 mb-4">
+<img alt="Barber Sasha" class="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-500" data-alt="Professional female stylist with creative haircut and confident expression in a boutique grooming studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIUXn4O0-vmR0BEV_u5cX522GUUOxd1CaXXl4oBrBLaFVp1YTg_GSaCZNJM9PNbjb9pP8VFFFfX6iovr-JIY5YZIzfuyqxIwfEfNgpCGU0Cj4kOviEI1oBxSutNolBn_jaBRrUv1xLY0jiqMBmUpNgP1q4i1zxR9D3VwajE9KpZbZ6RFedQeIab4P5qtumgfdnHz2iW6S3LA8AmwotOnb5h7Wco9ys9fdWr11S_zCBNgvSjzsOt2pQL2NwO8lAp1TSv98He9FB3QR4"/>
+</div>
+<h4 class="font-bold text-on-surface text-center mb-1">Sasha Fade</h4>
+<div class="flex items-center gap-1 bg-white/50 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-sm text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold text-on-surface-variant">4.7</span>
+<span class="text-[10px] text-on-surface-variant/60">(76)</span>
+</div>
+</button>
+</div>
+<!-- Info Chip -->
+<div class="mt-8 flex items-center justify-center gap-2 p-4 rounded-2xl bg-secondary-container/20 text-on-secondary-fixed-variant">
+<span class="material-symbols-outlined text-lg">info</span>
+<p class="text-xs font-medium uppercase tracking-wider">All barbers are certified masters</p>
+</div>
+</main>
+<!-- Bottom Action Area -->
+<footer class="fixed bottom-0 left-0 right-0 p-6 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl z-50">
+<div class="max-w-2xl mx-auto">
+<button class="w-full h-14 bg-primary-gradient text-white rounded-2xl font-bold text-lg shadow-[0px_12px_32px_rgba(0,104,95,0.24)] hover:shadow-[0px_12px_32px_rgba(0,104,95,0.4)] transition-all active:scale-95 flex items-center justify-center gap-2">
+<span>Next</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<!-- Tonal shift background logic for floating nav area -->
+<div class="h-1 mt-2 mx-auto w-12 bg-on-surface/10 rounded-full"></div>
+</div>
+</footer>
+</body></html>

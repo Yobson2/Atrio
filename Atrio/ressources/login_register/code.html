@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Atrio | Sign In</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#00201d",
+                    "tertiary": "#924628",
+                    "surface-bright": "#f7f9fb",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#f7f9fb",
+                    "error": "#ba1a1a",
+                    "secondary-container": "#6cf8bb",
+                    "on-secondary-container": "#00714d",
+                    "on-primary-fixed-variant": "#005049",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#6bd8cb",
+                    "outline-variant": "#bcc9c6",
+                    "on-surface-variant": "#3d4947",
+                    "primary-container": "#008378",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#773215",
+                    "surface-container": "#eceef0",
+                    "on-secondary-fixed": "#002113",
+                    "inverse-on-surface": "#eff1f3",
+                    "primary-fixed": "#89f5e7",
+                    "surface-dim": "#d8dadc",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-low": "#f2f4f6",
+                    "secondary-fixed-dim": "#4edea3",
+                    "on-primary-container": "#f4fffc",
+                    "tertiary-container": "#b05e3d",
+                    "surface-container-high": "#e6e8ea",
+                    "secondary-fixed": "#6ffbbe",
+                    "tertiary-fixed": "#ffdbce",
+                    "inverse-surface": "#2d3133",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-container": "#fffbff",
+                    "inverse-primary": "#6bd8cb",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#e0e3e5",
+                    "primary": "#00685f",
+                    "background": "#f7f9fb",
+                    "on-background": "#191c1e",
+                    "outline": "#6d7a77",
+                    "on-secondary-fixed-variant": "#005236",
+                    "tertiary-fixed-dim": "#ffb59a",
+                    "surface-tint": "#006a61",
+                    "secondary": "#006c49",
+                    "on-tertiary-fixed": "#370e00",
+                    "on-surface": "#191c1e",
+                    "surface-variant": "#e0e3e5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-gradient {
+            background: linear-gradient(135deg, #00685f 0%, #008378 100%);
+        }
+        .glass-header {
+            background: rgba(247, 249, 251, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface selection:bg-primary-fixed-dim selection:text-on-primary-fixed min-h-screen flex flex-col items-center">
+<!-- TopAppBar Mock (Suppressed Shell because it's Transactional/Login) -->
+<!-- Applying Shared Component Brand Identity without the Full Nav Shell -->
+<header class="fixed top-0 w-full z-50 glass-header">
+<div class="flex items-center justify-between px-6 h-16 w-full max-w-md mx-auto">
+<div class="text-xl font-bold text-teal-800 dark:text-teal-300 tracking-tighter">
+                Atrio
+            </div>
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity p-2 rounded-full">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+</header>
+<main class="flex-1 w-full max-w-md px-6 pt-32 pb-12 flex flex-col">
+<!-- Editorial Hero Section -->
+<div class="mb-12">
+<h1 class="text-4xl font-extrabold tracking-tight text-primary mb-3">
+                Welcome to Atrio
+            </h1>
+<p class="text-on-surface-variant body-md leading-relaxed">
+                Enter your phone number to continue.
+            </p>
+</div>
+<!-- Phone Input Slate -->
+<div class="space-y-6">
+<div class="relative">
+<div class="flex gap-3">
+<!-- Country Code Selector -->
+<div class="w-24 bg-surface-container-low rounded-xl h-14 flex items-center justify-center px-3 cursor-pointer group transition-all duration-200 hover:bg-surface-container-high active:scale-95">
+<span class="text-on-surface-variant font-medium">+1</span>
+<span class="material-symbols-outlined text-sm ml-1 text-outline">expand_more</span>
+</div>
+<!-- Phone Number Field -->
+<div class="flex-1 relative group">
+<input class="w-full h-14 bg-surface-container-low rounded-xl border-none px-4 text-lg font-medium placeholder:text-outline-variant focus:ring-1 focus:ring-primary transition-all duration-300" placeholder="(555) 000-0000" type="tel"/>
+</div>
+</div>
+</div>
+<!-- Primary Action -->
+<button class="w-full editorial-gradient text-on-primary h-14 rounded-xl font-semibold shadow-[0px_12px_32px_rgba(0,104,95,0.15)] hover:-translate-y-0.5 active:scale-95 transition-all duration-200">
+                Continue
+            </button>
+</div>
+<!-- Divider Section -->
+<div class="relative my-10 flex items-center">
+<div class="flex-grow border-t border-outline-variant/15"></div>
+<span class="flex-shrink mx-4 text-xs font-bold tracking-widest text-outline uppercase">OR</span>
+<div class="flex-grow border-t border-outline-variant/15"></div>
+</div>
+<!-- Social Connections -->
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-2 h-14 bg-surface-container-lowest rounded-xl shadow-[0px_12px_32px_rgba(25,28,30,0.06)] hover:bg-surface-container-low transition-all active:scale-95">
+<img alt="Google" class="w-5 h-5" data-alt="Official Google logo G icon in its brand colors on a transparent background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY86Zcu1JxHzxX7vnQWulFdl1nVAeh1m0kDGko_WkctLVW-SthX3uE-z162j0EvoFohPjOKP_ZRT0hmc9iyMuX477JI1pOYIcaG0CmI_njraZX8ZrCYFqmRdLwJVkPtLRYUjtLIRhkBz8x79DQEJ2JwbwqW2hK_da2gkNnnzh1x6NvaF2PCqiIY7SIiAAjcjBAdnur0UYmfeE5Fq3m011XwyFVEWU-dDb7QAAai3pKuPkVhhBPgwqvpP0hHuZy82kt2gPt_xVdTO00"/>
+<span class="text-sm font-semibold text-on-surface-variant">Google</span>
+</button>
+<button class="flex items-center justify-center gap-2 h-14 bg-surface-container-lowest rounded-xl shadow-[0px_12px_32px_rgba(25,28,30,0.06)] hover:bg-surface-container-low transition-all active:scale-95">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">ios</span>
+<span class="text-sm font-semibold text-on-surface-variant">Apple</span>
+</button>
+</div>
+<!-- Space-filling Artisan Image Card (Bento Style) -->
+<div class="mt-12 rounded-2xl overflow-hidden relative aspect-[4/3] shadow-[0px_12px_32px_rgba(25,28,30,0.08)]">
+<img alt="Barber Shop Interior" class="w-full h-full object-cover" data-alt="Modern upscale barber shop with vintage leather chairs, warm oak wood panels, and soft cinematic studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtpht7a70Jst_TjZaUpj3_UhNMkEOkt4D9fwxHAxHizwL_oMWreMiHlRiWTnDU5IiMpFVEFBea-1Ei12UHMm8mz9-432yR_E4dBB0EfMI2i_fjqp97KgjfGF9l05fcGNwVACwFcmUH-h6BeA7KzSdoDDzlYV8GY3IvNHdaChsg-ROX-npIJ7R3MKzHMhSBNx3TQYRHAVvBqvxvd6Y5AyEkvyCGWvAcaMy41zLOf2v2pNA0YwurZY_5CPAnkQHuiz2SjWGgfQgL0FHC"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-primary-fixed/60 via-transparent to-transparent flex flex-col justify-end p-6">
+<span class="text-white/70 text-xs font-bold uppercase tracking-[0.2em] mb-1">Precision Grooming</span>
+<h3 class="text-white text-xl font-bold">The Editorial Experience.</h3>
+</div>
+</div>
+<!-- Footer Legal -->
+<footer class="mt-auto pt-10 text-center">
+<p class="text-[11px] leading-relaxed text-on-surface-variant/70 font-medium px-4">
+                By continuing, you agree to our 
+                <a class="text-primary underline underline-offset-2 decoration-primary/30" href="#">Terms</a> 
+                and 
+                <a class="text-primary underline underline-offset-2 decoration-primary/30" href="#">Privacy Policy</a>.
+            </p>
+</footer>
+</main>
+<!-- Bottom Navigation Suppressed (Transactional Page Hierarchy) -->
+</body></html>

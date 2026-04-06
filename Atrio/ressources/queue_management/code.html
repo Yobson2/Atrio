@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Atrio - Owner Queue Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#3d4947",
+                        "secondary-container": "#6cf8bb",
+                        "on-secondary-container": "#00714d",
+                        "on-secondary-fixed": "#002113",
+                        "on-primary-fixed": "#00201d",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "background": "#f7f9fb",
+                        "surface-container-highest": "#e0e3e5",
+                        "outline-variant": "#bcc9c6",
+                        "inverse-surface": "#2d3133",
+                        "surface-dim": "#d8dadc",
+                        "surface-container": "#eceef0",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-tertiary-fixed-variant": "#773215",
+                        "on-tertiary-container": "#fffbff",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#6bd8cb",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-tertiary-fixed": "#370e00",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdbce",
+                        "surface-variant": "#e0e3e5",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-container-high": "#e6e8ea",
+                        "on-surface": "#191c1e",
+                        "primary-fixed-dim": "#6bd8cb",
+                        "on-primary-container": "#f4fffc",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "tertiary": "#924628",
+                        "on-error-container": "#93000a",
+                        "primary": "#00685f",
+                        "surface-tint": "#006a61",
+                        "on-primary-fixed-variant": "#005049",
+                        "surface-bright": "#f7f9fb",
+                        "outline": "#6d7a77",
+                        "surface-container-low": "#f2f4f6",
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-secondary": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "primary-container": "#008378",
+                        "on-background": "#191c1e",
+                        "tertiary-container": "#b05e3d",
+                        "secondary": "#006c49",
+                        "primary-fixed": "#89f5e7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        .ambient-shadow {
+            shadow: 0px 12px 32px rgba(25, 28, 30, 0.06);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm dark:shadow-none flex justify-between items-center px-6 py-3 w-full">
+<div class="flex items-center gap-4">
+<button class="hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors p-2 rounded-full scale-95 active:duration-150">
+<span class="material-symbols-outlined text-teal-700 dark:text-teal-400">menu</span>
+</button>
+<h1 class="text-xl font-bold tracking-tighter text-teal-800 dark:text-teal-200">Atrio</h1>
+</div>
+<div class="flex items-center gap-3">
+<span class="hidden md:block font-sans tracking-tight text-lg font-semibold text-teal-700 dark:text-teal-400">Queue Management</span>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="portrait of a professional male barber in a clean white studio setting with warm directional lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEbdfRUMYGHOCGxO7AIVPQwlUax8kiV1l0J0nKspPYqB-1bEKMWyPJkHJYTbQWWG6mTXCUYO0nwZUjTVIwTldwr4GIYOUioep44RvoTOW3vjzWFRQran04ZE7Krd7hO_uOkmz7vqMx-1Vs-H4PeVhSXg66gEtAZ0_GTL21tSCaZ-Qr0AtjLcrgJcRPxg6XurEwxuXxTukR7o6Msz9D1N0h30HeIaFKdokOt4Fv2xvfoGdkHe59bN03RuVt90LM26j7Y_h12hZ6TTpw"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-4 md:px-8 max-w-5xl mx-auto">
+<!-- Dashboard Header & Control Bar -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-10">
+<div>
+<span class="text-primary font-bold uppercase tracking-widest text-xs mb-2 block">Live Operations</span>
+<h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-on-surface leading-tight">Master Queue</h2>
+<p class="text-on-surface-variant mt-2 max-w-md">Real-time control over your shop floor. Monitor active services and manage wait times seamlessly.</p>
+</div>
+<div class="flex gap-3 w-full md:w-auto">
+<button class="flex-1 md:flex-none flex items-center justify-center gap-2 px-6 py-3 border border-outline-variant text-primary font-semibold rounded-xl hover:bg-surface-container-high transition-all active:scale-95">
+<span class="material-symbols-outlined">skip_next</span>
+                    Skip
+                </button>
+<button class="flex-1 md:flex-none flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-br from-primary to-primary-container text-white font-semibold rounded-xl shadow-[0px_12px_32px_rgba(0,104,95,0.15)] hover:translate-y-[-2px] transition-all active:scale-95">
+<span class="material-symbols-outlined">play_arrow</span>
+                    Advance Queue
+                </button>
+</div>
+</div>
+<!-- Bento Grid Layout for Queue -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Currently Serving Panel -->
+<div class="lg:col-span-2 space-y-6">
+<section>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-tertiary">emergency_home</span>
+<h3 class="text-sm font-bold uppercase tracking-tighter text-on-surface-variant">Currently Serving</h3>
+</div>
+<!-- Highlighted Active Row -->
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-secondary-container to-primary-container rounded-[20px] blur opacity-15"></div>
+<div class="relative bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-secondary-container/30 flex items-center justify-between">
+<div class="flex items-center gap-6">
+<div class="relative">
+<div class="w-16 h-16 rounded-2xl overflow-hidden shadow-lg">
+<img class="w-full h-full object-cover" data-alt="portrait of a young man with a fresh fade haircut, smiling in a modern barber shop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ1HvoEV7uUo1vYeAcxAp84OexPaAtOwCUo_2XQTvMLvo6XrufpXEQkPJbrA8grboRBP3xW-5-_SAMQqZ5ouFK-9MCsaTBM5qdoFms34sg3K87t__iEYGWOGKh9tynVo9y7NCht1HgsVLDy1Lo6NC9x9Cf6qFTjq3N6gS78dA6591JZq-MHJe7m3sABQacvLDFj3S95WKD5lXSTqLsSH8opjAn8awnM1Ty7HUy1XnOgUL-Gc_sX4brG5SRrGgaOKgVtS0HIzzCyRLi"/>
+</div>
+<span class="absolute -top-2 -left-2 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-md">ACTIVE</span>
+</div>
+<div>
+<h4 class="text-xl font-bold text-on-surface">Marcus Holloway</h4>
+<div class="flex items-center gap-3 mt-1">
+<span class="text-sm font-medium text-primary bg-primary/10 px-2 py-0.5 rounded-md">Executive Cut</span>
+<div class="h-1 w-1 rounded-full bg-outline-variant"></div>
+<span class="text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">person</span> Alex Precision
+                                        </span>
+</div>
+</div>
+</div>
+<div class="text-right">
+<span class="text-2xl font-black text-primary tracking-tighter">12:45</span>
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Mins Left</p>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-center justify-between mb-4 mt-8">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">groups</span>
+<h3 class="text-sm font-bold uppercase tracking-tighter text-on-surface-variant">Up Next</h3>
+</div>
+<span class="text-xs font-semibold text-on-surface-variant bg-surface-container px-3 py-1 rounded-full">4 in line</span>
+</div>
+<!-- Queue List -->
+<div class="space-y-3">
+<!-- Entry 1 -->
+<div class="bg-surface-container-low hover:bg-white transition-all p-4 rounded-2xl flex items-center justify-between group">
+<div class="flex items-center gap-5">
+<div class="w-10 h-10 flex items-center justify-center bg-white rounded-xl text-primary font-bold shadow-sm border border-outline-variant/10">
+                                    02
+                                </div>
+<div>
+<p class="font-bold text-on-surface">Jordan Smith</p>
+<p class="text-xs text-on-surface-variant">Beard Trim &amp; Shape • 30m</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:block text-right">
+<p class="text-xs font-semibold text-on-surface-variant">Barber</p>
+<p class="text-sm font-medium text-on-surface">Chris Cuts</p>
+</div>
+<div class="bg-white px-4 py-2 rounded-xl shadow-sm border border-outline-variant/10">
+<span class="text-sm font-bold text-primary">Scheduled</span>
+</div>
+</div>
+</div>
+<!-- Entry 2 -->
+<div class="bg-surface-container-low hover:bg-white transition-all p-4 rounded-2xl flex items-center justify-between group">
+<div class="flex items-center gap-5">
+<div class="w-10 h-10 flex items-center justify-center bg-white rounded-xl text-primary font-bold shadow-sm border border-outline-variant/10">
+                                    03
+                                </div>
+<div>
+<p class="font-bold text-on-surface">Ethan Wright</p>
+<p class="text-xs text-on-surface-variant">Full Service (Hair + Beard) • 60m</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:block text-right">
+<p class="text-xs font-semibold text-on-surface-variant">Barber</p>
+<p class="text-sm font-medium text-on-surface">Alex Precision</p>
+</div>
+<div class="bg-white px-4 py-2 rounded-xl shadow-sm border border-outline-variant/10">
+<span class="text-sm font-bold text-on-surface-variant">Waiting</span>
+</div>
+</div>
+</div>
+<!-- Entry 3 -->
+<div class="bg-surface-container-low hover:bg-white transition-all p-4 rounded-2xl flex items-center justify-between group opacity-75">
+<div class="flex items-center gap-5">
+<div class="w-10 h-10 flex items-center justify-center bg-white rounded-xl text-primary font-bold shadow-sm border border-outline-variant/10">
+                                    04
+                                </div>
+<div>
+<p class="font-bold text-on-surface">David Chen</p>
+<p class="text-xs text-on-surface-variant">Kid's Cut • 20m</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:block text-right">
+<p class="text-xs font-semibold text-on-surface-variant">Barber</p>
+<p class="text-sm font-medium text-on-surface">Leo Styles</p>
+</div>
+<div class="bg-white px-4 py-2 rounded-xl shadow-sm border border-outline-variant/10">
+<span class="text-sm font-bold text-tertiary">Late</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Stats & Empty State Side Panel -->
+<div class="space-y-6">
+<!-- Shop Pulse Card -->
+<div class="bg-primary-container text-white p-6 rounded-3xl relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="text-sm font-bold uppercase tracking-widest opacity-80 mb-4">Shop Pulse</h3>
+<div class="space-y-4">
+<div>
+<p class="text-3xl font-black">42 min</p>
+<p class="text-xs opacity-80">Avg. Wait Time</p>
+</div>
+<div class="h-[1px] bg-white/20"></div>
+<div class="flex justify-between items-center">
+<div>
+<p class="text-xl font-bold">12</p>
+<p class="text-[10px] opacity-80">Completed Today</p>
+</div>
+<div class="text-right">
+<p class="text-xl font-bold">$480</p>
+<p class="text-[10px] opacity-80">Revenue So Far</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Background Element -->
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">content_cut</span>
+</div>
+</div>
+<!-- Empty State Context (If Queue was empty) -->
+<div class="bg-surface-container p-8 rounded-3xl border-2 border-dashed border-outline-variant flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4 text-on-surface-variant">
+<span class="material-symbols-outlined text-3xl">inbox_customize</span>
+</div>
+<h4 class="font-bold text-on-surface">No one in queue</h4>
+<p class="text-sm text-on-surface-variant mt-1">Accepting walk-ins. Your shop is ready for more clients.</p>
+<button class="mt-6 text-primary font-bold text-sm hover:underline">Manual Entry</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full px-4 pb-6 flex justify-around items-center h-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg z-50">
+<div class="flex items-center justify-center text-slate-500 dark:text-slate-400 flex-col hover:scale-110 transition-transform tap-highlight-none px-3 py-1">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-medium tracking-wide">Discover</span>
+</div>
+<div class="flex items-center justify-center text-slate-500 dark:text-slate-400 flex-col hover:scale-110 transition-transform tap-highlight-none px-3 py-1">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="text-[10px] font-medium tracking-wide">History</span>
+</div>
+<div class="flex items-center justify-center text-slate-500 dark:text-slate-400 flex-col hover:scale-110 transition-transform tap-highlight-none px-3 py-1">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-medium tracking-wide">Dashboard</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-xl px-4 py-1 hover:scale-110 transition-transform tap-highlight-none">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">format_list_numbered</span>
+<span class="text-[10px] font-medium tracking-wide">Queue</span>
+</div>
+<div class="flex items-center justify-center text-slate-500 dark:text-slate-400 flex-col hover:scale-110 transition-transform tap-highlight-none px-3 py-1">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium tracking-wide">Profile</span>
+</div>
+</nav>
+</body></html>

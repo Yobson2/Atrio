@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffdbce",
+                    "surface-variant": "#e0e3e5",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-primary-container": "#f4fffc",
+                    "tertiary-fixed-dim": "#ffb59a",
+                    "surface-container-high": "#e6e8ea",
+                    "on-surface": "#191c1e",
+                    "primary-fixed-dim": "#6bd8cb",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-primary": "#6bd8cb",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#fffbff",
+                    "secondary-fixed-dim": "#4edea3",
+                    "on-tertiary-fixed": "#370e00",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#d8dadc",
+                    "surface-container": "#eceef0",
+                    "surface-container-highest": "#e0e3e5",
+                    "outline-variant": "#bcc9c6",
+                    "inverse-surface": "#2d3133",
+                    "secondary-fixed": "#6ffbbe",
+                    "on-tertiary-fixed-variant": "#773215",
+                    "secondary-container": "#6cf8bb",
+                    "on-secondary-container": "#00714d",
+                    "on-secondary-fixed": "#002113",
+                    "on-primary-fixed": "#00201d",
+                    "on-surface-variant": "#3d4947",
+                    "background": "#f7f9fb",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "primary-container": "#008378",
+                    "on-background": "#191c1e",
+                    "tertiary-container": "#b05e3d",
+                    "surface": "#f7f9fb",
+                    "secondary": "#006c49",
+                    "primary-fixed": "#89f5e7",
+                    "surface-bright": "#f7f9fb",
+                    "outline": "#6d7a77",
+                    "surface-container-low": "#f2f4f6",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#005236",
+                    "tertiary": "#924628",
+                    "on-error-container": "#93000a",
+                    "primary": "#00685f",
+                    "on-primary-fixed-variant": "#005049",
+                    "surface-tint": "#006a61"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-glass {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface min-h-screen">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-[0px_12px_32px_rgba(25,28,30,0.06)] flex justify-between items-center px-6 py-4 max-w-full">
+<div class="flex items-center gap-4">
+<button class="hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-colors p-2 rounded-full active:scale-95 duration-200 ease-in-out">
+<span class="material-symbols-outlined text-teal-700 dark:text-teal-400">arrow_back</span>
+</button>
+<h1 class="text-xl font-semibold tracking-tight text-on-surface">Notifications</h1>
+</div>
+<button class="text-sm font-semibold text-primary px-4 py-2 hover:bg-primary/5 rounded-full transition-colors active:scale-95">
+            Read all
+        </button>
+</header>
+<!-- Content Canvas -->
+<main class="pt-24 pb-32 px-4 max-w-2xl mx-auto">
+<!-- Group: Today -->
+<section class="mb-8">
+<h2 class="text-xs font-semibold uppercase tracking-widest text-on-surface-variant mb-6 px-2">Today</h2>
+<div class="space-y-4">
+<!-- Notification Tile: Unread Booking -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 shadow-[0px_12px_32px_rgba(25,28,30,0.04)] flex items-start gap-4 relative group hover:translate-y-[-2px] transition-transform duration-300">
+<div class="bg-primary/10 text-primary p-3 rounded-xl">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">event_note</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="text-base font-bold text-on-surface">Booking Confirmed</h3>
+<span class="text-[11px] font-medium text-on-surface-variant">2m ago</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">Your appointment with <span class="font-semibold text-on-surface">Marco 'The Blade' Rossi</span> is confirmed for tomorrow at 2:30 PM.</p>
+</div>
+<div class="w-2 h-2 bg-primary rounded-full mt-2 self-start"></div>
+</div>
+<!-- Notification Tile: Unread Queue -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 shadow-[0px_12px_32px_rgba(25,28,30,0.04)] flex items-start gap-4 relative group hover:translate-y-[-2px] transition-transform duration-300">
+<div class="bg-secondary/10 text-secondary p-3 rounded-xl">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">hourglass_empty</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="text-base font-bold text-on-surface">You're next in line!</h3>
+<span class="text-[11px] font-medium text-on-surface-variant">45m ago</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">Head over to the salon. Your stylist will be ready in approximately <span class="font-semibold text-on-surface">8 minutes</span>.</p>
+</div>
+<div class="w-2 h-2 bg-primary rounded-full mt-2 self-start"></div>
+</div>
+</div>
+</section>
+<!-- Group: Yesterday -->
+<section>
+<h2 class="text-xs font-semibold uppercase tracking-widest text-on-surface-variant mb-6 px-2">Yesterday</h2>
+<div class="space-y-4">
+<!-- Notification Tile: Read Reminder -->
+<div class="bg-surface-container-low rounded-2xl p-4 flex items-start gap-4 group opacity-80">
+<div class="bg-on-surface-variant/10 text-on-surface-variant p-3 rounded-xl">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">notifications_active</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="text-base font-medium text-on-surface">Reminder: Hair Care</h3>
+<span class="text-[11px] font-medium text-on-surface-variant">1d ago</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">It's been 4 weeks since your last visit. Ready for a fresh look?</p>
+</div>
+</div>
+<!-- Notification Tile: Read Booking Cancelled -->
+<div class="bg-surface-container-low rounded-2xl p-4 flex items-start gap-4 group opacity-80">
+<div class="bg-tertiary/10 text-tertiary p-3 rounded-xl">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">event_busy</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="text-base font-medium text-on-surface">Booking Cancelled</h3>
+<span class="text-[11px] font-medium text-on-surface-variant">1d ago</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">Your booking for Saturday has been cancelled. No charges were applied.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Empty State Visual Cue (Hidden but for layout context) -->
+<div class="mt-12 text-center pb-12">
+<div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-surface-container-high mb-4">
+<span class="material-symbols-outlined text-outline">done_all</span>
+</div>
+<p class="text-sm text-on-surface-variant">You've seen all recent updates.</p>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-4 left-4 right-4 rounded-2xl z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-[0px_12px_32px_rgba(25,28,30,0.08)] flex justify-around items-center h-20 px-2">
+<a class="flex flex-col items-center justify-center text-teal-900/60 dark:text-teal-100/60 px-4 py-2 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider mt-1">Discover</span>
+</a>
+<a class="flex flex-col items-center justify-center text-teal-900/60 dark:text-teal-100/60 px-4 py-2 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider mt-1">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-teal-900/60 dark:text-teal-100/60 px-4 py-2 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="hourglass_empty">hourglass_empty</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider mt-1">Queue</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-teal-600 dark:bg-teal-500 text-white rounded-xl px-4 py-2 translate-y-[-2px] transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="settings" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider mt-1">Settings</span>
+</a>
+</nav>
+</body></html>

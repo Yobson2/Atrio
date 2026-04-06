@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffdbce",
+                    "surface-variant": "#e0e3e5",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-primary-container": "#f4fffc",
+                    "tertiary-fixed-dim": "#ffb59a",
+                    "surface-container-high": "#e6e8ea",
+                    "on-surface": "#191c1e",
+                    "primary-fixed-dim": "#6bd8cb",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-primary": "#6bd8cb",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#fffbff",
+                    "secondary-fixed-dim": "#4edea3",
+                    "on-tertiary-fixed": "#370e00",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#d8dadc",
+                    "surface-container": "#eceef0",
+                    "surface-container-highest": "#e0e3e5",
+                    "outline-variant": "#bcc9c6",
+                    "inverse-surface": "#2d3133",
+                    "secondary-fixed": "#6ffbbe",
+                    "on-tertiary-fixed-variant": "#773215",
+                    "secondary-container": "#6cf8bb",
+                    "on-secondary-container": "#00714d",
+                    "on-secondary-fixed": "#002113",
+                    "on-primary-fixed": "#00201d",
+                    "on-surface-variant": "#3d4947",
+                    "background": "#f7f9fb",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "primary-container": "#008378",
+                    "on-background": "#191c1e",
+                    "tertiary-container": "#b05e3d",
+                    "surface": "#f7f9fb",
+                    "secondary": "#006c49",
+                    "primary-fixed": "#89f5e7",
+                    "surface-bright": "#f7f9fb",
+                    "outline": "#6d7a77",
+                    "surface-container-low": "#f2f4f6",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#005236",
+                    "tertiary": "#924628",
+                    "on-error-container": "#93000a",
+                    "primary": "#00685f",
+                    "on-primary-fixed-variant": "#005049",
+                    "surface-tint": "#006a61"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body min-h-screen pb-32">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 glass-nav shadow-[0px_12px_32px_rgba(25,28,30,0.06)] px-6 py-4 flex justify-between items-center max-w-full">
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100/50 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-teal-700">arrow_back</span>
+</button>
+<h1 class="text-xl font-semibold tracking-tight text-teal-800 italic">Atrio</h1>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border-2 border-primary/10">
+<img alt="User Profile" data-alt="professional headshot of a stylish young man with a sharp haircut in a minimalist studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU_Y2YOm02SYH5n_b_quygx_6I3MX2xoIeVQzhMDBkeh3bZ4tQFKj2VM1iLfhfp261BeLh1WEJGYHALeq8OpWSTPHyj3hsKghHPjqEHaCPEqS9IYOKv3n4NXWnc54EFOsIWpGzKfHt_8rm-NmKDdWV2Rjr6DR2LDbrj6WBf0cQPCjYOj2cCw7dzCJXtM5xAJ0E4Rf_-DUSKsI2jW-_NYAv0FYgK94IJgRkQnInxrx_dJTMs1FTW-68wGKL91JwZlowdrVf1EPiEdPb"/>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-2xl mx-auto">
+<!-- Progress Stepper -->
+<div class="mb-10">
+<div class="flex justify-between items-center mb-4 px-1">
+<span class="text-[11px] font-semibold uppercase tracking-wider text-primary">Service</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider text-primary">Barber</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider text-primary">Time</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Confirm</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden flex">
+<div class="h-full bg-primary w-3/4 transition-all duration-500"></div>
+</div>
+</div>
+<!-- Section Header -->
+<div class="mb-8">
+<h2 class="text-3xl font-bold tracking-tight text-on-surface mb-2">Pick a Time</h2>
+<p class="text-on-surface-variant body-md">Select your preferred date and available slot for your grooming session.</p>
+</div>
+<!-- Segmented Control -->
+<div class="bg-surface-container-low p-1.5 rounded-2xl flex mb-8">
+<button class="flex-1 py-2.5 text-sm font-bold rounded-xl bg-white text-primary shadow-sm transition-all">
+                Reservation
+            </button>
+<button class="flex-1 py-2.5 text-sm font-medium rounded-xl text-on-surface-variant hover:bg-white/50 transition-all">
+                Walk-in
+            </button>
+</div>
+<!-- Inline Calendar Date Picker -->
+<div class="bg-surface-container-lowest rounded-3xl p-6 shadow-[0px_12px_32px_rgba(25,28,30,0.04)] mb-8">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-lg font-bold">October 2023</h3>
+<div class="flex gap-2">
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">chevron_left</span>
+</button>
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-y-4 text-center">
+<span class="text-[10px] font-bold uppercase text-slate-400">Mo</span>
+<span class="text-[10px] font-bold uppercase text-slate-400">Tu</span>
+<span class="text-[10px] font-bold uppercase text-slate-400">We</span>
+<span class="text-[10px] font-bold uppercase text-slate-400">Th</span>
+<span class="text-[10px] font-bold uppercase text-slate-400">Fr</span>
+<span class="text-[10px] font-bold uppercase text-slate-400">Sa</span>
+<span class="text-[10px] font-bold uppercase text-slate-400">Su</span>
+<button class="py-2 text-sm font-medium text-slate-300">25</button>
+<button class="py-2 text-sm font-medium text-slate-300">26</button>
+<button class="py-2 text-sm font-medium text-on-surface hover:bg-teal-50 rounded-xl transition-colors">1</button>
+<button class="py-2 text-sm font-medium text-on-surface hover:bg-teal-50 rounded-xl transition-colors">2</button>
+<button class="py-2 text-sm font-medium text-on-surface hover:bg-teal-50 rounded-xl transition-colors">3</button>
+<button class="py-2 text-sm font-medium text-on-surface hover:bg-teal-50 rounded-xl transition-colors">4</button>
+<button class="py-2 text-sm font-medium text-on-surface hover:bg-teal-50 rounded-xl transition-colors">5</button>
+<button class="py-2 text-sm font-medium text-on-surface hover:bg-teal-50 rounded-xl transition-colors">6</button>
+<button class="py-2 text-sm font-medium text-on-surface hover:bg-teal-50 rounded-xl transition-colors">7</button>
+<button class="py-2 text-sm font-medium text-on-surface hover:bg-teal-50 rounded-xl transition-colors">8</button>
+<button class="py-2 text-sm font-medium bg-primary text-white rounded-xl shadow-lg shadow-primary/20 scale-110">9</button>
+<button class="py-2 text-sm font-medium text-on-surface hover:bg-teal-50 rounded-xl transition-colors">10</button>
+<button class="py-2 text-sm font-medium text-on-surface hover:bg-teal-50 rounded-xl transition-colors">11</button>
+<button class="py-2 text-sm font-medium text-on-surface hover:bg-teal-50 rounded-xl transition-colors">12</button>
+</div>
+</div>
+<!-- Time Slot Grid -->
+<div class="mb-12">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-sm font-bold uppercase tracking-wider text-on-surface-variant">Available Slots</h3>
+<span class="text-xs font-medium text-secondary">8 slots left</span>
+</div>
+<div class="grid grid-cols-3 sm:grid-cols-4 gap-3">
+<button class="py-3 px-2 rounded-2xl bg-surface-container-low text-on-surface font-semibold text-sm hover:bg-teal-50 transition-all">
+                    9:00 AM
+                </button>
+<button class="py-3 px-2 rounded-2xl bg-surface-container-low text-on-surface font-semibold text-sm hover:bg-teal-50 transition-all">
+                    9:30 AM
+                </button>
+<button class="py-3 px-2 rounded-2xl bg-primary bg-gradient-to-br from-primary to-primary-container text-white font-bold text-sm shadow-md shadow-primary/10 translate-y-[-2px]">
+                    10:00 AM
+                </button>
+<button class="py-3 px-2 rounded-2xl bg-surface-container-low text-on-surface font-semibold text-sm hover:bg-teal-50 transition-all">
+                    11:00 AM
+                </button>
+<button class="py-3 px-2 rounded-2xl bg-surface-container-low text-on-surface font-semibold text-sm hover:bg-teal-50 transition-all">
+                    12:30 PM
+                </button>
+<button class="py-3 px-2 rounded-2xl opacity-40 bg-surface-container-high text-on-surface-variant font-medium text-sm cursor-not-allowed">
+                    1:00 PM
+                </button>
+<button class="py-3 px-2 rounded-2xl bg-surface-container-low text-on-surface font-semibold text-sm hover:bg-teal-50 transition-all">
+                    2:30 PM
+                </button>
+<button class="py-3 px-2 rounded-2xl bg-surface-container-low text-on-surface font-semibold text-sm hover:bg-teal-50 transition-all">
+                    4:00 PM
+                </button>
+</div>
+</div>
+</main>
+<!-- Bottom Action Bar -->
+<div class="fixed bottom-0 left-0 right-0 p-6 glass-nav shadow-[0px_-12px_32px_rgba(25,28,30,0.04)]">
+<div class="max-w-2xl mx-auto flex items-center justify-between">
+<div class="hidden sm:block">
+<p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-0.5">Selected Time</p>
+<p class="text-sm font-bold text-on-surface">Oct 9, 10:00 AM</p>
+</div>
+<button class="w-full sm:w-48 py-4 bg-primary bg-gradient-to-br from-primary to-primary-container text-white font-bold rounded-2xl shadow-lg shadow-primary/20 hover:translate-y-[-2px] active:scale-95 transition-all">
+                Next Step
+            </button>
+</div>
+</div>
+<!-- Background Decoration -->
+<div class="fixed top-0 right-0 -z-10 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2"></div>
+<div class="fixed bottom-0 left-0 -z-10 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[100px] -translate-x-1/2 translate-y-1/2"></div>
+</body></html>

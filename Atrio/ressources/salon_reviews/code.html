@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Atrio - Reviews</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#008378",
+                        "tertiary": "#924628",
+                        "secondary-container": "#6cf8bb",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-container": "#eceef0",
+                        "on-tertiary-fixed-variant": "#773215",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-tertiary-fixed": "#370e00",
+                        "outline": "#6d7a77",
+                        "surface-bright": "#f7f9fb",
+                        "on-tertiary-container": "#fffbff",
+                        "surface-tint": "#006a61",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "secondary": "#006c49",
+                        "surface-variant": "#e0e3e5",
+                        "on-secondary-fixed": "#002113",
+                        "on-primary-fixed": "#00201d",
+                        "on-secondary-container": "#00714d",
+                        "primary": "#00685f",
+                        "outline-variant": "#bcc9c6",
+                        "inverse-on-surface": "#eff1f3",
+                        "secondary-fixed": "#6ffbbe",
+                        "inverse-surface": "#2d3133",
+                        "tertiary-container": "#b05e3d",
+                        "on-background": "#191c1e",
+                        "on-surface-variant": "#3d4947",
+                        "on-primary-container": "#f4fffc",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f7f9fb",
+                        "on-primary-fixed-variant": "#005049",
+                        "surface": "#f7f9fb",
+                        "tertiary-fixed": "#ffdbce",
+                        "inverse-primary": "#6bd8cb",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-fixed-variant": "#005236",
+                        "primary-fixed-dim": "#6bd8cb",
+                        "primary-fixed": "#89f5e7",
+                        "surface-container-low": "#f2f4f6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface selection:bg-secondary-container">
+<!-- Top App Bar - Fixed Shell -->
+<header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-[0px_12px_32px_rgba(25,28,30,0.06)]">
+<div class="flex items-center justify-between px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<button class="p-2 -ml-2 hover:bg-teal-50 rounded-full transition-all active:scale-95">
+<span class="material-symbols-outlined text-teal-700">arrow_back</span>
+</button>
+<h1 class="text-xl font-bold tracking-tight text-teal-700">Reviews</h1>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 hover:bg-teal-50 rounded-full transition-colors">
+<span class="material-symbols-outlined text-teal-700">sort</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden ring-2 ring-primary/10">
+<img alt="User" class="w-full h-full object-cover" data-alt="close-up portrait of a stylish man with a clean beard and modern haircut in a bright studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsNQtRomTqkxm2mJsB0_g7maUoEJHMcYCnRPfhuvMKOcyday79K_kwqOrmGBELrcON8vXmdRZrR3JFsQxjpuDjMfsv45MZtDAg8Q4fXl5QTVLFQt3llB3Va-mqm5W6Y310qLbyHh9s115H7KI-Hd4dE6jpCrQUtQZIasWOTSFVQKWi69TNCxLGcH3iZbQTDSAUCpTvuMiZYRu_Ahk15RN7iCjr_31YXLhJDB_ln5NKVQNFQhH7qmwkDIjmiWkxHZsyGLgAWKtj5dpR"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-32 px-6 max-w-2xl mx-auto min-h-screen">
+<!-- Pull-to-refresh Indicator (Visual Only) -->
+<div class="flex justify-center pb-6 opacity-40">
+<span class="material-symbols-outlined animate-bounce text-primary">keyboard_double_arrow_down</span>
+</div>
+<!-- Salon Overview Bento Summary -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+<div class="bg-surface-container-lowest p-6 rounded-3xl shadow-[0px_12px_32px_rgba(25,28,30,0.04)] flex flex-col justify-center items-center text-center">
+<span class="text-5xl font-black text-primary tracking-tighter mb-1">4.9</span>
+<div class="flex gap-0.5 mb-2">
+<span class="material-symbols-outlined filled-icon text-primary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-sm font-medium text-on-surface-variant">Based on 128 reviews</span>
+</div>
+<div class="bg-primary p-6 rounded-3xl text-on-primary flex flex-col justify-between">
+<div class="text-sm font-semibold opacity-80 uppercase tracking-widest">Top Rated</div>
+<h2 class="text-2xl font-bold leading-tight">Precision &amp; Craftsmanship</h2>
+<button class="mt-4 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white text-sm font-bold py-3 px-6 rounded-xl transition-all">
+                    Write a Review
+                </button>
+</div>
+</section>
+<!-- Review List -->
+<div class="space-y-6">
+<!-- Review Card 1 -->
+<article class="bg-surface-container-low p-6 rounded-3xl transition-transform hover:scale-[1.01]">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-2xl bg-surface-container-highest overflow-hidden">
+<img alt="Marcus" class="w-full h-full object-cover" data-alt="headshot of a smiling man with sharp hair fade and glasses, high quality portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB94hmOnl_6wzbm_kWDZDpRDE32KXisxRJcbwr5VojyL5wzxqvM1F8BQSsLOxiCc597lpDbKWM6H0P7W_d_XWCQD9pc1_g7Il6SIKbQU4OUcxHb7pJZ8zHZth8JxgRwdAb6NYA4WnNKYflRnf3Kd74uhVTG9TI1iC1FbisDo2lXb3Pu4c4e2-f32SUBW0uUayfxEG2iuMAwauzzXhiQHyKPIoEsATcNs4oEZpZ0DQ5vW_ftY7fOiWJ25SuegWUbVGZzujhL6pbfSx5e"/>
+</div>
+<div>
+<h3 class="font-bold text-on-surface leading-none">Marcus Sterling</h3>
+<div class="flex mt-1">
+<span class="material-symbols-outlined filled-icon text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<span class="text-xs font-medium text-on-surface-variant/60 uppercase tracking-tighter">2 days ago</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed body-md">
+                    The attention to detail here is unmatched. Alex took the time to understand exactly what I wanted with my fade. The atmosphere is upscale but welcoming. Truly an editorial experience.
+                </p>
+<div class="mt-4 flex gap-2">
+<span class="bg-white/50 px-3 py-1 rounded-full text-[10px] font-bold text-primary uppercase tracking-widest">Skin Fade</span>
+<span class="bg-white/50 px-3 py-1 rounded-full text-[10px] font-bold text-primary uppercase tracking-widest">Alex P.</span>
+</div>
+</article>
+<!-- Review Card 2 -->
+<article class="bg-surface-container-low p-6 rounded-3xl transition-transform hover:scale-[1.01]">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-2xl bg-surface-container-highest overflow-hidden">
+<img alt="Julian" class="w-full h-full object-cover" data-alt="portrait of a young man with a creative haircut looking away in a bright urban environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQg7SBdcAvJcVnufzqQ2w1DDEt1wbZWCDYugTcVQrDKGfbyf2grKuFs8Ch7zuNXgi0G6krhZZ6BbGgDWikw9p2B175U2N4Q2C3rQZ3WWgPoHjPNep-zuqMPc1T2uly_UTttn8A8l8lFoPYzRrkSlzjGAxhstAzcjQrDFqAyCjA7eyVM38XgZktefOFkI3kBraJr9-cKYimTWOJcGbuIPhaophNTT1WCsle85Vkez_fRzKOXDbuhO9yQzCoFISgheqjEIcRv3Q_xV0C"/>
+</div>
+<div>
+<h3 class="font-bold text-on-surface leading-none">Julian Vane</h3>
+<div class="flex mt-1">
+<span class="material-symbols-outlined filled-icon text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-outline-variant text-[16px]">star</span>
+</div>
+</div>
+</div>
+<span class="text-xs font-medium text-on-surface-variant/60 uppercase tracking-tighter">Last Week</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed body-md">
+                    Best hot towel shave in the city. The products they use smell incredible. Only giving 4 stars because the wait was a bit longer than expected, but the result was worth it.
+                </p>
+</article>
+<!-- Review Card 3 -->
+<article class="bg-surface-container-low p-6 rounded-3xl transition-transform hover:scale-[1.01]">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-2xl bg-surface-container-highest overflow-hidden">
+<img alt="David" class="w-full h-full object-cover" data-alt="professional man in his 40s with a clean groomed beard and sophisticated smile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAUGVzyCVmDyQ2fYiL9aPwIrBmjYvY5ZO3xMthj7sVVh0HD0Fjoyg6FzHqg3qykZM7VO8XZJ2PvuiZBWGonSvkZ9fkKSqjSdQ6hSEX0yXm9JSHWaQJfX-1WH6wvwJra0o6E4h1pboHWwSk9NcmLPglfisBEWvcXai2pzlZIEAriJxNF47tzCP3mSInAqbpTsq7QjzjemUv_Yk9AaJLjXzQ5SmlSfyE80hwimXC62s9swIeoQmuALNt8YeRoGznj42cvFmr5369-8NR"/>
+</div>
+<div>
+<h3 class="font-bold text-on-surface leading-none">David Chen</h3>
+<div class="flex mt-1">
+<span class="material-symbols-outlined filled-icon text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<span class="text-xs font-medium text-on-surface-variant/60 uppercase tracking-tighter">Oct 12</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed body-md">
+                    Consistently excellent. Atrio has made booking so much easier. The reminders are helpful and the salon always honors the appointment time exactly.
+                </p>
+<div class="mt-4 flex gap-2">
+<span class="bg-white/50 px-3 py-1 rounded-full text-[10px] font-bold text-primary uppercase tracking-widest">Beard Trim</span>
+</div>
+</article>
+<!-- Review Card 4 -->
+<article class="bg-surface-container-low p-6 rounded-3xl transition-transform hover:scale-[1.01]">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-2xl bg-surface-container-highest overflow-hidden">
+<img alt="Xavier" class="w-full h-full object-cover" data-alt="close-up of a handsome man with modern styled hair in a soft-lit designer interior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRn4Q1EW_fY9zfC-Eu3tji7N1lumQV1TCu4qPtepAettor8dDuUVbiMycaa6M9-E8dBNvoUANYP1Cnf1DhnfRJcwGZEsPgGPQIcjTBftLaZzvoEGTth7EXSTMxYsJMj9P3VJgjzIQqbWxIOWP68IBVdk5WJWrvrRoDavp9NFMMxRZJ1pIx2vEIhKZW2bqMmERKzF0_FqPdpNwkb-IuUSlmCZvHP_CgSPRU5_XhVWsMUifcj-aEV7Kus365uX0lxhsxNDQctn5i2MfM"/>
+</div>
+<div>
+<h3 class="font-bold text-on-surface leading-none">Xavier Ross</h3>
+<div class="flex mt-1">
+<span class="material-symbols-outlined filled-icon text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<span class="text-xs font-medium text-on-surface-variant/60 uppercase tracking-tighter">Oct 08</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed body-md">
+                    The precision is just on another level. I've been to many 'luxury' barbers but these guys actually deliver on the promise. The artisan approach is evident in every snip.
+                </p>
+</article>
+</div>
+</main>
+<!-- Bottom Navigation Bar - Glassmorphism -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md z-50 shadow-[0px_-8px_24px_rgba(25,28,30,0.04)] rounded-t-2xl">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-teal-600 transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-wide">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-teal-600 dark:bg-teal-500 text-white rounded-2xl px-5 py-2" href="#">
+<span class="material-symbols-outlined mb-1 filled-icon" style="font-variation-settings: 'FILL' 1;">event_note</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-wide">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-teal-600 transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">query_stats</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-wide">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-teal-600 transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-wide">Profile</span>
+</a>
+</nav>
+</body></html>

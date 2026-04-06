@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Atrio - Set Up Your Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#00201d",
+                        "tertiary": "#924628",
+                        "surface-bright": "#f7f9fb",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#6cf8bb",
+                        "on-secondary-container": "#00714d",
+                        "on-primary-fixed-variant": "#005049",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#6bd8cb",
+                        "outline-variant": "#bcc9c6",
+                        "on-surface-variant": "#3d4947",
+                        "primary-container": "#008378",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#773215",
+                        "surface-container": "#eceef0",
+                        "on-secondary-fixed": "#002113",
+                        "inverse-on-surface": "#eff1f3",
+                        "primary-fixed": "#89f5e7",
+                        "surface-dim": "#d8dadc",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-primary-container": "#f4fffc",
+                        "tertiary-container": "#b05e3d",
+                        "surface-container-high": "#e6e8ea",
+                        "secondary-fixed": "#6ffbbe",
+                        "tertiary-fixed": "#ffdbce",
+                        "inverse-surface": "#2d3133",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#fffbff",
+                        "inverse-primary": "#6bd8cb",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e0e3e5",
+                        "primary": "#00685f",
+                        "background": "#f7f9fb",
+                        "on-background": "#191c1e",
+                        "outline": "#6d7a77",
+                        "on-secondary-fixed-variant": "#005236",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "surface-tint": "#006a61",
+                        "secondary": "#006c49",
+                        "on-tertiary-fixed": "#370e00",
+                        "on-surface": "#191c1e",
+                        "surface-variant": "#e0e3e5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-editorial-gradient {
+            background: linear-gradient(135deg, #00685f 0%, #008378 100%);
+        }
+        .ghost-border {
+            border: 1px solid rgba(188, 201, 198, 0.15);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col items-center">
+<!-- TopAppBar -->
+<header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md fixed top-0 w-full z-50 shadow-[0px_12px_32px_rgba(25,28,30,0.06)]">
+<div class="flex items-center justify-between px-6 h-16 w-full max-w-md mx-auto">
+<button class="text-teal-700 dark:text-teal-400 hover:opacity-80 transition-opacity active:scale-95 transition-transform">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-xl font-bold text-teal-800 dark:text-teal-300 tracking-tighter font-inter tracking-tight font-semibold">Atrio</h1>
+<div class="w-6"></div> <!-- Spacer for balance -->
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-md px-6 pt-24 pb-12 flex flex-col flex-grow">
+<!-- Editorial Header Section -->
+<section class="mb-10 text-center">
+<h2 class="text-3xl font-extrabold text-on-surface tracking-tight mb-2">Set Up Your Profile</h2>
+<p class="text-on-surface-variant text-body-md leading-relaxed">Tell us a bit about yourself to get started.</p>
+</section>
+<!-- Profile Photo Upload -->
+<section class="mb-10 flex flex-col items-center">
+<div class="relative group">
+<div class="w-32 h-32 rounded-full bg-surface-container-low flex items-center justify-center overflow-hidden ghost-border shadow-sm">
+<img class="w-full h-full object-cover opacity-20" data-alt="Abstract soft focus background with professional studio lighting and clean minimalist aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5E295C-j-v-LaW50VCIGo8N6eYZdg8FsZNKYs3hHuFwBCZI9EKe8EXTW9u9vKpKIvsTWLgBIfx6opHVtYfGhKP3mwZRV_Wwwid7LWwYyhCltCxNjOj8muaeagp2xtAdmUDoiQjv7YTuR2Pj8hyMGBhgRtO6kVmgzn55LJUI83iLh43aBe25w8hogHdTbaghWuFd9jo8HDbqqjXTt3wN1UFqd3uPyn42Pu2J_RGxjyX_mgxW9tJL0Vvi2lzvdQkWL-DKc4vDThzyZQ"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-outline-variant">person</span>
+</div>
+</div>
+<button class="absolute bottom-0 right-0 bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center shadow-[0px_12px_32px_rgba(0,104,95,0.2)] hover:scale-105 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">upload</span>
+</button>
+</div>
+<span class="mt-4 text-sm font-semibold text-primary tracking-wide">Upload Photo</span>
+</section>
+<!-- Form Section -->
+<section class="space-y-6 flex-grow">
+<!-- Full Name Input -->
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface-variant ml-1" for="full_name">Full Name</label>
+<div class="relative">
+<input class="w-full h-14 px-5 bg-surface-container-low rounded-xl border-none focus:ring-1 focus:ring-primary transition-all placeholder:text-outline-variant text-on-surface font-medium" id="full_name" placeholder="Enter your full name" type="text"/>
+</div>
+</div>
+<!-- Email Address Input -->
+<div class="space-y-2">
+<div class="flex justify-between items-center px-1">
+<label class="text-sm font-bold text-on-surface-variant" for="email">Email Address</label>
+<span class="text-[10px] uppercase tracking-widest font-bold text-outline-variant">Optional</span>
+</div>
+<div class="relative">
+<input class="w-full h-14 px-5 bg-surface-container-low rounded-xl border-none focus:ring-1 focus:ring-primary transition-all placeholder:text-outline-variant text-on-surface font-medium" id="email" placeholder="example@email.com" type="email"/>
+</div>
+</div>
+<!-- Bento Card Tip (Editorial Element) -->
+<div class="mt-8 p-6 bg-surface-container-lowest rounded-2xl ghost-border shadow-[0px_12px_32px_rgba(25,28,30,0.04)]">
+<div class="flex gap-4 items-start">
+<div class="p-2 bg-secondary-container rounded-lg shrink-0">
+<span class="material-symbols-outlined text-on-secondary-container">verified_user</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface tracking-tight mb-1">Your privacy matters</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">Your data is encrypted and used only to personalize your grooming experience. We never share your contact details.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Actions -->
+<footer class="mt-12">
+<button class="w-full h-14 bg-editorial-gradient text-on-primary rounded-xl font-bold text-md shadow-[0px_12px_32px_rgba(0,104,95,0.15)] hover:lift transition-all active:scale-95 flex items-center justify-center gap-2 group">
+                Next
+                <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<p class="text-center mt-6 text-[10px] uppercase tracking-widest font-bold text-outline-variant">
+                Step 1 of 3
+            </p>
+</footer>
+</main>
+<!-- Visual Polish: Decorative Gradient Mesh (Subtle) -->
+<div class="fixed top-0 right-0 -z-10 w-64 h-64 bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="fixed bottom-0 left-0 -z-10 w-96 h-96 bg-secondary/5 blur-[150px] rounded-full pointer-events-none"></div>
+</body></html>

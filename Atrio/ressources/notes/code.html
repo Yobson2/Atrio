@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Atrio Notes</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#008378",
+                        "tertiary": "#924628",
+                        "secondary-container": "#6cf8bb",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-container": "#eceef0",
+                        "on-tertiary-fixed-variant": "#773215",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-tertiary-fixed": "#370e00",
+                        "outline": "#6d7a77",
+                        "surface-bright": "#f7f9fb",
+                        "on-tertiary-container": "#fffbff",
+                        "surface-tint": "#006a61",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "secondary": "#006c49",
+                        "surface-variant": "#e0e3e5",
+                        "on-secondary-fixed": "#002113",
+                        "on-primary-fixed": "#00201d",
+                        "on-secondary-container": "#00714d",
+                        "primary": "#00685f",
+                        "outline-variant": "#bcc9c6",
+                        "inverse-on-surface": "#eff1f3",
+                        "secondary-fixed": "#6ffbbe",
+                        "inverse-surface": "#2d3133",
+                        "tertiary-container": "#b05e3d",
+                        "on-background": "#191c1e",
+                        "on-surface-variant": "#3d4947",
+                        "on-primary-container": "#f4fffc",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f7f9fb",
+                        "on-primary-fixed-variant": "#005049",
+                        "surface": "#f7f9fb",
+                        "tertiary-fixed": "#ffdbce",
+                        "inverse-primary": "#6bd8cb",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-fixed-variant": "#005236",
+                        "primary-fixed-dim": "#6bd8cb",
+                        "primary-fixed": "#89f5e7",
+                        "surface-container-low": "#f2f4f6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pull-indicator {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-5px);}
+            60% {transform: translateY(-3px);}
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-[0px_12px_32px_rgba(25,28,30,0.06)] flex items-center justify-between px-6 py-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-teal-600 cursor-pointer" data-icon="menu">menu</span>
+<h1 class="text-xl font-bold tracking-tighter text-teal-700">Atrio</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-teal-600" data-icon="cloud_done">cloud_done</span>
+<div class="w-10 h-10 rounded-full overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="portrait of a professional barber with a beard in a modern studio environment, soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5xjW4bSBFOeglGStiAJhT0zGxBJShDuIkExdGlziOEbmIwLY4-2ZQOdkjMKPhkN0NwvmExntzYPQuizNN__VTgU2ha14tS73GMDMuWB6YU2v5lxK1nPi71xJjA85n8xwj1hC6LrYjvL8wkmCHo42oVXTihUhIkGkvRfWqbIJrQ9zZaK-eq1wwvLZq8CkOsGUg2GMsYfFS4XDYOyYuaoE1geiRP1t6JDvJZpoH9NnjHJ7ZwcN8-Sfz_z4jdI6-5dZhdI3AOTVw6NM5"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-2xl mx-auto min-h-screen">
+<!-- Pull to Refresh Simulation -->
+<div class="flex flex-col items-center justify-center py-4 opacity-40">
+<span class="material-symbols-outlined text-teal-600 pull-indicator" data-icon="keyboard_double_arrow_down">keyboard_double_arrow_down</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Pull to Refresh</span>
+</div>
+<!-- Sync Status Banner -->
+<div class="mb-8 flex items-center justify-between p-4 bg-primary-container/10 rounded-xl border-l-4 border-primary-container">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container" data-icon="sync">sync</span>
+<div>
+<p class="text-sm font-semibold text-primary-container">Offline Mode Ready</p>
+<p class="text-xs text-on-surface-variant">Changes will sync when connected</p>
+</div>
+</div>
+<button class="text-xs font-bold text-primary-container hover:underline px-2 py-1">DISMISS</button>
+</div>
+<header class="mb-8">
+<h2 class="text-3xl font-extrabold tracking-tight text-on-surface">Client Notes</h2>
+<p class="text-on-surface-variant mt-1 text-sm">Organize formulas, preferences, and history.</p>
+</header>
+<!-- Bento-Style Grid of Notes -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Note Card: Pending Sync -->
+<div class="bg-surface-container-low p-5 rounded-2xl shadow-sm hover:shadow-md transition-shadow group relative">
+<div class="absolute top-4 right-4">
+<span class="material-symbols-outlined text-tertiary animate-pulse" data-icon="sync_problem">sync_problem</span>
+</div>
+<h3 class="text-lg font-bold text-on-surface mb-2 group-hover:text-primary transition-colors">Marcus J. - Fade Style</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed line-clamp-3">
+                    Low skin fade, hard part on the left. Loves the tea tree shampoo. Mentioned wanting to try a beard trim next visit.
+                </p>
+<div class="mt-4 flex items-center gap-2">
+<span class="px-3 py-1 bg-surface-container-highest text-[10px] font-bold rounded-full text-on-surface-variant uppercase tracking-tighter">Formula</span>
+<span class="text-[10px] text-outline ml-auto">2 mins ago</span>
+</div>
+</div>
+<!-- Note Card: Synced -->
+<div class="bg-surface-container-low p-5 rounded-2xl shadow-sm hover:shadow-md transition-shadow group relative">
+<div class="absolute top-4 right-4">
+<span class="material-symbols-outlined text-teal-600 opacity-40" data-icon="cloud_done">cloud_done</span>
+</div>
+<h3 class="text-lg font-bold text-on-surface mb-2 group-hover:text-primary transition-colors">Supplies Restock</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed line-clamp-3">
+                    Need more pomade (firm hold), styling powder, and new clipper guards (0.5 and 1.5).
+                </p>
+<div class="mt-4 flex items-center gap-2">
+<span class="px-3 py-1 bg-surface-container-highest text-[10px] font-bold rounded-full text-on-surface-variant uppercase tracking-tighter">Admin</span>
+<span class="text-[10px] text-outline ml-auto">Yesterday</span>
+</div>
+</div>
+<!-- Note Card: Synced with Image Context -->
+<div class="bg-surface-container-low p-5 rounded-2xl shadow-sm hover:shadow-md transition-shadow group relative md:col-span-2 flex flex-col md:flex-row gap-4">
+<div class="w-full md:w-32 h-32 rounded-xl overflow-hidden bg-surface-container-high shrink-0">
+<img class="w-full h-full object-cover" data-alt="close up of premium barber scissors and combs on a rustic wooden table with moody lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvx4D70nSBLtJE5rjj8wHg8M3Lp50WstBgaO2FFnecfQtB_jyNHV089Y9-3QkuOkfpw0BfJ9z3Z8u52K6vkTP8XUjVKl_wWycY1R_nLJZB9CHbvQXTvzu4bjzaCkA3r2q74ELxqJeuOExSIyVtzc5fTg12En4VklN6TF_GLQizTogZdCegGyYql74t5ad_gQ5nl-SfDuVV3bpdskLXSa8D7YHyOu0lr9Ay0166K975LLTzY0_i5JJq3rvnd2ky0peBaCCVnlr4Lgf2"/>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-lg font-bold text-on-surface group-hover:text-primary transition-colors">Precision Techniques</h3>
+<span class="material-symbols-outlined text-teal-600 opacity-40" data-icon="cloud_done">cloud_done</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed line-clamp-2">
+                        Experimenting with point cutting for texture on longer tops. Client feedback has been exceptionally positive.
+                    </p>
+<div class="mt-4 flex items-center gap-2">
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded-full uppercase tracking-tighter">Technique</span>
+<span class="text-[10px] text-outline ml-auto">Oct 24</span>
+</div>
+</div>
+</div>
+<!-- Note Card: Pending Sync -->
+<div class="bg-surface-container-low p-5 rounded-2xl shadow-sm hover:shadow-md transition-shadow group relative">
+<div class="absolute top-4 right-4">
+<span class="material-symbols-outlined text-tertiary animate-pulse" data-icon="sync_problem">sync_problem</span>
+</div>
+<h3 class="text-lg font-bold text-on-surface mb-2 group-hover:text-primary transition-colors">Sarah T. - Color</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed line-clamp-3">
+                    Platinum retouch. Used 20vol at roots for 45 mins. Toned with 10V and 10P. Hair responded well.
+                </p>
+<div class="mt-4 flex items-center gap-2">
+<span class="px-3 py-1 bg-surface-container-highest text-[10px] font-bold rounded-full text-on-surface-variant uppercase tracking-tighter">Chemical</span>
+<span class="text-[10px] text-outline ml-auto">1 hour ago</span>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB -->
+<button class="fixed bottom-24 right-6 w-16 h-16 bg-gradient-to-br from-primary to-primary-container text-white rounded-2xl shadow-[0px_12px_32px_rgba(0,104,95,0.25)] flex items-center justify-center group active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-3xl transition-transform group-hover:rotate-90" data-icon="add">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full bg-white/80 backdrop-blur-md flex justify-around items-center px-4 pb-6 pt-3 shadow-[0px_-8px_24px_rgba(25,28,30,0.04)] rounded-t-2xl z-50">
+<a class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 hover:text-teal-600 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-medium text-[11px] tracking-wide mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 hover:text-teal-600 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span class="font-medium text-[11px] tracking-wide mt-1">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-teal-600 text-white rounded-2xl px-5 py-2 shadow-lg shadow-teal-600/20" href="#">
+<span class="material-symbols-outlined" data-icon="query_stats" style="font-variation-settings: 'FILL' 1;">query_stats</span>
+<span class="font-medium text-[11px] tracking-wide mt-1">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 hover:text-teal-600 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-medium text-[11px] tracking-wide mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

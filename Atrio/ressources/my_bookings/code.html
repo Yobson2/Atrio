@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Bookings | Atrio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffdbce",
+                    "surface-variant": "#e0e3e5",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-primary-container": "#f4fffc",
+                    "tertiary-fixed-dim": "#ffb59a",
+                    "surface-container-high": "#e6e8ea",
+                    "on-surface": "#191c1e",
+                    "primary-fixed-dim": "#6bd8cb",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-primary": "#6bd8cb",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#fffbff",
+                    "secondary-fixed-dim": "#4edea3",
+                    "on-tertiary-fixed": "#370e00",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#d8dadc",
+                    "surface-container": "#eceef0",
+                    "surface-container-highest": "#e0e3e5",
+                    "outline-variant": "#bcc9c6",
+                    "inverse-surface": "#2d3133",
+                    "secondary-fixed": "#6ffbbe",
+                    "on-tertiary-fixed-variant": "#773215",
+                    "secondary-container": "#6cf8bb",
+                    "on-secondary-container": "#00714d",
+                    "on-secondary-fixed": "#002113",
+                    "on-primary-fixed": "#00201d",
+                    "on-surface-variant": "#3d4947",
+                    "background": "#f7f9fb",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "primary-container": "#008378",
+                    "on-background": "#191c1e",
+                    "tertiary-container": "#b05e3d",
+                    "surface": "#f7f9fb",
+                    "secondary": "#006c49",
+                    "primary-fixed": "#89f5e7",
+                    "surface-bright": "#f7f9fb",
+                    "outline": "#6d7a77",
+                    "surface-container-low": "#f2f4f6",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#005236",
+                    "tertiary": "#924628",
+                    "on-error-container": "#93000a",
+                    "primary": "#00685f",
+                    "on-primary-fixed-variant": "#005049",
+                    "surface-tint": "#006a61"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-[0px_12px_32px_rgba(25,28,30,0.06)]">
+<div class="flex justify-between items-center px-6 py-4 max-w-full">
+<div class="flex items-center gap-4">
+<button class="p-2 text-teal-700 hover:bg-slate-100/50 rounded-full transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="text-2xl font-black text-teal-800 dark:text-teal-300 italic">Atrio</h1>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-sm font-medium text-slate-500 hidden md:block">Alex Precision</span>
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="Close-up portrait of a stylish young man with a neatly groomed beard and professional haircut, soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmIAlCxKyu2MK0eDVbyo_EXffICAwM5kBqFbLszvBNtEw0k2rQr2VgO47iKVHdfxkEw29eq71ic_0X5cxvaP3XJIMblJQokiCDzkyUPAmnnvR4VlwrxyIXOMHqxVFv-pp9e8j7aGm09v4CRidgCzYyAM-2bKG2d555snYWr1kz4cB8gFiEVSAM2Wk8e9bs6VzgFR3uWxEJI4v6EV3QAia2piUogNPR-6YPh4KsXqddEypXnCat-jStY08XFcF3jwwMUq4eMGDbbSg5"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 px-4 max-w-5xl mx-auto">
+<!-- Page Title & Editorial Header -->
+<div class="mb-8">
+<h2 class="text-3xl font-extrabold tracking-tight text-on-surface mb-2">Bookings</h2>
+<p class="text-on-surface-variant text-sm font-medium">Manage your signature grooming sessions.</p>
+</div>
+<!-- Segmented Tab Bar -->
+<div class="flex p-1 bg-surface-container-low rounded-2xl mb-8 max-w-xs">
+<button class="flex-1 py-2.5 text-sm font-bold rounded-xl transition-all bg-primary text-on-primary shadow-lg">
+                Upcoming
+            </button>
+<button class="flex-1 py-2.5 text-sm font-semibold rounded-xl text-on-surface-variant hover:bg-surface-container-high transition-all">
+                Past
+            </button>
+</div>
+<!-- Bookings Grid: Bento Inspired -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Booking Card 1: Confirmed -->
+<div class="group bg-surface-container-lowest rounded-[2rem] p-6 shadow-[0px_12px_32px_rgba(25,28,30,0.06)] hover:shadow-[0px_12px_32px_rgba(25,28,30,0.12)] transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<div class="flex flex-col">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-secondary-container text-on-secondary-container mb-3">
+                            Confirmed
+                        </span>
+<h3 class="text-xl font-bold text-on-surface">Signature Beard Sculpt</h3>
+</div>
+<div class="bg-surface-container-low p-2 rounded-2xl group-hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-primary">content_cut</span>
+</div>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-2xl overflow-hidden ring-2 ring-surface-container-high ring-offset-2">
+<img alt="Barber" class="w-full h-full object-cover" data-alt="Professional barber with tattoos working in a high-end vintage barbershop environment, warm cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmPj5Nyd6bQhTCd2CWPN3kWnZhwDFsThvn5i2_gTMAro7C4WTD7it10ySkcWIkiP5GuIRc4oh18bwJfnql_d5lgTUTANPy2NYtVKO0ZsyY79E0FY11HVavm3pF4j89nJZj4kFb9F1PImJdHzvQMpJ6cn7rQal-fU22M08vgCtRx4e-TTpBsprLt8xCfSBjK_RNQkcCWF-GrpN5NvnwWcpZaqotvWUSyVE4YH63wx1lJL48Xu9QhXa0uM5r95BRQtgSiKr1bAPKVvIt"/>
+</div>
+<div>
+<p class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Master Barber</p>
+<p class="text-sm font-bold text-on-surface">Julian "The Edge" Rossi</p>
+</div>
+</div>
+<div class="flex flex-wrap gap-y-4 py-6 border-t border-surface-variant/20">
+<div class="w-1/2">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">Date</p>
+<p class="text-sm font-semibold">Oct 24, 2023</p>
+</div>
+<div class="w-1/2">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">Time</p>
+<p class="text-sm font-semibold text-primary">10:30 AM</p>
+</div>
+<div class="w-full">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">Location</p>
+<p class="text-sm font-medium">The Gilded Razor • Downtown HQ</p>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 py-3 px-4 bg-surface-container-high text-on-surface text-xs font-bold rounded-xl hover:bg-surface-container-highest transition-colors active:scale-95">
+                        Reschedule
+                    </button>
+<button class="flex-none p-3 bg-tertiary/10 text-tertiary rounded-xl hover:bg-tertiary/20 transition-colors active:scale-95">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+</div>
+<!-- Booking Card 2: In Progress (Highlight State) -->
+<div class="group bg-primary text-on-primary rounded-[2rem] p-6 shadow-[0px_24px_48px_rgba(0,104,95,0.2)] relative overflow-hidden">
+<!-- Subtle Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary-container/20 to-transparent pointer-events-none"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-6">
+<div class="flex flex-col">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-white/20 text-white mb-3">
+                                In Progress
+                            </span>
+<h3 class="text-xl font-bold">Executive Skin Fade</h3>
+</div>
+<div class="bg-white/10 p-2 rounded-2xl">
+<span class="material-symbols-outlined text-white">hourglass_empty</span>
+</div>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-2xl overflow-hidden ring-2 ring-white/30 ring-offset-2 ring-offset-primary">
+<img alt="Barber" class="w-full h-full object-cover" data-alt="Female professional barber meticulously trimming a customer's hair in a bright, modern minimalist salon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCutgRke0ZUAz4-tipoLP_Xr_XvD1iaDiVrGgE8-O2rikJLoW9_qpVofEvA5g7KOtTp-TzcAZwzunbIFbL31QmegpoEIRLUeB8uaDc7OzQcL43tfTC1wN3az05WCGuI1ZLYA589txq26Yp8aeUUl0Hen3jdYRXz--PUXpHtYWoeQeGev8wuO53qBTZ6kxeKWxBLM8hVTXIDUzdvNXNxrOlY07isKzDzbxQxWDH2bFE0hZfO3f7LcD6x6uQer53MKiEOAJt-YT1ueeRk"/>
+</div>
+<div>
+<p class="text-[10px] font-semibold text-primary-fixed uppercase tracking-wider">Lead Stylist</p>
+<p class="text-sm font-bold">Sarah Vane</p>
+</div>
+</div>
+<div class="flex flex-wrap gap-y-4 py-6 border-t border-white/10">
+<div class="w-1/2">
+<p class="text-[10px] font-bold text-white/60 uppercase tracking-widest mb-1">Session</p>
+<p class="text-sm font-semibold">Active Now</p>
+</div>
+<div class="w-1/2">
+<p class="text-[10px] font-bold text-white/60 uppercase tracking-widest mb-1">Ends</p>
+<p class="text-sm font-semibold">~11:15 AM</p>
+</div>
+</div>
+<button class="w-full py-3 px-4 bg-white text-primary text-xs font-bold rounded-xl hover:bg-primary-fixed transition-colors active:scale-95">
+                        View Details
+                    </button>
+</div>
+</div>
+<!-- Booking Card 3: Pending -->
+<div class="group bg-surface-container-lowest rounded-[2rem] p-6 shadow-[0px_12px_32px_rgba(25,28,30,0.06)] opacity-90">
+<div class="flex justify-between items-start mb-6">
+<div class="flex flex-col">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-surface-container-high text-on-surface-variant mb-3">
+                            Pending
+                        </span>
+<h3 class="text-xl font-bold text-on-surface">Luxury Hot Towel Shave</h3>
+</div>
+<div class="bg-surface-container-low p-2 rounded-2xl">
+<span class="material-symbols-outlined text-slate-400">schedule</span>
+</div>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-2xl overflow-hidden bg-surface-container">
+<img alt="Barber" class="w-full h-full object-cover" data-alt="Stylish barber with glasses and a black apron posing in a classic barbershop background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClg7SaiCj7cctI5HrRVaCgqz20vgLf6uLnEJ0JayJ3ZWIXrAU6Cg6rYIbCAPyrB1kUdk4sesM7R7FTqa37IiD5bHPVu1WHpDa8clkG5ALGTWX5jntYfnOvHAl4poMDYJv28NpyLxRkNvwCpTJrzjFDvatiz0006gDmrBGZmC4z7v9IILwrfJutby5lBBBUJHiv8w-wPgep47r2UCI09ntiJHeNyGUw9Eax3ANQX44o59oVZ5ONuzK3DrckPChShDLCfjuXGIiprgJs"/>
+</div>
+<div>
+<p class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Stylist</p>
+<p class="text-sm font-bold text-on-surface">Marcus T.</p>
+</div>
+</div>
+<div class="flex flex-wrap gap-y-4 py-6 border-t border-surface-variant/20">
+<div class="w-1/2">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">Date</p>
+<p class="text-sm font-semibold">Oct 29, 2023</p>
+</div>
+<div class="w-1/2">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">Time</p>
+<p class="text-sm font-semibold">02:00 PM</p>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 py-3 px-4 bg-primary/10 text-primary text-xs font-bold rounded-xl hover:bg-primary/20 transition-colors">
+                        Contact Shop
+                    </button>
+<button class="flex-none p-3 bg-tertiary/10 text-tertiary rounded-xl">
+<span class="material-symbols-outlined text-sm">delete</span>
+</button>
+</div>
+</div>
+<!-- Empty State Concept (Hidden by default, used if list is empty) -->
+<div class="hidden col-span-full py-20 flex flex-col items-center justify-center text-center">
+<div class="w-24 h-24 bg-surface-container-low rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-4xl text-slate-300">event_busy</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface mb-2">No Upcoming Sessions</h3>
+<p class="text-on-surface-variant text-sm max-w-xs mb-8">It's time to sharpen your look. Book a session with our master artisans.</p>
+<button class="px-8 py-3 bg-primary text-on-primary font-bold rounded-xl shadow-lg hover:shadow-xl transition-all active:scale-95">
+                    Explore Barbers
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-4 left-4 right-4 rounded-2xl z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-[0px_12px_32px_rgba(25,28,30,0.08)] md:max-w-md md:mx-auto">
+<div class="flex justify-around items-center h-20 px-2">
+<!-- Discover Tab -->
+<button class="flex flex-col items-center justify-center text-teal-900/60 dark:text-teal-100/60 px-4 py-2 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-all rounded-xl">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider mt-1">Discover</span>
+</button>
+<!-- Bookings Tab (Active) -->
+<button class="flex flex-col items-center justify-center bg-teal-600 dark:bg-teal-500 text-white rounded-xl px-4 py-2 translate-y-[-2px] transition-transform duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">event_note</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider mt-1">Bookings</span>
+</button>
+<!-- Queue Tab -->
+<button class="flex flex-col items-center justify-center text-teal-900/60 dark:text-teal-100/60 px-4 py-2 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-all rounded-xl">
+<span class="material-symbols-outlined">hourglass_empty</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider mt-1">Queue</span>
+</button>
+<!-- Settings Tab -->
+<button class="flex flex-col items-center justify-center text-teal-900/60 dark:text-teal-100/60 px-4 py-2 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-all rounded-xl">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider mt-1">Settings</span>
+</button>
+</div>
+</nav>
+<!-- Floating Action Button (Contextual) -->
+<button class="fixed right-6 bottom-28 w-14 h-14 bg-primary text-on-primary rounded-2xl shadow-2xl flex items-center justify-center group active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-2xl group-hover:rotate-90 transition-transform duration-300">add</span>
+</button>
+</body></html>
