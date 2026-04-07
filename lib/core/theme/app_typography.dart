@@ -1,0 +1,245 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_templates/core/theme/app_colors.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+/// Typography tokens using Google Fonts (Inter).
+///
+/// Display and headline styles use tight tracking (-0.02em) per the
+/// "Editorial Artisan" design spec -- these are the "Editorial Hooks"
+/// that command authority for salon names and service categories.
+class AppTypography {
+  const AppTypography._();
+
+  static String get _fontFamily => GoogleFonts.inter().fontFamily!;
+
+  // ── Light Text Theme ─────────────────────────────────────────
+
+  /// Light theme text styles.
+  static TextTheme get lightTextTheme => TextTheme(
+        // Display: tight tracking (-0.02em) for editorial hooks
+        displayLarge: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 57,
+          fontWeight: FontWeight.w400,
+          letterSpacing: -1.14, // -0.02em * 57
+          color: AppColors.textPrimaryLight,
+        ),
+        displayMedium: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 45,
+          fontWeight: FontWeight.w400,
+          letterSpacing: -0.9, // -0.02em * 45
+          color: AppColors.textPrimaryLight,
+        ),
+        displaySmall: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 36,
+          fontWeight: FontWeight.w400,
+          letterSpacing: -0.72, // -0.02em * 36
+          color: AppColors.textPrimaryLight,
+        ),
+        // Headline: tight tracking for salon names, section headers
+        headlineLarge: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 32,
+          fontWeight: FontWeight.w600,
+          letterSpacing: -0.64, // -0.02em * 32
+          color: AppColors.textPrimaryLight,
+        ),
+        headlineMedium: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 28,
+          fontWeight: FontWeight.w600,
+          letterSpacing: -0.56, // -0.02em * 28
+          color: AppColors.textPrimaryLight,
+        ),
+        headlineSmall: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 24,
+          fontWeight: FontWeight.w600,
+          letterSpacing: -0.48, // -0.02em * 24
+          color: AppColors.textPrimaryLight,
+        ),
+        // Title: semi-bold for functional navigation headers
+        titleLarge: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 22,
+          fontWeight: FontWeight.w600,
+          color: AppColors.textPrimaryLight,
+        ),
+        titleMedium: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+          letterSpacing: 0.15,
+          color: AppColors.textPrimaryLight,
+        ),
+        titleSmall: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 14,
+          fontWeight: FontWeight.w600,
+          letterSpacing: 0.1,
+          color: AppColors.textPrimaryLight,
+        ),
+        // Body: workhorse text with 1.5x line height breathing room
+        bodyLarge: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 16,
+          fontWeight: FontWeight.w400,
+          letterSpacing: 0.5,
+          height: 1.5,
+          color: AppColors.textPrimaryLight,
+        ),
+        bodyMedium: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 14,
+          fontWeight: FontWeight.w400,
+          letterSpacing: 0.25,
+          height: 1.5,
+          color: AppColors.textPrimaryLight,
+        ),
+        bodySmall: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 12,
+          fontWeight: FontWeight.w400,
+          letterSpacing: 0.4,
+          height: 1.5,
+          color: AppColors.textSecondaryLight,
+        ),
+        // Labels: metadata for durations, prices, status
+        labelLarge: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 14,
+          fontWeight: FontWeight.w500,
+          letterSpacing: 0.1,
+          color: AppColors.textPrimaryLight,
+        ),
+        labelMedium: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 12,
+          fontWeight: FontWeight.w500,
+          letterSpacing: 0.5,
+          color: AppColors.textSecondaryLight,
+        ),
+        labelSmall: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 11,
+          fontWeight: FontWeight.w500,
+          letterSpacing: 0.5,
+          color: AppColors.textSecondaryLight,
+        ),
+      );
+
+  // ── Dark Text Theme ──────────────────────────────────────────
+
+  /// Dark theme text styles.
+  static TextTheme get darkTextTheme => TextTheme(
+        displayLarge: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 57,
+          fontWeight: FontWeight.w400,
+          letterSpacing: -1.14,
+          color: AppColors.textPrimaryDark,
+        ),
+        displayMedium: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 45,
+          fontWeight: FontWeight.w400,
+          letterSpacing: -0.9,
+          color: AppColors.textPrimaryDark,
+        ),
+        displaySmall: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 36,
+          fontWeight: FontWeight.w400,
+          letterSpacing: -0.72,
+          color: AppColors.textPrimaryDark,
+        ),
+        headlineLarge: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 32,
+          fontWeight: FontWeight.w600,
+          letterSpacing: -0.64,
+          color: AppColors.textPrimaryDark,
+        ),
+        headlineMedium: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 28,
+          fontWeight: FontWeight.w600,
+          letterSpacing: -0.56,
+          color: AppColors.textPrimaryDark,
+        ),
+        headlineSmall: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 24,
+          fontWeight: FontWeight.w600,
+          letterSpacing: -0.48,
+          color: AppColors.textPrimaryDark,
+        ),
+        titleLarge: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 22,
+          fontWeight: FontWeight.w600,
+          color: AppColors.textPrimaryDark,
+        ),
+        titleMedium: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+          letterSpacing: 0.15,
+          color: AppColors.textPrimaryDark,
+        ),
+        titleSmall: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 14,
+          fontWeight: FontWeight.w600,
+          letterSpacing: 0.1,
+          color: AppColors.textPrimaryDark,
+        ),
+        bodyLarge: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 16,
+          fontWeight: FontWeight.w400,
+          letterSpacing: 0.5,
+          height: 1.5,
+          color: AppColors.textPrimaryDark,
+        ),
+        bodyMedium: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 14,
+          fontWeight: FontWeight.w400,
+          letterSpacing: 0.25,
+          height: 1.5,
+          color: AppColors.textPrimaryDark,
+        ),
+        bodySmall: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 12,
+          fontWeight: FontWeight.w400,
+          letterSpacing: 0.4,
+          height: 1.5,
+          color: AppColors.textSecondaryDark,
+        ),
+        labelLarge: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 14,
+          fontWeight: FontWeight.w500,
+          letterSpacing: 0.1,
+          color: AppColors.textPrimaryDark,
+        ),
+        labelMedium: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 12,
+          fontWeight: FontWeight.w500,
+          letterSpacing: 0.5,
+          color: AppColors.textSecondaryDark,
+        ),
+        labelSmall: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 11,
+          fontWeight: FontWeight.w500,
+          letterSpacing: 0.5,
+          color: AppColors.textSecondaryDark,
+        ),
+      );
+}

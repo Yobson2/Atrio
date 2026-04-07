@@ -1,0 +1,523 @@
+{
+  "@@locale": "en",
+
+  "appTitle": "BarberBook",
+
+  "commonOk": "OK",
+  "commonCancel": "Cancel",
+  "commonSave": "Save",
+  "commonDelete": "Delete",
+  "commonEdit": "Edit",
+  "commonClose": "Close",
+  "commonRetry": "Retry",
+  "commonNext": "Next",
+  "commonBack": "Back",
+  "commonSkip": "Skip",
+  "commonDone": "Done",
+  "commonSearch": "Search",
+  "commonLoading": "Loading...",
+  "commonNoResults": "No results found",
+  "commonSeeAll": "See all",
+  "commonOr": "Or",
+  "commonViewAll": "View All",
+  "commonViewDetails": "View Details",
+
+  "errorGeneric": "Something went wrong. Please try again.",
+  "errorNetwork": "No internet connection. Please check your network.",
+  "errorServer": "Server error. Please try again later.",
+  "errorUnauthorized": "Session expired. Please log in again.",
+  "errorValidation": "Please check your input and try again.",
+  "errorTimeout": "Request timed out. Please try again.",
+
+  "authLogin": "Log In",
+  "authRegister": "Sign Up",
+  "authLogout": "Log Out",
+  "authForgotPassword": "Forgot Password?",
+  "authResetPassword": "Reset Password",
+  "authResetPasswordSubtitle": "Enter the email associated with your account and we'll send an authentication link to reset your password.",
+  "authEmail": "Email",
+  "authPassword": "Password",
+  "authConfirmPassword": "Confirm Password",
+  "authName": "Full Name",
+  "authPhone": "Phone Number",
+  "authLoginSubtitle": "Enter your phone number to continue.",
+  "authRegisterSubtitle": "Create an account to get started.",
+  "authForgotPasswordSubtitle": "Enter your email and we'll send you a code to reset your password.",
+  "authNoAccount": "Don't have an account? ",
+  "authHaveAccount": "Already have an account? ",
+  "authOtpTitle": "Verify Email",
+  "authOtpSubtitle": "Enter the 6-digit code sent to {email}",
+  "@authOtpSubtitle": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "authOtpResend": "Resend OTP",
+  "authOtpDidntReceive": "Didn't receive the code?",
+  "authLoginWithGoogle": "Google",
+  "authLoginWithApple": "Apple",
+  "authTerms": "By continuing, you agree to our Terms and Privacy Policy.",
+  "authRememberedPassword": "Remembered your password?",
+  "authContinue": "Continue",
+
+  "authChooseRoleTitle": "Choose Your Experience",
+  "authChooseRoleSubtitle": "How will you be using BarberBook?",
+  "authRoleClient": "Client",
+  "authRoleClientDesc": "I want to discover and book professional grooming services.",
+  "authRoleOwner": "Salon Owner",
+  "authRoleOwnerDesc": "I want to manage my salon, staff, and appointments.",
+  "authCompleteSetup": "Complete Setup",
+  "authNeedHelp": "Need help? Contact support",
+
+  "authProfileSetupTitle": "Set Up Your Profile",
+  "authProfileSetupSubtitle": "Tell us a bit about yourself to get started.",
+  "authUploadPhoto": "Upload Photo",
+  "authPrivacyTitle": "Your privacy matters",
+  "authPrivacyDesc": "Your data is encrypted and used only to personalize your grooming experience. We never share your contact details.",
+
+  "validationRequired": "This field is required",
+  "validationEmail": "Please enter a valid email address",
+  "validationPasswordLength": "Password must be at least 8 characters",
+  "validationPasswordMatch": "Passwords do not match",
+
+  "onboardingTitle1": "Welcome to BarberBook",
+  "onboardingDesc1": "Discover and book your favorite salons in seconds.",
+  "onboardingTitle2": "Find Your Style",
+  "onboardingDesc2": "Browse curated professionals and signature services near you.",
+  "onboardingTitle3": "Book Instantly",
+  "onboardingDesc3": "Reserve your slot, track your queue, and never wait again.",
+  "onboardingGetStarted": "Get Started",
+
+  "homeTitle": "Home",
+  "homeGreeting": "Hello, {name}!",
+  "@homeGreeting": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+
+  "discoverTitle": "Discover",
+  "discoverSearchHint": "Search salons, stylists...",
+  "discoverNearYou": "Near You",
+  "discoverPopular": "Popular",
+  "discoverTopRated": "Top Rated",
+
+  "salonDetailOpeningHours": "Opening Hours",
+  "salonDetailWeekdays": "WEEKDAYS",
+  "salonDetailWeekend": "WEEKEND",
+  "salonDetailSignatureServices": "Signature Services",
+  "salonDetailEliteBarbers": "Elite Barbers",
+  "salonDetailLatestReviews": "Latest Reviews",
+  "salonDetailBookNow": "Book Now",
+
+  "bookingTitle": "Book Appointment",
+  "bookingSelectService": "Select Service",
+  "bookingSelectBarber": "Choose a Barber",
+  "bookingSelectBarberSubtitle": "Select your preferred professional or choose any available to get the earliest slot.",
+  "bookingAnyAvailable": "Any Available Barber",
+  "bookingAnyAvailableDesc": "Faster booking, same quality",
+  "bookingSelectTime": "Pick a Time",
+  "bookingSelectTimeSubtitle": "Select your preferred date and available slot for your grooming session.",
+  "bookingReservation": "Reservation",
+  "bookingWalkIn": "Walk-in",
+  "bookingAvailableSlots": "AVAILABLE SLOTS",
+  "bookingSlotsLeft": "{count} slots left",
+  "@bookingSlotsLeft": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "bookingSelectedTime": "SELECTED TIME",
+  "bookingNextStep": "Next Step",
+  "bookingConfirmTitle": "Confirm Booking",
+  "bookingConfirmSubtitle": "Please review your appointment details below before confirming.",
+  "bookingConfirmButton": "Confirm Booking",
+  "bookingConfirmedTitle": "Booking Confirmed!",
+  "bookingConfirmedSubtitle": "Your artisan grooming experience is scheduled. We've sent a confirmation and calendar invite to your email.",
+  "bookingViewMyBookings": "View My Bookings",
+  "bookingBackToHome": "Back to Home",
+  "bookingCancellationPolicy": "Cancellation Policy",
+  "bookingNotes": "Notes",
+  "bookingNotesHint": "e.g. Skin sensitivity, specific product requests",
+  "bookingStep": "STEP {current} OF {total}",
+  "@bookingStep": {
+    "placeholders": {
+      "current": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "bookingReadyToFinalize": "READY TO FINALIZE",
+  "bookingAllCertified": "ALL BARBERS ARE CERTIFIED MASTERS",
+  "bookingPopular": "POPULAR",
+  "bookingSpecialOffer": "SPECIAL OFFER",
+  "bookingFirstTimeMember": "First-Time Member Savings!",
+  "bookingFirstTimeDesc": "Enjoy a 15% discount on all services. Get 10% off your first visit.",
+  "bookingLearnMore": "Learn More",
+  "bookingPremiumInStudio": "Premium In-Studio",
+  "bookingRescheduleNote": "Rescheduling available up to 24h before",
+
+  "myBookingsTitle": "Bookings",
+  "myBookingsSubtitle": "Manage your signature grooming sessions.",
+  "myBookingsUpcoming": "Upcoming",
+  "myBookingsPast": "Past",
+  "myBookingsActive": "Active",
+  "myBookingsReschedulable": "Reschedulable",
+
+  "bookingDetailTitle": "Booking Details",
+  "bookingDetailConfirmed": "Confirmed",
+  "bookingDetailViewProfile": "View Profile",
+  "bookingDetailBookingActivity": "Booking Activity",
+  "bookingDetailCancelBooking": "Cancel Booking",
+  "bookingDetailAddToCalendar": "Add to Calendar",
+  "bookingDetailSupport": "Support",
+
+  "reviewsTitle": "Reviews",
+  "reviewsTopRated": "TOP RATED",
+  "reviewsWriteReview": "Write a Review",
+  "reviewsBasedOn": "Based on {count} Reviews",
+  "@reviewsBasedOn": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "queueTitle": "Queue Status",
+  "queueLive": "LIVE",
+  "queueTotalInLine": "TOTAL IN LINE",
+  "queueServing": "SERVING",
+  "queueEstWait": "EST. WAIT",
+  "queueYourPosition": "Your Current Position",
+  "queueEstimatedWait": "Estimated wait: {minutes} min",
+  "@queueEstimatedWait": {
+    "placeholders": {
+      "minutes": { "type": "int" }
+    }
+  },
+  "queueImHere": "I'm Here",
+  "queueLeaveQueue": "Leave Queue",
+  "queueDetails": "Queue Details",
+  "queueLiveUpdates": "LIVE UPDATES",
+
+  "ownerDashboardTitle": "Dashboard",
+  "ownerTodaysBookings": "Today's Bookings",
+  "ownerTodaysRevenue": "Today's Revenue",
+  "ownerStaffAvailability": "Staff Availability",
+  "ownerManageRoster": "Manage Roster",
+  "ownerQueue": "Queue",
+  "ownerServices": "Services",
+
+  "ownerAllBookingsTitle": "All Bookings",
+  "ownerAllBookingsSubtitle": "Manage your salon's daily artisan schedule.",
+  "ownerPending": "Pending",
+  "ownerConfirmed": "Confirmed",
+  "ownerSortedByDate": "SORTED BY DATE",
+
+  "ownerBarbersTitle": "Barbers",
+  "ownerActiveBarbers": "{count} Active Barbers",
+  "@ownerActiveBarbers": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "ownerViewSchedule": "View Schedule",
+  "ownerAddBarber": "Add Barber",
+  "ownerAvailability": "availability today",
+
+  "ownerBarberFormTitle": "Add Barber",
+  "ownerBarberFormEdit": "Edit Barber",
+  "ownerBarberFormName": "Full Name",
+  "ownerBarberFormServices": "Service Assignment",
+  "ownerBarberFormSelectMultiple": "SELECT MULTIPLE",
+  "ownerBarberFormAvailable": "Available for Booking",
+  "ownerBarberFormAvailableDesc": "Visible in public directory immediately",
+  "ownerBarberFormProfessionalTier": "Professional Tier",
+  "ownerBarberFormProfessionalTierDesc": "This barber will be listed as an Artisan Level professional by default.",
+  "ownerBarberFormShiftPatterns": "Shift Patterns",
+  "ownerBarberFormShiftPatternsDesc": "Schedule details can be customized after saving this profile.",
+  "ownerBarberFormSave": "Save Profile",
+
+  "ownerServicesTitle": "Services",
+  "ownerTotalServices": "TOTAL SERVICES",
+  "ownerMostBooked": "MOST BOOKED",
+  "ownerActivePortfolio": "Active Portfolio",
+  "ownerAddService": "Add Service",
+
+  "ownerServiceFormTitle": "Add Service",
+  "ownerServiceFormEdit": "Edit Service",
+  "ownerServiceFormImage": "Upload Service Image",
+  "ownerServiceFormImageHint": "Recommended 16:9 ratio",
+  "ownerServiceFormName": "Service name",
+  "ownerServiceFormDescription": "Description",
+  "ownerServiceFormPrice": "Price",
+  "ownerServiceFormDuration": "Duration",
+  "ownerServiceFormActive": "Active Toggle",
+  "ownerServiceFormActiveDesc": "Enable this service for client booking",
+  "ownerServiceFormAdvanced": "Show advanced service settings",
+  "ownerServiceFormSave": "Save Service",
+
+  "ownerQueueTitle": "Master Queue",
+  "ownerQueueSubtitle": "Real-time control over your shop floor. Monitor active services and manage wait times effortlessly.",
+  "ownerQueueLiveOperations": "LIVE OPERATIONS",
+  "ownerQueueCurrentlyServing": "CURRENTLY SERVING",
+  "ownerQueueUpNext": "UP NEXT",
+  "ownerQueueShopPulse": "SHOP PULSE",
+  "ownerQueueAvgWait": "AVG WAIT",
+  "ownerQueueRevenue": "REVENUE",
+  "ownerQueueSkip": "Skip",
+  "ownerQueueAdvance": "Advance Queue",
+  "ownerQueueManualEntry": "Manual Entry",
+  "ownerQueueNoOneInQueue": "No one in queue",
+
+  "ownerSettingsTitle": "Salon Settings",
+  "ownerSettingsVisualIdentity": "Visual Identity",
+  "ownerSettingsSalonName": "SALON NAME",
+  "ownerSettingsBrandStatement": "BRAND STATEMENT",
+  "ownerSettingsStudioGallery": "Studio Gallery",
+  "ownerSettingsContactDetails": "Contact Details",
+  "ownerSettingsOpeningHours": "Opening Hours",
+  "ownerSettingsAddPhotos": "Add Photos",
+  "ownerSettingsRemove": "Remove",
+
+  "statisticsTitle": "Statistics",
+  "statisticsPerformanceInsights": "Performance Insights",
+  "statisticsPerformanceSubtitle": "Monitoring your salon's growth and engagement.",
+  "statisticsWeekly": "Weekly",
+  "statisticsMonthly": "Monthly",
+  "statisticsTotalBookings": "Total Bookings",
+  "statisticsAverageRating": "Average Rating",
+  "statisticsRevenue": "Revenue",
+  "statisticsTopService": "Top Service",
+  "statisticsRevenueAnalytics": "Revenue Analytics",
+  "statisticsOverviewReport": "Overview Report",
+  "statisticsBookingIntegrity": "Booking Integrity",
+  "statisticsCompleted": "Completed",
+  "statisticsCancelled": "Cancelled",
+  "statisticsArtisanLeaderboard": "Artisan Leaderboard",
+  "statisticsLeaderboardSubtitle": "Top performing staff members this period",
+  "statisticsRevenueTarget": "You're at {percent}% of your monthly revenue target.",
+  "@statisticsRevenueTarget": {
+    "placeholders": {
+      "percent": { "type": "int" }
+    }
+  },
+  "statisticsPromoteServices": "Promote Services",
+  "statisticsViewForecast": "View Forecast",
+
+  "notificationsTitle": "Notifications",
+  "notificationsReadAll": "Read all",
+  "notificationsToday": "TODAY",
+  "notificationsYesterday": "YESTERDAY",
+  "notificationsAllSeen": "You've seen all recent updates.",
+
+  "profileTitle": "Profile",
+  "profileEditProfile": "Edit Profile",
+  "profileChangePassword": "Change Password",
+  "profileDarkMode": "Dark Mode",
+  "profileLogout": "Logout",
+  "profileTotalVisits": "TOTAL VISITS",
+  "profileUpcoming": "UPCOMING",
+  "profileAccountSettings": "ACCOUNT SETTINGS",
+  "profileSafetyPrivacy": "SAFETY & PRIVACY",
+  "profilePlatinumMember": "PLATINUM MEMBER",
+
+  "settingsTitle": "Settings",
+  "settingsAppearance": "Appearance",
+  "settingsTheme": "Theme",
+  "settingsThemeSystem": "System",
+  "settingsThemeLight": "Light",
+  "settingsThemeDark": "Dark",
+  "settingsLanguage": "Language",
+  "settingsLanguageEn": "English",
+  "settingsLanguageFr": "French",
+  "settingsAbout": "About",
+  "settingsVersion": "Version {version}",
+  "@settingsVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "settingsTerms": "Terms of Service",
+  "settingsPrivacy": "Privacy Policy",
+
+  "notesTitle": "Client Notes",
+  "notesSubtitle": "Organize formulas, preferences, and history.",
+  "notesOfflineReady": "Offline Mode Ready",
+  "notesOfflineDesc": "Changes will sync when connected.",
+
+  "offlineBanner": "You are offline",
+
+  "emptyStateTitle": "Nothing here yet",
+  "emptyStateSubtitle": "Check back later for updates.",
+
+  "bookingYourProfessional": "YOUR PROFESSIONAL",
+  "bookingStatusConfirmed": "CONFIRMED",
+  "bookingSelectedService": "SELECTED SERVICE",
+  "bookingDuration": "DURATION",
+  "bookingPrice": "PRICE",
+  "bookingAppointmentDate": "APPOINTMENT DATE",
+  "bookingGetDirections": "Get Directions",
+  "bookingSupport": "Support",
+  "bookingPolicy": "Policy",
+
+  "ownerSettingsSalonOwner": "SALON OWNER",
+  "ownerSettingsSalonManagement": "Salon Management",
+  "ownerSettingsSalonSettings": "Salon Settings",
+  "ownerSettingsManageBarbers": "Manage Barbers",
+  "ownerSettingsManageServices": "Manage Services",
+  "ownerSettingsQueueManagement": "Queue Management",
+
+  "profileNotifications": "Notifications",
+
+  "filtersTitle": "Filters",
+  "filtersDistance": "DISTANCE",
+  "filtersMinimumRating": "MINIMUM RATING",
+  "filtersPriceRange": "PRICE RANGE",
+  "filtersServices": "SERVICES",
+  "filtersAvailability": "AVAILABILITY",
+  "filtersAvailableNow": "Available Now",
+  "filtersReset": "Reset",
+  "filtersApply": "Apply Filters",
+
+  "favoritesTitle": "Favorites",
+  "favoritesEmpty": "No favorites yet",
+  "favoritesEmptyDesc": "Tap the heart icon on any salon to save it here.",
+
+  "writeReviewTitle": "Write Review",
+  "writeReviewExperience": "How was your experience?",
+  "writeReviewCommentLabel": "Your Review",
+  "writeReviewCommentHint": "Share your experience with this salon...",
+  "writeReviewPhotosLabel": "Add Photos",
+  "writeReviewSubmit": "Submit Review",
+  "writeReviewSuccess": "Review submitted successfully!",
+  "writeReviewRatingRequired": "Please select a rating",
+
+  "editProfileTitle": "Edit Profile",
+  "editProfileNameLabel": "Full Name",
+  "editProfileEmailLabel": "Email Address",
+  "editProfilePhoneLabel": "Phone Number",
+  "editProfileSaveButton": "Save Changes",
+  "editProfileUpdateSuccess": "Profile updated successfully!",
+
+  "changePasswordTitle": "Change Password",
+  "changePasswordCurrentLabel": "Current Password",
+  "changePasswordNewLabel": "New Password",
+  "changePasswordConfirmLabel": "Confirm New Password",
+  "changePasswordSubmit": "Update Password",
+  "changePasswordSuccess": "Password changed successfully!",
+  "changePasswordCurrentRequired": "Please enter your current password",
+  "changePasswordNewRequired": "Please enter a new password",
+  "changePasswordMinLength": "Password must be at least 8 characters",
+  "changePasswordConfirmRequired": "Please confirm your new password",
+  "changePasswordMismatch": "Passwords do not match",
+
+  "helpSupportTitle": "Help & Support",
+  "helpFaqTitle": "FREQUENTLY ASKED QUESTIONS",
+  "helpContactUs": "CONTACT US",
+  "helpEmail": "Email Support",
+  "helpPhone": "Phone Support",
+  "helpChat": "Live Chat",
+  "helpAppVersion": "Atrio v1.0.0",
+
+  "paymentMethodsTitle": "Payment Methods",
+  "paymentMethodsEmpty": "No payment methods saved",
+  "paymentMethodsDefault": "Default",
+  "paymentMethodsSetDefault": "Set as default",
+  "paymentMethodsDelete": "Delete",
+
+  "addPaymentTitle": "Add Payment Method",
+  "addPaymentCardNumber": "Card Number",
+  "addPaymentExpiry": "Expiry",
+  "addPaymentCvv": "CVV",
+  "addPaymentNameOnCard": "Name on Card",
+  "addPaymentSave": "Save Card",
+  "addPaymentSuccess": "Payment method added successfully",
+
+  "bookingExportTitle": "Export Bookings",
+  "bookingExportPdf": "Download as PDF",
+  "bookingExportEmail": "Send to Email",
+  "bookingExportFormat": "FORMAT",
+  "bookingExportDateRange": "DATE RANGE",
+  "bookingExportButton": "Export",
+  "bookingExportStartDate": "Start Date",
+  "bookingExportEndDate": "End Date",
+
+  "conversationsTitle": "Messages",
+  "conversationsSearchHint": "Search conversations...",
+  "conversationsEmpty": "No conversations yet",
+  "conversationsEmptyDesc": "Start a conversation with a salon to get started.",
+  "conversationsOnline": "Online",
+  "conversationsOffline": "Offline",
+
+  "chatDetailSendHint": "Type a message...",
+  "chatDetailOnline": "Online",
+  "chatDetailOffline": "Offline",
+  "chatDetailToday": "Today",
+  "chatDetailYesterday": "Yesterday",
+
+  "loyaltyTitle": "Loyalty & Rewards",
+  "loyaltyPointsBalance": "POINTS BALANCE",
+  "loyaltyCurrentTier": "Current Tier",
+  "loyaltyPointsToNext": "150 pts to Platinum",
+  "loyaltyRecentActivity": "RECENT ACTIVITY",
+  "loyaltyViewHistory": "Points History",
+  "loyaltyViewRewards": "View Rewards",
+  "loyaltyReferFriend": "Refer a Friend",
+  "loyaltyQuickActions": "QUICK ACTIONS",
+  "loyaltyTierBronze": "BRONZE",
+  "loyaltyTierSilver": "SILVER",
+  "loyaltyTierGold": "GOLD",
+  "loyaltyTierPlatinum": "PLATINUM",
+  "loyaltyEarned": "EARNED",
+  "loyaltyRedeemed": "REDEEMED",
+
+  "pointsHistoryTitle": "Points History",
+  "pointsHistoryAll": "All",
+  "pointsHistoryEarned": "Earned",
+  "pointsHistoryRedeemed": "Redeemed",
+  "pointsHistoryEmpty": "No points activity yet",
+  "pointsHistoryToday": "TODAY",
+  "pointsHistoryYesterday": "YESTERDAY",
+  "pointsHistoryThisWeek": "THIS WEEK",
+
+  "rewardsTitle": "Available Rewards",
+  "rewardsAvailable": "available",
+  "rewardsRedeem": "Redeem",
+  "rewardsPointsCost": "{cost} pts",
+  "@rewardsPointsCost": {
+    "placeholders": {
+      "cost": { "type": "int" }
+    }
+  },
+
+  "referralTitle": "Refer a Friend",
+  "referralSubtitle": "Earn 200 points for each friend!",
+  "referralShare": "Share Referral Link",
+  "referralHowItWorks": "HOW IT WORKS",
+  "referralStep1Title": "Share your code",
+  "referralStep1Desc": "Send your unique code to friends",
+  "referralStep2Title": "Friend signs up",
+  "referralStep2Desc": "They create an account using your code",
+  "referralStep3Title": "Both earn points",
+  "referralStep3Desc": "You both get 200 bonus points",
+  "referralStats": "YOUR STATS",
+  "referralInvited": "INVITED",
+  "referralSuccessful": "SUCCESSFUL",
+  "referralPointsEarned": "POINTS EARNED",
+  "referralCodeCopied": "Referral code copied!",
+
+  "profileHelpSupport": "Help & Support",
+  "profilePaymentMethods": "Payment Methods",
+  "profileFavorites": "Saved Salons",
+  "profileLoyalty": "Loyalty & Rewards",
+  "profileMessages": "Messages"
+}
