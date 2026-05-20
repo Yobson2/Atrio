@@ -1,9 +1,11 @@
 import { z } from 'zod'
-import { useFieldArray, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Link } from '@tanstack/react-router'
-import { cn } from '@/lib/utils'
-import { showSubmittedData } from '@/utils/show-submitted-data'
+import { IconCheck, IconLoader2 } from '@tabler/icons-react'
+import { toast } from 'sonner'
+import { useAuthStore } from '@/stores/authStore'
+import { useUnsavedChanges } from '@/hooks/use-unsaved-changes'
+import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
   Form,
@@ -15,111 +17,117 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
+import AvatarUpload from '../components/avatar-upload'
 
 const profileFormSchema = z.object({
-  username: z
+  fullName: z
     .string()
-    .min(2, {
-      message: 'Username must be at least 2 characters.',
-    })
-    .max(30, {
-      message: 'Username must not be longer than 30 characters.',
-    }),
-  email: z
-    .string({
-      required_error: 'Please select an email to display.',
-    })
-    .email(),
-  bio: z.string().max(160).min(4),
-  urls: z
-    .array(
-      z.object({
-        value: z.string().url({ message: 'Please enter a valid URL.' }),
-      })
-    )
-    .optional(),
+    .min(2, 'Name must be at least 2 characters.')
+    .max(50, 'Name must not exceed 50 characters.'),
+  phone: z
+    .string()
+    .max(20, 'Phone number is too long.')
+    .optional()
+    .or(z.literal('')),
+  bio: z
+    .string()
+    .max(280, 'Bio must not exceed 280 characters.')
+    .optional()
+    .or(z.literal('')),
 })
 
 type ProfileFormValues = z.infer<typeof profileFormSchema>
 
-// This can come from your database or API.
-const defaultValues: Partial<ProfileFormValues> = {
-  bio: 'I own a computer.',
-  urls: [
-    { value: 'https://shadcn.com' },
-    { value: 'http://twitter.com/shadcn' },
-  ],
-}
-
 export default function ProfileForm() {
+  const user = useAuthStore((s) => s.auth.user)
+
   const form = useForm<ProfileFormValues>({
     resolver: zodResolver(profileFormSchema),
-    defaultValues,
+    defaultValues: {
+      fullName: '',
+      phone: '',
+      bio: '',
+    },
     mode: 'onChange',
   })
 
-  const { fields, append } = useFieldArray({
-    name: 'urls',
-    control: form.control,
-  })
+  useUnsavedChanges(form.formState.isDirty)
+
+  async function onSubmit(data: ProfileFormValues) {
+    await new Promise((resolve) => setTimeout(resolve, 800))
+    toast.success('Profile updated successfully')
+    form.reset(data)
+  }
+
+  const initials = (user?.email ?? 'A').charAt(0).toUpperCase()
+  const roles = user?.role ?? ['Admin']
 
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit((data) => showSubmittedData(data))}
-        className='space-y-8'
-      >
+      <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
+        <div className='flex items-center gap-6'>
+          <AvatarUpload
+            fallback={initials}
+            onFileSelect={() => {
+              /* will integrate with API */
+            }}
+          />
+          <div className='space-y-1'>
+            <p className='text-sm font-medium'>{user?.email ?? 'admin@atrio.com'}</p>
+            <div className='flex gap-2'>
+              {roles.map((role) => (
+                <Badge key={role} variant='secondary' className='capitalize'>
+                  {role}
+                </Badge>
+              ))}
+            </div>
+          </div>
+        </div>
+
         <FormField
           control={form.control}
-          name='username'
+          name='fullName'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel>Full name</FormLabel>
               <FormControl>
-                <Input placeholder='shadcn' {...field} />
+                <Input
+                  placeholder='Your full name'
+                  maxLength={50}
+                  {...field}
+                />
               </FormControl>
               <FormDescription>
-                This is your public display name. It can be your real name or a
-                pseudonym. You can only change this once every 30 days.
+                This name will appear on your profile and in communications.
               </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
+
         <FormField
           control={form.control}
-          name='email'
+          name='phone'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder='Select a verified email to display' />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  <SelectItem value='m@example.com'>m@example.com</SelectItem>
-                  <SelectItem value='m@google.com'>m@google.com</SelectItem>
-                  <SelectItem value='m@support.com'>m@support.com</SelectItem>
-                </SelectContent>
-              </Select>
+              <FormLabel>Phone number</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder='+1 (555) 000-0000'
+                  type='tel'
+                  maxLength={20}
+                  {...field}
+                />
+              </FormControl>
               <FormDescription>
-                You can manage verified email addresses in your{' '}
-                <Link to='/settings/account'>email settings</Link>.
+                Used for appointment reminders and account recovery.
               </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
+
         <FormField
           control={form.control}
           name='bio'
@@ -128,52 +136,38 @@ export default function ProfileForm() {
               <FormLabel>Bio</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder='Tell us a little bit about yourself'
+                  placeholder='Describe your role at the salon...'
                   className='resize-none'
+                  maxLength={280}
                   {...field}
                 />
               </FormControl>
               <FormDescription>
-                You can <span>@mention</span> other users and organizations to
-                link to them.
+                A short description visible to your team.
               </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
-        <div>
-          {fields.map((field, index) => (
-            <FormField
-              control={form.control}
-              key={field.id}
-              name={`urls.${index}.value`}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className={cn(index !== 0 && 'sr-only')}>
-                    URLs
-                  </FormLabel>
-                  <FormDescription className={cn(index !== 0 && 'sr-only')}>
-                    Add links to your website, blog, or social media profiles.
-                  </FormDescription>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          ))}
-          <Button
-            type='button'
-            variant='outline'
-            size='sm'
-            className='mt-2'
-            onClick={() => append({ value: '' })}
-          >
-            Add URL
-          </Button>
-        </div>
-        <Button type='submit'>Update profile</Button>
+
+        <Button
+          type='submit'
+          disabled={!form.formState.isDirty || form.formState.isSubmitting}
+        >
+          {form.formState.isSubmitting ? (
+            <>
+              <IconLoader2 className='animate-spin' size={16} />
+              Saving...
+            </>
+          ) : form.formState.isSubmitSuccessful && !form.formState.isDirty ? (
+            <>
+              <IconCheck size={16} />
+              Saved
+            </>
+          ) : (
+            'Save changes'
+          )}
+        </Button>
       </form>
     </Form>
   )

@@ -1,5 +1,4 @@
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { Separator } from '@/components/ui/separator'
 
 interface ContentSectionProps {
   title: string
@@ -15,12 +14,11 @@ export default function ContentSection({
   return (
     <div className='flex flex-1 flex-col'>
       <div className='flex-none'>
-        <h3 className='text-lg font-medium'>{title}</h3>
+        <h3 className='text-lg font-semibold tracking-tight'>{title}</h3>
         <p className='text-muted-foreground text-sm'>{desc}</p>
       </div>
-      <Separator className='my-4 flex-none' />
-      <ScrollArea className='faded-bottom h-full w-full scroll-smooth pr-4 pb-28'>
-        <div className='-mx-1 px-1.5 lg:max-w-xl'>{children}</div>
+      <ScrollArea className='faded-bottom mt-6 h-full w-full scroll-smooth pr-4 pb-28'>
+        <div className='-mx-1 px-1.5 lg:max-w-2xl'>{children}</div>
       </ScrollArea>
     </div>
   )

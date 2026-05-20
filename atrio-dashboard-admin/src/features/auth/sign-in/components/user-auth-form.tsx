@@ -2,7 +2,7 @@ import { HTMLAttributes, useState } from 'react'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Link, useNavigate } from '@tanstack/react-router'
+import { Link, useNavigate, useSearch } from '@tanstack/react-router'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import {
@@ -16,6 +16,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { PasswordInput } from '@/components/password-input'
 import { toast } from 'sonner'
+import { useAuthStore } from '@/stores/authStore'
 
 type UserAuthFormProps = HTMLAttributes<HTMLFormElement>
 
@@ -44,6 +45,8 @@ const formSchema = z.object({
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const [isLoading, setIsLoading] = useState(false)
   const navigate = useNavigate()
+  const { redirect } = useSearch({ from: '/(auth)/sign-in' })
+  const { setAccessToken, setUser } = useAuthStore((s) => s.auth)
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -63,14 +66,24 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
     setTimeout(() => {
       setIsLoading(false)
 
-      // TODO: Add actual authentication logic here
-      // For now, we'll accept any credentials for demo purposes
+      // TODO: Replace with real token from API response
+      setAccessToken('demo-token')
+      setUser({
+        accountNo: '1',
+        email: _data.email,
+        role: ['admin'],
+        exp: Date.now() + 3600 * 1000,
+      })
+
       toast.success('Login successful', {
         description: 'Redirecting to dashboard...',
       })
 
-      // Redirect to dashboard after successful login
-      navigate({ to: '/dashboard' })
+      // Navigate to the redirect param or default to /dashboard
+      const to = redirect && /^\/[a-zA-Z0-9\-_/]*$/.test(redirect)
+        ? redirect
+        : '/dashboard'
+      navigate({ to })
     }, 1500)
   }
 

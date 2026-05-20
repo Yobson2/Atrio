@@ -1,217 +1,181 @@
-import { z } from 'zod'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { Link } from '@tanstack/react-router'
-import { showSubmittedData } from '@/utils/show-submitted-data'
+import { useState } from 'react'
+import { IconCheck, IconLoader2 } from '@tabler/icons-react'
+import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { Switch } from '@/components/ui/switch'
+import SettingsSection from '../components/settings-section'
+import SettingsSwitchRow from '../components/settings-switch-row'
 
-const notificationsFormSchema = z.object({
-  type: z.enum(['all', 'mentions', 'none'], {
-    required_error: 'You need to select a notification type.',
-  }),
-  mobile: z.boolean().default(false).optional(),
-  communication_emails: z.boolean().default(false).optional(),
-  social_emails: z.boolean().default(false).optional(),
-  marketing_emails: z.boolean().default(false).optional(),
-  security_emails: z.boolean(),
-})
+interface NotificationPreferences {
+  newBooking: boolean
+  cancellation: boolean
+  rescheduling: boolean
+  upcomingReminder: boolean
+  newClient: boolean
+  clientMessages: boolean
+  paymentReceived: boolean
+  paymentFailed: boolean
+  refundProcessed: boolean
+  securityAlerts: boolean
+  staffChanges: boolean
+  systemUpdates: boolean
+}
 
-type NotificationsFormValues = z.infer<typeof notificationsFormSchema>
-
-// This can come from your database or API.
-const defaultValues: Partial<NotificationsFormValues> = {
-  communication_emails: false,
-  marketing_emails: false,
-  social_emails: true,
-  security_emails: true,
+const defaultPreferences: NotificationPreferences = {
+  newBooking: true,
+  cancellation: true,
+  rescheduling: true,
+  upcomingReminder: true,
+  newClient: true,
+  clientMessages: false,
+  paymentReceived: true,
+  paymentFailed: true,
+  refundProcessed: false,
+  securityAlerts: true,
+  staffChanges: false,
+  systemUpdates: false,
 }
 
 export function NotificationsForm() {
-  const form = useForm<NotificationsFormValues>({
-    resolver: zodResolver(notificationsFormSchema),
-    defaultValues,
-  })
+  const [prefs, setPrefs] = useState(defaultPreferences)
+  const [saving, setSaving] = useState(false)
+  const [saved, setSaved] = useState(false)
+
+  function toggle(key: keyof NotificationPreferences) {
+    setPrefs((prev) => ({ ...prev, [key]: !prev[key] }))
+    setSaved(false)
+  }
+
+  async function handleSave() {
+    setSaving(true)
+    await new Promise((resolve) => setTimeout(resolve, 800))
+    setSaving(false)
+    setSaved(true)
+    toast.success('Notification preferences updated')
+    setTimeout(() => setSaved(false), 2000)
+  }
 
   return (
-    <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit((data) => showSubmittedData(data))}
-        className='space-y-8'
+    <div className='space-y-6'>
+      <SettingsSection
+        title='Appointments'
+        description='Stay on top of your booking schedule.'
       >
-        <FormField
-          control={form.control}
-          name='type'
-          render={({ field }) => (
-            <FormItem className='relative space-y-3'>
-              <FormLabel>Notify me about...</FormLabel>
-              <FormControl>
-                <RadioGroup
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                  className='flex flex-col space-y-1'
-                >
-                  <FormItem className='flex items-center space-y-0 space-x-3'>
-                    <FormControl>
-                      <RadioGroupItem value='all' />
-                    </FormControl>
-                    <FormLabel className='font-normal'>
-                      All new messages
-                    </FormLabel>
-                  </FormItem>
-                  <FormItem className='flex items-center space-y-0 space-x-3'>
-                    <FormControl>
-                      <RadioGroupItem value='mentions' />
-                    </FormControl>
-                    <FormLabel className='font-normal'>
-                      Direct messages and mentions
-                    </FormLabel>
-                  </FormItem>
-                  <FormItem className='flex items-center space-y-0 space-x-3'>
-                    <FormControl>
-                      <RadioGroupItem value='none' />
-                    </FormControl>
-                    <FormLabel className='font-normal'>Nothing</FormLabel>
-                  </FormItem>
-                </RadioGroup>
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <div className='relative'>
-          <h3 className='mb-4 text-lg font-medium'>Email Notifications</h3>
-          <div className='space-y-4'>
-            <FormField
-              control={form.control}
-              name='communication_emails'
-              render={({ field }) => (
-                <FormItem className='flex flex-row items-center justify-between rounded-lg border p-4'>
-                  <div className='space-y-0.5'>
-                    <FormLabel className='text-base'>
-                      Communication emails
-                    </FormLabel>
-                    <FormDescription>
-                      Receive emails about your account activity.
-                    </FormDescription>
-                  </div>
-                  <FormControl>
-                    <Switch
-                      checked={field.value}
-                      onCheckedChange={field.onChange}
-                    />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='marketing_emails'
-              render={({ field }) => (
-                <FormItem className='flex flex-row items-center justify-between rounded-lg border p-4'>
-                  <div className='space-y-0.5'>
-                    <FormLabel className='text-base'>
-                      Marketing emails
-                    </FormLabel>
-                    <FormDescription>
-                      Receive emails about new products, features, and more.
-                    </FormDescription>
-                  </div>
-                  <FormControl>
-                    <Switch
-                      checked={field.value}
-                      onCheckedChange={field.onChange}
-                    />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='social_emails'
-              render={({ field }) => (
-                <FormItem className='flex flex-row items-center justify-between rounded-lg border p-4'>
-                  <div className='space-y-0.5'>
-                    <FormLabel className='text-base'>Social emails</FormLabel>
-                    <FormDescription>
-                      Receive emails for friend requests, follows, and more.
-                    </FormDescription>
-                  </div>
-                  <FormControl>
-                    <Switch
-                      checked={field.value}
-                      onCheckedChange={field.onChange}
-                    />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='security_emails'
-              render={({ field }) => (
-                <FormItem className='flex flex-row items-center justify-between rounded-lg border p-4'>
-                  <div className='space-y-0.5'>
-                    <FormLabel className='text-base'>Security emails</FormLabel>
-                    <FormDescription>
-                      Receive emails about your account activity and security.
-                    </FormDescription>
-                  </div>
-                  <FormControl>
-                    <Switch
-                      checked={field.value}
-                      onCheckedChange={field.onChange}
-                      disabled
-                      aria-readonly
-                    />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-          </div>
+        <div>
+          <SettingsSwitchRow
+            title='New booking'
+            description='When a client books an appointment'
+            checked={prefs.newBooking}
+            onCheckedChange={() => toggle('newBooking')}
+          />
+          <SettingsSwitchRow
+            title='Cancellation'
+            description='When a booking is cancelled'
+            checked={prefs.cancellation}
+            onCheckedChange={() => toggle('cancellation')}
+          />
+          <SettingsSwitchRow
+            title='Rescheduling'
+            description='When a booking is rescheduled'
+            checked={prefs.rescheduling}
+            onCheckedChange={() => toggle('rescheduling')}
+          />
+          <SettingsSwitchRow
+            title='Upcoming reminder'
+            description='Reminder before an upcoming appointment'
+            checked={prefs.upcomingReminder}
+            onCheckedChange={() => toggle('upcomingReminder')}
+          />
         </div>
-        <FormField
-          control={form.control}
-          name='mobile'
-          render={({ field }) => (
-            <FormItem className='relative flex flex-row items-start space-y-0 space-x-3'>
-              <FormControl>
-                <Checkbox
-                  checked={field.value}
-                  onCheckedChange={field.onChange}
-                />
-              </FormControl>
-              <div className='space-y-1 leading-none'>
-                <FormLabel>
-                  Use different settings for my mobile devices
-                </FormLabel>
-                <FormDescription>
-                  You can manage your mobile notifications in the{' '}
-                  <Link
-                    to='/settings'
-                    className='underline decoration-dashed underline-offset-4 hover:decoration-solid'
-                  >
-                    mobile settings
-                  </Link>{' '}
-                  page.
-                </FormDescription>
-              </div>
-            </FormItem>
-          )}
-        />
-        <Button type='submit'>Update notifications</Button>
-      </form>
-    </Form>
+      </SettingsSection>
+
+      <SettingsSection
+        title='Clients'
+        description='Know when clients interact with your business.'
+      >
+        <div>
+          <SettingsSwitchRow
+            title='New registration'
+            description='When a new client creates an account'
+            checked={prefs.newClient}
+            onCheckedChange={() => toggle('newClient')}
+          />
+          <SettingsSwitchRow
+            title='Client messages'
+            description='When a client sends you a message'
+            checked={prefs.clientMessages}
+            onCheckedChange={() => toggle('clientMessages')}
+          />
+        </div>
+      </SettingsSection>
+
+      <SettingsSection
+        title='Payments'
+        description='Track payment activity in real time.'
+      >
+        <div>
+          <SettingsSwitchRow
+            title='Payment received'
+            description='When a payment is successfully processed'
+            checked={prefs.paymentReceived}
+            onCheckedChange={() => toggle('paymentReceived')}
+          />
+          <SettingsSwitchRow
+            title='Payment failed'
+            description='When a payment attempt fails'
+            checked={prefs.paymentFailed}
+            onCheckedChange={() => toggle('paymentFailed')}
+          />
+          <SettingsSwitchRow
+            title='Refund processed'
+            description='When a refund is issued to a client'
+            checked={prefs.refundProcessed}
+            onCheckedChange={() => toggle('refundProcessed')}
+          />
+        </div>
+      </SettingsSection>
+
+      <SettingsSection
+        title='System'
+        description='Important account and platform updates.'
+      >
+        <div>
+          <SettingsSwitchRow
+            title='Security alerts'
+            description='Suspicious activity and security events'
+            checked={prefs.securityAlerts}
+            onCheckedChange={() => toggle('securityAlerts')}
+            disabled
+          />
+          <SettingsSwitchRow
+            title='Staff changes'
+            description='When team members are added or removed'
+            checked={prefs.staffChanges}
+            onCheckedChange={() => toggle('staffChanges')}
+          />
+          <SettingsSwitchRow
+            title='System updates'
+            description='New features and platform changes'
+            checked={prefs.systemUpdates}
+            onCheckedChange={() => toggle('systemUpdates')}
+          />
+        </div>
+      </SettingsSection>
+
+      <Button onClick={handleSave} disabled={saving}>
+        {saving ? (
+          <>
+            <IconLoader2 className='animate-spin' size={16} />
+            Saving...
+          </>
+        ) : saved ? (
+          <>
+            <IconCheck size={16} />
+            Saved
+          </>
+        ) : (
+          'Save preferences'
+        )}
+      </Button>
+    </div>
   )
 }

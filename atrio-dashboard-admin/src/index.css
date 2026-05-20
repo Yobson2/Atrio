@@ -4,136 +4,155 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ========================================
-   LIGHT MODE COLORS (Default Theme)
+   LIGHT MODE COLORS — Editorial Artisan Design System
+   Source of truth: atrio-mobile-app/lib/core/theme/app_colors.dart
+   All colors converted from mobile hex to OKLCH for perceptual uniformity
    ======================================== */
 :root {
   /* ========================================
      BORDER RADIUS SYSTEM
-     Use: rounded-sm, rounded-md, rounded-lg, rounded-xl, rounded-2xl
+     Use: rounded-sm, rounded-md, rounded-lg, rounded-xl
+     Base: 12px — Modern Griot (no sharp corners)
      ======================================== */
-  --radius: 0.75rem;                 /* Base radius (12px) — Modern Griot */
+  --radius: 0.75rem;
 
   /* ========================================
-     BASE COLORS
-     Use: bg-background, text-foreground
+     BASE COLORS — The "Desk" layer
+     Mobile: background #F7F9FB, foreground #191C1E
      ======================================== */
-  --background: oklch(1 0 0);        /* Main page background (white) */
-  --foreground: oklch(0.145 0 0);    /* Main text color (black) */
+  --background: oklch(0.9812 0.0034 247.86);
+  --foreground: oklch(0.2241 0.006 236.83);
 
   /* ========================================
-     CARD COLORS
-     Use: bg-card, text-card-foreground
+     CARD COLORS — The "Card" layer (surfaceContainerLowest)
+     Mobile: #FFFFFF card on #F7F9FB background (tonal layering)
      ======================================== */
-  --card: oklch(1 0 0);              /* Card backgrounds */
-  --card-foreground: oklch(0.145 0 0); /* Text on cards */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2241 0.006 236.83);
 
   /* ========================================
-     POPOVER COLORS
-     Use: bg-popover, text-popover-foreground
+     POPOVER COLORS — Elevated surface
+     Mobile: surfaceContainerLowest #FFFFFF
      ======================================== */
-  --popover: oklch(1 0 0);           /* Dropdown/popup backgrounds */
-  --popover-foreground: oklch(0.145 0 0); /* Text in dropdowns */
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2241 0.006 236.83);
 
   /* ========================================
-     PRIMARY COLORS
-     Use: bg-primary, text-primary-foreground, hover:bg-primary/90
+     PRIMARY COLORS — Deep Teal brand identity
+     Mobile: primary #00685F, onPrimary #FFFFFF
      ======================================== */
-  --primary: oklch(0.205 0 0);       /* Main action buttons (dark) */
-  --primary-foreground: oklch(0.985 0 0); /* Text on primary buttons (white) */
+  --primary: oklch(0.465 0.0821 184.55);
+  --primary-foreground: oklch(0.985 0 0);
 
   /* ========================================
-     SECONDARY COLORS
-     Use: bg-secondary, text-secondary-foreground
+     PRIMARY CONTAINER — Gradient CTAs, tinted backgrounds
+     Mobile: primaryContainer #008378
      ======================================== */
-  --secondary: oklch(0.97 0 0);      /* Secondary buttons (light gray) */
-  --secondary-foreground: oklch(0.205 0 0); /* Text on secondary buttons */
+  --primary-container: oklch(0.5483 0.0968 184.60);
+  --primary-container-foreground: oklch(0.985 0 0);
 
   /* ========================================
-     MUTED COLORS
-     Use: bg-muted, text-muted-foreground
+     SECONDARY COLORS — The "Folder" layer (surfaceContainerLow)
+     Used for secondary buttons bg, muted sections
+     Mobile: surfaceContainerLow #F2F4F6
      ======================================== */
-  --muted: oklch(0.97 0 0);          /* Subtle backgrounds (light gray) */
-  --muted-foreground: oklch(0.556 0 0); /* Disabled/less important text */
+  --secondary: oklch(0.9662 0.0034 247.86);
+  --secondary-foreground: oklch(0.2241 0.006 236.83);
 
   /* ========================================
-     ACCENT COLORS
-     Use: bg-accent, text-accent-foreground, hover:bg-accent
+     MUTED COLORS — surfaceContainerLow for subtle backgrounds
+     Mobile: #F2F4F6
      ======================================== */
-  --accent: oklch(0.97 0 0);         /* Hover states for items */
-  --accent-foreground: oklch(0.205 0 0); /* Text on accent backgrounds */
+  --muted: oklch(0.9662 0.0034 247.86);
+  --muted-foreground: oklch(0.5678 0.0161 180.31);
+
+  /* ========================================
+     ACCENT COLORS — surfaceContainer for hover states
+     Mobile: surfaceContainer #ECEFF0
+     ======================================== */
+  --accent: oklch(0.9501 0.0035 219.53);
+  --accent-foreground: oklch(0.2241 0.006 236.83);
+
+  /* ========================================
+     TERTIARY — Warm brown for alerts, limited availability
+     Mobile: tertiary #924628
+     ======================================== */
+  --tertiary: oklch(0.4851 0.1115 41.32);
+  --tertiary-foreground: oklch(0.985 0 0);
 
   /* ========================================
      STATUS COLORS
-     Use: bg-destructive, bg-success, bg-warning, bg-info
+     Mobile: error #BA1A1A, success #006C49, warning #F59E0B, info #3B82F6
      ======================================== */
-  --destructive: oklch(0.577 0.245 27.325); /* Error/delete actions (red) */
-  --destructive-foreground: oklch(0.985 0 0); /* Text on destructive */
+  --destructive: oklch(0.506 0.1927 27.70);
+  --destructive-foreground: oklch(0.985 0 0);
 
-  --success: oklch(0.65 0.19 150);   /* Success states (green) */
-  --success-foreground: oklch(0.985 0 0); /* Text on success */
+  --success: oklch(0.4697 0.1025 162.36);
+  --success-foreground: oklch(0.985 0 0);
 
-  --warning: oklch(0.75 0.15 85);    /* Warning states (yellow/amber) */
-  --warning-foreground: oklch(0.145 0 0); /* Text on warning */
+  --warning: oklch(0.7686 0.1647 70.08);
+  --warning-foreground: oklch(0.2241 0.006 236.83);
 
-  --info: oklch(0.6 0.15 250);       /* Info states (blue) */
-  --info-foreground: oklch(0.985 0 0); /* Text on info */
+  --info: oklch(0.6231 0.188 259.81);
+  --info-foreground: oklch(0.985 0 0);
 
   /* ========================================
-     BORDER & INPUT COLORS
-     Use: border-border, bg-input, ring-ring
+     BORDER & INPUT COLORS — Ghost borders (teal-tinted)
+     Mobile: outlineVariant #BCC9C6, outline #6D7A77
      ======================================== */
-  --border: oklch(0.922 0 0);        /* All borders (light gray) */
-  --input: oklch(0.922 0 0);         /* Input field borders */
-  --ring: oklch(0.708 0 0);          /* Focus ring color */
+  --border: oklch(0.825 0.0148 180.62);
+  --input: oklch(0.825 0.0148 180.62);
+  --ring: oklch(0.465 0.0821 184.55);
 
   /* ========================================
-     CHART COLORS
-     Use in Recharts: fill="hsl(var(--chart-1))"
+     CHART COLORS — Derived from brand palette
+     chart-1: primary teal, chart-2: botanical green,
+     chart-3: info blue, chart-4: warm brown, chart-5: warning amber
      ======================================== */
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  --chart-1: oklch(0.465 0.0821 184.55);
+  --chart-2: oklch(0.4697 0.1025 162.36);
+  --chart-3: oklch(0.6231 0.188 259.81);
+  --chart-4: oklch(0.4851 0.1115 41.32);
+  --chart-5: oklch(0.7686 0.1647 70.08);
 
   /* ========================================
      SIDEBAR COLORS
-     Use: bg-sidebar, text-sidebar-foreground
+     Light: white sidebar, teal active state
      ======================================== */
   --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.2241 0.006 236.83);
+  --sidebar-primary: oklch(0.465 0.0821 184.55);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar-accent: oklch(0.9662 0.0034 247.86);
+  --sidebar-accent-foreground: oklch(0.2241 0.006 236.83);
+  --sidebar-border: oklch(0.825 0.0148 180.62);
+  --sidebar-ring: oklch(0.465 0.0821 184.55);
 
   /* ========================================
-     BRAND COLORS - Customize These!
-     Use: bg-brand, text-brand-foreground, bg-brand-secondary
+     BRAND COLORS — Direct mobile brand mapping
+     brand: primary teal, brand-secondary: botanical green,
+     brand-dark: deep teal variant
      ======================================== */
-  --brand: oklch(0.65 0.19 30);      /* Orange accent */
-  --brand-foreground: oklch(0.985 0 0); /* White text */
-  --brand-secondary: oklch(0.55 0.20 353); /* Red accent */
+  --brand: oklch(0.465 0.0821 184.55);
+  --brand-foreground: oklch(0.985 0 0);
+  --brand-secondary: oklch(0.4697 0.1025 162.36);
   --brand-secondary-foreground: oklch(0.985 0 0);
-  --brand-dark: oklch(0.35 0.10 212); /* Deep blue */
+  --brand-dark: oklch(0.3877 0.0684 184.79);
   --brand-dark-foreground: oklch(0.985 0 0);
 
   /* ========================================
      TYPOGRAPHY SYSTEM
-     Use: text-xs, text-sm, text-base, text-lg, etc.
-     Already handled by Tailwind, documented here for reference
+     Primary: Inter — tight tracking -0.02em for headlines
      ======================================== */
-  --font-size-xs: 0.75rem;           /* 12px */
-  --font-size-sm: 0.875rem;          /* 14px */
-  --font-size-base: 1rem;            /* 16px */
-  --font-size-lg: 1.125rem;          /* 18px */
-  --font-size-xl: 1.25rem;           /* 20px */
-  --font-size-2xl: 1.5rem;           /* 24px */
-  --font-size-3xl: 1.875rem;         /* 30px */
-  --font-size-4xl: 2.25rem;          /* 36px */
-  --font-size-5xl: 3rem;             /* 48px */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
 
   --line-height-tight: 1.25;
   --line-height-normal: 1.5;
@@ -144,46 +163,44 @@
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
-  --letter-spacing-tight: -0.02em;   /* Headlines — Modern Griot */
+  --letter-spacing-tight: -0.02em;
   --letter-spacing-normal: 0;
   --letter-spacing-wide: 0.025em;
 
   /* ========================================
-     SPACING SYSTEM (8px base grid)
-     Use: p-1, m-2, gap-4, etc. (handled by Tailwind)
-     Documented for reference
+     SPACING SYSTEM (matches mobile 4px grid)
      ======================================== */
-  --spacing-0: 0;                    /* 0px */
-  --spacing-1: 0.25rem;              /* 4px */
-  --spacing-2: 0.5rem;               /* 8px */
-  --spacing-3: 0.75rem;              /* 12px */
-  --spacing-4: 1rem;                 /* 16px */
-  --spacing-5: 1.25rem;              /* 20px */
-  --spacing-6: 1.5rem;               /* 24px */
-  --spacing-8: 2rem;                 /* 32px */
-  --spacing-10: 2.5rem;              /* 40px */
-  --spacing-12: 3rem;                /* 48px */
-  --spacing-16: 4rem;                /* 64px */
+  --spacing-0: 0;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
 
   /* ========================================
-     SHADOW/ELEVATION SYSTEM
-     Use: shadow-sm, shadow-md, shadow-lg, etc.
+     SHADOW/ELEVATION SYSTEM — Ambient Shadows
+     Mobile spec: tinted on-surface at ultra-low opacity, never pure black
+     Source: atrio-mobile-app/lib/core/theme/app_shadows.dart
      ======================================== */
-  --shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px oklch(0 0 0 / 0.1), 0 2px 4px -2px oklch(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px oklch(0 0 0 / 0.1), 0 4px 6px -4px oklch(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px oklch(0 0 0 / 0.1), 0 8px 10px -6px oklch(0 0 0 / 0.1);
-  --shadow-2xl: 0 25px 50px -12px oklch(0 0 0 / 0.25);
-  --shadow-inner: inset 0 2px 4px 0 oklch(0 0 0 / 0.05);
+  --shadow-sm: 0 4px 12px oklch(0.2241 0.006 236.83 / 0.04);
+  --shadow-md: 0 8px 24px oklch(0.2241 0.006 236.83 / 0.06);
+  --shadow-lg: 0 12px 32px oklch(0.2241 0.006 236.83 / 0.06);
+  --shadow-xl: 0 12px 32px oklch(0.2241 0.006 236.83 / 0.08);
+  --shadow-2xl: 0 16px 48px oklch(0.2241 0.006 236.83 / 0.10);
+  --shadow-inner: inset 0 2px 4px 0 oklch(0.2241 0.006 236.83 / 0.04);
 
   /* ========================================
      ANIMATION SYSTEM
-     Use with Tailwind: transition, duration-normal, ease-out
      ======================================== */
-  --duration-fast: 150ms;            /* Quick interactions */
-  --duration-normal: 300ms;          /* Standard transitions */
-  --duration-slow: 500ms;            /* Smooth animations */
-  --duration-slower: 700ms;          /* Page transitions */
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 700ms;
 
   --ease-in: cubic-bezier(0.4, 0, 1, 1);
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
@@ -192,7 +209,6 @@
 
   /* ========================================
      OPACITY SCALE
-     Use: bg-black/10, text-white/50, etc.
      ======================================== */
   --opacity-0: 0;
   --opacity-5: 0.05;
@@ -209,7 +225,6 @@
 
   /* ========================================
      Z-INDEX SCALE
-     Use for layering components consistently
      ======================================== */
   --z-dropdown: 1000;
   --z-sticky: 1020;
@@ -223,118 +238,134 @@
 
 /* ========================================
    DARK MODE COLORS
-   Automatically applied when <html class="dark">
+   Source: atrio-mobile-app/lib/core/theme/app_colors.dart (dark variants)
    ======================================== */
 .dark {
   /* ========================================
-     BASE COLORS
+     BASE COLORS — Dark background #191C1E
      ======================================== */
-  --background: oklch(0.145 0 0);    /* Dark background */
-  --foreground: oklch(0.985 0 0);    /* Light text */
+  --background: oklch(0.2241 0.006 236.83);
+  --foreground: oklch(0.9141 0.0042 236.50);
 
   /* ========================================
-     CARD COLORS
+     CARD COLORS — surfaceContainerLow #1E2224
      ======================================== */
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
+  --card: oklch(0.2487 0.007 229.15);
+  --card-foreground: oklch(0.9141 0.0042 236.50);
 
   /* ========================================
      POPOVER COLORS
      ======================================== */
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.2487 0.007 229.15);
+  --popover-foreground: oklch(0.9141 0.0042 236.50);
 
   /* ========================================
-     PRIMARY COLORS
+     PRIMARY COLORS — Teal tint #6BD8CB
      ======================================== */
-  --primary: oklch(0.922 0 0);       /* Light primary in dark mode */
-  --primary-foreground: oklch(0.205 0 0); /* Dark text on light button */
+  --primary: oklch(0.8142 0.1026 185.14);
+  --primary-foreground: oklch(0.3028 0.0534 185.05);
+
+  /* ========================================
+     PRIMARY CONTAINER — #005049
+     ======================================== */
+  --primary-container: oklch(0.3877 0.0684 184.79);
+  --primary-container-foreground: oklch(0.9141 0.0042 236.50);
 
   /* ========================================
      SECONDARY & MUTED COLORS
+     surfaceContainer #252829
      ======================================== */
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
+  --secondary: oklch(0.2742 0.0047 219.64);
+  --secondary-foreground: oklch(0.9141 0.0042 236.50);
+  --muted: oklch(0.2742 0.0047 219.64);
+  --muted-foreground: oklch(0.6529 0.0142 184.88);
 
   /* ========================================
-     ACCENT COLORS
+     ACCENT COLORS — surfaceContainerHigh #2D3133
      ======================================== */
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --accent: oklch(0.31 0.0067 229.04);
+  --accent-foreground: oklch(0.9141 0.0042 236.50);
+
+  /* ========================================
+     TERTIARY — Warm brown dark #FFB59A
+     ======================================== */
+  --tertiary: oklch(0.8363 0.0944 40.88);
+  --tertiary-foreground: oklch(0.2241 0.006 236.83);
 
   /* ========================================
      STATUS COLORS
      ======================================== */
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.8383 0.0891 26.76);
+  --destructive-foreground: oklch(0.2241 0.006 236.83);
 
-  --success: oklch(0.70 0.20 150);   /* Brighter green for dark mode */
-  --success-foreground: oklch(0.145 0 0);
+  --success: oklch(0.8085 0.1498 162.30);
+  --success-foreground: oklch(0.2241 0.006 236.83);
 
-  --warning: oklch(0.80 0.16 85);    /* Brighter yellow for dark mode */
-  --warning-foreground: oklch(0.145 0 0);
+  --warning: oklch(0.8369 0.1644 84.43);
+  --warning-foreground: oklch(0.2241 0.006 236.83);
 
-  --info: oklch(0.65 0.16 250);      /* Brighter blue for dark mode */
+  --info: oklch(0.7137 0.1434 254.62);
   --info-foreground: oklch(0.985 0 0);
 
   /* ========================================
-     BORDERS & INPUTS
+     BORDERS & INPUTS — Dark ghost borders
+     Mobile: outlineVariant dark #3D4947
      ======================================== */
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  --border: oklch(0.3941 0.0158 184.37);
+  --input: oklch(0.3941 0.0158 184.37);
+  --ring: oklch(0.8142 0.1026 185.14);
 
   /* ========================================
      CHART COLORS FOR DARK MODE
+     Brighter variants for dark backgrounds
      ======================================== */
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
+  --chart-1: oklch(0.8142 0.1026 185.14);
+  --chart-2: oklch(0.8085 0.1498 162.30);
+  --chart-3: oklch(0.7137 0.1434 254.62);
+  --chart-4: oklch(0.8363 0.0944 40.88);
+  --chart-5: oklch(0.8369 0.1644 84.43);
 
   /* ========================================
      SIDEBAR IN DARK MODE
      ======================================== */
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar: oklch(0.2487 0.007 229.15);
+  --sidebar-foreground: oklch(0.9141 0.0042 236.50);
+  --sidebar-primary: oklch(0.8142 0.1026 185.14);
+  --sidebar-primary-foreground: oklch(0.3028 0.0534 185.05);
+  --sidebar-accent: oklch(0.2742 0.0047 219.64);
+  --sidebar-accent-foreground: oklch(0.9141 0.0042 236.50);
+  --sidebar-border: oklch(0.3941 0.0158 184.37);
+  --sidebar-ring: oklch(0.8142 0.1026 185.14);
 
   /* ========================================
-     BRAND COLORS ADJUSTED FOR DARK MODE
+     BRAND COLORS — Dark mode variants
      ======================================== */
-  --brand: oklch(0.70 0.20 30);      /* Brighter orange */
-  --brand-foreground: oklch(0.145 0 0);
-  --brand-secondary: oklch(0.60 0.22 353); /* Brighter red */
-  --brand-secondary-foreground: oklch(0.985 0 0);
-  --brand-dark: oklch(0.60 0.12 212); /* Lighter blue (naming paradox) */
-  --brand-dark-foreground: oklch(0.145 0 0);
+  --brand: oklch(0.8142 0.1026 185.14);
+  --brand-foreground: oklch(0.2241 0.006 236.83);
+  --brand-secondary: oklch(0.8085 0.1498 162.30);
+  --brand-secondary-foreground: oklch(0.2241 0.006 236.83);
+  --brand-dark: oklch(0.465 0.0821 184.55);
+  --brand-dark-foreground: oklch(0.985 0 0);
 
   /* ========================================
-     SHADOWS ADJUSTED FOR DARK MODE
+     SHADOWS — Stronger for dark mode
+     Source: app_shadows.dart dark variants
      ======================================== */
-  --shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.3);
-  --shadow-md: 0 4px 6px -1px oklch(0 0 0 / 0.4), 0 2px 4px -2px oklch(0 0 0 / 0.3);
-  --shadow-lg: 0 10px 15px -3px oklch(0 0 0 / 0.5), 0 4px 6px -4px oklch(0 0 0 / 0.4);
-  --shadow-xl: 0 20px 25px -5px oklch(0 0 0 / 0.6), 0 8px 10px -6px oklch(0 0 0 / 0.5);
-  --shadow-2xl: 0 25px 50px -12px oklch(0 0 0 / 0.7);
-  --shadow-inner: inset 0 2px 4px 0 oklch(0 0 0 / 0.3);
+  --shadow-sm: 0 4px 12px oklch(0 0 0 / 0.20);
+  --shadow-md: 0 8px 24px oklch(0 0 0 / 0.30);
+  --shadow-lg: 0 12px 32px oklch(0 0 0 / 0.40);
+  --shadow-xl: 0 12px 32px oklch(0 0 0 / 0.50);
+  --shadow-2xl: 0 16px 48px oklch(0 0 0 / 0.60);
+  --shadow-inner: inset 0 2px 4px 0 oklch(0 0 0 / 0.30);
 
 }
 
 /* ========================================
    TAILWIND V4 THEME CONFIGURATION
-   Do not modify - used internally by Tailwind
+   Maps CSS variables to Tailwind utility classes
    ======================================== */
 @theme inline {
-  /* Font families - Use: font-inter, font-manrope */
+  /* Font families */
   --font-inter: 'Inter', 'sans-serif';
   --font-manrope: 'Manrope', 'sans-serif';
 
@@ -353,12 +384,16 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-primary-container: var(--primary-container);
+  --color-primary-container-foreground: var(--primary-container-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-tertiary: var(--tertiary);
+  --color-tertiary-foreground: var(--tertiary-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-success: var(--success);
@@ -407,7 +442,7 @@
     @apply overflow-x-hidden;
   }
 
-  /* Main body setup - uses bg-background and text-foreground */
+  /* Main body setup */
   body {
     @apply bg-background text-foreground min-h-svh w-full;
   }
@@ -418,7 +453,7 @@
     cursor: pointer;
   }
 
-  /* Disabled state styling for better UX */
+  /* Disabled state styling */
   button:disabled,
   [role='button']:disabled {
     opacity: var(--opacity-50);
@@ -443,40 +478,38 @@
 
 /* ========================================
    CUSTOM UTILITIES
-   Use these in your JSX with className="..."
    ======================================== */
 
-/* Container utility - Use: className="container" */
+/* Container utility */
 @utility container {
   margin-inline: auto;
   padding-inline: 2rem;
 }
 
-/* Hide scrollbars - Use: className="no-scrollbar" */
+/* Hide scrollbars */
 @utility no-scrollbar {
   &::-webkit-scrollbar {
-    display: none;  /* Chrome, Safari, Opera */
+    display: none;
   }
-  -ms-overflow-style: none;   /* IE, Edge */
-  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* Glassmorphism utility - Use: className="glassmorphism" — Modern Griot */
+/* Glassmorphism utility — Modern Griot: 80% opacity + 20px blur */
 @utility glassmorphism {
   background: oklch(from var(--sidebar) l c h / 80%);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
 
-/* Faded bottom effect - Use: className="faded-bottom" */
-/* Creates white/black gradient fade at bottom of container */
+/* Faded bottom effect */
 @utility faded-bottom {
   @apply after:pointer-events-none after:absolute after:bottom-0 after:left-0 after:hidden after:h-32 after:w-full after:bg-[linear-gradient(180deg,_transparent_10%,_white_70%)] md:after:block dark:after:bg-[linear-gradient(180deg,_transparent_10%,_black_70%)];
 }
 
 /* ========================================
    RADIX UI ANIMATIONS
-   For Collapsible components - applied automatically
+   For Collapsible components
    ======================================== */
 .CollapsibleContent {
   overflow: hidden;
@@ -497,5 +530,3 @@
   from { height: var(--radix-collapsible-content-height); }
   to { height: 0; }
 }
-
-
