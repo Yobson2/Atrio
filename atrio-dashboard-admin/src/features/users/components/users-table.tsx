@@ -14,6 +14,8 @@ import {
   getSortedRowModel,
   useReactTable,
 } from '@tanstack/react-table'
+import { IconUsers } from '@tabler/icons-react'
+import { EmptyState } from '@/components/empty-state'
 import {
   Table,
   TableBody,
@@ -118,9 +120,13 @@ export function UsersTable({ columns, data }: DataTableProps) {
               <TableRow>
                 <TableCell
                   colSpan={columns.length}
-                  className='h-24 text-center'
+                  className='h-24'
                 >
-                  No results.
+                  <EmptyState
+                    icon={IconUsers}
+                    title='No users found'
+                    description='Try adjusting your search or filter criteria to find users.'
+                  />
                 </TableCell>
               </TableRow>
             )}

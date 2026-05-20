@@ -34,7 +34,11 @@ const formSchema = z.object({
     })
     .max(128, {
       message: 'Password must be at most 128 characters',
-    }),
+    })
+    .regex(/[A-Z]/, { message: 'Must contain an uppercase letter' })
+    .regex(/[a-z]/, { message: 'Must contain a lowercase letter' })
+    .regex(/[0-9]/, { message: 'Must contain a digit' })
+    .regex(/[^A-Za-z0-9]/, { message: 'Must contain a special character' }),
 })
 
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {

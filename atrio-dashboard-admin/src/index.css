@@ -11,7 +11,7 @@
      BORDER RADIUS SYSTEM
      Use: rounded-sm, rounded-md, rounded-lg, rounded-xl, rounded-2xl
      ======================================== */
-  --radius: 0.625rem;                /* Base radius (10px) */
+  --radius: 0.75rem;                 /* Base radius (12px) — Modern Griot */
 
   /* ========================================
      BASE COLORS
@@ -143,6 +143,10 @@
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
+
+  --letter-spacing-tight: -0.02em;   /* Headlines — Modern Griot */
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
 
   /* ========================================
      SPACING SYSTEM (8px base grid)
@@ -455,6 +459,13 @@
   }
   -ms-overflow-style: none;   /* IE, Edge */
   scrollbar-width: none;       /* Firefox */
+}
+
+/* Glassmorphism utility - Use: className="glassmorphism" — Modern Griot */
+@utility glassmorphism {
+  background: oklch(from var(--sidebar) l c h / 80%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 /* Faded bottom effect - Use: className="faded-bottom" */

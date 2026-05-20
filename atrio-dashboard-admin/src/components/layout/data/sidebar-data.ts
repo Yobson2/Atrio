@@ -1,6 +1,8 @@
 import {
   IconBrowserCheck,
+  IconCalendarEvent,
   IconChecklist,
+  IconGift,
   IconLayoutDashboard,
   IconNotification,
   IconPackages,
@@ -8,6 +10,7 @@ import {
   IconSettings,
   IconTool,
   IconUserCog,
+  IconUserHeart,
   IconUsers,
 } from '@tabler/icons-react'
 import { Logo } from '@/components/logo'
@@ -21,9 +24,9 @@ export const sidebarData: SidebarData = {
   },
   teams: [
     {
-      name: 'React Admin',
+      name: 'Atrio',
       logo: Logo,
-      plan: 'Admin Template',
+      plan: 'Salon Management',
     },
   ],
   navGroups: [
@@ -36,6 +39,16 @@ export const sidebarData: SidebarData = {
           icon: IconLayoutDashboard,
         },
         {
+          title: 'Bookings',
+          url: '/bookings',
+          icon: IconCalendarEvent,
+        },
+        {
+          title: 'Clients',
+          url: '/clients',
+          icon: IconUserHeart,
+        },
+        {
           title: 'Users',
           url: '/users',
           icon: IconUsers,
@@ -44,6 +57,16 @@ export const sidebarData: SidebarData = {
           title: 'Tasks',
           url: '/tasks',
           icon: IconChecklist,
+        },
+      ],
+    },
+    {
+      title: 'Engagement',
+      items: [
+        {
+          title: 'Loyalty',
+          url: '/loyalty',
+          icon: IconGift,
         },
         {
           title: 'Apps',

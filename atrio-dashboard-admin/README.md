@@ -1,4 +1,4 @@
-# React Admin Template
+# Atrio Dashboard
 
 <div align="center">
   <img src="https://img.shields.io/badge/React-19.1.0-blue?style=for-the-badge&logo=react" alt="React" />
@@ -9,7 +9,7 @@
 
 <br />
 
-A production-ready, reusable React + TypeScript admin dashboard template with authentication, data tables, settings, and a modular feature-based architecture.
+Admin dashboard for the Atrio salon management platform. Manage bookings, clients, staff, loyalty programs, and business analytics with a modern, production-ready React + TypeScript interface.
 
 ## Tech Stack
 
@@ -18,26 +18,33 @@ A production-ready, reusable React + TypeScript admin dashboard template with au
 - **TanStack Router** - File-based routing with code-splitting
 - **TanStack Table** - Data tables with sorting, filtering, pagination
 - **TanStack Query** - Server state management
+- **Recharts** - Data visualization (area, bar charts)
 - **ShadcnUI** + **Radix UI** - Component library
 - **TailwindCSS v4** - Utility-first CSS
 - **Zustand** - Global state management
 - **React Hook Form** + **Zod** - Form handling with validation
 - **axios** - HTTP client with interceptors
-- **i18next** - Internationalization
+- **i18next** - Internationalization (EN + FR)
+- **Framer Motion** - Page transitions and animations
 - **Sonner** - Toast notifications
 
 ## Features
 
 - Authentication flow (sign-in, sign-up, forgot password, OTP)
-- Dashboard with stats cards and activity feed
-- Users management (CRUD with data table)
-- Tasks management (data table with filters)
+- Dashboard with stats cards, revenue chart, and user growth chart
+- Bookings management (appointments and reservations)
+- Clients management (client base and relationships)
+- Users management (CRUD with data table, faceted filters)
+- Tasks management (data table with status and priority filters)
+- Loyalty program management (rewards, tiers, engagement)
 - Settings (profile, account, appearance, notifications, display)
-- Collapsible sidebar with navigation
-- Light/dark theme toggle
+- Collapsible sidebar with navigation groups
+- Light/dark theme toggle with system preference detection
 - Command palette (Ctrl+K)
 - Error pages (401, 403, 404, 500, 503)
 - Centralized API layer with typed endpoints
+- JWT token expiry checking and 15-min idle session timeout
+- CSRF protection and HTTPS enforcement in production
 - Environment-based configuration
 
 ## Getting Started
@@ -69,11 +76,14 @@ src/
 ├── context/          # React contexts (theme, font, search)
 ├── features/
 │   ├── auth/         # Authentication pages
-│   ├── dashboard/    # Dashboard overview
+│   ├── bookings/     # Bookings management
+│   ├── clients/      # Client management
+│   ├── dashboard/    # Dashboard overview with charts
 │   ├── errors/       # Error pages
+│   ├── loyalty/      # Loyalty program
 │   ├── settings/     # User settings
-│   ├── tasks/        # Task management (example)
-│   └── users/        # User management (example)
+│   ├── tasks/        # Task management
+│   └── users/        # User management
 ├── hooks/            # Custom React hooks
 ├── i18n/             # Internationalization
 ├── lib/              # Utilities (cn helper)
@@ -104,13 +114,13 @@ See `.env.example` for all available variables:
 |----------|-------------|---------|
 | `VITE_API_URL` | Backend API base URL | `http://localhost:3000/api` |
 | `VITE_AUTH_TOKEN_KEY` | Cookie key for auth token | `app_access_token` |
-| `VITE_APP_NAME` | Application display name | `React Admin Template` |
+| `VITE_APP_NAME` | Application display name | `Atrio Dashboard` |
 
 ## Docker
 
 ```bash
-docker build -t react-admin .
-docker run -p 80:80 react-admin
+docker build -t atrio-dashboard .
+docker run -p 80:80 atrio-dashboard
 ```
 
 ## License

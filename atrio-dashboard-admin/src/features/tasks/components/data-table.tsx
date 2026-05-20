@@ -13,6 +13,8 @@ import {
   getSortedRowModel,
   useReactTable,
 } from '@tanstack/react-table'
+import { IconChecklist } from '@tabler/icons-react'
+import { EmptyState } from '@/components/empty-state'
 import {
   Table,
   TableBody,
@@ -107,9 +109,13 @@ export function DataTable<TData, TValue>({
               <TableRow>
                 <TableCell
                   colSpan={columns.length}
-                  className='h-24 text-center'
+                  className='h-24'
                 >
-                  No results.
+                  <EmptyState
+                    icon={IconChecklist}
+                    title='No tasks found'
+                    description='Try adjusting your search or filter criteria to find tasks.'
+                  />
                 </TableCell>
               </TableRow>
             )}

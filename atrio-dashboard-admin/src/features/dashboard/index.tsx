@@ -15,6 +15,8 @@ import { ProfileDropdown } from '@/components/profile-dropdown'
 import { Search } from '@/components/search'
 import { ThemeSwitch } from '@/components/theme-switch'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { OverviewChart } from './components/overview-chart'
+import { UserGrowthChart } from './components/user-growth-chart'
 
 const stats = [
   {
@@ -54,7 +56,7 @@ const recentActivity = [
 export default function Dashboard() {
   return (
     <>
-      <Header fixed className=''>
+      <Header fixed>
         <Search />
         <div className='ml-auto flex items-center space-x-4'>
           <ThemeSwitch />
@@ -87,10 +89,22 @@ export default function Dashboard() {
           ))}
         </StaggerContainer>
 
+        {/* Charts */}
+        <AnimatedContainer variant='fadeSlideUp' delay={0.2}>
+          <div className='mt-6 grid gap-4 lg:grid-cols-7'>
+            <div className='lg:col-span-4'>
+              <OverviewChart />
+            </div>
+            <div className='lg:col-span-3'>
+              <UserGrowthChart />
+            </div>
+          </div>
+        </AnimatedContainer>
+
         {/* Recent Activity */}
-        <AnimatedContainer variant='fadeSlideUp' delay={0.3}>
-          <div className='mt-6 grid gap-4 lg:grid-cols-2'>
-            <Card className='lg:col-span-2'>
+        <AnimatedContainer variant='fadeSlideUp' delay={0.4}>
+          <div className='mt-6'>
+            <Card>
               <CardHeader>
                 <CardTitle>Recent Activity</CardTitle>
               </CardHeader>
