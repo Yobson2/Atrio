@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_templates/core/providers/network_providers.dart';
@@ -22,12 +23,15 @@ part 'auth_providers.g.dart';
 
 /// Provides the [AuthRemoteDataSource].
 ///
-/// Set `USE_MOCK_AUTH=true` in `.env` to use mock data for testing.
-/// TODO(dev): Remove the mock branch when switching to the real API.
+/// Mock datasource is only available in debug builds AND when
+/// `USE_MOCK_AUTH=true` is set in `.env`. Release builds always use the
+/// real datasource regardless of the env flag.
 @riverpod
 AuthRemoteDataSource authRemoteDataSource(Ref ref) {
-  final useMock = dotenv.get('USE_MOCK_AUTH', fallback: 'false') == 'true';
-  if (useMock) return MockAuthRemoteDataSource();
+  if (!kReleaseMode) {
+    final useMock = dotenv.get('USE_MOCK_AUTH', fallback: 'false') == 'true';
+    if (useMock) return MockAuthRemoteDataSource();
+  }
   return AuthRemoteDataSourceImpl(ref.watch(dioProvider));
 }
 

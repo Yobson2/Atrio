@@ -4,7 +4,35 @@ import 'package:flutter_templates/core/utils/logger.dart';
 /// Logs HTTP requests and responses for debugging.
 ///
 /// Only active when logging is enabled (controlled by [Env]).
+/// Sensitive fields (passwords, tokens, OTPs) are automatically redacted.
 class LoggingInterceptor extends Interceptor {
+  static const _sensitiveKeys = {
+    'password',
+    'token',
+    'accessToken',
+    'refreshToken',
+    'access_token',
+    'refresh_token',
+    'otp',
+    'pin',
+    'secret',
+    'credit_card',
+    'currentPassword',
+    'newPassword',
+    'confirmPassword',
+  };
+
+  static String _redactSensitiveFields(dynamic data) {
+    if (data is Map<String, dynamic>) {
+      final redacted = Map<String, dynamic>.from(data);
+      for (final key in _sensitiveKeys) {
+        if (redacted.containsKey(key)) redacted[key] = '***REDACTED***';
+      }
+      return redacted.toString();
+    }
+    return data.toString();
+  }
+
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     AppLogger.info(
@@ -12,7 +40,10 @@ class LoggingInterceptor extends Interceptor {
       tag: 'HTTP',
     );
     if (options.data != null) {
-      AppLogger.debug('Body: ${options.data}', tag: 'HTTP');
+      AppLogger.debug(
+        'Body: ${_redactSensitiveFields(options.data)}',
+        tag: 'HTTP',
+      );
     }
     handler.next(options);
   }

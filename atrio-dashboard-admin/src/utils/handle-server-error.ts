@@ -1,11 +1,19 @@
 import { AxiosError } from 'axios'
 import { toast } from 'sonner'
 
-export function handleServerError(error: unknown) {
-  // eslint-disable-next-line no-console
-  console.log(error)
+const SAFE_MESSAGES: Record<number, string> = {
+  400: 'Invalid request. Please check your input.',
+  401: 'Session expired. Please sign in again.',
+  403: 'You do not have permission to perform this action.',
+  404: 'The requested resource was not found.',
+  409: 'A conflict occurred. Please refresh and try again.',
+  422: 'Please check your input and try again.',
+  429: 'Too many requests. Please wait a moment.',
+  500: 'Something went wrong. Please try again later.',
+}
 
-  let errMsg = 'Something went wrong!'
+export function handleServerError(error: unknown) {
+  let errMsg = SAFE_MESSAGES[500]!
 
   if (
     error &&
@@ -17,7 +25,8 @@ export function handleServerError(error: unknown) {
   }
 
   if (error instanceof AxiosError) {
-    errMsg = error.response?.data.title
+    const status = error.response?.status ?? 500
+    errMsg = SAFE_MESSAGES[status] ?? SAFE_MESSAGES[500]!
   }
 
   toast.error(errMsg)

@@ -1,24 +1,30 @@
 import 'dart:developer' as developer;
 
+import 'package:flutter/foundation.dart';
+
 /// Application logger that wraps `dart:developer` log.
 ///
-/// Provides leveled logging with colored output for debug builds.
+/// All logging is hard-guarded behind [kReleaseMode] — release builds
+/// never emit log output regardless of environment configuration.
 /// Use this instead of `print()` throughout the application.
 class AppLogger {
   const AppLogger._();
 
   /// Log a debug message.
   static void debug(String message, {String? tag}) {
+    if (kReleaseMode) return;
     _log(message, tag: tag ?? 'DEBUG', level: 500);
   }
 
   /// Log an info message.
   static void info(String message, {String? tag}) {
+    if (kReleaseMode) return;
     _log(message, tag: tag ?? 'INFO', level: 800);
   }
 
   /// Log a warning message.
   static void warning(String message, {String? tag}) {
+    if (kReleaseMode) return;
     _log(message, tag: tag ?? 'WARNING', level: 900);
   }
 
@@ -29,6 +35,7 @@ class AppLogger {
     Object? error,
     StackTrace? stackTrace,
   }) {
+    if (kReleaseMode) return;
     _log(
       message,
       tag: tag ?? 'ERROR',

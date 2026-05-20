@@ -21,15 +21,36 @@ jobs:
         with:
           node-version: 20
           cache: pnpm
+          cache-dependency-path: atrio-dashboard-admin/pnpm-lock.yaml
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+        working-directory: atrio-dashboard-admin
+
+      - name: Dependency audit
+        run: pnpm audit --audit-level=high
+        working-directory: atrio-dashboard-admin
 
       - name: Lint
         run: pnpm lint
+        working-directory: atrio-dashboard-admin
 
       - name: Type check
         run: tsc -b
+        working-directory: atrio-dashboard-admin
 
       - name: Build
         run: pnpm run build
+        working-directory: atrio-dashboard-admin
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Secrets scan
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
