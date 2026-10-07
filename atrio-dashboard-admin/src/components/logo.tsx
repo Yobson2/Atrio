@@ -4,21 +4,27 @@ export function Logo({ ...props }: SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 32 32'
+      viewBox='0 0 120 120'
       fill='none'
       {...props}
     >
-      <rect width='32' height='32' rx='7' fill='#00685F' />
-      {/* Archway */}
-      <path
-        d='M16 6C11.03 6 7 10.03 7 15v12h4V15c0-2.76 2.24-5 5-5s5 2.24 5 5v12h4V15c0-4.97-4.03-9-9-9z'
-        fill='white'
-      />
-      {/* Chair seat */}
-      <ellipse cx='16' cy='21' rx='3.5' ry='2' fill='white' />
-      {/* Chair base */}
-      <rect x='15' y='23' width='2' height='3' rx='1' fill='white' />
-      <rect x='12.5' y='25.5' width='7' height='1.5' rx='0.75' fill='white' />
+      <defs>
+        <linearGradient id='atrio-logo-bg' x1='0' y1='0' x2='1' y2='1'>
+          <stop offset='0' stopColor='#00685F' />
+          <stop offset='1' stopColor='#008378' />
+        </linearGradient>
+      </defs>
+      <rect width='120' height='120' rx='27' fill='url(#atrio-logo-bg)' />
+      {/* Portal A — archway + crossbar, gold oculus */}
+      <g transform='translate(16.8 13.2) scale(0.72)'>
+        <path
+          d='M32 100V58a28 28 0 0 1 56 0v42M32 80h56'
+          stroke='white'
+          strokeWidth='16'
+          strokeLinecap='round'
+        />
+        <circle cx='60' cy='54' r='7' fill='#F0C060' />
+      </g>
     </svg>
   )
 }

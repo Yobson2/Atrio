@@ -18,24 +18,24 @@
 
   /* ========================================
      BASE COLORS — The "Desk" layer
-     Mobile: background #F7F9FB, foreground #191C1E
+     Mobile: background #F8F7F4 (warm ivory), foreground #1C1B19
      ======================================== */
-  --background: oklch(0.9812 0.0034 247.86);
-  --foreground: oklch(0.2241 0.006 236.83);
+  --background: oklch(0.9761 0.0041 91.45);
+  --foreground: oklch(0.2225 0.0041 84.59);
 
   /* ========================================
      CARD COLORS — The "Card" layer (surfaceContainerLowest)
-     Mobile: #FFFFFF card on #F7F9FB background (tonal layering)
+     Mobile: #FFFFFF card on #F8F7F4 background (tonal layering)
      ======================================== */
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.2241 0.006 236.83);
+  --card: oklch(1.0000 0 0);
+  --card-foreground: oklch(0.2225 0.0041 84.59);
 
   /* ========================================
      POPOVER COLORS — Elevated surface
      Mobile: surfaceContainerLowest #FFFFFF
      ======================================== */
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2241 0.006 236.83);
+  --popover: oklch(1.0000 0 0);
+  --popover-foreground: oklch(0.2225 0.0041 84.59);
 
   /* ========================================
      PRIMARY COLORS — Deep Teal brand identity
@@ -54,27 +54,27 @@
   /* ========================================
      SECONDARY COLORS — The "Folder" layer (surfaceContainerLow)
      Used for secondary buttons bg, muted sections
-     Mobile: surfaceContainerLow #F2F4F6
+     Mobile: surfaceContainerLow #F2F1ED
      ======================================== */
-  --secondary: oklch(0.9662 0.0034 247.86);
-  --secondary-foreground: oklch(0.2241 0.006 236.83);
+  --secondary: oklch(0.9578 0.0054 95.10);
+  --secondary-foreground: oklch(0.2225 0.0041 84.59);
 
   /* ========================================
      MUTED COLORS — surfaceContainerLow for subtle backgrounds
-     Mobile: #F2F4F6
+     Mobile: #F2F1ED
      ======================================== */
-  --muted: oklch(0.9662 0.0034 247.86);
-  --muted-foreground: oklch(0.5678 0.0161 180.31);
+  --muted: oklch(0.9578 0.0054 95.10);
+  --muted-foreground: oklch(0.5121 0.0152 82.38);
 
   /* ========================================
      ACCENT COLORS — surfaceContainer for hover states
-     Mobile: surfaceContainer #ECEFF0
+     Mobile: surfaceContainer #ECEAE5
      ======================================== */
-  --accent: oklch(0.9501 0.0035 219.53);
-  --accent-foreground: oklch(0.2241 0.006 236.83);
+  --accent: oklch(0.9372 0.0070 88.64);
+  --accent-foreground: oklch(0.2225 0.0041 84.59);
 
   /* ========================================
-     TERTIARY — Warm brown for alerts, limited availability
+     TERTIARY — Terracotta for alerts, limited availability
      Mobile: tertiary #924628
      ======================================== */
   --tertiary: oklch(0.4851 0.1115 41.32);
@@ -82,63 +82,68 @@
 
   /* ========================================
      STATUS COLORS
-     Mobile: error #BA1A1A, success #006C49, warning #F59E0B, info #3B82F6
+     Mobile: error #BA1A1A, success #2D7A3F (sage), warning #9A5B00 (ochre), info #3E5C8A (indigo)
      ======================================== */
   --destructive: oklch(0.506 0.1927 27.70);
   --destructive-foreground: oklch(0.985 0 0);
 
-  --success: oklch(0.4697 0.1025 162.36);
+  --success: oklch(0.5167 0.1184 148.38);
   --success-foreground: oklch(0.985 0 0);
 
-  --warning: oklch(0.7686 0.1647 70.08);
-  --warning-foreground: oklch(0.2241 0.006 236.83);
+  --warning: oklch(0.5310 0.1190 65.12);
+  --warning-foreground: oklch(0.9914 0.0098 87.47);
 
-  --info: oklch(0.6231 0.188 259.81);
+  --info: oklch(0.4727 0.0831 258.69);
   --info-foreground: oklch(0.985 0 0);
 
   /* ========================================
-     BORDER & INPUT COLORS — Ghost borders (teal-tinted)
-     Mobile: outlineVariant #BCC9C6, outline #6D7A77
+     BORDER & INPUT COLORS — Ghost borders (warm neutral)
+     Mobile: outlineVariant #CBC6BC, outline #7A756C
      ======================================== */
-  --border: oklch(0.825 0.0148 180.62);
-  --input: oklch(0.825 0.0148 180.62);
+  --border: oklch(0.8278 0.0148 84.59);
+  --input: oklch(0.8278 0.0148 84.59);
   --ring: oklch(0.465 0.0821 184.55);
 
   /* ========================================
-     CHART COLORS — Derived from brand palette
+     CHART COLORS — Teal, gold, terracotta, indigo, sage (distinct hues)
      chart-1: primary teal, chart-2: botanical green,
      chart-3: info blue, chart-4: warm brown, chart-5: warning amber
      ======================================== */
-  --chart-1: oklch(0.465 0.0821 184.55);
-  --chart-2: oklch(0.4697 0.1025 162.36);
-  --chart-3: oklch(0.6231 0.188 259.81);
-  --chart-4: oklch(0.4851 0.1115 41.32);
-  --chart-5: oklch(0.7686 0.1647 70.08);
+  --chart-1: oklch(0.4650 0.0821 184.55);
+  --chart-2: oklch(0.6941 0.1398 81.39);
+  --chart-3: oklch(0.4851 0.1115 41.32);
+  --chart-4: oklch(0.4727 0.0831 258.69);
+  --chart-5: oklch(0.5167 0.1184 148.38);
 
   /* ========================================
      SIDEBAR COLORS
-     Light: white sidebar, teal active state
+     Light: warm white sidebar, teal active state
      ======================================== */
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.2241 0.006 236.83);
+  --sidebar: oklch(0.9913 0.0029 84.56);
+  --sidebar-foreground: oklch(0.2225 0.0041 84.59);
   --sidebar-primary: oklch(0.465 0.0821 184.55);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.9662 0.0034 247.86);
-  --sidebar-accent-foreground: oklch(0.2241 0.006 236.83);
-  --sidebar-border: oklch(0.825 0.0148 180.62);
+  --sidebar-accent: oklch(0.9578 0.0054 95.10);
+  --sidebar-accent-foreground: oklch(0.2225 0.0041 84.59);
+  --sidebar-border: oklch(0.8278 0.0148 84.59);
   --sidebar-ring: oklch(0.465 0.0821 184.55);
 
   /* ========================================
      BRAND COLORS — Direct mobile brand mapping
-     brand: primary teal, brand-secondary: botanical green,
+     brand: primary teal, brand-secondary: kente gold,
      brand-dark: deep teal variant
      ======================================== */
   --brand: oklch(0.465 0.0821 184.55);
   --brand-foreground: oklch(0.985 0 0);
-  --brand-secondary: oklch(0.4697 0.1025 162.36);
+  --brand-secondary: oklch(0.4856 0.0998 83.44);
   --brand-secondary-foreground: oklch(0.985 0 0);
   --brand-dark: oklch(0.3877 0.0684 184.79);
   --brand-dark-foreground: oklch(0.985 0 0);
+  /* Gold — premium, featured, ratings (use sparingly) */
+  --gold: oklch(0.4856 0.0998 83.44);
+  --gold-foreground: oklch(0.9914 0.0098 87.47);
+  --gold-container: oklch(0.9150 0.1058 89.29);
+  --gold-container-foreground: oklch(0.2403 0.0493 84.86);
 
   /* ========================================
      TYPOGRAPHY SYSTEM
@@ -187,12 +192,12 @@
      Mobile spec: tinted on-surface at ultra-low opacity, never pure black
      Source: atrio-mobile-app/lib/core/theme/app_shadows.dart
      ======================================== */
-  --shadow-sm: 0 4px 12px oklch(0.2241 0.006 236.83 / 0.04);
-  --shadow-md: 0 8px 24px oklch(0.2241 0.006 236.83 / 0.06);
-  --shadow-lg: 0 12px 32px oklch(0.2241 0.006 236.83 / 0.06);
-  --shadow-xl: 0 12px 32px oklch(0.2241 0.006 236.83 / 0.08);
-  --shadow-2xl: 0 16px 48px oklch(0.2241 0.006 236.83 / 0.10);
-  --shadow-inner: inset 0 2px 4px 0 oklch(0.2241 0.006 236.83 / 0.04);
+  --shadow-sm: 0 4px 12px oklch(0.2225 0.0041 84.59 / 0.04);
+  --shadow-md: 0 8px 24px oklch(0.2225 0.0041 84.59 / 0.06);
+  --shadow-lg: 0 12px 32px oklch(0.2225 0.0041 84.59 / 0.06);
+  --shadow-xl: 0 12px 32px oklch(0.2225 0.0041 84.59 / 0.08);
+  --shadow-2xl: 0 16px 48px oklch(0.2225 0.0041 84.59 / 0.10);
+  --shadow-inner: inset 0 2px 4px 0 oklch(0.2225 0.0041 84.59 / 0.04);
 
   /* ========================================
      ANIMATION SYSTEM
@@ -242,22 +247,22 @@
    ======================================== */
 .dark {
   /* ========================================
-     BASE COLORS — Dark background #191C1E
+     BASE COLORS — Dark background #171614
      ======================================== */
-  --background: oklch(0.2241 0.006 236.83);
-  --foreground: oklch(0.9141 0.0042 236.50);
+  --background: oklch(0.2005 0.0042 84.59);
+  --foreground: oklch(0.9170 0.0104 81.79);
 
   /* ========================================
-     CARD COLORS — surfaceContainerLow #1E2224
+     CARD COLORS — surfaceContainerLow #1F1E1B
      ======================================== */
-  --card: oklch(0.2487 0.007 229.15);
-  --card-foreground: oklch(0.9141 0.0042 236.50);
+  --card: oklch(0.2350 0.0058 91.61);
+  --card-foreground: oklch(0.9170 0.0104 81.79);
 
   /* ========================================
      POPOVER COLORS
      ======================================== */
-  --popover: oklch(0.2487 0.007 229.15);
-  --popover-foreground: oklch(0.9141 0.0042 236.50);
+  --popover: oklch(0.2350 0.0058 91.61);
+  --popover-foreground: oklch(0.9170 0.0104 81.79);
 
   /* ========================================
      PRIMARY COLORS — Teal tint #6BD8CB
@@ -269,50 +274,50 @@
      PRIMARY CONTAINER — #005049
      ======================================== */
   --primary-container: oklch(0.3877 0.0684 184.79);
-  --primary-container-foreground: oklch(0.9141 0.0042 236.50);
+  --primary-container-foreground: oklch(0.9170 0.0104 81.79);
 
   /* ========================================
      SECONDARY & MUTED COLORS
-     surfaceContainer #252829
+     surfaceContainer #262522
      ======================================== */
-  --secondary: oklch(0.2742 0.0047 219.64);
-  --secondary-foreground: oklch(0.9141 0.0042 236.50);
-  --muted: oklch(0.2742 0.0047 219.64);
-  --muted-foreground: oklch(0.6529 0.0142 184.88);
+  --secondary: oklch(0.2644 0.0057 91.58);
+  --secondary-foreground: oklch(0.9170 0.0104 81.79);
+  --muted: oklch(0.2644 0.0057 91.58);
+  --muted-foreground: oklch(0.7138 0.0184 84.59);
 
   /* ========================================
-     ACCENT COLORS — surfaceContainerHigh #2D3133
+     ACCENT COLORS — surfaceContainerHigh #2E2D29
      ======================================== */
-  --accent: oklch(0.31 0.0067 229.04);
-  --accent-foreground: oklch(0.9141 0.0042 236.50);
+  --accent: oklch(0.2968 0.0072 95.30);
+  --accent-foreground: oklch(0.9170 0.0104 81.79);
 
   /* ========================================
-     TERTIARY — Warm brown dark #FFB59A
+     TERTIARY — Terracotta dark #FFB59A
      ======================================== */
   --tertiary: oklch(0.8363 0.0944 40.88);
-  --tertiary-foreground: oklch(0.2241 0.006 236.83);
+  --tertiary-foreground: oklch(0.2005 0.0042 84.59);
 
   /* ========================================
      STATUS COLORS
      ======================================== */
   --destructive: oklch(0.8383 0.0891 26.76);
-  --destructive-foreground: oklch(0.2241 0.006 236.83);
+  --destructive-foreground: oklch(0.2005 0.0042 84.59);
 
-  --success: oklch(0.8085 0.1498 162.30);
-  --success-foreground: oklch(0.2241 0.006 236.83);
+  --success: oklch(0.8117 0.1108 150.51);
+  --success-foreground: oklch(0.2005 0.0042 84.59);
 
-  --warning: oklch(0.8369 0.1644 84.43);
-  --warning-foreground: oklch(0.2241 0.006 236.83);
+  --warning: oklch(0.8345 0.1212 65.22);
+  --warning-foreground: oklch(0.2005 0.0042 84.59);
 
-  --info: oklch(0.7137 0.1434 254.62);
-  --info-foreground: oklch(0.985 0 0);
+  --info: oklch(0.8174 0.0755 262.22);
+  --info-foreground: oklch(0.2005 0.0042 84.59);
 
   /* ========================================
      BORDERS & INPUTS — Dark ghost borders
      Mobile: outlineVariant dark #3D4947
      ======================================== */
-  --border: oklch(0.3941 0.0158 184.37);
-  --input: oklch(0.3941 0.0158 184.37);
+  --border: oklch(0.3958 0.0127 81.76);
+  --input: oklch(0.3958 0.0127 81.76);
   --ring: oklch(0.8142 0.1026 185.14);
 
   /* ========================================
@@ -320,43 +325,48 @@
      Brighter variants for dark backgrounds
      ======================================== */
   --chart-1: oklch(0.8142 0.1026 185.14);
-  --chart-2: oklch(0.8085 0.1498 162.30);
-  --chart-3: oklch(0.7137 0.1434 254.62);
-  --chart-4: oklch(0.8363 0.0944 40.88);
-  --chart-5: oklch(0.8369 0.1644 84.43);
+  --chart-2: oklch(0.8320 0.1263 82.76);
+  --chart-3: oklch(0.8363 0.0944 40.88);
+  --chart-4: oklch(0.8174 0.0755 262.22);
+  --chart-5: oklch(0.8117 0.1108 150.51);
 
   /* ========================================
      SIDEBAR IN DARK MODE
      ======================================== */
-  --sidebar: oklch(0.2487 0.007 229.15);
-  --sidebar-foreground: oklch(0.9141 0.0042 236.50);
+  --sidebar: oklch(0.2350 0.0058 91.61);
+  --sidebar-foreground: oklch(0.9170 0.0104 81.79);
   --sidebar-primary: oklch(0.8142 0.1026 185.14);
   --sidebar-primary-foreground: oklch(0.3028 0.0534 185.05);
-  --sidebar-accent: oklch(0.2742 0.0047 219.64);
-  --sidebar-accent-foreground: oklch(0.9141 0.0042 236.50);
-  --sidebar-border: oklch(0.3941 0.0158 184.37);
+  --sidebar-accent: oklch(0.2644 0.0057 91.58);
+  --sidebar-accent-foreground: oklch(0.9170 0.0104 81.79);
+  --sidebar-border: oklch(0.3958 0.0127 81.76);
   --sidebar-ring: oklch(0.8142 0.1026 185.14);
 
   /* ========================================
      BRAND COLORS — Dark mode variants
      ======================================== */
   --brand: oklch(0.8142 0.1026 185.14);
-  --brand-foreground: oklch(0.2241 0.006 236.83);
-  --brand-secondary: oklch(0.8085 0.1498 162.30);
-  --brand-secondary-foreground: oklch(0.2241 0.006 236.83);
+  --brand-foreground: oklch(0.2005 0.0042 84.59);
+  --brand-secondary: oklch(0.8320 0.1263 82.76);
+  --brand-secondary-foreground: oklch(0.2403 0.0493 84.86);
   --brand-dark: oklch(0.465 0.0821 184.55);
   --brand-dark-foreground: oklch(0.985 0 0);
+  /* Gold — premium, featured, ratings (use sparingly) */
+  --gold: oklch(0.8320 0.1263 82.76);
+  --gold-foreground: oklch(0.2403 0.0493 84.86);
+  --gold-container: oklch(0.3995 0.0819 84.36);
+  --gold-container-foreground: oklch(0.9150 0.1058 89.29);
 
   /* ========================================
      SHADOWS — Stronger for dark mode
      Source: app_shadows.dart dark variants
      ======================================== */
-  --shadow-sm: 0 4px 12px oklch(0 0 0 / 0.20);
-  --shadow-md: 0 8px 24px oklch(0 0 0 / 0.30);
-  --shadow-lg: 0 12px 32px oklch(0 0 0 / 0.40);
-  --shadow-xl: 0 12px 32px oklch(0 0 0 / 0.50);
-  --shadow-2xl: 0 16px 48px oklch(0 0 0 / 0.60);
-  --shadow-inner: inset 0 2px 4px 0 oklch(0 0 0 / 0.30);
+  --shadow-sm: 0 4px 12px oklch(0.1645 0.0027 67.64 / 0.20);
+  --shadow-md: 0 8px 24px oklch(0.1645 0.0027 67.64 / 0.30);
+  --shadow-lg: 0 12px 32px oklch(0.1645 0.0027 67.64 / 0.40);
+  --shadow-xl: 0 12px 32px oklch(0.1645 0.0027 67.64 / 0.50);
+  --shadow-2xl: 0 16px 48px oklch(0.1645 0.0027 67.64 / 0.60);
+  --shadow-inner: inset 0 2px 4px 0 oklch(0.1645 0.0027 67.64 / 0.30);
 
 }
 
@@ -424,6 +434,10 @@
   --color-brand-secondary-foreground: var(--brand-secondary-foreground);
   --color-brand-dark: var(--brand-dark);
   --color-brand-dark-foreground: var(--brand-dark-foreground);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-gold-container: var(--gold-container);
+  --color-gold-container-foreground: var(--gold-container-foreground);
 }
 
 /* ========================================
