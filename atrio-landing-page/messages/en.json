@@ -1,0 +1,408 @@
+{
+  "metadata": {
+    "title": "Atrio — Book your barber, follow the queue live",
+    "description": "Atrio shows salons near you, live wait times and open slots. Book or join the queue, and show up when it's your turn.",
+    "ogLocale": "en_US"
+  },
+  "nav": {
+    "label": "Main navigation",
+    "home": "Atrio, home",
+    "howItWorks": "How it works",
+    "forSalons": "For salons",
+    "faq": "Questions",
+    "download": "Download",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "language": "Language",
+    "skipToContent": "Skip to content"
+  },
+  "hero": {
+    "heading": "Show up when it's your turn.",
+    "subheading": "Atrio shows salons near you, live wait times and open slots. Book your barber or join the queue, then follow your place in line until it's your turn.",
+    "ownerPrompt": "Run a salon?",
+    "ownerLink": "See Atrio for salons",
+    "screenLabel": "Preview of the Queue screen: your position moves up and the estimated wait drops as the clients ahead of you are served.",
+    "screenCaption": "The app's Queue screen, live."
+  },
+  "problem": {
+    "heading": "A haircut shouldn't cost you the afternoon.",
+    "points": {
+      "unknownWait": {
+        "title": "You find out the wait when you get there.",
+        "body": "There's no way to know how many people are ahead before you leave. So you sit on the bench and wait."
+      },
+      "barberTaken": {
+        "title": "Your barber is already booked.",
+        "body": "You came for someone in particular, and they have three clients ahead of you."
+      },
+      "salonMemory": {
+        "title": "Salons run the queue from memory.",
+        "body": "Who came first, who booked, who left: it all depends on the team remembering."
+      }
+    }
+  },
+  "howItWorks": {
+    "heading": "Three steps from your couch to the chair.",
+    "intro": "It all happens in the app: find a salon, pick your slot, then follow the queue until it's your turn.",
+    "steps": {
+      "discover": {
+        "title": "Find a salon near you",
+        "body": "Search by neighbourhood or service. Each salon shows its hours, services, barbers and client reviews.",
+        "screenLabel": "Preview of the Discover screen: search, filters and a list of salons with their rating and opening status."
+      },
+      "book": {
+        "title": "Book, or join the queue",
+        "body": "Pick a service, your barber or whoever is free first, then a time. No appointment? Switch to Walk-in and take your place in line.",
+        "screenLabel": "Preview of the booking screen: reservation or walk-in, barber, day and time slot."
+      },
+      "follow": {
+        "title": "Follow your turn live",
+        "body": "Your position and estimated wait update in real time. Leave at the right moment and tap \"I'm here\" when you arrive.",
+        "screenLabel": "Preview of the Queue screen: your position, the estimated wait and the clients being served before you."
+      }
+    }
+  },
+  "salonsTeaser": {
+    "kicker": "For salons",
+    "heading": "Your whole shop day on one screen.",
+    "body": "Atrio gives salon owners a dashboard to run the queue, bookings and team, right from their phone.",
+    "capabilities": {
+      "queue": {
+        "title": "Live queue",
+        "body": "Move the queue forward, skip a no-show or add someone who walked in without the app."
+      },
+      "bookings": {
+        "title": "Today's bookings",
+        "body": "See at a glance who's confirmed, who's on the way and who's still pending."
+      },
+      "team": {
+        "title": "Team and services",
+        "body": "Manage your barbers, their availability, your prices and how long each service takes."
+      },
+      "stats": {
+        "title": "Statistics",
+        "body": "Track bookings, revenue, average rating and your most requested services."
+      }
+    },
+    "cta": "See Atrio for salons",
+    "dashboardLabel": "Preview of the salon dashboard: today's figures, upcoming bookings and team availability.",
+    "queueLabel": "Preview of the salon-side queue: client in the chair, next clients and controls to advance the queue."
+  },
+  "features": {
+    "heading": "Also in the app",
+    "intro": "The things that make each visit easier, before and after the cut.",
+    "items": {
+      "favorites": {
+        "title": "Favourite salons",
+        "body": "Keep your go-to places close so you can book faster."
+      },
+      "reviews": {
+        "title": "Reviews with photos",
+        "body": "Read reviews before you choose, and leave your own after your visit."
+      },
+      "loyalty": {
+        "title": "Loyalty points",
+        "body": "Earn points on every visit, trade them for rewards and refer your friends."
+      },
+      "messages": {
+        "title": "Messages",
+        "body": "Message the salon directly with a question or a special request."
+      },
+      "notifications": {
+        "title": "Notifications",
+        "body": "Confirmations, reminders and queue updates arrive on your phone."
+      },
+      "language": {
+        "title": "French or English",
+        "body": "The app speaks your language, in light or dark mode."
+      }
+    }
+  },
+  "faq": {
+    "heading": "Your questions",
+    "intro": "What to know before your first booking.",
+    "items": {
+      "liveQueue": {
+        "question": "How does the live queue work?",
+        "answer": "When you join a salon's queue, Atrio shows your position and an estimated wait. Both update as the salon serves its clients. You can leave home at the right time, then let the salon know you've arrived with \"I'm here\"."
+      },
+      "chooseBarber": {
+        "question": "Can I choose my barber?",
+        "answer": "Yes. When booking, pick the barber you want, or choose \"Any barber\" to get the earliest slot."
+      },
+      "walkIn": {
+        "question": "Do I have to book ahead?",
+        "answer": "No. You can book a specific slot, or choose Walk-in to join today's queue."
+      },
+      "manageBooking": {
+        "question": "Where do I find my bookings?",
+        "answer": "In the Bookings tab. You'll see your upcoming and past bookings, and can add one to your calendar or cancel it."
+      },
+      "salonJoin": {
+        "question": "I own a salon. How do I sign it up?",
+        "answer": "Download Atrio, create your account and choose \"Salon owner\". You then set up your salon, barbers and services right in the app."
+      },
+      "languages": {
+        "question": "Is the app available in French?",
+        "answer": "Yes. Atrio is available in French and English. You can switch language in the settings."
+      }
+    }
+  },
+  "download": {
+    "heading": "Your next cut, without the wait.",
+    "body": "Download Atrio to find a salon, book your barber and follow the queue live.",
+    "getItOn": "Download on",
+    "comingSoon": "Coming soon to",
+    "appStore": "App Store",
+    "googlePlay": "Google Play",
+    "notYet": "Atrio is coming soon to iOS and Android."
+  },
+  "salonsHero": {
+    "metaTitle": "For salons",
+    "metaDescription": "Run your salon's queue, bookings, team and services with Atrio.",
+    "heading": "Your queue, bookings and team, in one place.",
+    "subheading": "Atrio helps salons and barbershops handle walk-ins and bookings from a phone. Your clients see the wait live and arrive at the right time.",
+    "ctaPrimary": "See how to get started",
+    "ctaSecondary": "Download the app",
+    "screenLabel": "Preview of the salon-side queue: client in the chair, next clients, Advance queue and Manual entry buttons.",
+    "screenCaption": "The salon-side queue."
+  },
+  "salonsShowcase": {
+    "heading": "Built for the rhythm of a salon.",
+    "rows": {
+      "queue": {
+        "title": "Run the queue in real time",
+        "body": "See who's in the chair and who's waiting. One tap to move the queue on, skip a no-show or add someone who came without the app. Your clients follow their position live.",
+        "points": "Advance queue|Skip a client|Manual entry|Average wait",
+        "screenLabel": "Preview of the salon-side queue."
+      },
+      "day": {
+        "title": "Your day at a glance",
+        "body": "The dashboard brings together today's bookings, revenue, average wait and each barber's availability.",
+        "points": "Today's bookings|Today's revenue|Team availability",
+        "screenLabel": "Preview of the salon dashboard."
+      },
+      "stats": {
+        "title": "See what's working",
+        "body": "Track bookings by week or month, your average rating, revenue, most requested services and your team leaderboard.",
+        "points": "Weekly and monthly view|Top service|Team leaderboard",
+        "screenLabel": "Preview of the Statistics screen: key figures, bookings per day and team leaderboard."
+      }
+    },
+    "extrasHeading": "And the rest",
+    "extras": {
+      "team": {
+        "title": "Barbers and services",
+        "body": "Add your barbers, assign their services, set prices and durations."
+      },
+      "profile": {
+        "title": "Salon profile",
+        "body": "Name, description, photo gallery, contact details and opening hours."
+      },
+      "notes": {
+        "title": "Offline client notes",
+        "body": "Each client's preferences and habits, even without a connection. Everything syncs when you're back online."
+      },
+      "export": {
+        "title": "Booking export",
+        "body": "Export your bookings as a PDF or by email, for any date range."
+      }
+    }
+  },
+  "salonsSteps": {
+    "heading": "Open your queue in a few minutes.",
+    "intro": "Sign-up happens entirely in the app.",
+    "steps": {
+      "download": {
+        "title": "Download Atrio",
+        "body": "Create your account with your phone number."
+      },
+      "role": {
+        "title": "Choose \"Salon owner\"",
+        "body": "This unlocks the salon management space."
+      },
+      "setup": {
+        "title": "Set up your salon",
+        "body": "Add photos, hours, barbers and services with their prices."
+      },
+      "open": {
+        "title": "Open the queue",
+        "body": "Clients find you, book and follow their turn live."
+      }
+    }
+  },
+  "salonsFaq": {
+    "heading": "Salon questions",
+    "intro": "What owners ask us most often.",
+    "items": {
+      "walkInsAndBookings": {
+        "question": "Can I handle both bookings and walk-ins?",
+        "answer": "Yes. Clients can book a slot or join today's queue. You see both in the dashboard and in the queue."
+      },
+      "severalBarbers": {
+        "question": "My salon has several barbers. How does that work?",
+        "answer": "Add each barber with the services they offer. Clients can pick a specific barber or whoever is free first, and you can follow each one's availability."
+      },
+      "offline": {
+        "question": "What if the connection drops?",
+        "answer": "Client notes stay available and editable offline. Changes sync as soon as you're back online."
+      },
+      "clientsNeedApp": {
+        "question": "Do all my clients need the app?",
+        "answer": "No. A client who walks in without the app can be added to the queue with Manual entry."
+      },
+      "languages": {
+        "question": "Which languages does the salon space support?",
+        "answer": "French and English, like the rest of the app."
+      }
+    }
+  },
+  "salonsDownload": {
+    "heading": "Ready to open your queue?",
+    "body": "Download Atrio, choose \"Salon owner\" and set up your salon."
+  },
+  "screens": {
+    "live": "Live",
+    "tabs": {
+      "discover": "Discover",
+      "bookings": "Bookings",
+      "queue": "Queue",
+      "profile": "Profile",
+      "dashboard": "Home",
+      "stats": "Stats",
+      "salon": "Salon"
+    },
+    "services": {
+      "fade": "Fade",
+      "beard": "Beard trim",
+      "classic": "Classic cut",
+      "braids": "Braids"
+    },
+    "queue": {
+      "title": "Queue status",
+      "waiting": "Waiting",
+      "serving": "Serving",
+      "avgWait": "Avg. wait",
+      "yourPosition": "Your position",
+      "inLine": "in line",
+      "estimatedWait": "Estimated wait: {minutes} min",
+      "youreNext": "You're next",
+      "imHere": "I'm here",
+      "leave": "Leave queue",
+      "details": "Queue details",
+      "inChair": "In the chair",
+      "inLineWait": "In line · {minutes} min"
+    },
+    "discover": {
+      "search": "Salons, barbers…",
+      "nearby": "Nearby",
+      "openNow": "Open now",
+      "topRated": "Top rated",
+      "open": "Open",
+      "closed": "Closed",
+      "tags": {
+        "fade": "Fade",
+        "beard": "Beard",
+        "cut": "Cut",
+        "care": "Care",
+        "braids": "Braids"
+      }
+    },
+    "booking": {
+      "step": "Step 3 of 4",
+      "title": "Pick a time",
+      "reservation": "Reservation",
+      "walkIn": "Walk-in",
+      "barber": "Barber",
+      "anyBarber": "Any",
+      "days": "Mon,Tue,Wed,Thu,Fri",
+      "weekDays": "M,T,W,T,F,S,S",
+      "slots": "Available slots",
+      "summaryLabel": "Fade · Serge",
+      "summary": "Wed 16 · 14:30",
+      "next": "Next step"
+    },
+    "owner": {
+      "todayBookings": "Today's bookings",
+      "todayRevenue": "Today's revenue",
+      "weekBookings": "This week",
+      "avgWait": "Average wait",
+      "todaysBookings": "Today's bookings",
+      "staff": "Team availability",
+      "available": "Available",
+      "busy": "Busy",
+      "status": {
+        "confirmed": "Confirmed",
+        "arriving": "On the way",
+        "pending": "Pending"
+      }
+    },
+    "ownerQueue": {
+      "title": "Master queue",
+      "serving": "Now serving",
+      "upNext": "Up next",
+      "count": "{count} waiting",
+      "skip": "Skip",
+      "advance": "Advance queue",
+      "manual": "Manual entry",
+      "avgWait": "Average wait",
+      "revenue": "Today's revenue"
+    },
+    "stats": {
+      "title": "Statistics",
+      "weekly": "Weekly",
+      "monthly": "Monthly",
+      "bookings": "Bookings",
+      "rating": "Avg. rating",
+      "revenue": "Revenue (FCFA)",
+      "topService": "Top service",
+      "bookingsPerDay": "Bookings per day",
+      "leaderboard": "Team leaderboard"
+    }
+  },
+  "footer": {
+    "tagline": "Find a salon, book your barber and follow the queue live.",
+    "product": "The app",
+    "salons": "Salons",
+    "getStarted": "Get started",
+    "legal": "Information",
+    "privacy": "Privacy",
+    "copyright": "© {year} {name}"
+  },
+  "errors": {
+    "notFoundTitle": "This page doesn't exist.",
+    "notFoundDescription": "The link may be wrong, or the page has moved.",
+    "notFoundCta": "Back to home",
+    "genericTitle": "This page couldn't load.",
+    "genericDescription": "Something failed while loading. Try again; if it keeps happening, come back later.",
+    "genericCta": "Try again"
+  },
+  "legal": {
+    "title": "Privacy",
+    "metaDescription": "Privacy policy for the {name} website.",
+    "lastUpdated": "Last updated: October 2026",
+    "intro": "This page covers the {name} website. The app has its own privacy information, available from its settings.",
+    "dataWeCollect": {
+      "title": "Data we collect",
+      "content": "This website has no forms and doesn't ask you for any personal information."
+    },
+    "purpose": {
+      "title": "Purpose",
+      "content": "The website only presents Atrio and links to the app stores."
+    },
+    "storage": {
+      "title": "Local storage",
+      "content": "Your browser may remember your language choice so the site shows in the right language on your next visit."
+    },
+    "yourRights": {
+      "title": "Your rights",
+      "content": "For any question about your data, or to exercise your rights of access, correction or deletion, contact us."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "content": "The site uses no advertising cookies or tracking tools. Only a technical language cookie may be set."
+    },
+    "contact": "Contact:",
+    "contactInApp": "through Help & Support in the app."
+  }
+}

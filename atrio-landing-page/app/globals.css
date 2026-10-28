@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+/* ===== MODERN GRIOT TOKENS =====
+ * Mirrors atrio-mobile-app/lib/core/theme/app_colors.dart.
+ * Boundaries come from tonal layers (desk → folder → card), never 1px borders.
+ */
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Surfaces — warm ivory stationery stack */
+  --color-desk: #f8f7f4;
+  --color-folder: #f2f1ed;
+  --color-card: #ffffff;
+  --color-recess: #ecebe5;
+  --color-chip: #e6e4de;
+
+  /* Ink */
+  --color-ink: #1c1b19;
+  --color-ink-soft: #4e4a43;
+  --color-ink-mute: #6b665d;
+  --color-ghost: #cbc6bc;
+
+  /* Brand */
+  --color-teal: #00685f;
+  --color-teal-bright: #008378;
+  --color-teal-deep: #0a3d39;
+  --color-teal-night: #072d2a;
+  --color-teal-mist: #e1efec;
+  --color-teal-glow: #6bd8cb;
+  --color-gold: #f0c060;
+  --color-gold-ink: #7a5900;
+  --color-gold-mist: #fff1cc;
+  --color-clay: #924628;
+  --color-clay-mist: #f7e4dc;
+
+  /* Ambient shadows — tinted, never pure black */
+  --shadow-ambient: 0px 12px 32px rgba(25, 28, 30, 0.06);
+  --shadow-lift: 0px 18px 40px rgba(25, 28, 30, 0.1);
+  --shadow-device: 0px 40px 80px rgba(7, 45, 42, 0.22);
+
+  --radius-card: 12px;
+  --radius-device: 2.5rem;
+
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+body {
+  @apply bg-desk text-ink font-sans text-base antialiased;
+  font-feature-settings: "cv11", "ss01";
+}
+
+button {
+  @apply cursor-pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.on-dark :focus-visible {
+  outline-color: var(--color-gold);
+}
+
+/* Display type: tight tracking per the Editorial Artisan spec */
+.display {
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.headline {
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Signature CTA gradient (primary → primary_container) */
+.cta-gradient {
+  background-image: linear-gradient(135deg, var(--color-teal), var(--color-teal-bright));
+}
+
+/* The Portal A archway — the brand's frame for the product */
+.arch {
+  border-radius: 999px 999px var(--radius-card) var(--radius-card);
+}
+
+/* Elliptical variant for wide blocks, where a true semicircle would be too tall */
+.arch-wide {
+  border-radius: 50% 50% var(--radius-card) var(--radius-card) / 7rem 7rem var(--radius-card)
+    var(--radius-card);
+}
+
+@media (min-width: 640px) {
+  .arch-wide {
+    border-radius: 50% 50% var(--radius-card) var(--radius-card) / 10rem 10rem var(--radius-card)
+      var(--radius-card);
+  }
+}
