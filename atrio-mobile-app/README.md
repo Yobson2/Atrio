@@ -1,6 +1,8 @@
-# BarberBook
+# Atrio Mobile App
 
-Salon and barbershop booking app built with Flutter, Clean Architecture, Riverpod, GoRouter, Dio, Drift, and Freezed. Features role-based access (client/owner), real-time queue management, offline-first sync, and a loyalty program.
+The client- and owner-facing mobile app of [Atrio](../README.md). It is a salon and barbershop booking app built with Flutter, Clean Architecture, Riverpod, GoRouter, Dio, Drift, and Freezed. Features role-based access (client/owner), real-time queue management, offline-first sync, and a loyalty program.
+
+> **Status:** the auth feature has a real API datasource. Booking, salon, queue, owner and notification features currently run on mock datasources. See [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md#integration-status) for the integration status across the monorepo.
 
 ## Features
 
@@ -39,8 +41,8 @@ Salon and barbershop booking app built with Flutter, Clean Architecture, Riverpo
 ## Getting Started
 
 ```bash
-# 1. Clone and enter the project
-cd flutter_templates
+# 1. Enter the project (from the monorepo root)
+cd atrio-mobile-app
 
 # 2. Copy environment file
 cp .env.example .env
@@ -54,6 +56,10 @@ make gen
 # 5. Run the app
 make run
 ```
+
+With `USE_MOCK_AUTH=true` in a debug build, sign in with `test@gmail.com` / `passworD@123`. Release builds ignore the flag and always use the real API.
+
+> The app uses `drift/native` (SQLite via `dart:io`), so run it on an Android/iOS emulator or device, not on Flutter web.
 
 ## Project Structure
 
@@ -145,7 +151,7 @@ lib/
 The app uses GoRouter with `StatefulShellRoute` for role-based bottom navigation:
 
 - **Client shell** — Discover | Bookings | Queue | Settings
-- **Owner shell** — Dashboard | Bookings | Stats | Settings
+- **Owner shell** — Dashboard | Bookings | Statistics | Settings
 
 Auth state and role determine which shell is shown. Guards handle authentication, onboarding, and profile setup redirects.
 
@@ -244,7 +250,9 @@ The app uses `flutter_dotenv` to load environment variables from a `.env` file.
 | `USE_MOCK_AUTH` | Use mock auth datasource | `true` |
 | `USE_MOCK_NOTES` | Use mock notes datasource | `true` |
 
-To switch environments, copy the appropriate env file:
+`BASE_URL` must include the backend's `/api` prefix (for example `http://localhost:3000/api` for a local [atrio-backend](../atrio-backend/)). The value in `.env.example` is a placeholder.
+
+To switch environments, copy the appropriate env file. These files are git-ignored, so create them from `.env.example` first:
 ```bash
 cp .env.development .env   # Development
 cp .env.staging .env       # Staging
