@@ -9,7 +9,11 @@
 
 <br />
 
-Admin dashboard for the Atrio salon management platform. Manage bookings, clients, staff, loyalty programs, and business analytics with a modern, production-ready React + TypeScript interface.
+Admin dashboard for the [Atrio](../README.md) salon management platform. Manage bookings, clients, staff, loyalty programs, and business analytics with a modern, production-ready React + TypeScript interface.
+
+![Dashboard overview](../docs/images/dashboard-overview-light.png)
+
+> **Status:** the UI is built but not yet connected to [atrio-backend](../atrio-backend/). Users and tasks use static demo data, bookings/clients/loyalty show KPI cards with empty states, and sign-in is a demo flow (any valid email + a password meeting the policy, e.g. `DemoPassword#2026`).
 
 ## Tech Stack
 
@@ -50,8 +54,9 @@ Admin dashboard for the Atrio salon management platform. Manage bookings, client
 ## Getting Started
 
 ```bash
-# Clone the repository
-git clone <your-repo-url>
+# Clone the repository and enter the project
+git clone https://github.com/Yobson2/Atrio.git
+cd Atrio/atrio-dashboard-admin
 
 # Install dependencies
 pnpm install
@@ -112,8 +117,8 @@ See `.env.example` for all available variables:
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `VITE_API_URL` | Backend API base URL | `http://localhost:3000/api` |
-| `VITE_AUTH_TOKEN_KEY` | Cookie key for auth token | `app_access_token` |
+| `VITE_API_URL` | Backend API base URL (must be `https://` in production builds) | `http://localhost:3000/api` |
+| `VITE_AUTH_TOKEN_KEY` | Legacy cookie key; currently unused (tokens are kept in memory only) | `app_access_token` |
 | `VITE_APP_NAME` | Application display name | `Atrio Dashboard` |
 
 ## Docker
@@ -122,6 +127,8 @@ See `.env.example` for all available variables:
 docker build -t atrio-dashboard .
 docker run -p 80:80 atrio-dashboard
 ```
+
+The image serves the build through nginx with security headers (see `nginx.conf`). Vercel is also supported via `vercel.json`. See [docs/DEPLOYMENT.md](../docs/DEPLOYMENT.md#admin-dashboard).
 
 ## License
 

@@ -1,6 +1,8 @@
-# NestJS Monolithic Template
+# Atrio Backend
 
-A production-ready NestJS monolithic starter template with battle-tested infrastructure patterns.
+REST + WebSocket API for [Atrio](../README.md), the salon booking and live-queue platform. It is a NestJS modular monolith covering auth, users, salons, services, barbers, bookings, reviews and an audit log.
+
+> Endpoint reference with role requirements: [docs/API.md](../docs/API.md) · Deployment: [docs/DEPLOYMENT.md](../docs/DEPLOYMENT.md#backend-api)
 
 ## Tech Stack
 
@@ -60,7 +62,13 @@ src/
 │   └── utils/                     # Error context utility
 ├── modules/
 │   ├── auth/                      # JWT auth (register, login, refresh)
-│   ├── users/                     # Sample CRUD module
+│   ├── users/                     # User management
+│   ├── salons/                    # Salons
+│   ├── services/                  # Salon service catalog
+│   ├── barbers/                   # Barbers / staff
+│   ├── bookings/                  # Booking lifecycle
+│   ├── reviews/                   # Reviews, replies, moderation
+│   ├── audit-log/                 # Immutable activity trail
 │   └── health/                    # Health check endpoint
 templates/                         # Handlebars email templates
 ```
@@ -77,6 +85,9 @@ yarn test:cov        # Test coverage
 yarn test:e2e        # End-to-end tests
 yarn lint            # ESLint
 yarn format          # Prettier
+yarn migration:generate  # Generate a TypeORM migration from entity changes
+yarn migration:run       # Apply pending migrations
+yarn migration:revert    # Revert the last migration
 ```
 
 ## Docker
@@ -96,17 +107,19 @@ docker compose logs -f     # View logs
 
 ## API Endpoints
 
-| Method | Path | Auth | Description |
-|--------|------|------|-------------|
-| `GET` | `/health` | No | Health check |
-| `POST` | `/api/auth/register` | No | Register user |
-| `POST` | `/api/auth/login` | No | Login |
-| `POST` | `/api/auth/refresh` | No | Refresh tokens |
-| `GET` | `/api/users` | Yes | List users (paginated) |
-| `GET` | `/api/users/:id` | Yes | Get user by ID |
-| `POST` | `/api/users` | No | Create user |
-| `PATCH` | `/api/users/:id` | Yes | Update user |
-| `DELETE` | `/api/users/:id` | Admin | Delete user (soft) |
+| Resource | Paths |
+|----------|-------|
+| Health | `GET /health` (public) |
+| Auth | `POST /api/auth/{register,login,refresh}` (public) |
+| Users | `/api/users`, `/api/users/:id` |
+| Salons | `/api/salons`, `/api/salons/:id` |
+| Services | `/api/salons/:salonId/services`, `/api/services/:id` |
+| Barbers | `/api/salons/:salonId/barbers`, `/api/barbers/:id` |
+| Bookings | `/api/bookings`, `/api/bookings/:id`, `POST /api/bookings/:id/cancel` |
+| Reviews | `/api/salons/:salonId/reviews`, `/api/reviews/:id`, `/reply`, `/flag` |
+| Audit log | `GET /api/audit-log` (super admin) |
+
+Roles: `SUPER_ADMIN`, `ADMIN`, `MANAGER`, `CASHIER`, `CLIENT`. The full method-by-role table and known authorization gaps are in [docs/API.md](../docs/API.md).
 
 ## Adding a New Module
 
@@ -170,10 +183,10 @@ Key variables:
 
 ```bash
 # Build Docker image
-docker build -t my-app .
+docker build -t atrio-backend .
 
-# Run container
-docker run -p 3000:3000 --env-file .env my-app
+# Run container (env vars are injected at runtime; .env is not read inside Docker)
+docker run -p 3000:3000 --env-file .env atrio-backend
 ```
 
 ## License

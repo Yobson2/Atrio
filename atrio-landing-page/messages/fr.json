@@ -1,0 +1,408 @@
+{
+  "metadata": {
+    "title": "Atrio — Réservez votre coiffeur, suivez la file en direct",
+    "description": "Atrio vous montre les salons autour de vous, l'attente en direct et les créneaux libres. Réservez ou rejoignez la file, et arrivez quand c'est votre tour.",
+    "ogLocale": "fr_FR"
+  },
+  "nav": {
+    "label": "Navigation principale",
+    "home": "Atrio, accueil",
+    "howItWorks": "Comment ça marche",
+    "forSalons": "Pour les salons",
+    "faq": "Questions",
+    "download": "Télécharger",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "language": "Langue",
+    "skipToContent": "Aller au contenu"
+  },
+  "hero": {
+    "heading": "Arrivez quand c'est votre tour.",
+    "subheading": "Atrio vous montre les salons autour de vous, l'attente en direct et les créneaux libres. Réservez votre coiffeur ou rejoignez la file, puis suivez votre position jusqu'à votre tour.",
+    "ownerPrompt": "Vous avez un salon ?",
+    "ownerLink": "Découvrez Atrio pour les salons",
+    "screenLabel": "Aperçu de l'écran File d'attente : votre position avance et l'attente estimée diminue à mesure que les clients devant vous sont servis.",
+    "screenCaption": "L'écran File d'attente de l'app, en direct."
+  },
+  "problem": {
+    "heading": "Une coupe ne devrait pas vous coûter l'après-midi.",
+    "points": {
+      "unknownWait": {
+        "title": "L'attente, on la découvre sur place.",
+        "body": "Impossible de savoir combien de personnes attendent avant d'arriver. Alors on patiente sur le banc."
+      },
+      "barberTaken": {
+        "title": "Votre coiffeur est déjà pris.",
+        "body": "Vous venez pour quelqu'un en particulier, et il a trois clients devant vous."
+      },
+      "salonMemory": {
+        "title": "Côté salon, la file se gère de tête.",
+        "body": "Qui est arrivé avant qui, qui a réservé, qui est parti : tout repose sur la mémoire de l'équipe."
+      }
+    }
+  },
+  "howItWorks": {
+    "heading": "Trois étapes, de votre canapé au fauteuil.",
+    "intro": "Tout se passe dans l'app : trouver un salon, choisir votre créneau, puis suivre la file jusqu'à ce que ce soit à vous.",
+    "steps": {
+      "discover": {
+        "title": "Trouvez un salon près de chez vous",
+        "body": "Cherchez par quartier ou par service. Chaque salon affiche ses horaires, ses services, ses coiffeurs et les avis de ses clients.",
+        "screenLabel": "Aperçu de l'écran Découvrir : une recherche, des filtres et une liste de salons avec leur note et leur statut d'ouverture."
+      },
+      "book": {
+        "title": "Réservez, ou rejoignez la file",
+        "body": "Choisissez un service, votre coiffeur ou le premier disponible, puis un créneau. Pas de rendez-vous ? Passez en mode « Sans rendez-vous » et prenez votre place dans la file.",
+        "screenLabel": "Aperçu de l'écran de réservation : choix entre réservation et sans rendez-vous, du coiffeur, du jour et d'un créneau horaire."
+      },
+      "follow": {
+        "title": "Suivez votre tour en direct",
+        "body": "Votre position et l'attente estimée se mettent à jour en temps réel. Partez au bon moment et, une fois sur place, appuyez sur « Je suis là ».",
+        "screenLabel": "Aperçu de l'écran File d'attente : votre position, l'attente estimée et les clients servis avant vous."
+      }
+    }
+  },
+  "salonsTeaser": {
+    "kicker": "Pour les salons",
+    "heading": "Toute la journée du salon sur un seul écran.",
+    "body": "Atrio donne aux propriétaires de salon un tableau de bord pour piloter la file, les rendez-vous et l'équipe, depuis le téléphone.",
+    "capabilities": {
+      "queue": {
+        "title": "File d'attente en direct",
+        "body": "Faites avancer la file, passez un client absent ou ajoutez quelqu'un arrivé sans l'app."
+      },
+      "bookings": {
+        "title": "Rendez-vous du jour",
+        "body": "Voyez d'un coup d'œil qui est confirmé, qui arrive et qui reste à confirmer."
+      },
+      "team": {
+        "title": "Équipe et services",
+        "body": "Gérez vos coiffeurs, leurs disponibilités, vos prix et la durée de chaque service."
+      },
+      "stats": {
+        "title": "Statistiques",
+        "body": "Suivez réservations, revenus, note moyenne et les services les plus demandés."
+      }
+    },
+    "cta": "Découvrir Atrio pour les salons",
+    "dashboardLabel": "Aperçu du tableau de bord salon : indicateurs du jour, rendez-vous à venir et disponibilité de l'équipe.",
+    "queueLabel": "Aperçu de la file d'attente côté salon : client en cours, prochains clients et boutons pour faire avancer la file."
+  },
+  "features": {
+    "heading": "Aussi dans l'app",
+    "intro": "Ce qui rend chaque visite plus simple, avant comme après la coupe.",
+    "items": {
+      "favorites": {
+        "title": "Salons favoris",
+        "body": "Gardez vos adresses préférées à portée de main pour réserver plus vite."
+      },
+      "reviews": {
+        "title": "Avis avec photos",
+        "body": "Lisez les avis avant de choisir, et laissez le vôtre après votre passage."
+      },
+      "loyalty": {
+        "title": "Points de fidélité",
+        "body": "Cumulez des points à chaque visite, échangez-les contre des récompenses et parrainez vos amis."
+      },
+      "messages": {
+        "title": "Messages",
+        "body": "Écrivez directement au salon pour une question ou une demande particulière."
+      },
+      "notifications": {
+        "title": "Notifications",
+        "body": "Confirmations, rappels et nouvelles de la file arrivent sur votre téléphone."
+      },
+      "language": {
+        "title": "Français ou anglais",
+        "body": "L'app parle votre langue, en thème clair ou sombre."
+      }
+    }
+  },
+  "faq": {
+    "heading": "Vos questions",
+    "intro": "Ce qu'il faut savoir avant votre première réservation.",
+    "items": {
+      "liveQueue": {
+        "question": "Comment fonctionne la file d'attente en direct ?",
+        "answer": "Quand vous rejoignez la file d'un salon, Atrio affiche votre position et une estimation du temps d'attente. Les deux se mettent à jour à mesure que le salon sert ses clients. Vous pouvez partir de chez vous au bon moment, puis signaler votre arrivée avec « Je suis là »."
+      },
+      "chooseBarber": {
+        "question": "Puis-je choisir mon coiffeur ?",
+        "answer": "Oui. Pendant la réservation, choisissez le coiffeur que vous voulez, ou « N'importe quel coiffeur » pour obtenir le créneau le plus tôt."
+      },
+      "walkIn": {
+        "question": "Faut-il réserver à l'avance ?",
+        "answer": "Non. Vous pouvez réserver un créneau précis, ou choisir « Sans rendez-vous » pour rejoindre la file du jour."
+      },
+      "manageBooking": {
+        "question": "Où retrouver mes rendez-vous ?",
+        "answer": "Dans l'onglet Réservations. Vous y voyez vos rendez-vous à venir et passés, et pouvez en ajouter un à votre agenda ou l'annuler."
+      },
+      "salonJoin": {
+        "question": "J'ai un salon. Comment l'inscrire ?",
+        "answer": "Téléchargez Atrio, créez votre compte et choisissez « Propriétaire de salon ». Vous configurez ensuite votre salon, vos coiffeurs et vos services directement dans l'app."
+      },
+      "languages": {
+        "question": "L'app est-elle disponible en anglais ?",
+        "answer": "Oui. Atrio est disponible en français et en anglais. Vous changez de langue dans les réglages."
+      }
+    }
+  },
+  "download": {
+    "heading": "Votre prochaine coupe, sans attendre.",
+    "body": "Téléchargez Atrio pour trouver un salon, réserver votre coiffeur et suivre la file en direct.",
+    "getItOn": "Télécharger sur",
+    "comingSoon": "Bientôt sur",
+    "appStore": "App Store",
+    "googlePlay": "Google Play",
+    "notYet": "Atrio arrive bientôt sur iOS et Android."
+  },
+  "salonsHero": {
+    "metaTitle": "Pour les salons",
+    "metaDescription": "Gérez la file d'attente, les rendez-vous, l'équipe et les services de votre salon avec Atrio.",
+    "heading": "La file, les rendez-vous et l'équipe, au même endroit.",
+    "subheading": "Atrio aide les salons de coiffure et les barbiers à gérer les clients sans rendez-vous et les réservations depuis un téléphone. Vos clients voient l'attente en direct et arrivent au bon moment.",
+    "ctaPrimary": "Voir comment démarrer",
+    "ctaSecondary": "Télécharger l'app",
+    "screenLabel": "Aperçu de la file d'attente côté salon : client en cours, prochains clients, boutons Avancer la file et Ajout manuel.",
+    "screenCaption": "La file d'attente côté salon."
+  },
+  "salonsShowcase": {
+    "heading": "Pensé pour le rythme d'un salon.",
+    "rows": {
+      "queue": {
+        "title": "Pilotez la file en temps réel",
+        "body": "Voyez qui est dans le fauteuil et qui attend. Un geste pour faire avancer la file, passer un client absent ou ajouter quelqu'un venu sans l'app. Vos clients suivent leur position en direct.",
+        "points": "Avancer la file|Passer un client|Ajout manuel|Attente moyenne",
+        "screenLabel": "Aperçu de la file d'attente côté salon."
+      },
+      "day": {
+        "title": "Votre journée d'un coup d'œil",
+        "body": "Le tableau de bord rassemble les rendez-vous du jour, les revenus, l'attente moyenne et la disponibilité de chaque coiffeur.",
+        "points": "Rendez-vous du jour|Revenus du jour|Disponibilité de l'équipe",
+        "screenLabel": "Aperçu du tableau de bord salon."
+      },
+      "stats": {
+        "title": "Comprenez ce qui marche",
+        "body": "Suivez vos réservations à la semaine ou au mois, votre note moyenne, vos revenus, vos services les plus demandés et le classement de votre équipe.",
+        "points": "Vue hebdomadaire et mensuelle|Service le plus demandé|Classement de l'équipe",
+        "screenLabel": "Aperçu de l'écran Statistiques : indicateurs, réservations par jour et classement de l'équipe."
+      }
+    },
+    "extrasHeading": "Et pour le reste",
+    "extras": {
+      "team": {
+        "title": "Coiffeurs et services",
+        "body": "Ajoutez vos coiffeurs, assignez-leur des services, fixez prix et durées."
+      },
+      "profile": {
+        "title": "Profil du salon",
+        "body": "Nom, présentation, galerie photo, coordonnées et horaires d'ouverture."
+      },
+      "notes": {
+        "title": "Notes clients hors ligne",
+        "body": "Préférences et habitudes de chaque client, même sans connexion. Tout se synchronise au retour du réseau."
+      },
+      "export": {
+        "title": "Export des réservations",
+        "body": "Exportez vos réservations en PDF ou par e-mail, sur la période de votre choix."
+      }
+    }
+  },
+  "salonsSteps": {
+    "heading": "Ouvrez votre file en quelques minutes.",
+    "intro": "L'inscription se fait entièrement dans l'app.",
+    "steps": {
+      "download": {
+        "title": "Téléchargez Atrio",
+        "body": "Créez votre compte avec votre numéro de téléphone."
+      },
+      "role": {
+        "title": "Choisissez « Propriétaire de salon »",
+        "body": "C'est ce qui ouvre l'espace de gestion du salon."
+      },
+      "setup": {
+        "title": "Configurez votre salon",
+        "body": "Ajoutez photos, horaires, coiffeurs et services avec leurs prix."
+      },
+      "open": {
+        "title": "Ouvrez la file",
+        "body": "Vos clients vous trouvent, réservent et suivent leur tour en direct."
+      }
+    }
+  },
+  "salonsFaq": {
+    "heading": "Questions des salons",
+    "intro": "Ce que les propriétaires nous demandent le plus souvent.",
+    "items": {
+      "walkInsAndBookings": {
+        "question": "Puis-je gérer à la fois les rendez-vous et les clients sans rendez-vous ?",
+        "answer": "Oui. Les clients peuvent réserver un créneau ou rejoindre la file du jour. Vous voyez les deux dans le tableau de bord et dans la file d'attente."
+      },
+      "severalBarbers": {
+        "question": "Mon salon a plusieurs coiffeurs. Comment ça se passe ?",
+        "answer": "Ajoutez chaque coiffeur avec les services qu'il propose. Les clients peuvent choisir un coiffeur précis ou le premier disponible, et vous suivez la disponibilité de chacun."
+      },
+      "offline": {
+        "question": "Et si la connexion coupe ?",
+        "answer": "Les notes clients restent accessibles et modifiables hors ligne. Les modifications se synchronisent dès que le réseau revient."
+      },
+      "clientsNeedApp": {
+        "question": "Mes clients doivent-ils tous avoir l'app ?",
+        "answer": "Non. Un client qui arrive sans l'app peut être ajouté à la file avec « Ajout manuel »."
+      },
+      "languages": {
+        "question": "Dans quelles langues est disponible l'espace salon ?",
+        "answer": "En français et en anglais, comme le reste de l'app."
+      }
+    }
+  },
+  "salonsDownload": {
+    "heading": "Prêt à ouvrir votre file ?",
+    "body": "Téléchargez Atrio, choisissez « Propriétaire de salon » et configurez votre salon."
+  },
+  "screens": {
+    "live": "Direct",
+    "tabs": {
+      "discover": "Découvrir",
+      "bookings": "Réservations",
+      "queue": "File",
+      "profile": "Profil",
+      "dashboard": "Accueil",
+      "stats": "Stats",
+      "salon": "Salon"
+    },
+    "services": {
+      "fade": "Dégradé",
+      "beard": "Taille de barbe",
+      "classic": "Coupe classique",
+      "braids": "Tresses"
+    },
+    "queue": {
+      "title": "File d'attente",
+      "waiting": "En attente",
+      "serving": "En service",
+      "avgWait": "Attente moy.",
+      "yourPosition": "Votre position",
+      "inLine": "dans la file",
+      "estimatedWait": "Attente estimée : {minutes} min",
+      "youreNext": "Vous êtes le prochain",
+      "imHere": "Je suis là",
+      "leave": "Quitter la file",
+      "details": "Détails de la file",
+      "inChair": "Dans le fauteuil",
+      "inLineWait": "Dans la file · {minutes} min"
+    },
+    "discover": {
+      "search": "Salons, coiffeurs…",
+      "nearby": "À proximité",
+      "openNow": "Ouvert",
+      "topRated": "Mieux notés",
+      "open": "Ouvert",
+      "closed": "Fermé",
+      "tags": {
+        "fade": "Dégradé",
+        "beard": "Barbe",
+        "cut": "Coupe",
+        "care": "Soin",
+        "braids": "Tresses"
+      }
+    },
+    "booking": {
+      "step": "Étape 3 sur 4",
+      "title": "Choisissez un horaire",
+      "reservation": "Réservation",
+      "walkIn": "Sans rendez-vous",
+      "barber": "Coiffeur",
+      "anyBarber": "N'importe",
+      "days": "Lun,Mar,Mer,Jeu,Ven",
+      "weekDays": "L,M,M,J,V,S,D",
+      "slots": "Créneaux disponibles",
+      "summaryLabel": "Dégradé · Serge",
+      "summary": "Mer. 16 · 14:30",
+      "next": "Étape suivante"
+    },
+    "owner": {
+      "todayBookings": "Rendez-vous du jour",
+      "todayRevenue": "Revenus du jour",
+      "weekBookings": "Cette semaine",
+      "avgWait": "Attente moyenne",
+      "todaysBookings": "Rendez-vous du jour",
+      "staff": "Disponibilité de l'équipe",
+      "available": "Disponible",
+      "busy": "Occupé",
+      "status": {
+        "confirmed": "Confirmé",
+        "arriving": "En route",
+        "pending": "En attente"
+      }
+    },
+    "ownerQueue": {
+      "title": "File d'attente",
+      "serving": "En cours",
+      "upNext": "À suivre",
+      "count": "{count} en attente",
+      "skip": "Passer",
+      "advance": "Avancer la file",
+      "manual": "Ajout manuel",
+      "avgWait": "Attente moyenne",
+      "revenue": "Revenus du jour"
+    },
+    "stats": {
+      "title": "Statistiques",
+      "weekly": "Semaine",
+      "monthly": "Mois",
+      "bookings": "Réservations",
+      "rating": "Note moyenne",
+      "revenue": "Revenus (FCFA)",
+      "topService": "Top service",
+      "bookingsPerDay": "Réservations par jour",
+      "leaderboard": "Classement de l'équipe"
+    }
+  },
+  "footer": {
+    "tagline": "Trouvez un salon, réservez votre coiffeur et suivez la file en direct.",
+    "product": "L'app",
+    "salons": "Salons",
+    "getStarted": "Démarrer",
+    "legal": "Informations",
+    "privacy": "Confidentialité",
+    "copyright": "© {year} {name}"
+  },
+  "errors": {
+    "notFoundTitle": "Cette page n'existe pas.",
+    "notFoundDescription": "Le lien est peut-être incorrect, ou la page a été déplacée.",
+    "notFoundCta": "Retour à l'accueil",
+    "genericTitle": "La page n'a pas pu s'afficher.",
+    "genericDescription": "Une erreur est survenue pendant le chargement. Réessayez ; si le problème continue, revenez plus tard.",
+    "genericCta": "Réessayer"
+  },
+  "legal": {
+    "title": "Confidentialité",
+    "metaDescription": "Politique de confidentialité du site {name}.",
+    "lastUpdated": "Dernière mise à jour : octobre 2026",
+    "intro": "Cette page concerne le site de présentation de {name}. L'app dispose de ses propres informations de confidentialité, accessibles depuis ses réglages.",
+    "dataWeCollect": {
+      "title": "Données collectées",
+      "content": "Ce site ne contient aucun formulaire et ne vous demande aucune information personnelle."
+    },
+    "purpose": {
+      "title": "Finalité",
+      "content": "Le site sert uniquement à présenter Atrio et à renvoyer vers les boutiques d'applications."
+    },
+    "storage": {
+      "title": "Stockage local",
+      "content": "Votre choix de langue peut être mémorisé par votre navigateur pour afficher le site dans la bonne langue lors de votre prochaine visite."
+    },
+    "yourRights": {
+      "title": "Vos droits",
+      "content": "Pour toute question sur vos données, ou pour exercer vos droits d'accès, de rectification ou de suppression, contactez-nous."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "content": "Le site n'utilise ni cookie publicitaire ni outil de suivi. Seul un cookie technique de langue peut être déposé."
+    },
+    "contact": "Contact :",
+    "contactInApp": "depuis la rubrique Aide et support de l'app."
+  }
+}
